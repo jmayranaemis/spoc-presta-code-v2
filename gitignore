@@ -1,0 +1,20 @@
+# Presta – à ne pas versionner ici
+/var/
+/vendor/
+/img/
+/upload/
+/download/
+/cache/
+/logs/
+/translations/
+/config/xml/
+
+# Fichiers temporaires / sauvegardes éditeurs
+*.bak
+*.bak.*
+*~
+.DS_Store
+
+# Locaux
+.env
+*.local

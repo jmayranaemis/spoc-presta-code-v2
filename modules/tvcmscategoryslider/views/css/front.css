@@ -1,0 +1,137 @@
+/**
+* 2007-2025 PrestaShop
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Academic Free License (AFL 3.0)
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://opensource.org/licenses/afl-3.0.php
+* If you did not receive a copy of the license and are unable to
+* obtain it through the world-wide-web, please send an email
+* to license@prestashop.com so we can send you a copy immediately.
+*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
+* versions in the future. If you wish to customize PrestaShop for your
+* needs please refer to http://www.prestashop.com for more information.
+*
+*  @author PrestaShop SA <contact@prestashop.com>
+*  @copyright  2007-2025 PrestaShop SA
+*  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+*  International Registered Trademark & Property of PrestaShop SA
+*/
+
+/************* category ***************/
+.tvcategory-slider-content-box {
+    display: flex;
+    overflow: hidden;
+}
+.tvcategory-slider-wrapper-info {
+    /*display: inline-block;*/
+}
+.tvcategory-slider-wrapper-info {
+    padding: 0 7.5px;
+    /*position: relative;*/
+    min-width: 212px;
+}
+.owl-item .tvcategory-slider-wrapper-info{
+    min-width: initial;
+}
+.tvcategory-slider-info-box {
+    /*position: absolute;
+    top: 50%;
+    right: 50px;
+    transform: translate(0, -50%);*/
+}
+.tvcategory-slider-main-title-wrapper {
+    position: relative;
+}
+.tvcategory-slider-inner-info-box {
+    margin-left: -7.5px;
+    margin-right: -7.5px;
+}
+@media (max-width: 991px) {
+    .tvcmscategory-slider {
+        margin-bottom: 50px;
+    }
+}
+.tvcmscategory-slider {
+    margin-bottom: 80px;
+    background-color: #f5f5f5;
+    position: relative;
+}
+.tvcategory-img-block {
+    height: 170px;
+    width: 170px;
+    margin: auto;
+    overflow: hidden;
+}
+.tvcategory-slider-inner-info-box {
+    padding: 60px 0 45px;
+}
+.tvcategory-slider-wrapper-info a {
+    display: block;
+    cursor: pointer;
+}
+.tvcategory-slider-info-box {
+    position: initial;
+    text-align: center;
+    transition: all 0.35s ease-in-out 0s;
+    -webkit-transition: all 0.35s ease-in-out 0s;
+    -moz-transition: all 0.35s ease-in-out 0s;
+    -ms-transition: all 0.35s ease-in-out 0s;
+    -o-transition: all 0.35s ease-in-out 0s;
+    transform: unset;
+    margin-top: 14px;
+}
+.tvcategory-slider-info-box {
+    color: #222222;
+    font-size: 14px;
+    text-transform: capitalize;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-bottom: 10px;
+    top: 0;
+    right: 0;
+}
+.tvcategory-slider-info-box:after {
+    position: absolute;
+    content: "";
+    background-color: #db1212;
+    width: 0;
+    height: 2px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    transition: all 0.35s ease-in-out 0s;
+    -webkit-transition: all 0.35s ease-in-out 0s;
+    -moz-transition: all 0.35s ease-in-out 0s;
+    -ms-transition: all 0.35s ease-in-out 0s;
+    -o-transition: all 0.35s ease-in-out 0s;
+}
+.tvcategory-slider-wrapper-info:hover .tvcategory-slider-info-box:after {
+    width: 50px;
+    transition: all 0.35s ease-in-out 0s;
+    -webkit-transition: all 0.35s ease-in-out 0s;
+    -moz-transition: all 0.35s ease-in-out 0s;
+    -ms-transition: all 0.35s ease-in-out 0s;
+    -o-transition: all 0.35s ease-in-out 0s;
+}
+@media (max-width: 991px) {
+    .tvcmscategory-slider {
+        margin-bottom: 30px;
+    }
+    .tvcategory-slider-inner-info-box {}
+}
+@media(max-width: 575px) {
+    .tvcategory-slider-inner-info-box {
+        padding: 40px 0 25px;
+    }
+    .tvcategory-slider-wrapper-info {
+        padding: 0 10px 12px 10px;
+    }
+}

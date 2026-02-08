@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="D:\xamp-7.2\htdocs\v1_electronic_electro_102_2_gtmatrix_lazyload\admin650ry5qno" source-language="de-DE" target-language="de-DE" datatype="plaintext">
+    <body>
+      <trans-unit id="fe191f2155041d02f35df1ce748c5141">
+        <source>Product Search</source>
+        <target>Produkt Suche</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="4840f4437f55e68a587d358090b948d1">
+        <source>My Wishlist</source>
+        <target>Meine Wunschliste</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="bbf186cafb55d9329c02818174b17ef8">
+        <source>Product Compare</source>
+        <target>Produktvergleich</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="bea8d9e6a0d57c4a264756b4f9822ed9">
+        <source>My Account</source>
+        <target>Mein Konto</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="ff483d1ff591898a9942916050d2ca3f">
+        <source>identity</source>
+        <target>Identität</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="884d9804999fc47a3c2694e49ad2536a">
+        <source>address</source>
+        <target>die Anschrift</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="6348d16e8e545de71d29ac6a1c20f517">
+        <source>order history</source>
+        <target>Bestellverlauf</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="2d26f1ff16155184ac76b6f02bc589b1">
+        <source>order slip</source>
+        <target>Bestellschein</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="b6d4223e60986fa4c9af77ee5f7149c5">
+        <source>Sign in</source>
+        <target>Einloggen</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="1176d57e7ce16f4b33bb04b550c77589">
+        <source>Your Order Is Confirm</source>
+        <target>Ihre Bestellung ist bestätigt</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f3ab0f48755d67a48301e8506b91eb57">
+        <source>STORES</source>
+        <target>SHOPS</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="1529636c2dd134b028a08f7b131115b5">
+        <source>New Products</source>
+        <target>Neue Produkte</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

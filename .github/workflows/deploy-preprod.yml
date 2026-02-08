@@ -1,0 +1,83 @@
+name: Deploy to PREPROD
+on:
+  push:
+    branches: [preprod]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: preprod
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Safety sentinel & container up
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            set -e
+            test -f "${{ secrets.SSH_PATH_ROOT }}/.allow-ci-sync" || (echo "No sentinel .allow-ci-sync, aborting"; exit 1)
+            test -d "${{ secrets.SSH_PATH_ROOT }}" || (echo "Missing SSH_PATH_ROOT" && exit 1)
+            docker ps --format '{{.Names}}' | grep -q "${{ secrets.DOCKER_PHP_CONTAINER }}" || (echo "PHP container not running" && exit 1)
+
+      - name: Detect changed paths
+        id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            theme:
+              - 'themes/**'
+            modules:
+              - 'modules/**'
+            override:
+              - 'override/**'
+
+      - name: Rsync themes/
+        if: steps.filter.outputs.theme == 'true'
+        uses: burnett01/rsync-deployments@6.0.0
+        with:
+          switches: -avz --no-perms --no-owner --no-group --exclude '.git/' --exclude '*.bak' --exclude '*.bak.*' --exclude '*~' --exclude '.DS_Store'
+          path: themes/
+          remote_path: ${{ secrets.SSH_PATH_ROOT }}/themes/
+          remote_host: ${{ secrets.SSH_HOST }}
+          remote_user: ${{ secrets.SSH_USER }}
+          remote_key: ${{ secrets.SSH_KEY }}
+
+      - name: Rsync modules/
+        if: steps.filter.outputs.modules == 'true'
+        uses: burnett01/rsync-deployments@6.0.0
+        with:
+          switches: -avz --no-perms --no-owner --no-group --exclude '.git/' --exclude '*.bak' --exclude '*.bak.*' --exclude '*~' --exclude '.DS_Store'
+          path: modules/
+          remote_path: ${{ secrets.SSH_PATH_ROOT }}/modules/
+          remote_host: ${{ secrets.SSH_HOST }}
+          remote_user: ${{ secrets.SSH_USER }}
+          remote_key: ${{ secrets.SSH_KEY }}
+
+      - name: Rsync override/
+        if: steps.filter.outputs.override == 'true'
+        uses: burnett01/rsync-deployments@6.0.0
+        with:
+          switches: -avz --no-perms --no-owner --no-group --exclude '.git/' --exclude '*.bak' --exclude '*.bak.*' --exclude '*~' --exclude '.DS_Store'
+          path: override/
+          remote_path: ${{ secrets.SSH_PATH_ROOT }}/override/
+          remote_host: ${{ secrets.SSH_HOST }}
+          remote_user: ${{ secrets.SSH_USER }}
+          remote_key: ${{ secrets.SSH_KEY }}
+
+      - name: Clear & warmup cache inside container
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            docker exec ${{ secrets.DOCKER_PHP_CONTAINER }} php bin/console cache:clear --no-warmup || true
+            docker exec ${{ secrets.DOCKER_PHP_CONTAINER }} php bin/console cache:warmup || true
+
+      - name: Healthcheck
+        run: |
+          curl -fsSL -o /dev/null -w "%{http_code}\n" "${{ secrets.HEALTHCHECK_URL }}" | grep -E "200|301|302"

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="D:\xamp-7.2\htdocs\v1_electronic_electro_102_2_gtmatrix_lazyload\admin650ry5qno" source-language="ar-SA" target-language="ar-SA" datatype="plaintext">
+    <body>
+      <trans-unit id="4840f4437f55e68a587d358090b948d1">
+        <source>My Wishlist</source>
+        <target>قائمة امنياتي</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="782c8b38bce4f2f6975ca7f33ac8189b">
+        <source>Order history</source>
+        <target>تاريخ الطلب</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="dd7bf230fde8d4836917806aff6a6b27">
+        <source>Address</source>
+        <target>عنوان</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c9c5c65fb4af9cf90eb99b3b84424189">
+        <source>Identity</source>
+        <target>هوية</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="591286c3b4f075453e55532838ce0044">
+        <source>Order slip</source>
+        <target>زلة النظام</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="bbf186cafb55d9329c02818174b17ef8">
+        <source>Product Compare</source>
+        <target>مقارنة المنتج</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="b6d4223e60986fa4c9af77ee5f7149c5">
+        <source>Sign in</source>
+        <target>تسجيل الدخول</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="d95cf4ab2cbf1dfb63f066b50558b07d">
+        <source>My account</source>
+        <target>حسابي</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

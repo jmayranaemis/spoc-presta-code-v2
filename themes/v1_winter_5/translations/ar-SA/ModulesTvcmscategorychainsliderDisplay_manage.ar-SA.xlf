@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="D:\xamp-7.2\htdocs\v1_electronic_electro_102_2_gtmatrix_lazyload\admin650ry5qno" source-language="ar-SA" target-language="ar-SA" datatype="plaintext">
+    <body>
+      <trans-unit id="88b2e0968051a70ac4619b7c96e82108">
+        <source>Category Images</source>
+        <target>فئة الصور</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="99121ab27aaa7472cfada9071c5ba434">
+        <source>Category Name</source>
+        <target>اسم التصنيف</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="058615e343b60cdf9630cc93803fa951">
+        <source>Category Custom Name</source>
+        <target>الاسم المخصص للفئة</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="38abe3b7c478d8a951608e2e16c8fe98">
+        <source>Category Description</source>
+        <target>وصف التصنيف</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="ec53a8c4f07baed5d8825072c89799be">
+        <source>Status</source>
+        <target>حالة</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="004bf6c9a40003140292e97330236c53">
+        <source>Action</source>
+        <target>عمل</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="7dce122004969d56ae2e0245cb754d35">
+        <source>Edit</source>
+        <target>يحرر</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="f2a6c498fb90ee345d997f888fce3b18">
+        <source>Delete</source>
+        <target>حذف</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

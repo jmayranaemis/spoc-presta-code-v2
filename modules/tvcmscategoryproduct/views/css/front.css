@@ -1,0 +1,158 @@
+/**
+* 2007-2025 PrestaShop
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Academic Free License (AFL 3.0)
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://opensource.org/licenses/afl-3.0.php
+* If you did not receive a copy of the license and are unable to
+* obtain it through the world-wide-web, please send an email
+* to license@prestashop.com so we can send you a copy immediately.
+*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
+* versions in the future. If you wish to customize PrestaShop for your
+* needs please refer to http://www.prestashop.com for more information.
+*
+*  @author    PrestaShop SA <contact@prestashop.com>
+*  @copyright 2007-2025 PrestaShop SA
+*  @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+*  International Registered Trademark & Property of PrestaShop SA
+*/
+
+.tvtabcategory-product-sub-title-block .tvtabcategory-product-li.hide {
+    display: none;
+}
+.tvtabcategory-product-sub-title-block .tvtabcategory-show.show-hide {
+    display: block;
+}
+.tvtabcategory-product-sub-title-block .show-hide.hide {
+    display: none;
+}
+.tvcmstabcategory-product-slider {
+    margin-bottom: 80px;
+}
+.tvtabcategory-tab-product {
+    margin: 0 -7.5px;
+    overflow: hidden;
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+}
+.tvtabcategory-all-tab {
+    /*width: 20%;*/
+    padding: 0 7.5px;
+}
+.tvcmstabcategory-product-slider-main-title-wrapper {
+    position: relative;
+}
+.tvtabcategory-all-product {
+    /*width: 80%;*/
+    padding: 0;
+}
+.tvtabcategory-product-li {
+    width: 14.28%;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.tvtabcategory-product-li-inner-block,
+.tvtabcategory-show,
+.tvtabcategory-hide {
+    padding: 11px 15px;
+    background-color: #ffffff;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 3px;
+    position: relative;
+    border-bottom: 1px solid transparent;
+    border: 1px solid #eeeeee;
+    margin: 0 7.5px;
+}
+.tvtabcategory-product-li.active .tvtabcategory-product-li-inner-block,
+.tvtabcategory-product-li-inner-block:hover,
+.tvtabcategory-show:hover,
+.tvtabcategory-hide:hover {
+    background-color: #db1212;
+}
+.tvtabcategory-product-inner {
+    margin-bottom: 0;
+    direction: ltr;
+    margin: 0 -7.5px;
+    margin-bottom: 20px;
+}
+.tvtabcategory-product-li a,
+.tvtabcategory-show a,
+.tvtabcategory-hide a {
+    font-size: 14px;
+    font-weight: 500;
+    color: #000;
+    text-transform: uppercase;
+}
+.tvtabcategory-product-li-inner-block:hover a,
+.tvtabcategory-product-li.active .tvtabcategory-product-li-inner-block a,
+.tvtabcategory-show:hover a,
+.tvtabcategory-hide:hover a {
+    color: #ffffff;
+}
+.tvtabcategory-product-sub-title-block i {
+    font-size: 16px;
+    color: #ffffff;
+    float: right;
+    cursor: pointer;
+}
+@media (max-width: 1024px) {
+    .tvtabcategory-product-li {
+        width: 24.7%;
+    }
+}
+/*@media(max-width: 1024px) {
+    .tvtabcategory-all-tab {
+        width: 25%;
+    }
+    .tvtabcategory-all-product {
+        width: 75%;
+    }
+}*/
+@media(max-width: 991px) {
+    /* .tvtabcategory-all-tab {
+        width: 30%;
+    }
+    .tvtabcategory-all-product {
+        width: 70%;
+    }*/
+    .tvcmstabcategory-product-slider {
+        margin-bottom: 30px;
+    }
+}
+@media (max-width: 767px){
+    .tvtabcategory-product-li{
+        width: 33.33%;
+    }
+}
+@media (max-width: 575px){
+    .tvtabcategory-product-li{
+        width: 50%;
+    }
+}
+/*@media(max-width: 767px) {
+    .tvtabcategory-all-tab {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .tvtabcategory-all-product {
+        width: 100%;
+    }
+}*/
+.lang-rtl .tvtabcategory-product-li,
+.lang-rtl .tvtabcategory-show,
+.lang-rtl .tvtabcategory-hide {
+    text-align: right;
+}
+.lang-rtl .tvtabcategory-product-li:after,
+.lang-rtl .tvtabcategory-show:after,
+.lang-rtl .tvtabcategory-hide:after {
+    right: 0;
+    left: auto;
+}

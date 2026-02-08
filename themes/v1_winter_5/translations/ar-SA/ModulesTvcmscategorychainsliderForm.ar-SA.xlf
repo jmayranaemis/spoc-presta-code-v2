@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="D:\xamp-7.2\htdocs\v1_electronic_electro_102_2_gtmatrix_lazyload\admin650ry5qno" source-language="ar-SA" target-language="ar-SA" datatype="plaintext">
+    <body>
+      <trans-unit id="92fbf0e5d97b8afd7e73126b52bdc4bb">
+        <source>Choose a file</source>
+        <target>اختيار ملف</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="840044224ccac6db80b0166cd7465655">
+        <source>Please Select Image.</source>
+        <target>الرجاء تحديد الصورة.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="76729937a5eb6b0fd88c42581161facd">
+        <source>Select Category</source>
+        <target>اختر الفئة</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="059de41e0ddee331b0839eba0d57a0c0">
+        <source>No Category Found</source>
+        <target>لم يتم العثور على فئة</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="58a3426ffb8d9b19b326b80e764f420b">
+        <source>Please select category.</source>
+        <target>الرجاء تحديد الفئة.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="5466116e4abfd50455657f147e11da72">
+        <source>Please select image.</source>
+        <target>الرجاء تحديد الصورة.</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

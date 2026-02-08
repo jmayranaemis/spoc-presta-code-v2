@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="D:\xamp-7.2\htdocs\v1_electronic_electro_102_2_gtmatrix_lazyload\admin650ry5qno" source-language="ar-SA" target-language="ar-SA" datatype="plaintext">
+    <body>
+      <trans-unit id="a9632d0c3014506b39a9685123aff62c">
+        <source>best-seller Offer Banner</source>
+        <target>لافتة العرض الأكثر مبيعًا</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="632b7e0d21c55858f4300ae6dc00a869">
+        <source>All Best Seller Products</source>
+        <target>جميع المنتجات الأكثر مبيعًا</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
