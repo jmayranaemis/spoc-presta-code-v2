@@ -45,6 +45,11 @@
                 </a>
                 {/if}
             </div>
+             <div class>
+                {if !empty($product.manufacturer_name)}
+                 <span class="tv-brand-name">{$product.manufacturer_name|escape:'html':'UTF-8'}</span>
+                {/if}
+            </div>
         </div>
         {* Start Product Comment *}
         {hook h='displayReviewProductList' product=$product}
