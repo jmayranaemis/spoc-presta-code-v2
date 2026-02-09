@@ -35,7 +35,7 @@
             {block name='page_header_container'}
             {block name='page_header'}
             {l s='Ref ' d='Shop.Theme.Catalog'}<span itemprop="sku">{$product.reference_to_display}</span>
-            <h1 class="h1" itemprop="name">{block name='page_title'}{$product.name}{/block}</h1>
+            <class="h1" itemprop="name">{block name='page_title'}{$product.name}{/block}
             {/block}
             {/block}
             <div class="tvcms-product-brand-logo">
