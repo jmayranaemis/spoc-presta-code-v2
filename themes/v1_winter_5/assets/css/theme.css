@@ -11674,9 +11674,9 @@ data-toggle[tooltip] {
     max-width: 170px !important;
 }
 .tv-product-page-content h1 {
-    font-size: 26px;
+    font-size: 2rem;
     color: #3a3a3a;
-    font-weight: 400;
+    font-weight: 700;
     text-transform: capitalize;
     margin: 0 0 15px 0;
     padding-right: 150px;
