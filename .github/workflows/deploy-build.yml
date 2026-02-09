@@ -74,15 +74,22 @@ jobs:
           remote_key: ${{ secrets.SSH_KEY }}
 
       # Cache clear / warmup (sécurisé)
-      - name: Clear & warmup cache inside container
+      - name: Clear & warmup cache inside container (www-data)
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            docker exec ${{ secrets.DOCKER_PHP_CONTAINER }} php bin/console cache:clear --no-warmup || true
-            docker exec ${{ secrets.DOCKER_PHP_CONTAINER }} php bin/console cache:warmup || true
+            set -e
+            C=${{ secrets.DOCKER_PHP_CONTAINER }}
+
+            # (optionnel mais utile) s'assurer que var/ appartient à www-data
+            docker exec -u root $C bash -lc "chown -R www-data:www-data var || true"
+
+            # IMPORTANT: lancer symfony en www-data, pas en root
+            docker exec -u www-data $C php bin/console cache:clear --env=dev --no-warmup || true
+            docker exec -u www-data $C php bin/console cache:warmup --env=dev || true
 
       # Healthcheck
       - name: Healthcheck
