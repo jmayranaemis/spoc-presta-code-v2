@@ -34,7 +34,7 @@
         <div class="tvproduct-title-brandimage" itemprop="itemReviewed" itemscope itemtype="http://schema.org/Thing">
             {block name='page_header_container'}
             {block name='page_header'}
-            {l s='Ref ' d='Shop.Theme.Catalog'}<span itemprop="sku">{$product.reference_to_display}</span>
+           <span itemprop="sku">{l s='Ref ' d='Shop.Theme.Catalog'}{$product.reference_to_display}</span>
             <h1 class="h1" itemprop="name">{block name='page_title'}{$product.name}{/block}</h1>
             {/block}
             {/block}
