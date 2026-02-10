@@ -8736,6 +8736,30 @@ a:hover {
 .product-features>dl.data-sheet dt.name:nth-of-type(2n) {
     background: #f6f6f6
 }
+
+.product-features-page {
+    margin-top: 0.25rem;
+    margin-left: .3125rem
+}
+.product-features-page>dl.data-sheet-product {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: nowrap;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch
+}
+
+
+
+.product-features-page>dl.data-sheet-product dd.value-feature:nth-of-type(2n),
+.product-features-page>dl.data-sheet-product dt.name-feature:nth-of-type(2n) {
+    /*background: #f6f6f6 */
+}
+
+
 .product-variants>.product-variants-item select {
     background-color: #fff;
     width: auto;
