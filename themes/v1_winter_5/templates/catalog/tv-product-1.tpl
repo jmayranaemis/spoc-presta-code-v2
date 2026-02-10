@@ -35,22 +35,16 @@
             {block name='page_header_container'}
             {block name='page_header'}
            <span itemprop="sku">{l s='Ref ' d='Shop.Theme.Catalog'}{$product.reference_to_display}</span>
+            <div class>
+                {if !empty($product.manufacturer_name)}
+                <a href="{$product.brand_url|escape:'html':'UTF-8'}" class="tv-brand-name">
+                {$product.manufacturer_name|escape:'html':'UTF-8'}</a>
+                {/if}
+            </div>
             <h1 class="h1" itemprop="name">{block name='page_title'}{$product.name}{/block}</h1>
             {/block}
             {/block}
-            <div class="tvcms-product-brand-logo">
-                {if isset($manufacturer_image_url)}
-                <a href="{$product_brand_url}" class="tvproduct-brand">
-                    <img src="{$manufacturer_image_url}" alt="{$product_manufacturer->name}" title="{$product_manufacturer->name}" height="75px" width="170px" loading="lazy">
-                </a>
-                {/if}
-            </div>
-             <div class>
-                {if !empty($product.manufacturer_name)}
-                 <span class="tv-brand-name">{$product.manufacturer_name|escape:'html':'UTF-8'}</span>
-                {/if}
-            </div>
-        </div>
+                    </div>
         {* Start Product Comment *}
         {hook h='displayReviewProductList' product=$product}
         {* End Product Comment *}
