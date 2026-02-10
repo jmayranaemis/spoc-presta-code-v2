@@ -7027,6 +7027,14 @@ body#checkout #gift_message textarea {
     #order-confirmation #registration-form {
         width: 100%
     }
+
+    .product-price-discount-cart {
+    font-size: 20px !important;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #a80115;
+}
+
 }
 @media (max-width:767px) {
     body#checkout div.checkout-step.-reachable.-complete h1 .step-edit {
@@ -11673,7 +11681,8 @@ data-toggle[tooltip] {
     font-weight: 400;
     color: #666;
     font-size: 18px;
-    margin-left: 10px;
+    letter-spacing: normal;
+   /* margin-left: 10px;*/
 }
 .tv-product-page-content .product-variants {
     margin-bottom: 20px;
