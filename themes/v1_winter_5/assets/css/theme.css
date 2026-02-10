@@ -6053,6 +6053,17 @@ label {
     letter-spacing: 0;
 }
 
+.label-stock {
+    padding: 5px 0 5px;
+    display: block;
+    /*border: 1px solid #12e009;*/
+    width: 70%;
+    /* text-align: center;*/
+    font-weight: 600;
+    color:#12e009;
+    text-transform: capitalize;
+}
+
 .form-control-label {
     padding-top: .625rem;
     color: #666;
