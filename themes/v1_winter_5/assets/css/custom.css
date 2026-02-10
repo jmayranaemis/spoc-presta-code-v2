@@ -1616,6 +1616,16 @@ ul.wlp_bought_list li .product_infos .product-name {
     vertical-align: middle;
     display: inline-block;
 }
+
+.product-price-discount {
+    font-size: 35px !important;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #a80115;
+    /* margin-left: 15px;
+    margin-right: 15px; */
+}
+
 .tvproduct-name-price-wrapper .tvproduct-name {
     padding-bottom: 6px;
 }
@@ -6206,6 +6216,16 @@ i.material-icons.block {
     right: 30px;
     bottom: 30px;
 }
+
+    .product-price-discount {
+        font-size: 35px !important;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        color: #a80115;
+        /*   margin-left: 25px;
+        margin-right: 25px; */
+    }
+
 @media (max-width: 1200px) {
     .header-7 .tvheader-cart-wrapper,
     .header-7 .tvheader-compare,
@@ -6280,6 +6300,15 @@ i.material-icons.block {
         padding-inline-start: 18px;
     }
 }
+
+  .product-price-discount {
+        font-size: 35px !important;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        color: #a80115;
+        /* margin-left: 15px;
+        margin-right: 15px; */
+    }
 @media (min-width: 992px) {
     .footer-container.footer-3 #footer_sub_menu_store_info {
         display: flex;
