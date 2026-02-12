@@ -26,12 +26,7 @@
     <div class="product-add-to-cart">
         {if !$configuration.is_catalog}
         {block name='product_quantity'}
-        <div class="product-quantity">
-            <span class="control-label">{l s='Quantity : ' d='Shop.Theme.Catalog'}</span>
-            <div class="qty">
-                <input type="text" name="qty" id="quantity_wanted" value="{$product.quantity_wanted}" class="input-group" min="{$product.minimal_quantity}" aria-label="{l s='Quantity' d='Shop.Theme.Actions'}">
-            </div>
-        </div>
+    
         <div class='tvwishlist-compare-wrapper-page add tv-product-page-add-to-cart-wrapper'>
             <div class="tvcart-btn-model">
                 <button class="tvall-inner-btn add-to-cart {if !$product.add_to_cart_url} disabled {/if}" data-button-action="add-to-cart" type="submit" {if !$product.add_to_cart_url} disabled {/if}> {if !$product.add_to_cart_url} <i class='material-icons block'>&#xe14b;</i>
