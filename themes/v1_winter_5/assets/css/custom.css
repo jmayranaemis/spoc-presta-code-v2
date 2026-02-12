@@ -6166,8 +6166,8 @@ i.material-icons.block {
     margin-bottom: 0;
     margin-right: 50px;
 }
-/*.tv-product-page-content h1,*/
-.tv-product-page-content .tvall-product-star-icon,
+/*.tv-product-page-content h1, .tvall-product-star-icon*/
+.tv-product-page-content,
 .tv-product-page-content .product-prices,
 .tvproduct-page-decs p,
 .product-quantity,
