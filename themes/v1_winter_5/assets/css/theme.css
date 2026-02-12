@@ -11678,7 +11678,7 @@ data-toggle[tooltip] {
     /* vertical-align: middle; */
 }
 .quickview .product-discount .regular-price,
-.tvproduct-page-wrapper .product-discount .regular-price {
+.tvproduct-page-wrapper .product-discount {
     text-decoration: line-through;
     font-weight: 400;
     color: #666;
@@ -11686,6 +11686,15 @@ data-toggle[tooltip] {
     letter-spacing: normal;
    /* margin-left: 10px;*/
 }
+
+.regular-price {
+        font-weight: 400;
+    color: #666;
+    font-size: 18px;
+    letter-spacing: normal;
+   /* margin-left: 10px;*/
+}
+
 .tv-product-page-content .product-variants {
     margin-bottom: 20px;
 }
