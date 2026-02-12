@@ -11677,7 +11677,7 @@ data-toggle[tooltip] {
     font-weight: 400;
     /* vertical-align: middle; */
 }
-.quickview .product-discount .regular-price,
+.quickview .product-discount,
 .tvproduct-page-wrapper .product-discount {
     text-decoration: line-through;
     font-weight: 400;
