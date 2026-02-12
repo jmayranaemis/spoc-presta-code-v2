@@ -11679,7 +11679,7 @@ data-toggle[tooltip] {
 }
 .quickview .product-discount,
 .tvproduct-page-wrapper .product-discount {
-    text-decoration: line-through;
+    /* text-decoration: line-through;*/
     font-weight: 400;
     color: #666;
     font-size: 18px;
