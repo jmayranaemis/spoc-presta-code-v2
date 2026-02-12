@@ -61,20 +61,13 @@
             </div>
             {/if}
             {/block}
-
-
-            {block name='product_description_short'}
-            {if $product.description_short}
-            <div id="product-description-short-{$product.id}" itemscope itemprop="description" class="tvproduct-page-decs">{$product.description_short nofilter}</div>
-            {/if}
-            {/block}
-            {/block}
-            
+        
         </div>
+
+
             
         {block name='product_prices'}
         {include file='catalog/_partials/product-prices.tpl'}
-        
         {/block}
      
 
@@ -99,12 +92,15 @@
                     </div>
                     {/if}
                     {/block}
-                    {block name='product_discounts'}
-                    {include file='catalog/_partials/product-discounts.tpl'}
-                    {/block}
-                    {block name='product_add_to_cart'}
-                    {include file='catalog/_partials/product-add-to-cart.tpl'}
-                    {/block}
+
+        {/block}
+
+        {block name='product_discounts'}
+        {include file='catalog/_partials/product-discounts.tpl'}
+        {/block}
+        {block name='product_add_to_cart'}
+        {include file='catalog/_partials/product-add-to-cart.tpl'}
+        {/block}
 
 <div class="tax-shipping-delivery-label">
             {if $configuration.return_enabled}
@@ -127,7 +123,7 @@
 
            
           
-        </div>
+</div>
         {block name='product_availability'}
             {if $product.show_availability && $product.availability_message}
             <span id="product-availability">
