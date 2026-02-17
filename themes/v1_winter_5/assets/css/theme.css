@@ -11843,7 +11843,7 @@ data-toggle[tooltip] {
     border-color: #000;
 }
 .product-variants>.product-variants-item label:hover span {
-    box-shadow: 0 5px 10px rgb(0 0 0 / 40%);
+    /* box-shadow: 0 5px 10px rgb(0 0 0 / 40%);*/
     color: #000;
     border-color: #000;
 }
