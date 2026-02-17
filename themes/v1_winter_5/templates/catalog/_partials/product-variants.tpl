@@ -28,7 +28,7 @@
   {foreach from=$groups key=id_attribute_group item=group}
     {if !empty($group.attributes)}
     <div class="clearfix product-variants-item">
-      <span class="control-label">{$group.name} : </span>
+      <span class="control-label">{$group.name}</span>
       {if $group.group_type == 'select'}
         <select class="form-control form-control-select" id="group_{$id_attribute_group}" data-product-attribute="{$id_attribute_group}" name="group[{$id_attribute_group}]">
           {foreach from=$group.attributes key=id_attribute item=group_attribute}
