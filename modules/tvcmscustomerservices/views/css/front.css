@@ -271,6 +271,10 @@
 }
 .control-label {
     text-transform: capitalize;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: black;
+}
 }
 .tv-all-service-wrapper{
     padding-inline-start: 0;
