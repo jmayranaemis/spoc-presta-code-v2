@@ -13211,3 +13211,25 @@ data-toggle[tooltip] {
 .field-password-policy .form-control-comment{
     display: none;
 }
+
+/* ===== Variants Presta : cinématique stable + pas de "saut" ===== */
+
+/* Base : on réserve 2px (donc pas de décalage), et on affiche un gris 1px via inset */
+#product .product-variants .input-container label .radio-label{
+  box-sizing: border-box;
+  border: 2px solid transparent !important; /* écrase les inline border-color */
+  box-shadow: 0 5px 10px rgb(0 0 0 / 14%), inset 0 0 0 1px rgba(60,60,60,.25) !important; /* écrase inline box-shadow */
+  color: #000 !important;
+  cursor: pointer;
+}
+
+/* Sélectionné : noir 2px */
+#product .product-variants .input-container label input.input-radio:checked + .radio-label{
+  border-color: #000 !important;
+  box-shadow: 0 5px 10px rgb(0 0 0 / 14%) !important; /* on enlève l'inset gris */
+}
+
+/* Hover : noir 2px SANS changer la taille (pas de reflow) */
+#product .product-variants .input-container label:hover input.input-radio:not(:checked) + .radio-label{
+  box-shadow: 0 5px 10px rgb(0 0 0 / 14%), inset 0 0 0 2px #000 !important;
+}
