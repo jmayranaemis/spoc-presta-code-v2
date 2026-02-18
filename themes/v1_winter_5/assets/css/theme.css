@@ -13212,24 +13212,27 @@ data-toggle[tooltip] {
     display: none;
 }
 
-/* ===== Variants Presta : cinématique stable + pas de "saut" ===== */
+/* ===== Variants : gris 1px / noir 2px, sans shadow, zéro reflow ===== */
 
-/* Base : on réserve 2px (donc pas de décalage), et on affiche un gris 1px via inset */
+/* Base (non sélectionné) : gris 1px */
 #product .product-variants .input-container label .radio-label{
   box-sizing: border-box;
-  border: 2px solid transparent !important; /* écrase les inline border-color */
-  box-shadow: 0 5px 10px rgb(0 0 0 / 14%), inset 0 0 0 1px rgba(60,60,60,.25) !important; /* écrase inline box-shadow */
+  border: 2px solid transparent !important;  /* neutralise border du thème + inline */
+  box-shadow: none !important;               /* neutralise shadow du thème + inline */
+  outline: 1px solid #cfcfcf !important;     /* gris 1px */
+  outline-offset: -1px;                      /* colle au bord (ajuste si besoin) */
   color: #000 !important;
   cursor: pointer;
 }
 
-/* Sélectionné : noir 2px */
-#product .product-variants .input-container label input.input-radio:checked + .radio-label{
-  border-color: #000 !important;
-  box-shadow: 0 5px 10px rgb(0 0 0 / 14%) !important; /* on enlève l'inset gris */
+/* Hover (non sélectionné) : noir 2px */
+#product .product-variants .input-container label:hover input.input-radio:not(:checked) + .radio-label{
+  outline: 2px solid #000 !important;
+  outline-offset: -2px;
 }
 
-/* Hover : noir 2px SANS changer la taille (pas de reflow) */
-#product .product-variants .input-container label:hover input.input-radio:not(:checked) + .radio-label{
-  box-shadow: 0 5px 10px rgb(0 0 0 / 14%), inset 0 0 0 2px #000 !important;
+/* Sélectionné : noir 2px */
+#product .product-variants .input-container label input.input-radio:checked + .radio-label{
+  outline: 2px solid #000 !important;
+  outline-offset: -2px;
 }
