@@ -11844,7 +11844,7 @@ data-toggle[tooltip] {
 .product-variants>.product-variants-item label input[checked="checked"]:checked+span {
    /* box-shadow: 0 5px 10px rgb(0 0 0 / 40%);*/
     color: #000;
-    border-color: #e0ee0;
+    border-color: #e0eee0;
 }
 .product-variants>.product-variants-item label:hover span {
     /* box-shadow: 0 5px 10px rgb(0 0 0 / 40%);*/
