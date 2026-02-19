@@ -10246,43 +10246,42 @@ body#checkout .tvtheme-control-icon{
     height: auto !important;
     max-height: none !important
 
-/* Mobile: dans le burger Volty, on supprime le 2e burger ETS et on affiche le menu directement */
+/* Volty burger (offcanvas) : afficher ETS directement, sans "2e burger" */
 @media (max-width: 991px){
 
-  /* 1) Neutralise le toggle ETS "Menu" (le 2e burger) */
-  .tvmobile-slidebar .ybc-menu-toggle.ybc-menu-btn{
+  /* 1) On cache/neutralise le bouton "Menu" ETS (le 2e burger) */
+  html body .tvmobile-slidebar.open .ybc-menu-toggle.ybc-menu-btn{
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
     height: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
-    border: 0 !important;
-
-    opacity: 0 !important;
-    visibility: hidden !important;
     overflow: hidden !important;
-    pointer-events: none !important;
-
-    line-height: 0 !important;
-    font-size: 0 !important;
+    position: absolute !important;
+    left: -99999px !important;
+    top: -99999px !important;
   }
 
-  /* 2) Affiche la liste du menu sans avoir à cliquer sur le toggle ETS */
-  .tvmobile-slidebar #tvmobile-megamenu ul.mm_menus_ul{
+  /* 2) On force l'affichage du UL du menu même si ETS le garde fermé */
+  html body .tvmobile-slidebar.open ul.mm_menus_ul{
     display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
     height: auto !important;
     max-height: none !important;
-    opacity: 1 !important;
-    visibility: visible !important;
   }
 
-  /* 3) Supprime la ligne interne "Menu / Retour" d'ETS */
-  .tvmobile-slidebar #tvmobile-megamenu li.close_menu{
+  /* 3) On enlève la ligne interne "Menu / Retour" d'ETS */
+  html body .tvmobile-slidebar.open ul.mm_menus_ul > li.close_menu{
     display: none !important;
   }
 
-  /* 4) Full width en offcanvas */
-  .tvmobile-slidebar #tvmobile-megamenu .mm_menus_li,
-  .tvmobile-slidebar #tvmobile-megamenu .mm_tabs_li,
-  .tvmobile-slidebar #tvmobile-megamenu .mm_tab_li_content{
+  /* 4) Offcanvas = full width */
+  html body .tvmobile-slidebar.open .mm_menus_li,
+  html body .tvmobile-slidebar.open .mm_tabs_li,
+  html body .tvmobile-slidebar.open .mm_tab_li_content{
     width: 100% !important;
   }
 }
