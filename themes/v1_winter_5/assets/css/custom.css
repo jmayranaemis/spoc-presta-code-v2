@@ -1255,10 +1255,6 @@ a.tvcmsmorecolor-icon {
     }
 }
 
-@media (max-width: 991px){
-  /* remplace par le wrapper exact du bloc où le hook displayNavFullWidth est rendu */
-  .LE_WRAPPER_DU_MENU_DESKTOP { display:none !important; }
-}
 
 
 /***** Start all sale lable--list-list-2--catelog *****/
@@ -10226,6 +10222,10 @@ body#checkout .tvtheme-control-icon{
     .product-additional-info .js-mailalert {
         flex-direction: column;
     }
+}
+
+@media (max-width: 991px){
+  .mmpro-desktop-only{ display:none !important; }
 }
 
 /*mailalert css end*/
