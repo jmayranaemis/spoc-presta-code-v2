@@ -10248,9 +10248,9 @@ body#checkout .tvtheme-control-icon{
 
 /* Volty burger (offcanvas) : afficher ETS directement, sans "2e burger" */
 @media (max-width: 991px){
-
+  
   /* 1) On cache/neutralise le bouton "Menu" ETS (le 2e burger) */
-  html body .tvmobile-slidebar.open .ybc-menu-toggle.ybc-menu-btn{
+  .tvmobile-slidebar .ets_mm_megamenu_content .ybc-menu-toggle.ybc-menu-btn {
     display: none !important;
     opacity: 0 !important;
     visibility: hidden !important;
@@ -10259,13 +10259,10 @@ body#checkout .tvtheme-control-icon{
     margin: 0 !important;
     padding: 0 !important;
     overflow: hidden !important;
-    position: absolute !important;
-    left: -99999px !important;
-    top: -99999px !important;
   }
 
-  /* 2) On force l'affichage du UL du menu même si ETS le garde fermé */
-  html body .tvmobile-slidebar.open ul.mm_menus_ul{
+  /* 2) Forcer l’affichage du menu directement */
+  .tvmobile-slidebar #tvmobile-megamenu {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -10273,21 +10270,18 @@ body#checkout .tvtheme-control-icon{
     max-height: none !important;
   }
 
-  /* 3) On enlève la ligne interne "Menu / Retour" d'ETS */
-  html body .tvmobile-slidebar.open ul.mm_menus_ul > li.close_menu{
+  /* 3) On enlève la ligne "Retour" d'ETS */
+  .tvmobile-slidebar #tvmobile-megamenu li.close_menu {
     display: none !important;
   }
 
-  /* 4) Offcanvas = full width */
-  html body .tvmobile-slidebar.open .mm_menus_li,
-  html body .tvmobile-slidebar.open .mm_tabs_li,
-  html body .tvmobile-slidebar.open .mm_tab_li_content{
+  /* 4) Largeur à 100% pour les éléments de menu */
+  .tvmobile-slidebar #tvmobile-megamenu .mm_menus_li,
+  .tvmobile-slidebar #tvmobile-megamenu .mm_tabs_li,
+  .tvmobile-slidebar #tvmobile-megamenu .mm_tab_li_content {
     width: 100% !important;
   }
 }
-/* TEST TEMPORAIRE : doit afficher un cadre rouge autour du burger Volty */
-@media (max-width: 991px){ .tvmobile-slidebar.open { outline: 5px solid red !important; } }
-
 
 
 /*mailalert css end*/
