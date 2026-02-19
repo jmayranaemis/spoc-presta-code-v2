@@ -10246,5 +10246,39 @@ body#checkout .tvtheme-control-icon{
     height: auto !important;
     max-height: none !important
 
+/* Mobile : dans le burger Volty, on supprime le "burger ETS" et on affiche le menu directement */
+@media (max-width: 991px){
+
+  /* 1) cache le header/toggle ETS (les classes peuvent varier, on couvre large) */
+  .tvmobile-slidebar #tvmobile-megamenu .ets_mm_megamenu_btn,
+  .tvmobile-slidebar #tvmobile-megamenu .ets_mm_megamenu_button,
+  .tvmobile-slidebar #tvmobile-megamenu .ets_mm_megamenu_header,
+  .tvmobile-slidebar #tvmobile-megamenu .ets_mm_megamenu_title,
+  .tvmobile-slidebar #tvmobile-megamenu .ets_mm_megamenu_mobile_bar{
+    display: none !important;
+  }
+
+  /* 2) force l’affichage du contenu du menu ETS */
+  .tvmobile-slidebar #tvmobile-megamenu .ets_mm_megamenu,
+  .tvmobile-slidebar #tvmobile-megamenu .ets_mm_megamenu_content,
+  .tvmobile-slidebar #tvmobile-megamenu .ets_mm_megamenu_container{
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    position: static !important;
+    transform: none !important;
+  }
+
+  /* 3) menu en colonne (lisible en offcanvas) */
+  .tvmobile-slidebar #tvmobile-megamenu ul,
+  .tvmobile-slidebar #tvmobile-megamenu li{
+    float: none !important;
+    width: 100% !important;
+  }
+}
+
 
 /*mailalert css end*/
