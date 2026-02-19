@@ -10246,10 +10246,10 @@ body#checkout .tvtheme-control-icon{
     height: auto !important;
     max-height: none !important
 
-/* Volty burger (offcanvas) : afficher ETS directement, sans "2e burger" */
+/* Mobile : forcer l'affichage du menu ETS dans le burger Volty */
 @media (max-width: 991px){
-  
-  /* 1) On cache/neutralise le bouton "Menu" ETS (le 2e burger) */
+
+  /* 1) Cacher le second burger ETS */
   .tvmobile-slidebar .ets_mm_megamenu_content .ybc-menu-toggle.ybc-menu-btn {
     display: none !important;
     opacity: 0 !important;
@@ -10261,8 +10261,8 @@ body#checkout .tvtheme-control-icon{
     overflow: hidden !important;
   }
 
-  /* 2) Forcer l’affichage du menu directement */
-  .tvmobile-slidebar #tvmobile-megamenu {
+  /* 2) Forcer l'affichage du menu et de son contenu */
+  .tvmobile-slidebar #tvmobile-megamenu ul.mm_menus_ul {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -10270,18 +10270,26 @@ body#checkout .tvtheme-control-icon{
     max-height: none !important;
   }
 
-  /* 3) On enlève la ligne "Retour" d'ETS */
+  /* 3) Masquer la ligne de retour "Menu / Retour" d'ETS */
   .tvmobile-slidebar #tvmobile-megamenu li.close_menu {
     display: none !important;
   }
 
-  /* 4) Largeur à 100% pour les éléments de menu */
+  /* 4) Forcer l'affichage des sous-menus (si nécessaire) */
+  .tvmobile-slidebar #tvmobile-megamenu .ets_mm_megamenu_content_content ul.mm_columns_ul,
+  .tvmobile-slidebar #tvmobile-megamenu .ets_mm_megamenu_content_content li {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  /* 5) Taille des éléments du menu en full width */
   .tvmobile-slidebar #tvmobile-megamenu .mm_menus_li,
   .tvmobile-slidebar #tvmobile-megamenu .mm_tabs_li,
   .tvmobile-slidebar #tvmobile-megamenu .mm_tab_li_content {
     width: 100% !important;
   }
 }
+
 
 
 /*mailalert css end*/
