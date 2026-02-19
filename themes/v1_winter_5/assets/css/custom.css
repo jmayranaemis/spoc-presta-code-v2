@@ -10228,4 +10228,23 @@ body#checkout .tvtheme-control-icon{
   .mmpro-desktop-only{ display:none !important; }
 }
 
+/* MegaMenuPro (ets_megamenu) visible dans le burger Volty */
+@media (max-width: 991px){
+
+  /* Le conteneur du menu dans le slidebar */
+  .tvmobile-slidebar #tvmobile-megamenu{
+    display: block !important;
+  }
+
+  /* Wrappers ETS (selon versions) */
+  .tvmobile-slidebar #tvmobile-megamenu .ets_mm_megamenu,
+  .tvmobile-slidebar #tvmobile-megamenu .ets_mm_megamenu_content,
+  .tvmobile-slidebar #tvmobile-megamenu .ets_mm_megamenu_container{
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    max-height: none !important
+
+
 /*mailalert css end*/
