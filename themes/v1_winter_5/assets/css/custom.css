@@ -1254,6 +1254,13 @@ a.tvcmsmorecolor-icon {
         opacity: 1;
     }
 }
+
+@media (max-width: 991px){
+  /* remplace par le wrapper exact du bloc où le hook displayNavFullWidth est rendu */
+  .LE_WRAPPER_DU_MENU_DESKTOP { display:none !important; }
+}
+
+
 /***** Start all sale lable--list-list-2--catelog *****/
 .list.tvproduct-wrapper .tvproduct-flags,
 .catelog.tvproduct-wrapper .tvproduct-flags,

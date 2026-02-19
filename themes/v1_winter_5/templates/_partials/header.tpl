@@ -40,6 +40,8 @@
         {include file='_partials/desktop-header.tpl' withData=false}
         {include file='_partials/mobile-header.tpl' withData=true}
     {/if}
+    <div class="mmpro-desktop-only">
     {hook h='displayNavFullWidth'}
+    </div>
     {/block}
 {/strip}
