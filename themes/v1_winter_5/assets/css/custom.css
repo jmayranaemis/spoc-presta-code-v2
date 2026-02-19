@@ -10285,6 +10285,8 @@ body#checkout .tvtheme-control-icon{
     width: 100% !important;
   }
 }
+/* TEST TEMPORAIRE : doit afficher un cadre rouge autour du burger Volty */
+@media (max-width: 991px){ .tvmobile-slidebar.open { outline: 5px solid red !important; } }
 
 
 
