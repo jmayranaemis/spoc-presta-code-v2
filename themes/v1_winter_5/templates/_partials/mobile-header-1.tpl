@@ -45,8 +45,15 @@
                         <a href="Javascript:void(0);"><i class='material-icons'>&#xe14c;</i></a>
                     </div>
                     <div id='tvmobile-megamenu'>
-                        {if $withData}{hook h='displayMegamenu'}{/if}
+                        {if $withData}
+                        {assign var=mm value={hook h='displayMegamenu'}}
+                        {if $mm|trim == ''}
+                        {assign var=mm value={hook h='displayNavFullWidth'}}
+                        {/if}
+                        {$mm nofilter}
+                        {/if}
                     </div>
+
                     <div class="tvcmsmobile-contact">{if $withData}{hook h='displayNav1'}{/if}</div>
                     <div id='tvmobile-lang'>{if $withData}{hook h='displayNavLanguageBlock'}{/if}</div>
                     <div id='tvmobile-curr'>{if $withData}{hook h='displayNavCurrencyBlock'}{/if}</div>
