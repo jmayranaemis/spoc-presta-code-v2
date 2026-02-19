@@ -10246,32 +10246,47 @@ body#checkout .tvtheme-control-icon{
     height: auto !important;
     max-height: none !important
 
-/* Mobile: dans le burger Volty, on supprime le "burger ETS" et on affiche le menu directement */
+/* Mobile: dans le burger Volty, on supprime le 2e burger ETS et on affiche le menu directement */
 @media (max-width: 991px){
 
-  /* 1) cache le 2e burger "Menu" d'ETS */
-  .tvmobile-slidebar #tvmobile-megamenu .ybc-menu-toggle.ybc-menu-btn{
-    display: none !important;
+  /* 1) Neutralise le toggle ETS "Menu" (le 2e burger) */
+  .tvmobile-slidebar .ybc-menu-toggle.ybc-menu-btn{
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+
+    opacity: 0 !important;
+    visibility: hidden !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+
+    line-height: 0 !important;
+    font-size: 0 !important;
   }
 
-  /* 2) affiche la liste du menu même si ETS la cache tant que le toggle n'est pas cliqué */
+  /* 2) Affiche la liste du menu sans avoir à cliquer sur le toggle ETS */
   .tvmobile-slidebar #tvmobile-megamenu ul.mm_menus_ul{
     display: block !important;
     height: auto !important;
-    visibility: visible !important;
+    max-height: none !important;
     opacity: 1 !important;
+    visibility: visible !important;
   }
 
-  /* 3) supprime la ligne interne "Menu / Retour" */
-  .tvmobile-slidebar #tvmobile-megamenu ul.mm_menus_ul > li.close_menu{
+  /* 3) Supprime la ligne interne "Menu / Retour" d'ETS */
+  .tvmobile-slidebar #tvmobile-megamenu li.close_menu{
     display: none !important;
   }
 
-  /* 4) mise en page offcanvas: largeur full */
-  .tvmobile-slidebar #tvmobile-megamenu .mm_menus_li{
+  /* 4) Full width en offcanvas */
+  .tvmobile-slidebar #tvmobile-megamenu .mm_menus_li,
+  .tvmobile-slidebar #tvmobile-megamenu .mm_tabs_li,
+  .tvmobile-slidebar #tvmobile-megamenu .mm_tab_li_content{
     width: 100% !important;
   }
 }
+
 
 
 /*mailalert css end*/
