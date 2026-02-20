@@ -10246,31 +10246,29 @@ body#checkout .tvtheme-control-icon{
     height: auto !important;
     max-height: none !important
 
-/* Mobile : forcer l'affichage du menu ETS dans le burger Volty */
+/* Mobile : forcer l'affichage de la devise et de la langue avant MegaMenuPro */
 @media (max-width: 991px){
-
-  /* 1) On cache/neutralise le bouton "Menu" ETS (le 2e burger) */
-  .tvmobile-slidebar .ets_mm_megamenu_content .ybc-menu-toggle.ybc-menu-btn {
-    display: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-    height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: hidden !important;
+  
+  /* 1) Afficher la devise et la langue d'abord */
+  .tvmobile-slidebar #tvmobile-megamenu #tvmobile-lang,
+  .tvmobile-slidebar #tvmobile-megamenu #tvmobile-curr {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
   }
 
-  /* 2) On force l'affichage du menu ETS dans le burger */
+  /* 2) Forcer l'affichage du menu MegaMenuPro après la langue et la devise */
   .tvmobile-slidebar #tvmobile-megamenu {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
     height: auto !important;
     max-height: none !important;
+    margin-top: 10px; /* Ajout de marge pour espacer les éléments */
   }
 
-  /* 3) Forcer l'affichage de la liste de menus (ul de ETS) */
+  /* 3) Forcer l'affichage de la liste du menu MegaMenuPro */
   .tvmobile-slidebar #tvmobile-megamenu ul.mm_menus_ul {
     display: block !important;
     visibility: visible !important;
@@ -10279,25 +10277,24 @@ body#checkout .tvtheme-control-icon{
     max-height: none !important;
   }
 
-  /* 4) Enlever la ligne "Retour" d'ETS */
+  /* 4) Enlever la ligne "Retour" de MegaMenuPro */
   .tvmobile-slidebar #tvmobile-megamenu li.close_menu {
     display: none !important;
   }
 
-  /* 5) Forcer l'affichage des sous-menus ETS si nécessaire */
+  /* 5) Forcer l'affichage des sous-menus de MegaMenuPro */
   .tvmobile-slidebar #tvmobile-megamenu .ets_mm_megamenu_content_content ul.mm_columns_ul,
   .tvmobile-slidebar #tvmobile-megamenu .ets_mm_megamenu_content_content li {
     display: block !important;
     width: 100% !important;
   }
 
-  /* 6) Largeur à 100% pour les éléments du menu */
+  /* 6) Largeur à 100% pour les éléments du menu MegaMenuPro */
   .tvmobile-slidebar #tvmobile-megamenu .mm_menus_li,
   .tvmobile-slidebar #tvmobile-megamenu .mm_tabs_li,
   .tvmobile-slidebar #tvmobile-megamenu .mm_tab_li_content {
     width: 100% !important;
   }
 }
-
 
 /*mailalert css end*/
