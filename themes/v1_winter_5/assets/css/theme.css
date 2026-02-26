@@ -11651,6 +11651,7 @@ data-toggle[tooltip] {
     background: rgba(221, 206, 182, 0.3);
     margin: 0 0 2.5rem;
     padding: 1.1rem 1.1rem 1.1rem;
+    width: 50%;
 }
 .tvproduct-page-wrapper .tvall-product-star-icon .tvall-product-review {
     display: inline-block;
@@ -12076,6 +12077,10 @@ data-toggle[tooltip] {
     #product-modal .product-images>li.thumb-container {
         display: inline-block;
     }
+
+    .tv-product-page-content .product-prices {
+     width: 100%;
+
 }
 @media(max-width: 767px) {
     .tvprduct-image-info-wrapper .tv-product-page-image {
