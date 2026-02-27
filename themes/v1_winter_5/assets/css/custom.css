@@ -9984,7 +9984,7 @@ body#checkout.lang-rtl div.checkout-step #login-form .form-control-label {
     }
 }
 .product-add-to-cart .add-to-cart {
-    background-color: #222;
+    background-color: orange;
     letter-spacing: 2px;
 }
 .product-add-to-cart .add-to-cart i {
