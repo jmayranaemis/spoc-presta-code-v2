@@ -104,9 +104,6 @@ body.lang-rtl, body.lang-rtl p, body.lang-rtl h1, body.lang-rtl h2, body.lang-rt
 {block name='hook_extra'}
 {/block}
 
-{* --------- CUSTOM CSS EN DERNIER ABSOLU --------- *}
-<link rel="stylesheet" href="{$urls.css_url}custom.css?v={$smarty.now}" type="text/css" media="all">
-{* ----------------------------------------------- *}
 
 
 {/strip}
