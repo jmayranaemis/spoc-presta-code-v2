@@ -7866,7 +7866,8 @@ a:hover {
 .product-miniature .product-price-and-shipping {
     color: #232323;
     font-weight: 700;
-    text-align: center
+    text-align: center;
+    font-size: 1.5rem;
 }
 #products .variant-links,
 .featured-products .variant-links,
@@ -11698,7 +11699,7 @@ data-toggle[tooltip] {
 .regular-price {
         font-weight: 400;
     color: #666;
-    font-size: 18px;
+    font-size: 10px;
     letter-spacing: normal;
    /* margin-left: 10px;*/
 }
