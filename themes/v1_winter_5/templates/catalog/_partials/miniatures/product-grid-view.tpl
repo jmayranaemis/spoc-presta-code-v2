@@ -104,7 +104,7 @@
                 </div>
                 {/block}
                 {/if}
-                <div class='tvproduct-hover-btn'>
+               {*  <div class='tvproduct-hover-btn'>
                     <div class="tvproduct-cart-btn">
                         <form action="{$urls.pages.cart}" method="post">
                             <input type="hidden" name="id_product" value="{$product.id_product}">
@@ -134,7 +134,7 @@
                         </a>
                         {/block}
                     </div>
-                </div>
+                </div> *}
             </div>
 
         </div>
