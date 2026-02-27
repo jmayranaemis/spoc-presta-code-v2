@@ -1,5 +1,5 @@
 {**
-* 2007-2025 PrestaShop
+* 2007-2024 PrestaShop
 *
 * NOTICE OF LICENSE
 *
@@ -18,7 +18,7 @@
 * needs please refer to http://www.prestashop.com for more information.
 *
 * @author PrestaShop SA <contact@prestashop.com>
-    * @copyright 2007-2025 PrestaShop SA
+    * @copyright 2007-2024 PrestaShop SA
     * @license https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
     * International Registered Trademark & Property of PrestaShop SA
     *}
@@ -54,11 +54,21 @@
             </ul>
             <ul class="tvproduct-flags tvproduct-sale-pack-wrapper">
                 {foreach from=$product.flags item=flag}
-                {if $flag.type == 'on-sale' || $flag.type == 'pack'}
-                <li class="product-flag {$flag.type}">{$flag.label}</li>
+                {*if $flag.type == 'on-sale' || $flag.type == 'pack'*}
+                {if $flag.type == 'on-sale'}
+                <li class="product-flag {$flag.type}">{$product.discount_percentage}</li>
                 {/if}
                 {/foreach}
             </ul>
+            <ul class="tvproduct-flags tvproduct-used-wrapper">
+                {*foreach from=$product.condition.type item=flag*}
+                {if $product.condition.type == 'used'}
+                <li class="product-flag {$product.condition.type}">{$product.condition.label}</li>
+                {/if}
+                {*/foreach*}
+            </ul>
+
+
             {/block}
             {if !empty($product.specific_prices.from) && !empty($product.specific_prices.to) && $product.specific_prices.from != '0000-00-00 00:00:00' && $product.specific_prices.to != '0000-00-00 00:00:00'}
             {include file='catalog/_partials/miniatures/product-timer.tpl' timer=$product.specific_prices.to}
@@ -136,8 +146,13 @@
                 {* End Product Comment *}
                 {block name='product_name'}
                 <div class="tvproduct-name product-title">
+                    {if !empty(Manufacturer::getnamebyid($product.id_manufacturer))}
+                        <span class="brand-text-grid"><a href="{$link->getManufacturerLink($product.id_manufacturer)|escape:'html':'UTF-8'}">{Manufacturer::getnamebyid($product.id_manufacturer)|escape:'html':'UTF-8'}</a></span>
+                        {else}
+                        <span class="brand-text-grid">SPOC</span>
+                    {/if}
                     <a href="{$product.url}">
-                        <h6 itemprop="name">{$product.name}</h6>
+                        <h6 itemprop="name">{$product.name|truncate:60:'...'}</h6>
                     </a>
                 </div>
                 {* <div class="tvproduct-cat-name">{$product.category_name}</div> *}
@@ -149,9 +164,11 @@
                         <meta itemprop="sku" content="1234" />
                         <meta itemprop="mpn" content="1234" />
                         <meta itemprop="brand" content="fashion" />
-                        <span class="price">{$product.price}</span>
                         {if $product.has_discount}
-                        <span class="regular-price">{$product.regular_price}</span>
+                            <span class="product-grid-price-discount">{$product.price}</span>
+                            <span class="regular-price">{l s='Regular price: ' d='Shop.Theme.Catalog'}{$product.regular_price}</span>
+                            {else}
+                            <span class="product-grid-price">{$product.price}</span>
                         {/if}
                         {* {if $product.has_discount}
                         {hook h='displayProductPriceBlock' product=$product type="old_price"}
