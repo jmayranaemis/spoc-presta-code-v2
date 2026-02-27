@@ -97,37 +97,7 @@
                         </div>
                         {/block}
                         {/if}
-                        <div class='tvproduct-hover-btn'>
-                            <div class="tvproduct-cart-btn">
-                                <form action="{$urls.pages.cart}" method="post">
-                                    <input type="hidden" name="id_product" value="{$product.id_product}">
-                                    <input type="hidden" name="qty" value="1">
-                                    {if !empty($product.is_customizable) && count($product.customizations.fields)}
-                                    <input type="hidden" name="id_customization" value="{$product.id_customization}" id="product_customization_id">
-                                    {/if}
-                                    <input type="hidden" name="token" value="{$static_token}">
-                                    <button data-button-action="add-to-cart" type="submit" class="btn add-to-cart tvproduct-add-to-cart {if !$product.add_to_cart_url}tvproduct-out-of-stock disable{/if}" {if !$product.add_to_cart_url}disabled{/if} data-toggle="tvtooltip" data-placement="top" data-html="true" data-original-title="{if !$product.add_to_cart_url}{l s='Out Of Stock' d='Shop.Theme.Actions'}{else}{l s='Add To Cart' d='Shop.Theme.Actions'}{/if}">
-                                        <i class='material-icons add-cart'>&#xe8cc;</i>
-                                        <i class='material-icons out-of-stock hide'>&#xe611;</i>
-                                        {* <span class="tvproduct-add-to-cart-label">{if !$product.add_to_cart_url}{l s='Out Of Stock' d='Shop.Theme.Actions'}{else}{l s='Add To Cart' d='Shop.Theme.Actions'}{/if} </span> *}
-                                    </button>
-                                </form>
-                            </div>
-                            {hook h='displayWishlistBtnProductList' product=$product}
-                            {hook h='displayProductCompareProductList' product=$product}
-                            <div class="{* highlighted-informations{if !$product.main_variants} no-variants{/if} *} tvproduct-quick-btn">
-                                {block name='quick_view'}
-                                <a class="quick-view" href="#" data-link-action="quickview" data-toggle="tvtooltip" data-placement="top" data-html="true" title="{l s='Quick View' d='Shop.Theme.Actions'}" data-original-title="{l s='Quick View' d='Shop.Theme.Actions'}">
-                                    <div class="tvproduct-quick-icon">
-                                        <i class="material-icons search">&#xe417;</i>
-                                    </div>
-                                    {* <div class="tvproduct-quick-lable">
-                                        {l s='Quick View' d='Shop.Theme.Actions'}
-                                    </div> *}
-                                </a>
-                                {/block}
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
                 {/block}
