@@ -85,6 +85,10 @@
 {/block}
 {block name='hook_header'}
   {$HOOK_HEADER nofilter}
+  {* --------- CUSTOM CSS EN DERNIER ABSOLU --------- *}
+  <link rel="stylesheet" href="{$urls.css_url}custom.css?v={$smarty.now}" type="text/css" media="all">
+  {* ----------------------------------------------- *}
+
 {/block}
 <link rel="dns-prefetch" href="{$urls.shop_domain_url}" />
 <link rel="preconnect" href="{$urls.shop_domain_url}" crossorigin/>
@@ -103,4 +107,7 @@ body.lang-rtl, body.lang-rtl p, body.lang-rtl h1, body.lang-rtl h2, body.lang-rt
 {/if}
 {block name='hook_extra'}
 {/block}
+
+
+
 {/strip}
