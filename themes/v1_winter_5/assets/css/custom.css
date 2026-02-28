@@ -1600,7 +1600,7 @@ ul.wlp_bought_list li .product_infos .product-name {
     font-weight: 500;
 }
 .product-price-and-shipping .price {
-    font-size: 35px;
+    font-size: 1.5rem;
     line-height: 16px;
     font-weight: 700;
     color: #db1212;
