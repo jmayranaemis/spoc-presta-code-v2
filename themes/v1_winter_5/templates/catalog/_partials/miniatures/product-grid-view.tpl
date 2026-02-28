@@ -136,7 +136,7 @@
                         <meta itemprop="brand" content="fashion" />
                         {if $product.has_discount}
                             <span class="product-grid-price-discount">{$product.price}</span>
-                            <span class="regular-price">{l s='Regular price: ' d='Shop.Theme.Catalog'}{$product.regular_price}</span>
+                            <span class="regular-price">{l s='Regular price:' d='Shop.Theme.Catalog'} {$product.regular_price}</span>
                             {else}
                             <span class="product-grid-price">{$product.price}</span>
                         {/if}
