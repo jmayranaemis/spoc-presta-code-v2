@@ -1600,9 +1600,9 @@ ul.wlp_bought_list li .product_infos .product-name {
     font-weight: 500;
 }
 .product-price-and-shipping .price {
-    font-size: 16px;
+    font-size: 35px;
     line-height: 16px;
-    font-weight: 500;
+    font-weight: 700;
     color: #db1212;
     display: inline-block;
     vertical-align: middle;
@@ -1611,9 +1611,9 @@ ul.wlp_bought_list li .product_infos .product-name {
 }
 .product-price-and-shipping .regular-price {
     margin: 0px 0 0 0px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 400;
-    text-decoration: line-through;
+    /*text-decoration: line-through;*/
     color: #666666;
     letter-spacing: 0.3px;
     vertical-align: middle;
