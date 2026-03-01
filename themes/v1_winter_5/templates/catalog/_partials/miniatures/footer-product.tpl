@@ -63,7 +63,7 @@
                             <div class="product-price-and-shipping">
                                 <span class="price">{$product.price}</span>
                                 {if $product.has_discount}
-                                <span class="regular-price">{$product.regular_price}</span>
+                                <span class="regular-price">{l s='Regular price: ' d='Shop.Theme.Catalog'} {$product.regular_price}</span>
                                 {/if}
                                 {if $product.has_discount}
                                 {hook h='displayProductPriceBlock' product=$product type="old_price"}
