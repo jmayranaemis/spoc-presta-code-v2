@@ -141,8 +141,13 @@
                     {* End Product Comment *}
                     {block name='product_name'}
                     <div class="tvproduct-name product-title">
+                        {if !empty(Manufacturer::getnamebyid($product.id_manufacturer))}
+                            <span class="brand-text-grid"><a href="{$link->getManufacturerLink($product.id_manufacturer)|escape:'html':'UTF-8'}">{Manufacturer::getnamebyid($product.id_manufacturer)|escape:'html':'UTF-8'}</a></span>
+                            {else}
+                            <span class="brand-text-grid">SPOC</span>
+                        {/if}
                         <a href="{$product.url}">
-                            <h6 itemprop="name">{$product.name}</h6>
+                            <h6 itemprop="name">{$product.name|truncate:60:'...'}</h6>
                         </a>
                     </div>
                     {* <div class="tvproduct-cat-name">{$product.category_name}</div> *}
