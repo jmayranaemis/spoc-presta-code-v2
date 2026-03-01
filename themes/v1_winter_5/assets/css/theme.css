@@ -7870,12 +7870,18 @@ a:hover {
     font-size: 1.5rem;
 }
 
-#product-grid-price-discount {
-    color: #a80115;
-    font-weight: 700;
-    text-align: center;
-    font-size: 1.5rem;
+
+
+/* prix affiché quand il y a promo */
+.product-price-and-shipping .product-grid-price-discount{
+  color: #a80115;
+  font-weight: 700;
+  text-align: center;
+  font-size: 1.5rem;
 }
+
+
+
 
 #products .variant-links,
 .featured-products .variant-links,
@@ -11690,7 +11696,7 @@ data-toggle[tooltip] {
     border-radius: 3px;
     letter-spacing: 0.4px;
     color: #a80115;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
     /* vertical-align: middle; */
 }
