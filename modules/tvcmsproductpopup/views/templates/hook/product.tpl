@@ -79,7 +79,6 @@
             <div class="tv-product-price">
                 {if $product.show_price}
                 <div class="product-price-and-shipping">
-                    <span class="price">{$product.price}</span>
                     {if $product.has_discount}
                     <span class="product-grid-price-discount">{$product.price}</span>
                     <span class="regular-price">{l s='Regular price: ' d='Shop.Theme.Catalog'} {$product.regular_price}</span>
