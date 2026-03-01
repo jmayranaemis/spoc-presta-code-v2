@@ -115,9 +115,11 @@
                 <div class="tv-product-price tvproduct-name-price-wrapper">
                     {if $product.show_price}
                     <div class="product-price-and-shipping">
-                        <span class="price">{$product.price}</span>
                         {if $product.has_discount}
+                        <span class="product-grid-price-discount">{$product.price}</span>
                         <span class="regular-price">{l s='Regular price: ' d='Shop.Theme.Catalog'} {$product.regular_price}</span>
+                        {else}
+                        <span class="product-grid-price">{$product.price}</span>
                         {/if}
                         {if $product.has_discount}
                         {hook h='displayProductPriceBlock' product=$product type="old_price"}
