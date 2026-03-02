@@ -1586,6 +1586,12 @@ img.lazy {
     overflow: hidden;
     min-height: calc(2em * 2);
 }
+
+/* Marque en gras dans les cards grid */
+.product-description .tvproduct-name .brand-text-grid,
+.product-description .tvproduct-name .brand-text-grid a{
+  font-weight: 700;
+}
 .tvproduct-name.product-title a h6 {
     color: #222222;
     font-size: 14px;
@@ -1594,11 +1600,7 @@ img.lazy {
     margin-bottom: 0;
 }
 
-/* Marque en gras dans les cards grid */
-#products .product-miniature .tvproduct-name .brand-text-grid,
-#products .product-miniature .tvproduct-name .brand-text-grid a{
-  font-weight: 700;
-}
+
 
 /*.tvleft-right-product-slider .tv-product-price .price{
     font-size: 14px;
