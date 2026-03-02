@@ -1590,7 +1590,7 @@ img.lazy {
 /* Marque en gras dans les cards grid */
 .product-description .tvproduct-name .brand-text-grid,
 .product-description .tvproduct-name .brand-text-grid a{
-    font-weight: 600;
+    font-weight: 800;
     text-transform: uppercase;
     font-size: 1rem;
 }
