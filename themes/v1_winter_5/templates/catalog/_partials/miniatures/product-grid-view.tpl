@@ -67,7 +67,13 @@
                 {/if}
                 {*/foreach*}
             </ul>
-
+            {if $product.discount_type === 'percentage'}
+                <ul class="tvproduct-flags tvproduct-sale-pack-wrapper">
+                    <li>{$product.discount_percentage}</li>
+                </ul>
+                {elseif $product.discount_type === 'amount'}
+                <span class="product-flag on-sale">{$product.discount_amount_to_display}</span>
+            {/if}
 
             {/block}
             {if !empty($product.specific_prices.from) && !empty($product.specific_prices.to) && $product.specific_prices.from != '0000-00-00 00:00:00' && $product.specific_prices.to != '0000-00-00 00:00:00'}
