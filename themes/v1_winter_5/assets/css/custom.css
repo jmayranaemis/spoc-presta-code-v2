@@ -1593,6 +1593,13 @@ img.lazy {
     font-weight: 500;
     margin-bottom: 0;
 }
+
+/* Marque en gras dans les cards grid */
+#products .product-miniature .tvproduct-name .brand-text-grid,
+#products .product-miniature .tvproduct-name .brand-text-grid a{
+  font-weight: 700;
+}
+
 /*.tvleft-right-product-slider .tv-product-price .price{
     font-size: 14px;
 }
