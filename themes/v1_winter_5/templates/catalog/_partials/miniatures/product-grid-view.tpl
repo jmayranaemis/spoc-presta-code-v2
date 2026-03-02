@@ -144,10 +144,7 @@
                         {hook h='displayProductPriceBlock' product=$product type="old_price"}
                         <span class="sr-only">{l s='Regular price' d='Shop.Theme.Catalog'}</span>
                         {if $product.discount_type === 'percentage'}
-                        <span class="discount-percentage discount-product tvproduct-discount-price">
-                            {$product.discount_percentage}
-                            {l s=' off' d='Shop.Theme.Catalog'}
-                        </span>
+                        <span class="discount-percentage discount-product tvproduct-discount-price">{$product.discount_percentage}{l s=' off' d='Shop.Theme.Catalog'}</span>
                         {elseif $product.discount_type === 'amount'}
                         <span class="discount-amount discount-product tvproduct-discount-price">{$product.discount_amount_to_display} {l s=' off' d='Shop.Theme.Catalog'}</span>
                         {/if}

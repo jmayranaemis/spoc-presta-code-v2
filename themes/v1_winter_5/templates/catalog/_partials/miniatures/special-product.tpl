@@ -165,7 +165,7 @@
                             {else}
                             <span class="product-grid-price">{$product.price}</span>
                         {/if}
-                            {if $product.has_discount}
+                        {if $product.has_discount}
                             {hook h='displayProductPriceBlock' product=$product type="old_price"}
                             <span class="sr-only">{l s='Regular price' d='Shop.Theme.Catalog'}</span>
                             {if $product.discount_type === 'percentage'}

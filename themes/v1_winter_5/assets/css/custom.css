@@ -1579,6 +1579,12 @@ img.lazy {
 /*****Start Product Title & Price*****/
 .product-description .tvproduct-name {
     padding: 0 0 8px;
+    line-height: 1.25;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    min-height: calc(2em * 2);
 }
 .tvproduct-name.product-title a h6 {
     color: #222222;
@@ -1617,7 +1623,7 @@ ul.wlp_bought_list li .product_infos .product-name {
     color: #666666;
     letter-spacing: 0.3px;
     vertical-align: middle;
-    display: inline-block;
+    display: block;
 }
 
 .product-price-discount {
@@ -10225,28 +10231,6 @@ body#checkout .tvtheme-control-icon{
 }
 
 
-/* GRID: carte en colonne, prix collé en bas */
-#products .thumbnail-container{
-  height: 100%;
-}
-
-#products .tvproduct-wrapper.grid{
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-#products .tvproduct-info-box-wrapper,
-#products .tvproduct-wrapper.grid .product-description{
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-/* pousse le bloc prix en bas de la zone info */
-#products .tvproduct-wrapper.grid .tv-product-price{
-  margin-top: auto;
-}
 
 
 /*mailalert css end*/
