@@ -7868,6 +7868,11 @@ a:hover {
     font-weight: 700;
     text-align: left;
     font-size: 1.5rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.15rem;
+    min-height: 3.2rem;
 }
 
 
@@ -7878,6 +7883,7 @@ a:hover {
   font-weight: 700;
   text-align: left;
   font-size: 1.5rem;
+  line-height: 1.2;
 }
 
 
