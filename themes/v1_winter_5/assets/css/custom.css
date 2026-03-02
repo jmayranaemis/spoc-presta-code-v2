@@ -10225,24 +10225,28 @@ body#checkout .tvtheme-control-icon{
 }
 
 
+/* GRID: carte en colonne, prix collé en bas */
+#products .thumbnail-container{
+  height: 100%;
+}
 
-/* MegaMenuPro (ets_megamenu) visible dans le burger Volty */
- /*@media (max-width: 991px){
+#products .tvproduct-wrapper.grid{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
-  Le conteneur du menu dans le slidebar 
-  .tvmobile-slidebar #tvmobile-megamenu{
-    display: block !important;
-  }
-*/
-  /* Wrappers ETS (selon versions) 
-  .tvmobile-slidebar #tvmobile-megamenu .ets_mm_megamenu,
-  .tvmobile-slidebar #tvmobile-megamenu .ets_mm_megamenu_content,
-  .tvmobile-slidebar #tvmobile-megamenu .ets_mm_megamenu_container{
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    height: auto !important;
-    max-height: none !important*/
+#products .tvproduct-info-box-wrapper,
+#products .tvproduct-wrapper.grid .product-description{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* pousse le bloc prix en bas de la zone info */
+#products .tvproduct-wrapper.grid .tv-product-price{
+  margin-top: auto;
+}
 
 
 /*mailalert css end*/
