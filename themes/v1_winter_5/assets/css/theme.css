@@ -7866,7 +7866,7 @@ a:hover {
 .product-miniature .product-price-and-shipping {
     color: #232323;
     font-weight: 700;
-    text-align: center;
+    text-align: left;
     font-size: 1.5rem;
 }
 
@@ -7876,7 +7876,7 @@ a:hover {
 .product-price-and-shipping .product-grid-price-discount{
   color: #a80115;
   font-weight: 700;
-  text-align: center;
+  text-align: left;
   font-size: 1.5rem;
 }
 
