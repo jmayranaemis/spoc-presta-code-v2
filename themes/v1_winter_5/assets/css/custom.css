@@ -955,13 +955,14 @@ span.tvcart-product-price {
     /*text-transform: uppercase;*/
     line-height: 40px;
     position: relative;
-    font-weight: 700;
+    font-weight: 600;
     font-family: 'Poppins';
     letter-spacing: 0.8px;
     margin-bottom: 0;
     padding-left: 35px;
     display: inline-block;
     text-align: left;
+    letter-spacing: normal;
 }
 .tvcms-main-title .tvmain-title h2:before {
     content: '';
