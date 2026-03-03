@@ -113,7 +113,7 @@
                 <ul class="tvproduct-flags tvproduct-online-new-wrapper">
                     {foreach from=$product.flags item=flag}
                     {if $flag.type == 'online-only' || $flag.type == 'new'}
-                    <li>{$flag.label}</li>
+                    <li class="product-flag {$flag.type}">{$flag.label}</li>
                     {/if}
                     {/foreach}
                 </ul>
