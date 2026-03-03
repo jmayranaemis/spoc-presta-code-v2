@@ -1127,7 +1127,7 @@ span.tvcart-product-price {
     color: #ffc315;
 }
 /***** End Product Review *****/
-/***** Start all sale lable *****/
+/***** Start all sale label *****/
 .tvproduct-flags {
     display: inline-block;
     position: absolute;
@@ -1167,6 +1167,9 @@ span.tvcart-product-price {
 .tvproduct-flags.tvproduct-sale-pack-wrapper li {
     color: #db1212;
 }
+
+
+
 .tvproduct-flags li {
     font-size: 14px;
     color: #444;
@@ -1178,6 +1181,14 @@ span.tvcart-product-price {
     -o-transition: all 0.6s ease-in-out;
     transition: all 0.6s ease-in-out;
     margin-bottom: 5px;
+}t
+
+
+/* Promo / remise (ex: -20%) */
+#products .product-miniature li.product-flag.on-sale,
+#products .product-miniature li.product-flag.discount{
+  background: #e53935;
+  color: #fff;
 }
 /***** Product Color *****/
 .tvproduct-color {
