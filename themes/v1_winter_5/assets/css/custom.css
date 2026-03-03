@@ -10287,6 +10287,22 @@ body#checkout .tvtheme-control-icon{
 }
 
 
+/* Cadre image : on clippe ce qui dépasse */
+.tvproduct-image{
+  overflow: hidden;
+  border-radius: 12px;  /* mets la même valeur que ta card si besoin */
+}
 
+/* Le lien et l'image doivent occuper tout l'espace */
+.tvproduct-image a.product-thumbnail{
+  display: block;
+}
+
+.tvproduct-image img{
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
 
 /*mailalert css end*/
