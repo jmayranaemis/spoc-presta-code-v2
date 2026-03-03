@@ -1183,13 +1183,38 @@ span.tvcart-product-price {
     margin-bottom: 5px;
 }
 
-
+/* Nouveau */
+#products .product-miniature li.product-flag.new{
+  background: #1b5e20;
+  color: #fff;
+}
 /* Promo / remise (ex: -20%) */
 #products .product-miniature li.product-flag.on-sale,
 #products .product-miniature li.product-flag.discount{
   background: #e53935;
   color: #fff;
 }
+
+/* Online only */
+#products .product-miniature li.product-flag.online-only{
+  background: #0d47a1;
+  color: #fff;
+}
+
+
+/* Pack / bundle (si utilisé) */
+#products .product-miniature li.product-flag.pack{
+  background: #4e342e;
+  color: #fff;
+}
+
+/* Rupture / out of stock (si utilisé) */
+#products .product-miniature li.product-flag.out_of_stock,
+#products .product-miniature li.product-flag.out-of-stock{
+  background: #424242;
+  color: #fff;
+}
+
 /***** Product Color *****/
 .tvproduct-color {
     display: flex;
