@@ -447,7 +447,7 @@
 /***** main header-navbar *****/
 .tvcmsdesktop-top-header-wrapper .tvcmsdesktop-top-header {
     /*border-bottom: 1px solid rgba(0, 0, 0, 0.07);*/
-    background-color: #f5f5f5;
+    background-color: #1c4d6d;
 }
 .container.tvcmsdesktop-top-wrapper {
     padding: 0;
@@ -488,9 +488,9 @@
 }
 .tvheader-nav-offer-text p {
     margin-bottom: 0;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 400;
-    color: #444444;
+    color: #fff;
 }
 /***** start deckstop language *****/
 .tvheader-language-currency-wrapper {
@@ -950,12 +950,12 @@ span.tvcart-product-price {
     overflow: hidden;
 }
 .tvcms-main-title .tvmain-title h2 {
-    font-size: 30px;
-    color: #222222;
+    font-size: 28px;
+    color: #1c4d6d;
     text-transform: uppercase;
     line-height: 40px;
     position: relative;
-    font-weight: 500;
+    font-weight: 600;
     font-family: 'Poppins';
     letter-spacing: 0.8px;
     margin-bottom: 0;
