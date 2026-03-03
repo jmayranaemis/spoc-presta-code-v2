@@ -11696,15 +11696,16 @@ data-toggle[tooltip] {
 .quickview .has-discount .discount,
 .tvproduct-page-wrapper .has-discount .discount {
     line-height: normal;
-    /* padding: 5px 6px; */
-    margin: 0 0 0 0px;
+    padding: 5px 6px;
+    margin: 5px 0 0 0px;
     /*background-color: #0b7acb;*/
     border-radius: 3px;
     letter-spacing: 0.4px;
     color: #a80115;
     font-size: 14px;
-    font-weight: 400;
+    /*font-weight: 400;*/
     /* vertical-align: middle; */
+    border: 1px solid #a80115;
 }
 .quickview .product-discount,
 .tvproduct-page-wrapper .product-discount {
