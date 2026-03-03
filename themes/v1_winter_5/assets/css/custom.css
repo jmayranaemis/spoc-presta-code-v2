@@ -6452,6 +6452,8 @@ i.material-icons.block {
     border: none;
     /*margin-top: 15px;*/
     margin-bottom: 15px;
+    font-size: 0.7rem;
+}
 }
 #wrapper .breadcrumb i {
     font-size: 16px;
@@ -6914,6 +6916,7 @@ label.required:after {
     font-size: 16px;
     vertical-align: middle;
     margin-right: 5px;
+    display: none;
 }
 .tvwishlist-inner-product-img-block img {
     margin: 0 auto;
