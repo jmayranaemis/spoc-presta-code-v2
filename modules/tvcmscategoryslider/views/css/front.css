@@ -59,7 +59,7 @@
 }
 .tvcmscategory-slider {
     margin-bottom: 80px;
-    background-color: #f5f5f5;
+    /*background-color: #f5f5f5;*/
     position: relative;
 }
 .tvcategory-img-block {
@@ -88,9 +88,9 @@
 }
 .tvcategory-slider-info-box {
     color: #222222;
-    font-size: 14px;
+    font-size: 18px;
     text-transform: capitalize;
-    font-weight: 500;
+    font-weight: 700;
     letter-spacing: 0.5px;
     position: relative;
     padding-bottom: 10px;
