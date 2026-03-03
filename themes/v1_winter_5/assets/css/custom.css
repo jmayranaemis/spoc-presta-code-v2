@@ -911,7 +911,8 @@ span.tvcart-product-price {
 }
 /***** product title design *****/
 .tvcmsmain-title-wrapper {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    margin-top: 30px;
     position: relative;
 }
 .tvtab-title-wrapper {
