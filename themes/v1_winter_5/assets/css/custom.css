@@ -1128,93 +1128,100 @@ span.tvcart-product-price {
 }
 /***** End Product Review *****/
 /***** Start all sale label *****/
-.tvproduct-flags {
-    display: inline-block;
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    z-index: 1;
-    margin: 0;
-    opacity: 1;
-    -webkit-transition: all 0.5s ease-in-out;
-    -moz-transition: all 0.5s ease-in-out;
-    -ms-transition: all 0.5s ease-in-out;
-    -o-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
-}
-.tvproduct-page-wrapper .tvproduct-flags {
-    opacity: 1;
-}
-.tvproduct-wrapper:hover .tvproduct-flags {
-    opacity: 1;
-}
-.tvproduct-online-new-wrapper .tvproduct-flags li {
-    text-align: left;
-}
-.tvproduct-sale-pack-wrapper {
-    right: 15px;
-    left: auto;
-    text-align: right;
-}
-.tvproduct-online-new-wrapper {
-    left: 15px;
-    right: auto;
-    text-align: left;
-}
-.tvproduct-sale-pack-wrapper .tvproduct-flags li {
-    text-align: right;
-}
-.tvproduct-flags.tvproduct-sale-pack-wrapper li {
-    color: #db1212;
+/* =========================
+   PRODUCT FLAGS / LABELS
+   ========================= */
+
+/* IMPORTANT : c'est bien ".tvproduct-flags" (avec le point) */
+.tvproduct-flags{
+  display: inline-block;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
 }
 
-
-
-.tvproduct-flags li {
-    font-size: 14px;
-    color: #444;
-    font-weight: 500;
-    text-transform: capitalize;
-    -webkit-transition: all 0.6s ease-in-out;
-    -moz-transition: all 0.6s ease-in-out;
-    -ms-transition: all 0.6s ease-in-out;
-    -o-transition: all 0.6s ease-in-out;
-    transition: all 0.6s ease-in-out;
-    margin-bottom: 5px;
+.tvproduct-page-wrapper .tvproduct-flags,
+.tvproduct-wrapper:hover .tvproduct-flags{
+  opacity: 1;
 }
 
-/* Nouveau */
-#products .product-miniature li.product-flag.new{
-  background: #1b5e20;
-  color: #fff;
+/* Position/align : fonctionne si la classe est sur le UL OU sur un parent */
+.tvproduct-flags.tvproduct-sale-pack-wrapper,
+.tvproduct-sale-pack-wrapper .tvproduct-flags{
+  right: 15px;
+  left: auto;
+  text-align: right;
 }
-/* Promo / remise (ex: -20%) */
-#products .product-miniature li.product-flag.on-sale,
-#products .product-miniature li.product-flag.discount{
+
+.tvproduct-flags.tvproduct-online-new-wrapper,
+.tvproduct-online-new-wrapper .tvproduct-flags{
+  left: 15px;
+  right: auto;
+  text-align: left;
+}
+
+/* Badge de base */
+.tvproduct-flags li.product-flag{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.25rem 0.45rem;
+  border-radius: 999px;
+
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+
+  margin: 0 0 5px 0;
+  transition: all 0.6s ease-in-out;
+
+  /* style par défaut si un flag non prévu apparait */
+  background: rgba(255,255,255,0.95);
+  color: #444;
+}
+
+/* ===== Styles par type ===== */
+
+/* Promo / -xx% */
+.tvproduct-flags li.product-flag.on-sale,
+.tvproduct-flags li.product-flag.discount{
   background: #e53935;
   color: #fff;
 }
 
+/* Nouveau */
+.tvproduct-flags li.product-flag.new{
+  background: #1b5e20;
+  color: #fff;
+}
+
 /* Online only */
-#products .product-miniature li.product-flag.online-only{
+.tvproduct-flags li.product-flag.online-only{
   background: #0d47a1;
   color: #fff;
 }
 
-
-/* Pack / bundle (si utilisé) */
-#products .product-miniature li.product-flag.pack{
+/* Pack */
+.tvproduct-flags li.product-flag.pack{
   background: #4e342e;
   color: #fff;
 }
 
-/* Rupture / out of stock (si utilisé) */
-#products .product-miniature li.product-flag.out_of_stock,
-#products .product-miniature li.product-flag.out-of-stock{
+/* Rupture */
+.tvproduct-flags li.product-flag.out_of_stock,
+.tvproduct-flags li.product-flag.out-of-stock{
   background: #424242;
   color: #fff;
 }
-
 /***** Product Color *****/
 .tvproduct-color {
     display: flex;
