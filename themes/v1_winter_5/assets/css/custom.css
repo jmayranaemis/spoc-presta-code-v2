@@ -8418,7 +8418,7 @@ body#checkout.lang-rtl div.checkout-step #login-form .form-control-label {
 .tvcmssame-category-product,
 .tvcmscross-selling-product,
 .tvcmslike-product {
-    margin-bottom: 80px;
+    margin-bottom: 15px;
 }
 /* Media Css 769 to 1024 */
 @media(max-width: 1023px) {
