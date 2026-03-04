@@ -265,6 +265,7 @@
     display: -ms-flexbox;
     display: flex;
     cursor: pointer;
+    flex-direction: column;
 }
 .tvcms-header-cart {
     display: inline-block;
@@ -286,12 +287,12 @@
 }
 .tvcart-icon-text-wrapper .tvcart-lable,
 .tv-account-wrapper .tv-myaccount-btn span {
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 12px;
+    font-weight: 100;
     color: #000000;
     display: inline-block;
     vertical-align: middle;
-    max-width: 100px;
+    max-width: 120px;
     text-align: left;
 }
 /***** start serach right *****/
