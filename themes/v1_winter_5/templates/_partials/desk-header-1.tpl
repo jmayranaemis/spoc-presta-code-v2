@@ -38,7 +38,7 @@
         <div class='container-fluid tvcmsdesktop-top-second hidden-md-down'>
             <div class="container">
                 <div class="row tvcmsdesktop-top-header-box">
-                    <div class='col-lg-4 col-md-4 col-xl-4 col-sm-12 tvcms-header-logo-wrapper'>
+                    <div class='col-lg-3 col-md-3 col-xl-3 col-sm-12 tvcms-header-logo-wrapper'>
                         <div class="hidden-sm-down tvcms-header-logo" id="tvcmsdesktop-logo">
                             {if $withData}
                             <div class="tv-header-logo">
@@ -49,14 +49,14 @@
                             {/if}
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-xl-4 col-sm-12 tvcmsheader-search">
+                    <div class="col-lg-6 col-md-6 col-xl-6 col-sm-12 tvcmsheader-search">
                         <div class='tvcmssearch-wrapper' id="_desktop_search">
                             {if $withData}
                             {hook h='displayNavSearchBlock'}
                             {/if}
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-xl-4 col-sm-12 tvcmsheader-nav-right">
+                    <div class="col-lg-3 col-md-3 col-xl-3 col-sm-12 tvcmsheader-nav-right">
                         <div class="tv-contact-account-cart-wrapper">
                             <div id='tvcmsdesktop-account-button'>
                                 {if $withData}
