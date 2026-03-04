@@ -11981,7 +11981,7 @@ data-toggle[tooltip] {
 #block-reassurance li .block-reassurance-item {
     padding: 15px;
     background-color: #fff;
-    border-left: 3px solid #aaa;
+   /* border-left: 3px solid #aaa;*/
     border-radius: 3px;
 }
 #block-reassurance {
@@ -12010,11 +12010,12 @@ data-toggle[tooltip] {
     text-transform: capitalize;
 }
 #block-reassurance .h6 {
-    font-weight: 400;
+    font-weight: 300;
     margin: 0;
     line-height: 1.2;
     font-size: 0.9rem;
     letter-spacing: normal;
+    text-align: center;
 }
 
 .tvproduct-wishlist-compare {
