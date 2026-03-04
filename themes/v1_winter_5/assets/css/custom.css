@@ -3551,7 +3551,12 @@ body#checkout .custom-checkbox {
 #block-reassurance li .block-reassurance-item {
     border: 1px solid rgba(0, 0, 0, 0.07);
     border-left: 3px solid #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;  /* centre le contenu dans chaque case */
+    gap: 10px;
 }
+
 .form-control {
     /*background-color: #ffffff;*/
     border-radius: 3px;
@@ -6254,7 +6259,10 @@ i.material-icons.block {
     color: #000000;
 }
 #block-reassurance li{
-    margin-inline-end: 0;
+    /*margin-inline-end: 0;*/
+    margin: 0;
+    padding: 0;
+    flex: 1 1 0;    
 }
 @media (min-width:1200px){
     #product #block-reassurance li{
@@ -10292,6 +10300,20 @@ body#checkout .tvtheme-control-icon{
 }
 
 
+/* Responsive : on repasse en 2 par ligne puis 1 par ligne */
+@media (max-width: 768px){
+  #block-reassurance ul{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  #block-reassurance ul > li{
+    flex: 0 0 50%;
+  }
+}
+@media (max-width: 480px){
+  #block-reassurance ul > li{
+    flex: 0 0 100%;
+  }
 }
 
 /*mailalert css end*/

@@ -11968,6 +11968,11 @@ data-toggle[tooltip] {
 #block-reassurance img {
     width: 1.563rem;
     margin-right: .625rem
+    display: block;
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+
 }
 #block-reassurance li {
     margin: 0 15px 5px 0
@@ -11989,8 +11994,16 @@ data-toggle[tooltip] {
 }
 
 #block-reassurance ul {
-    margin-bottom: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
+
 #product #block-reassurance span {
     font-weight: 400;
     font-size: 14px;
@@ -11998,6 +12011,9 @@ data-toggle[tooltip] {
 }
 #block-reassurance .h6 {
     font-weight: 400
+    margin: 0;
+    line-height: 1.2;
+    font-size: 0.95rem;
 }
 
 .tvproduct-wishlist-compare {
