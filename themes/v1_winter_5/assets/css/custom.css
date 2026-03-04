@@ -104,7 +104,7 @@
     width: 100%;
 }*/
 .tv-header-logo img {
-    max-width: 35%;
+    max-width: 40%;
 }
 .tvcms-loading-inner img.logo {
     padding: 0;
@@ -534,7 +534,7 @@
 }
 #tvcmsdesktop-language-selector .tv-language-btn i,
 #tvcmsdesktop-currency-selector .tv-currency-btn i {
-    color: #000000;
+    color: #fff;
     font-size: 12px;
     width: 20px;
     text-align: center;
@@ -543,8 +543,8 @@
 .tvcmsdesktop-view-wishlist .tvwishlist-name span,
 .tv-account-dropdown a.tvmyccount,
 .tvcmsdesktop-view-compare .tvdesktop-view-compare-name {
-    color: #000000;
-    font-size: 14px;
+    color: #fff;
+    font-size: 20px;
     line-height: 40px;
     font-weight: 400;
 }
@@ -5838,7 +5838,7 @@ i.material-icons.block {
 .tvcmsdesktop-top-wrapper #tvcmsdesktop-language-selector .tv-language-btn .tv-language-span,
 .tvcmsdesktop-top-wrapper #tvcmsdesktop-currency-selector .tv-currency-btn .tv-currency-span {
     font-size: 13px;
-    color: #444444;
+    color: #fff;
     font-weight: 400;
     letter-spacing: .3px;
     max-width: max-content;
@@ -5849,6 +5849,33 @@ i.material-icons.block {
 .tvcmsdesktop-top-wrapper #tvcmsdesktop-currency-selector .tv-currency-btn:hover .tv-currency-span {
     color: #db1212;
 }
+
+/* Garder blanc en hover/focus (langue + devise) */
+#tvcmsdesktop-language-selector .tv-language-btn,
+#tvcmsdesktop-language-selector .tv-language-btn i,
+#tvcmsdesktop-language-selector .tv-language-btn span,
+#tvcmsdesktop-currency-selector .tv-currency-btn,
+#tvcmsdesktop-currency-selector .tv-currency-btn i,
+#tvcmsdesktop-currency-selector .tv-currency-btn span {
+  color: #fff !important;
+}
+
+#tvcmsdesktop-language-selector .tv-language-btn:hover,
+#tvcmsdesktop-language-selector .tv-language-btn:hover i,
+#tvcmsdesktop-language-selector .tv-language-btn:hover span,
+#tvcmsdesktop-language-selector .tv-language-btn:focus,
+#tvcmsdesktop-language-selector .tv-language-btn:focus i,
+#tvcmsdesktop-language-selector .tv-language-btn:focus span,
+#tvcmsdesktop-currency-selector .tv-currency-btn:hover,
+#tvcmsdesktop-currency-selector .tv-currency-btn:hover i,
+#tvcmsdesktop-currency-selector .tv-currency-btn:hover span,
+#tvcmsdesktop-currency-selector .tv-currency-btn:focus,
+#tvcmsdesktop-currency-selector .tv-currency-btn:focus i,
+#tvcmsdesktop-currency-selector .tv-currency-btn:focus span {
+  color: #fff !important;
+}
+
+
 .header-7 .tvheader-language,
 .header-7 .tvheader-currency {
     margin-right: 15px;
