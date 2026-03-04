@@ -26,10 +26,10 @@
     <div class="tvcmsdesktop-top-header-wrapper header-1" data-header-layout="1">
         <div class='container-fluid tvcmsdesktop-top-header'>
             <div class="container tvcmsdesktop-top-wrapper">
-                <div class='tvheader-offer-wrapper col-xl-6 col-lg-6 col-md-6 col-sm-12'>
+                <div class='tvheader-offer-wrapper col-xl-9 col-lg-9 col-md-9 col-sm-12'>
                     {hook h='displayTopOfferText'}
                 </div>
-                <div class='tvheader-language-currency-wrapper col-xl-6 col-lg-6 col-md-6 col-sm-12'>
+                <div class='tvheader-language-currency-wrapper col-xl-3 col-lg-3 col-md-3 col-sm-12'>
                     <div class="tvheader-language">{if $withData}{hook h='displayNavLanguageBlock'}{/if}</div>
                     <div class="tvheader-currency">{if $withData}{hook h='displayNavCurrencyBlock'}{/if}</div>
                 </div>
