@@ -11967,7 +11967,7 @@ data-toggle[tooltip] {
 }
 #block-reassurance img {
     width: 1.563rem;
-    margin-right: .625rem
+    margin-right: .625rem;
     display: block;
     width: 25px;
     height: 25px;
@@ -12010,7 +12010,7 @@ data-toggle[tooltip] {
     text-transform: capitalize;
 }
 #block-reassurance .h6 {
-    font-weight: 400
+    font-weight: 400;
     margin: 0;
     line-height: 1.2;
     font-size: 0.95rem;
