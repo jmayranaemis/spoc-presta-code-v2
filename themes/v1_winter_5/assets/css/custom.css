@@ -8325,6 +8325,54 @@ body#checkout.lang-rtl div.checkout-step #login-form .form-control-label {
     .block_newsletter {
         text-align: center;
     }
+
+
+  /* Desktop selectors (souvent réutilisés même en responsive) */
+  #tvcmsdesktop-language-selector .tv-language-btn,
+  #tvcmsdesktop-language-selector .tv-language-btn i,
+  #tvcmsdesktop-language-selector .tv-language-btn span,
+  #tvcmsdesktop-currency-selector .tv-currency-btn,
+  #tvcmsdesktop-currency-selector .tv-currency-btn i,
+  #tvcmsdesktop-currency-selector .tv-currency-btn span,
+
+  /* Au cas où le thème utilise des IDs “mobile” */
+  #tvcmsmobile-language-selector .tv-language-btn,
+  #tvcmsmobile-language-selector .tv-language-btn i,
+  #tvcmsmobile-language-selector .tv-language-btn span,
+  #tvcmsmobile-currency-selector .tv-currency-btn,
+  #tvcmsmobile-currency-selector .tv-currency-btn i,
+  #tvcmsmobile-currency-selector .tv-currency-btn span{
+    color: #000 !important;
+  }
+
+  #tvcmsdesktop-language-selector .tv-language-btn:hover,
+  #tvcmsdesktop-language-selector .tv-language-btn:hover i,
+  #tvcmsdesktop-language-selector .tv-language-btn:hover span,
+  #tvcmsdesktop-language-selector .tv-language-btn:focus,
+  #tvcmsdesktop-language-selector .tv-language-btn:focus i,
+  #tvcmsdesktop-language-selector .tv-language-btn:focus span,
+  #tvcmsdesktop-currency-selector .tv-currency-btn:hover,
+  #tvcmsdesktop-currency-selector .tv-currency-btn:hover i,
+  #tvcmsdesktop-currency-selector .tv-currency-btn:hover span,
+  #tvcmsdesktop-currency-selector .tv-currency-btn:focus,
+  #tvcmsdesktop-currency-selector .tv-currency-btn:focus i,
+  #tvcmsdesktop-currency-selector .tv-currency-btn:focus span,
+
+  #tvcmsmobile-language-selector .tv-language-btn:hover,
+  #tvcmsmobile-language-selector .tv-language-btn:hover i,
+  #tvcmsmobile-language-selector .tv-language-btn:hover span,
+  #tvcmsmobile-language-selector .tv-language-btn:focus,
+  #tvcmsmobile-language-selector .tv-language-btn:focus i,
+  #tvcmsmobile-language-selector .tv-language-btn:focus span,
+  #tvcmsmobile-currency-selector .tv-currency-btn:hover,
+  #tvcmsmobile-currency-selector .tv-currency-btn:hover i,
+  #tvcmsmobile-currency-selector .tv-currency-btn:hover span,
+  #tvcmsmobile-currency-selector .tv-currency-btn:focus,
+  #tvcmsmobile-currency-selector .tv-currency-btn:focus i,
+  #tvcmsmobile-currency-selector .tv-currency-btn:focus span{
+    color: #000 !important;
+  }
+
 }
 @media (max-width: 768px) {
     .lang-rtl .tvcmsmain-slider-wrapper {
