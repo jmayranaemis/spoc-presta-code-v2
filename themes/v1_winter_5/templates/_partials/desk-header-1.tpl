@@ -49,7 +49,11 @@
                             {/if}
                         </div>
                     </div>
+<<<<<<< HEAD
                     <div class="col-lg-6 col-md-6 col-xl-6 col-sm-12 tvcmsheader-search">
+=======
+                    <div class="col-lg-5 col-md-5 col-xl-5 col-sm-12 tvcmsheader-search">
+>>>>>>> 9f403fd504b17a0c6510961c188e236a4393efe3
                         <div class='tvcmssearch-wrapper' id="_desktop_search">
                             {if $withData}
                             {hook h='displayNavSearchBlock'}
