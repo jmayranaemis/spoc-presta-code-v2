@@ -8567,6 +8567,8 @@ body#checkout.lang-rtl div.checkout-step #login-form .form-control-label {
     .mobile-header-2,
     .mobile-header-3 {
         border-bottom: 1px solid #00000012;
+        margin-top: 12px;
+    
     }
     .tvcmsheader-sticky.sticky .tv-header-logo {
         padding: 8px 0;
@@ -8797,12 +8799,13 @@ body#checkout.lang-rtl div.checkout-step #login-form .form-control-label {
         padding: 0;
     }
     .tvcmsmobile-top-wrapper {
-        display: -webkit-box;
+       /* display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
         -webkit-box-align: center;
         -ms-flex-align: center;
-        align-items: center;
+        align-items: center; */
+        display: none;
     }
     .tvmobileheader-language-currency-wrapper {
         text-align: right;
@@ -9655,6 +9658,7 @@ body#checkout.lang-rtl div.checkout-step #login-form .form-control-label {
     }
     .tvcmsmobile-top-wrapper {
         padding-bottom: 0px;
+        display: none;
     }
     #header .tvsearch-top-wrapper {
         width: 70%;
@@ -9761,7 +9765,7 @@ body#checkout.lang-rtl div.checkout-step #login-form .form-control-label {
         text-align: center;
     }
     .tvcmsmobile-top-wrapper {
-        display: block;
+        display: none;
         padding-bottom: 0px;
     }
     #tvcmsmobile-horizontal-menu .tvcmsmain-menu-wrapper>.tv-header-menu {
