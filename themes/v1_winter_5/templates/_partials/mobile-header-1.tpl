@@ -36,11 +36,12 @@
         <div class='tvcmsmobile-header-menu-offer-text tvcmsheader-sticky'>
             <div class="tvcmsmobile-header-menu col-sm-1 col-xs-2">
                 <div class="tvmobile-sliderbar-btn">
-                    <a href="Javascript:void(0);" title="">
+                    <span class="ets_customnu_button closed"><i class='material-icons'>&#xe5d2;</i></span>
+                    {*<a href="Javascript:void(0);" title="">
                         <i class='material-icons'>&#xe5d2;</i>
-                    </a>
+                    </a>*}
                 </div>
-                <div class="tvmobile-slidebar">
+                {*<div class="tvmobile-slidebar">
                     <div class="tvmobile-dropdown-close">
                         <a href="Javascript:void(0);"><i class='material-icons'>&#xe14c;</i></a>
                     </div>
@@ -57,7 +58,7 @@
                     <div class="tvcmsmobile-contact">{if $withData}{hook h='displayNav1'}{/if}</div>
                     <div id='tvmobile-lang'>{if $withData}{hook h='displayNavLanguageBlock'}{/if}</div>
                     <div id='tvmobile-curr'>{if $withData}{hook h='displayNavCurrencyBlock'}{/if}</div>
-                </div>
+                </div>*}
             </div>
             <div class="tvcmsmobile-header-logo-right-wrapper col-md-4 col-sm-12">
                 <div id='tvcmsmobile-header-logo'>
