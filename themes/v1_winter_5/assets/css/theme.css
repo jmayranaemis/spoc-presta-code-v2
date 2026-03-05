@@ -11985,7 +11985,8 @@ data-toggle[tooltip] {
     border-radius: 3px;
 }
 #block-reassurance {
-    margin: 0
+    background-color: #f7f7f7;
+    margin: 0;
 }
 #product #block-reassurance ul {
     display: flex;
@@ -12001,7 +12002,7 @@ data-toggle[tooltip] {
     gap: 24px;
     list-style: none;
     margin: 0;
-    padding: 0;
+    padding: 25px;
 }
 
 #product #block-reassurance span {
