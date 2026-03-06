@@ -3430,12 +3430,12 @@ body#checkout section.checkout-step .edit-address:hover {
     border-color: #db1212
 }
 #blockcart-modal .product-name {
-    color: #db1212;
+    color: #152b45;
     font-size: 1.125rem
 }
 .product-price .current-price .price,
 .modal-body.tv-addtocart-content-part .tv-addtocart-price {
-    color: #db1212;
+    color: #152b45;
     font-size: 20px;
     line-height: 22px;
     font-weight: 700;
