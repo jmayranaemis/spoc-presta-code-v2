@@ -29,9 +29,11 @@
     <!-- END THEME_CONTROL -->
 {/if}
 {if Configuration::get('TVCMSCUSTOMSETTING_THEME_OPTION')}
+    {*
     {if Configuration::get('TVCMSCUSTOMSETTING_ALL_THEME_CSS_PATH')}
       <link rel="stylesheet" type="text/css" href="{$urls.css_url}{Configuration::get('TVCMSCUSTOMSETTING_ALL_THEME_CSS_PATH')}"></link>
     {/if}
+    *}
     {if Configuration::get('TVCMSCUSTOMSETTING_THEME_FONT_TYPE_LINK')}
      <link rel="stylesheet" type="text/css"  href="{Configuration::get('TVCMSCUSTOMSETTING_THEME_FONT_TYPE_LINK')}"></link>
 	{/if}
