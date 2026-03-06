@@ -8854,7 +8854,7 @@ body#checkout.lang-rtl div.checkout-step #login-form .form-control-label {
         display: none;
     }
     .tvcmsmobile-header-logo-right-wrapper #tvcmsmobile-header-logo {
-        width: 100%;
+        width: 130%;
     }
     .tvcmsmobile-cart-acount-text {
         display: -webkit-box;
@@ -9222,7 +9222,7 @@ body#checkout.lang-rtl div.checkout-step #login-form .form-control-label {
         max-height: 627px;
     }
     .tvcmsheader-search.search-widget form input[type=text] {
-        height: 42px;
+        height: 50px;
     }
     .tvheader-top-search-wrapper {
         padding: 10px 16px;
@@ -9648,7 +9648,7 @@ body#checkout.lang-rtl div.checkout-step #login-form .form-control-label {
     .tv-header-logo {
         height: auto;
         text-align: center;
-        justify-content: center;
+        justify-content: left;
     }
     #header #tvcms-mobile-view-header.mobile-header-2 .tv-header-logo {
         justify-content: flex-start;
