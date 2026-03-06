@@ -543,7 +543,7 @@
 .tvcmsdesktop-view-wishlist .tvwishlist-name span,
 .tv-account-dropdown a.tvmyccount,
 .tvcmsdesktop-view-compare .tvdesktop-view-compare-name {
-    color: #fff;
+    color: #000000;
     font-size: 15px;
     line-height: 30px;
     font-weight: 400;
