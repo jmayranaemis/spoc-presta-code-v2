@@ -5090,13 +5090,15 @@ i.material-icons.block {
 }
 .tvall-inner-btn-cancel span,
 .tvall-inner-btn span {
-    font-size: 13px;
+    font-size: 15px;
+    font-weight: 700;
     color: #fff;
-    text-transform: uppercase;
+    text-transform: initial;
     line-height: normal;
     vertical-align: middle;
     display: inline-block;
     text-align: center;
+    letter-spacing: 1.3px;
 }
 .tvall-inner-btn-cancel span {
     color: #fff;
@@ -10397,6 +10399,57 @@ body#checkout .tvtheme-control-icon{
   #block-reassurance ul > li{
     flex: 0 0 100%;
   }
+}
+
+
+
+
+
+/******************************************************
+ * SPOC - bouton principal add to cart
+ ******************************************************/
+
+.product-add-to-cart .add-to-cart,
+.product-add-to-cart .add-to-cart.tvall-inner-btn,
+.product-add-to-cart .tvall-inner-btn.add-to-cart {
+    background: #152b45 !important;
+    border: 1px solid #152b45 !important;
+    border-radius: 20px !important;
+    color: #fff !important;
+    overflow: hidden;
+    transition: all .3s ease-in-out;
+}
+
+.product-add-to-cart .add-to-cart:hover,
+.product-add-to-cart .add-to-cart:focus,
+.product-add-to-cart .add-to-cart:active,
+.product-add-to-cart .add-to-cart.tvall-inner-btn:hover,
+.product-add-to-cart .add-to-cart.tvall-inner-btn:focus,
+.product-add-to-cart .add-to-cart.tvall-inner-btn:active,
+.product-add-to-cart .tvall-inner-btn.add-to-cart:hover,
+.product-add-to-cart .tvall-inner-btn.add-to-cart:focus,
+.product-add-to-cart .tvall-inner-btn.add-to-cart:active {
+    background: #31a9e1 !important;
+    border-color: #31a9e1 !important;
+    border-radius: 20px !important;
+    color: #fff !important;
+    text-decoration: none !important;
+}
+
+.product-add-to-cart .add-to-cart span,
+.product-add-to-cart .add-to-cart i,
+.product-add-to-cart .add-to-cart:hover span,
+.product-add-to-cart .add-to-cart:hover i {
+    color: #fff !important;
+}
+
+/* neutralise un éventuel overlay rouge généré par le thème */
+.product-add-to-cart .add-to-cart:before,
+.product-add-to-cart .add-to-cart:after,
+.product-add-to-cart .tvall-inner-btn.add-to-cart:before,
+.product-add-to-cart .tvall-inner-btn.add-to-cart:after {
+    background: transparent !important;
+    border-radius: 20px !important;
 }
 
 /*mailalert css end*/
