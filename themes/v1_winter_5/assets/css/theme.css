@@ -11918,10 +11918,10 @@ data-toggle[tooltip] {
     line-height: normal;
     height: auto;
     padding: 17px 37px;
-    border-radius: 3px;
+    border-radius: 20px;
     font-weight: 300;
     text-transform: capitalize;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, .14);
+  /* box-shadow: 4px 4px 4px rgba(0, 0, 0, .14);*/
     margin-right: 25px;
 }
 .product-add-to-cart .add-to-cart i {

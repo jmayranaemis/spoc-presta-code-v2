@@ -1563,7 +1563,7 @@ img.lazy {
 .tvproduct-wrapper .tvproduct-cart-btn:hover .tvproduct-add-to-cart,
 .tvproduct-wrapper .tvproduct-wishlist:hover .tvproduct-wishlist-icon,
 .tvproduct-wrapper .tvcompare-wrapper:hover .tvproduct-compare-icon i.add {
-    background-color: #db1212;
+    background-color: #31a9e1;
     color: #fff;
 }
 .tvproduct-wrapper .tvproduct-cart-btn .tvproduct-add-to-cart {
@@ -10142,7 +10142,7 @@ body#checkout.lang-rtl div.checkout-step #login-form .form-control-label {
     }
 }
 .product-add-to-cart .add-to-cart {
-    background-color: orange;
+    background-color: #152b45;
     letter-spacing: 2px;
 }
 .product-add-to-cart .add-to-cart i {
