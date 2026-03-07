@@ -930,24 +930,24 @@ span.tvcart-product-price {
     vertical-align: top;
     line-height: 14px;
     background-color: #fff;
-    border: 1px solid #666666;
+    border: 1px solid #152b45;
     margin: 0 8px;
 }
 .tvtab-title-wrapper .tvtabs-products li span {
     font-weight: 500;
-    color: #222;
+    color: #152b45;
     font-size: 14px;
     letter-spacing: 0.6px;
     text-transform: uppercase;
 }
 .tvtab-title-wrapper .tvtabs-products li:hover,
 .tvtab-title-wrapper .tvtabs-products li.active {
-    border: 1px solid #444444;
-    background-color: #ffffff;
+    border: 1px solid #152b45;
+    background-color: #152b45;
 }
 .tvtab-title-wrapper .tvtabs-products li:hover span,
 .tvtab-title-wrapper .tvtabs-products li.active span {
-    color: #db1212;
+    color: #fff;
 }
 .tvtab-product {
     overflow: hidden;
