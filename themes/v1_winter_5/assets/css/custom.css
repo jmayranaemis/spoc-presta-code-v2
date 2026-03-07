@@ -3149,7 +3149,7 @@ body {
 }
 /***** common css *****/
 ::selection {
-    background-color: #d21717;
+    background-color: #31a9e1 ;
     color: #ffffff;
 }
 /**::-webkit-scrollbar {
@@ -3162,12 +3162,12 @@ body {
 }*/
 a:focus,
 a:hover {
-    color: #db1212;
+    color: #31a9e1 ;
     text-decoration: none;
 }
 .btn-primary:hover {
     color: #ffffff;
-    background-color: #db1212;
+    background-color: #31a9e1 ;
     border-color: transparent
 }
 .btn-info.active.focus,
@@ -3180,14 +3180,14 @@ a:hover {
 .open>.btn-info.dropdown-toggle:focus,
 .open>.btn-info.dropdown-toggle:hover {
     color: #ffffff;
-    background-color: #db1212;
-    border-color: #db1212
+    background-color: #31a9e1 ;
+    border-color: #31a9e1
 }
 .btn-outline-primary {
-    color: #db1212;
+    color: #31a9e1 ;
     background-image: none;
     background-color: transparent;
-    border-color: #db1212
+    border-color: #31a9e1
 }
 .btn-outline-primary.active,
 .btn-outline-primary.focus,
@@ -3196,8 +3196,8 @@ a:hover {
 .btn-outline-primary:hover,
 .open>.btn-outline-primary.dropdown-toggle {
     color: #ffffff;
-    background-color: #db1212;
-    border-color: #db1212
+    background-color: #31a9e1 ;
+    border-color: #31a9e1 ;
 }
 .btn-outline-info.active.focus,
 .btn-outline-info.active:focus,
@@ -3209,13 +3209,13 @@ a:hover {
 .open>.btn-outline-info.dropdown-toggle:focus,
 .open>.btn-outline-info.dropdown-toggle:hover {
     color: #ffffff;
-    background-color: #db1212;
-    border-color: #db1212
+    background-color: #31a9e1 ;
+    border-color: #31a9e1 ;
 }
 .btn-primary {
     color: #fff;
-    background-color: #373737;
-    border-color: transparent;
+    background-color: transparent;
+    border-color: #152b45 ;
     border-radius: 3px;
 }
 .btn-primary.active,
@@ -3235,16 +3235,16 @@ a:hover {
 .open>.btn-outline-primary.dropdown-toggle:focus,
 .open>.btn-outline-primary.dropdown-toggle:hover {
     color: #fff;
-    background-color: #373737;
-    border-color: #175c6a
+    background-color: #152b45;
+    border-color: #152b45
 }
 .tag-primary[href]:focus,
 .tag-primary[href]:hover {
-    background-color: #373737
+    background-color: #152b45
 }
 a.bg-primary:focus,
 a.bg-primary:hover {
-    background-color: #373737
+    background-color: #152b45
 }
 a.text-primary:focus,
 a.text-primary:hover {
@@ -3486,7 +3486,7 @@ body#checkout section.checkout-step .edit-address:hover {
 }
 #wrapper .breadcrumb li:last-child a,
 #wrapper .breadcrumb li:hover a {
-    color: #db1212;
+    color: #232323;
 }
 #wrapper .breadcrumb li:last-child:after {
     content: none;
