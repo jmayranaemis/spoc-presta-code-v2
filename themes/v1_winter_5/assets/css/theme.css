@@ -11690,6 +11690,7 @@ data-toggle[tooltip] {
     margin-bottom: 15px;
 }
 .product-price {
+    margin-top: 10px;
     margin-bottom: 0;
     display: flex;
     align-items: flex-start;
