@@ -711,6 +711,7 @@
     display: inline-block;
     vertical-align: middle;
     color: #666666;
+    margin-top:0px;
 }
 .tvcmscart-show-dropdown .tvshoping-cart-dropdown-title a {
     font-size: 15px;
