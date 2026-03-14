@@ -10461,4 +10461,85 @@ body#checkout .tvtheme-control-icon{
     border-radius: 20px !important;
 }
 
+
+/******************************************************
+ * SPOC - brand list en grille au lieu du carousel
+ ******************************************************/
+
+/* neutralise le fonctionnement carousel */
+.tvcmsbrandlist-slider .tvbrandlist-slider-inner.owl-carousel {
+    display: block !important;
+}
+
+.tvcmsbrandlist-slider .tvbrandlist-slider-inner .owl-stage-outer {
+    overflow: visible !important;
+}
+
+.tvcmsbrandlist-slider .tvbrandlist-slider-inner .owl-stage {
+    width: 100% !important;
+    transform: none !important;
+    transition: none !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 20px !important;
+}
+
+/* 6 logos par ligne desktop */
+.tvcmsbrandlist-slider .tvbrandlist-slider-inner .owl-item {
+    width: calc((100% - 5 * 20px) / 6) !important;
+    float: none !important;
+    flex: 0 0 calc((100% - 5 * 20px) / 6) !important;
+}
+
+/* carte logo */
+.tvcmsbrandlist-slider .tvbrandlist-slider-wrapper-info {
+    width: 100%;
+    height: 100%;
+}
+
+.tvcmsbrandlist-slider .tvbrand-img-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #d9e2ec;
+    border-radius: 12px;
+}
+
+.tvcmsbrandlist-slider .tvbrand-img-block img {
+    max-width: 100%;
+    max-height: 60px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+/* masque la navigation du slider devenue inutile */
+.tvcmsbrandlist-slider .owl-nav,
+.tvcmsbrandlist-slider .owl-dots,
+.tvcmsbrandlist-slider .tvcms-brandlist-pagination-wrapper {
+    display: none !important;
+}
+
+/* responsive */
+@media (max-width: 1199px) {
+    .tvcmsbrandlist-slider .tvbrandlist-slider-inner .owl-item {
+        width: calc((100% - 3 * 20px) / 4) !important;
+        flex: 0 0 calc((100% - 3 * 20px) / 4) !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .tvcmsbrandlist-slider .tvbrandlist-slider-inner .owl-stage {
+        gap: 15px !important;
+    }
+
+    .tvcmsbrandlist-slider .tvbrandlist-slider-inner .owl-item {
+        width: calc((100% - 1 * 15px) / 2) !important;
+        flex: 0 0 calc((100% - 1 * 15px) / 2) !important;
+    }
+}
+
 /*mailalert css end*/
