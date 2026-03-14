@@ -183,7 +183,7 @@
     position: relative;
 }
 #tvcmsdesktop-main-menu .tvcmsmain-menu-wrapper .tv-header-menu[data-depth="1"]>li>.tvmenu-link-wrapper a span:hover {
-    color: #db1212;
+    color: #145078;
 }
 .tvcms-header-menu .tv-header-menu>li>.tvmenu-link-wrapper i {
     color: #ffffff;
@@ -414,7 +414,7 @@
     margin: 0;
 }
 .tvsearch-dropdown-wrapper:hover .tvsearch-dropdown-content-box .tvsearch-dropdown-title {
-    color: #db1212;
+    color: #145078;
 }
 .tvsearch-dropdown-close-wrapper {
     position: absolute;
@@ -448,7 +448,7 @@
 /***** main header-navbar *****/
 .tvcmsdesktop-top-header-wrapper .tvcmsdesktop-top-header {
     /*border-bottom: 1px solid rgba(0, 0, 0, 0.07);*/
-    background-color: #145078 !important;
+    background-color: #145078!important;
 }
 .container.tvcmsdesktop-top-wrapper {
     padding: 0;
@@ -574,7 +574,7 @@
 #tvcmsdesktop-currency-selector:hover .tv-currency-btn .tv-currency-span,
 #tvcmsdesktop-user-info .tvhedaer-sign-btn:hover,
 .tv-account-dropdown a.tvmyccount:hover {
-    color: #db1212;
+    color: #145078;
 }
 /*.tv-account-dropdown > div {
     border-bottom: 1px solid #e5e5e5;
@@ -629,7 +629,7 @@
     font-size: 12px;
     line-height: 18px;
     text-align: center;
-    background-color: #db1212;
+    background-color: #145078;
 }
 .tvcart-no-product-label {
     text-align: center;
@@ -791,7 +791,7 @@ span.tvcart-product-price {
     text-align: center;
 }
 .tvcart-product-list-viewcart:hover {
-    background-color: #db1212;
+    background-color: #145078;
 }
 .tvcart-product-list-checkout:hover {
     background-color: #ffffff;
@@ -891,7 +891,7 @@ span.tvcart-product-price {
 .tvleft-right-penal-all-block .tvall-product-bottom-link-block a:hover i,
 .tvcmsblog-left-side .tvnews-event-link a:hover i,
 .tvfooter-view-link a:hover i {
-    color: #db1212;
+    color: #145078;
 }
 .tv-total-product-number {
     line-height: 40px;
@@ -931,20 +931,20 @@ span.tvcart-product-price {
     vertical-align: top;
     line-height: 14px;
     background-color: #fff;
-    border: 1px solid #152b45;
+    border: 1px solid #145078;
     margin: 0 8px;
 }
 .tvtab-title-wrapper .tvtabs-products li span {
     font-weight: 500;
-    color: #152b45;
+    color: #145078;
     font-size: 14px;
     letter-spacing: 0.6px;
     text-transform: uppercase;
 }
 .tvtab-title-wrapper .tvtabs-products li:hover,
 .tvtab-title-wrapper .tvtabs-products li.active {
-    border: 1px solid #152b45;
-    background-color: #152b45;
+    border: 1px solid #145078;
+    background-color: #145078;
 }
 .tvtab-title-wrapper .tvtabs-products li:hover span,
 .tvtab-title-wrapper .tvtabs-products li.active span {
@@ -10421,8 +10421,8 @@ body#checkout .tvtheme-control-icon{
 .product-add-to-cart .add-to-cart,
 .product-add-to-cart .add-to-cart.tvall-inner-btn,
 .product-add-to-cart .tvall-inner-btn.add-to-cart {
-    background: #152b45 !important;
-    border: 1px solid #152b45 !important;
+    background: #145078 !important;
+    border: 1px solid #145078 !important;
     border-radius: 20px !important;
     color: #fff !important;
     overflow: hidden;
