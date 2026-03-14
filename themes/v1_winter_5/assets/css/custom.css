@@ -959,28 +959,30 @@ span.tvcart-product-price {
     /*text-transform: uppercase;*/
     line-height: 40px;
     position: relative;
-    font-weight: 600;
+    font-weight: 700;
     font-family: 'Poppins';
-    letter-spacing: 0.8px;
+    letter-spacing: normal;
     margin-bottom: 0;
-    padding-left: 35px;
+    padding-left: 60px;
+    padding-bottom: 4px;
     display: inline-block;
     text-align: left;
-    letter-spacing: normal;
+    
 }
 .tvcms-main-title .tvmain-title h2:before {
     content: '';
     position: absolute;
     height: 40px;
-    width: 15px;
-    top: 0;
+    width: 50px;
+    top: 5px;
     bottom: 0;
+    background-image: url(../img/logo-spoc-mini.png);
     background-repeat: no-repeat;
     right: auto;
     left: 0;
     display: inline-block;
     margin: auto;
-    background-color: #db1212;
+    /*background-color: #db1212;*/
 }
 .lang-rtl .tvcms-main-title .tvmain-title h2:before {
     left: auto;
