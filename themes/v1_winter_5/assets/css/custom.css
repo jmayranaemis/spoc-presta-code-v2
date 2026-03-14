@@ -5455,6 +5455,7 @@ i.material-icons.block {
 .tvcmsproduct-grid-list .tvproduct-list-2,
 .tvcmsproduct-grid-list .tvproduct-catelog,
 .tv_search_filter_wrapper .tvleft-right-title-wrapper {
+    display: none;
     background-color: #ffffff;
     color: #000;
 }
