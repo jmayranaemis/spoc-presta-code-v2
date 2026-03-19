@@ -193,15 +193,14 @@
                     </div>
                     {else}
                     <div class="ttvcart-no-product">
-                        <div class="ttvcart-counter">
-                                <span class="ttvcart-products-count">{$cart.products_count}</span>
-                            </div>
+                        <div class="ttvcart-close-title-count tdclose-btn-wrap">
+                            <button class="ttvclose-cart"></button>
                             <div class="ttvcart-top-title">
                                 <h4>{l s='Shopping Cart' d='Shop.Theme.Checkout'}</h4>
                             </div>
-                            <div class="ttvcart-close-title-count tdclose-btn-wrap">
-                            <button class="ttvclose-cart"></button>
-                            
+                            <div class="ttvcart-counter">
+                                <span class="ttvcart-products-count">{$cart.products_count}</span>
+                            </div>
                         </div>
                         {*<div class='ttvcart-no-product-label'>{l s='No Product Add in Cart' d='Shop.Theme.Checkout'}</div>*}
                     </div>
