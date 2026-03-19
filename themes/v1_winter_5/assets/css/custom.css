@@ -3011,6 +3011,7 @@ ul.wlp_bought_list li .product_infos .product-name {
     color: #fff;
     background-color: #145078;
     border-radius: 20px !important;
+    border: 2px solid #145078 !important;
 }
 .ttvcmscart-show-dropdown-right {
     width: calc(100% - 50px);
