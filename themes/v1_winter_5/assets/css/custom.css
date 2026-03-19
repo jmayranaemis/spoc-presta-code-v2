@@ -2887,7 +2887,7 @@ ul.wlp_bought_list li .product_infos .product-name {
     text-align: center;
     margin: 10px;
     border-radius: 100%;
-    background-color: #db1212;
+    background-color: #145078;
     /*border-left: 1px solid #eeeeee;*/
 }
 .ttvcmscart-show-dropdown-right .ttvcart-counter .ttvcart-products-count {
@@ -2941,7 +2941,7 @@ ul.wlp_bought_list li .product_infos .product-name {
 .ttvcmscart-show-dropdown-right .tvcart-product-content .product-price {
     font-size: 16px;
     font-weight: 900;
-    color: #db1212;
+    color: #145078;
     display: inline-block;
     vertical-align: middle;
     letter-spacing: 0;
@@ -3120,7 +3120,7 @@ body.classicCartOpen .ttvcmscart-show-dropdown-right {
     .tvbanner-hover-wrapper img,
     img.tvmain-slider-img,
     .tvcmssliderofferbanners-one .tvimage-lazy {
-        object-fit: none;
+      /*  object-fit: none; */
     }
 }
 img {
@@ -6738,7 +6738,7 @@ i.material-icons.block {
     stroke: #000 !important;
 }
 #header .tv-cart-icon-main svg g path:nth-child(1) {
-    fill: #FFD741 !important;
+    fill: #145078 !important;
 }
 #header .tv-cart-icon-main svg g path:nth-child(2) {
     fill: #000000 !important;
