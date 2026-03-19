@@ -1,170 +1,145 @@
-{**
-* 2007-2024 PrestaShop
-*
-* NOTICE OF LICENSE
-*
-* This source file is subject to the Academic Free License 3.0 (AFL-3.0)
-* that is bundled with this package in the file LICENSE.txt.
-* It is also available through the world-wide-web at this URL:
-* https://opensource.org/licenses/AFL-3.0
-* If you did not receive a copy of the license and are unable to
-* obtain it through the world-wide-web, please send an email
-* to license@prestashop.com so we can send you a copy immediately.
-*
-* DISCLAIMER
-*
-* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
-* versions in the future. If you wish to customize PrestaShop for your
-* needs please refer to http://www.prestashop.com for more information.
-*
-* @author PrestaShop SA <contact@prestashop.com>
-* @copyright 2007-2024 PrestaShop SA
-* @license https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
-* International Registered Trademark & Property of PrestaShop SA
-*}
 {strip}
 <div class="tvprduct-image-info-wrapper clearfix row product-1" data-product-layout="1">
     {hook h='displayProductTabVideo'}
+
     <div class="col-md-6 tv-product-page-image">
         {block name='product_cover_thumbnails'}
-        {include file='catalog/_partials/product-cover-thumbnails.tpl'}
+            {include file='catalog/_partials/product-cover-thumbnails.tpl'}
         {/block}
     </div>
+
     <div class="col-md-6 tv-product-page-content">
         <div class="tvproduct-title-brandimage" itemprop="itemReviewed" itemscope itemtype="http://schema.org/Thing">
             {block name='page_header_container'}
-            {block name='page_header'}
-            {if !empty(Manufacturer::getnamebyid($product.id_manufacturer))}
-                <span class="brand-text"><a href="{$link->getManufacturerLink($product.id_manufacturer)|escape:'html':'UTF-8'}">{Manufacturer::getnamebyid($product.id_manufacturer)|escape:'html':'UTF-8'}</a></span>
-                {else}
-                <span class="brand-text">SPOC</span>
-            {/if}
+                {block name='page_header'}
+                    {if !empty(Manufacturer::getnamebyid($product.id_manufacturer))}
+                        <span class="brand-text">
+                            <a href="{$link->getManufacturerLink($product.id_manufacturer)|escape:'html':'UTF-8'}">
+                                {Manufacturer::getnamebyid($product.id_manufacturer)|escape:'html':'UTF-8'}
+                            </a>
+                        </span>
+                    {else}
+                        <span class="brand-text">SPOC</span>
+                    {/if}
 
-            <h1 class="h1" itemprop="name">{block name='page_title'}{$product.name}{/block}</h1>
-            {/block}
-             {* Start Product Comment *}
-            {hook h='displayReviewProductList' product=$product}
-            {* End Product Comment *}
-            
-       
+                    <h1 class="h1" itemprop="name">
+                        {block name='page_title'}{$product.name}{/block}
+                    </h1>
+                {/block}
 
-            {block name='product_features'}
-            {if $product.grouped_features}
-            <div class="product-features-page">
-           
-            <dl class="data-sheet-product">
-            {foreach from=$product.grouped_features item=feature}
-           {* <dt class="name-feature">{$feature.name}</dt> *}
-            <dd class="value-feature">{$feature.value|escape:'htmlall'|nl2br nofilter}</dd>
-            {/foreach}
-            </dl>
-            </div>
-            {/if}
+                {* Start Product Comment *}
+                {hook h='displayReviewProductList' product=$product}
+                {* End Product Comment *}
+
+                {block name='product_features'}
+                    {if $product.grouped_features}
+                        <div class="product-features-page">
+                            <dl class="data-sheet-product">
+                                {foreach from=$product.grouped_features item=feature}
+                                    {* <dt class="name-feature">{$feature.name}</dt> *}
+                                    <dd class="value-feature">{$feature.value|escape:'htmlall'|nl2br nofilter}</dd>
+                                {/foreach}
+                            </dl>
+                        </div>
+                    {/if}
+                {/block}
             {/block}
-        
         </div>
 
-                    {block name='product_variants'}
-                    {include file='catalog/_partials/product-variants.tpl'}
-                    {/block}
-                    {block name='product_pack'}
-                    {if $packItems}
-                    <div class="product-pack">
-                        <p class="h4">{l s='This pack contains' d='Shop.Theme.Catalog'}</p>
-                        {foreach from=$packItems item="product_pack"}
-                        {block name='product_miniature'}
-                        {include file='catalog/_partials/miniatures/pack-product.tpl' product=$product_pack}
-                        {/block}
-                        {/foreach}
-                    </div>
-                    {/if}
-                    {/block}
-            
         {block name='product_prices'}
-        {include file='catalog/_partials/product-prices.tpl'}
+            {include file='catalog/_partials/product-prices.tpl'}
         {/block}
-     
 
         <div class="product-actions">
-        {block name='product_buy'}
-            <form action="{$urls.pages.cart}" method="post" id="add-to-cart-or-refresh">
+            {block name='product_buy'}
+                <form action="{$urls.pages.cart}" method="post" id="add-to-cart-or-refresh">
                     <input type="hidden" name="token" value="{$static_token}">
                     <input type="hidden" name="id_product" value="{$product.id}" id="product_page_product_id">
                     <input type="hidden" name="id_customization" value="{$product.id_customization}" id="product_customization_id">
-                    
 
-        {/block}
+                    {block name='product_variants'}
+                        {include file='catalog/_partials/product-variants.tpl'}
+                    {/block}
 
-        {block name='product_discounts'}
-        {include file='catalog/_partials/product-discounts.tpl'}
-        {/block}
-        {block name='product_add_to_cart'}
-        {include file='catalog/_partials/product-add-to-cart.tpl'}
-        {/block}
+                    {if $product.is_customizable && count($product.customizations.fields)}
+                        {block name='product_customization'}
+                            <div class="product-information tvproduct-special-desc">
+                                {include file="catalog/_partials/product-customization.tpl" customizations=$product.customizations}
+                            </div>
+                        {/block}
+                    {/if}
 
-<div class="tax-shipping-delivery-label">
-            {if $configuration.return_enabled}
-                {l s='Return policy:' d='Shop.Theme.Catalog'}{$configuration.number_of_days_for_return}
-            {/if}
-           <span>{$product.delivery_in_stock}</span>
-            {* {hook h='displayProductPriceBlock' product=$product type="price"} *}
-            {* {hook h='displayProductPriceBlock' product=$product type="after_price"} *}
-            {* {if $product.additional_delivery_times == 1} *}
-            {* {if $product.delivery_information} *}
-            {* <span class="delivery-information">{$product.delivery_information}</span> *}
-            {* {/if} *}
-            {* {elseif $product.additional_delivery_times == 2} *}
-            {* {if $product.quantity > 0} *}
-            {* <span class="delivery-information">{$product.delivery_in_stock}</span> *}
-            {* {elseif $product.quantity == 0 && $product.add_to_cart_url} *}
-            {* <span class="delivery-information">{$product.delivery_out_stock}</span> *}
-            {* {/if} *}
-            {* {/if} *}
+                    {block name='product_pack'}
+                        {if $packItems}
+                            <div class="product-pack">
+                                <p class="h4">{l s='This pack contains' d='Shop.Theme.Catalog'}</p>
+                                {foreach from=$packItems item="product_pack"}
+                                    {block name='product_miniature'}
+                                        {include file='catalog/_partials/miniatures/pack-product.tpl' product=$product_pack}
+                                    {/block}
+                                {/foreach}
+                            </div>
+                        {/if}
+                    {/block}
 
-           
-          
-</div>
-        {block name='product_availability'}
-            {if $product.show_availability && $product.availability_message}
-            <span id="product-availability">
-            {if $product.availability == 'available'}
-            <i class="material-icons rtl-no-flip product-available">&#xE5CA;</i>
-            {elseif $product.availability == 'last_remaining_items'}
-            <i class="material-icons product-last-items">&#xE002;</i>
-            {else}
-            <i class="material-icons product-unavailable">&#xE14B;</i>
-            {/if}
-            {$product.availability_message}
-            </span>
-            {/if}
-        {/block}
+                    {block name='product_discounts'}
+                        {include file='catalog/_partials/product-discounts.tpl'}
+                    {/block}
 
+                    {block name='product_add_to_cart'}
+                        {include file='catalog/_partials/product-add-to-cart.tpl'}
+                    {/block}
 
-                    {hook h='displayCustomtab'}
-                    {* {block name='product_additional_info'}
-                    {include file='catalog/_partials/product-additional-info.tpl'}
-                    {/block} *}
+                    <div class="tax-shipping-delivery-label">
+                        {if $configuration.return_enabled}
+                            {l s='Return policy:' d='Shop.Theme.Catalog'}{$configuration.number_of_days_for_return}
+                        {/if}
+                        <span>{$product.delivery_in_stock}</span>
+                        {* {hook h='displayProductPriceBlock' product=$product type="price"} *}
+                        {* {hook h='displayProductPriceBlock' product=$product type="after_price"} *}
+                        {* {if $product.additional_delivery_times == 1} *}
+                        {* {if $product.delivery_information} *}
+                        {* <span class="delivery-information">{$product.delivery_information}</span> *}
+                        {* {/if} *}
+                        {* {elseif $product.additional_delivery_times == 2} *}
+                        {* {if $product.quantity > 0} *}
+                        {* <span class="delivery-information">{$product.delivery_in_stock}</span> *}
+                        {* {elseif $product.quantity == 0 && $product.add_to_cart_url} *}
+                        {* <span class="delivery-information">{$product.delivery_out_stock}</span> *}
+                        {* {/if} *}
+                        {* {/if} *}
+                    </div>
+
+                    {block name='product_availability'}
+                        {if $product.show_availability && $product.availability_message}
+                            <span id="product-availability">
+                                {if $product.availability == 'available'}
+                                    <i class="material-icons rtl-no-flip product-available">&#xE5CA;</i>
+                                {elseif $product.availability == 'last_remaining_items'}
+                                    <i class="material-icons product-last-items">&#xE002;</i>
+                                {else}
+                                    <i class="material-icons product-unavailable">&#xE14B;</i>
+                                {/if}
+                                {$product.availability_message}
+                            </span>
+                        {/if}
+                    {/block}
+
                     {* Input to refresh product HTML removed, block kept for compatibility with themes *}
                     {block name='product_refresh'}{/block}
-            </form>
-        {/block}
-        </div>
-        
-         
-        
-        {if !empty($product.specific_prices.from) && !empty($product.specific_prices.to) && $product.specific_prices.from != '0000-00-00 00:00:00' && $product.specific_prices.to != '0000-00-00 00:00:00'}
-        {include file='catalog/_partials/miniatures/product-timer.tpl' timer=$product.specific_prices.to}
-        {/if}
-        <div class="product-information tvproduct-special-desc">
-            {if $product.is_customizable && count($product.customizations.fields)}
-            {block name='product_customization'}
-            {include file="catalog/_partials/product-customization.tpl" customizations=$product.customizations}
+                </form>
             {/block}
-            {/if}
-           
         </div>
+
+        {* On laisse ce hook hors du formulaire pour éviter les conflits si un module injecte un <form> *}
+        {hook h='displayCustomtab'}
+
+        {if !empty($product.specific_prices.from) && !empty($product.specific_prices.to) && $product.specific_prices.from != '0000-00-00 00:00:00' && $product.specific_prices.to != '0000-00-00 00:00:00'}
+            {include file='catalog/_partials/miniatures/product-timer.tpl' timer=$product.specific_prices.to}
+        {/if}
+
         {block name='hook_display_reassurance'}
-        {hook h='displayReassurance'}
+            {hook h='displayReassurance'}
         {/block}
     </div>
 </div>
