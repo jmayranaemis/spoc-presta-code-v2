@@ -3010,6 +3010,7 @@ ul.wlp_bought_list li .product_infos .product-name {
 .ttvcmscart-show-dropdown-right .ttvcart-product-list-viewcart:hover a {
     color: #fff;
     background-color: #145078;
+    border-radius: 20px !important;
 }
 .ttvcmscart-show-dropdown-right {
     width: calc(100% - 50px);
