@@ -2953,16 +2953,20 @@ ul.wlp_bought_list li .product_infos .product-name {
     margin-bottom: 10px;
 }
 .ttvcmscart-show-dropdown-right .ttvcart-product-list-viewcart {
-    width: 50%;
+    width: 100%;
     display: block;
     float: left;
     text-align: center;
-    background-color: #222;
+    /*background-color: #222;*/
     transition: color 0.3s ease 0s, background-color 0.3s ease 0s;
     border: none;
     box-shadow: none;
     cursor: pointer;
     padding: 0;
+    background: #fff !important;
+    border: 1px solid #145078 !important;
+    border-radius: 20px !important;
+    margin: 10px;
 }
 .ttvcmscart-show-dropdown-right .ttvcart-product-list-checkout {
     width: 50%;
