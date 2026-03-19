@@ -2953,9 +2953,9 @@ ul.wlp_bought_list li .product_infos .product-name {
     margin-bottom: 10px;
 }
 .ttvcmscart-show-dropdown-right .ttvcart-product-list-viewcart {
-    width: 100%;
+    width: 90%;
     display: block;
-    float: left;
+    float: right;
     text-align: center;
     /*background-color: #222;*/
     transition: color 0.3s ease 0s, background-color 0.3s ease 0s;
@@ -2990,25 +2990,26 @@ ul.wlp_bought_list li .product_infos .product-name {
     padding: 19px 15px;
     letter-spacing: 1px;
     text-transform: uppercase;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 14px;
     display: block;
-    color: #145078;
+    color: #fff;
+    background: #145078 !important;
 }
 .ttvcmscart-show-dropdown-right .ttvcart-product-list-checkout a {
     padding: 19px 15px;
     letter-spacing: 1px;
     text-transform: uppercase;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 14px;
     display: block;
     color: #fff;
 }
 .ttvcmscart-show-dropdown-right .ttvcart-product-list-checkout:hover a {
-    color: #fff;
+    color: #145078;
 }
 .ttvcmscart-show-dropdown-right .ttvcart-product-list-viewcart:hover a {
-    color: #fff;
+    color: #145078;
 }
 .ttvcmscart-show-dropdown-right {
     width: calc(100% - 50px);
