@@ -185,11 +185,11 @@
                                 {l s='View Cart' d='Shop.Theme.Actions'}
                             </a>
                         </button>
-                        <button class="ttvcart-product-list-checkout">
+                       {* <button class="ttvcart-product-list-checkout">
                             <a href="{$link->getPageLink('order', null, $language.id)}">
                                 {l s='CheckOut' d='Shop.Theme.Actions'}
                             </a>
-                        </button>
+                        </button>*}
                     </div>
                     {else}
                     <div class="ttvcart-no-product">
