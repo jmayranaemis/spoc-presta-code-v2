@@ -3008,7 +3008,8 @@ ul.wlp_bought_list li .product_infos .product-name {
     color: #145078;
 }
 .ttvcmscart-show-dropdown-right .ttvcart-product-list-viewcart:hover a {
-    color: #145078;
+    color: #fff;
+    background-color: #145078;
 }
 .ttvcmscart-show-dropdown-right {
     width: calc(100% - 50px);
