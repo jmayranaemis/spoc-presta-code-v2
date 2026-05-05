@@ -7,185 +7,327 @@
 * that is bundled with this package in the file LICENSE.txt.
 * It is also available through the world-wide-web at this URL:
 * https://opensource.org/licenses/AFL-3.0
-* If you did not receive a copy of the license and are unable to
-* obtain it through the world-wide-web, please send an email
-* to license@prestashop.com so we can send you a copy immediately.
-*
-* DISCLAIMER
-*
-* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
-* versions in the future. If you wish to customize PrestaShop for your
-* needs please refer to http://www.prestashop.com for more information.
 *
 * @author PrestaShop SA <contact@prestashop.com>
-    * @copyright 2007-2024 PrestaShop SA
-    * @license https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
-    * International Registered Trademark & Property of PrestaShop SA
-    *}
-    {strip}
-    <div class="tvproduct-wrapper {$class_name}">
-        {block name='product_thumbnail'}
+* @copyright 2007-2024 PrestaShop SA
+* @license https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
+* International Registered Trademark & Property of PrestaShop SA
+*}
+
+{strip}
+
+{assign var=productClass value=''}
+{if isset($class_name)}
+    {assign var=productClass value=$class_name}
+{/if}
+
+{assign var=imageSize value='home_default'}
+{if isset($image_size) && $image_size}
+    {assign var=imageSize value=$image_size}
+{/if}
+
+{assign var=productUrl value='#'}
+{if isset($product.url) && $product.url}
+    {assign var=productUrl value=$product.url}
+{/if}
+
+{assign var=productName value=''}
+{if isset($product.name) && $product.name}
+    {assign var=productName value=$product.name}
+{/if}
+
+<div class="tvproduct-wrapper {$productClass}">
+
+    {block name='product_thumbnail'}
         <div class="tvproduct-image">
-            {if $product.cover}
-            <a href="{$product.url}" class="thumbnail product-thumbnail" itemprop="url">
-                <img src="{$product.cover.bySize[$image_size]['url']}" alt="{if !empty($product.cover.legend)}{$product.cover.legend}{else}{$product.name}{/if}" class="tvproduct-defult-img tv-img-responsive" height="{$product.cover.bySize[$image_size]['height']}" width="{$product.cover.bySize[$image_size]['width']}" itemprop="image" loading="lazy">
-                {if Configuration::get('TVCMSCUSTOMSETTING_HOVER_IMG')}
-                {if isset($product.images.0.bySize[$image_size]['url']) && empty($product.images.0.cover)}
-                <img class="tvproduct-hover-img tv-img-responsive" src="{$product.images.0.bySize[$image_size]['url']}" alt="{$product.name}" height="{$product.images.0.bySize[$image_size]['height']}" width="{$product.images.0.bySize[$image_size]['width']}" itemprop="image" loading="lazy">
-                {elseif isset($product.images.1.bySize[$image_size]['url']) && empty($product.images.1.cover)}
-                {if {Configuration::get('TVCMSCUSTOMSETTING_HOVER_IMG') != '0'}}
-                <img class="tvproduct-hover-img tv-img-responsive" src="{$product.images.1.bySize[$image_size]['url']}" alt="{$product.name}" height="{$product.images.1.bySize[$image_size]['height']}" width="{$product.images.1.bySize[$image_size]['width']}" itemprop="image" loading="lazy">
-                {/if}
-                {/if}
-                {/if}
-            </a>
+
+            {if isset($product.cover.bySize[$imageSize]['url']) && $product.cover.bySize[$imageSize]['url']}
+
+                <a href="{$productUrl}" class="thumbnail product-thumbnail" itemprop="url">
+                    <img
+                        src="{$product.cover.bySize[$imageSize]['url']}"
+                        alt="{if isset($product.cover.legend) && $product.cover.legend}{$product.cover.legend}{else}{$productName}{/if}"
+                        class="tvproduct-defult-img tv-img-responsive"
+                        {if isset($product.cover.bySize[$imageSize]['height'])}height="{$product.cover.bySize[$imageSize]['height']}"{/if}
+                        {if isset($product.cover.bySize[$imageSize]['width'])}width="{$product.cover.bySize[$imageSize]['width']}"{/if}
+                        itemprop="image"
+                        loading="lazy"
+                    >
+
+                    {if Configuration::get('TVCMSCUSTOMSETTING_HOVER_IMG')}
+
+                        {if isset($product.images.0.bySize[$imageSize]['url']) && $product.images.0.bySize[$imageSize]['url'] && (!isset($product.images.0.cover) || empty($product.images.0.cover))}
+                            <img
+                                class="tvproduct-hover-img tv-img-responsive"
+                                src="{$product.images.0.bySize[$imageSize]['url']}"
+                                alt="{$productName}"
+                                {if isset($product.images.0.bySize[$imageSize]['height'])}height="{$product.images.0.bySize[$imageSize]['height']}"{/if}
+                                {if isset($product.images.0.bySize[$imageSize]['width'])}width="{$product.images.0.bySize[$imageSize]['width']}"{/if}
+                                itemprop="image"
+                                loading="lazy"
+                            >
+                        {elseif isset($product.images.1.bySize[$imageSize]['url']) && $product.images.1.bySize[$imageSize]['url'] && (!isset($product.images.1.cover) || empty($product.images.1.cover))}
+                            <img
+                                class="tvproduct-hover-img tv-img-responsive"
+                                src="{$product.images.1.bySize[$imageSize]['url']}"
+                                alt="{$productName}"
+                                {if isset($product.images.1.bySize[$imageSize]['height'])}height="{$product.images.1.bySize[$imageSize]['height']}"{/if}
+                                {if isset($product.images.1.bySize[$imageSize]['width'])}width="{$product.images.1.bySize[$imageSize]['width']}"{/if}
+                                itemprop="image"
+                                loading="lazy"
+                            >
+                        {/if}
+
+                    {/if}
+                </a>
+
             {else}
-            <a href="{$product.url}" class="thumbnail product-thumbnail">
-                <img src="{$ImgDir}{$iso_code}-default-home_default.jpg" itemprop="image" class="tv-img-responsive" loading="lazy">
-            </a>
+
+                <a href="{$productUrl}" class="thumbnail product-thumbnail">
+                    {if isset($urls.no_picture_image.bySize[$imageSize]['url']) && $urls.no_picture_image.bySize[$imageSize]['url']}
+                        <img
+                            src="{$urls.no_picture_image.bySize[$imageSize]['url']}"
+                            alt="{$productName}"
+                            itemprop="image"
+                            class="tv-img-responsive"
+                            loading="lazy"
+                        >
+                    {elseif isset($urls.no_picture_image.bySize.home_default.url)}
+                        <img
+                            src="{$urls.no_picture_image.bySize.home_default.url}"
+                            alt="{$productName}"
+                            itemprop="image"
+                            class="tv-img-responsive"
+                            loading="lazy"
+                        >
+                    {elseif isset($ImgDir) && isset($iso_code)}
+                        <img
+                            src="{$ImgDir}{$iso_code}-default-home_default.jpg"
+                            alt="{$productName}"
+                            itemprop="image"
+                            class="tv-img-responsive"
+                            loading="lazy"
+                        >
+                    {/if}
+                </a>
+
             {/if}
+
             {block name='product_flags'}
-            <ul class="tvproduct-flags tvproduct-online-new-wrapper">
-                {foreach from=$product.flags item=flag}
-                {if $flag.type == 'online-only' || $flag.type == 'new'}
-                <li class="product-flag {$flag.type}">{$flag.label}</li>
+
+                {if isset($product.flags) && $product.flags|count}
+                    <ul class="tvproduct-flags tvproduct-online-new-wrapper">
+                        {foreach from=$product.flags item=flag}
+                            {if isset($flag.type) && isset($flag.label) && ($flag.type == 'online-only' || $flag.type == 'new')}
+                                <li class="product-flag {$flag.type}">{$flag.label}</li>
+                            {/if}
+                        {/foreach}
+                    </ul>
+
+                    <ul class="tvproduct-flags tvproduct-sale-pack-wrapper">
+                        {foreach from=$product.flags item=flag}
+                            {if isset($flag.type) && $flag.type == 'on-sale'}
+                                <li class="product-flag {$flag.type}">
+                                    {if isset($product.discount_percentage) && $product.discount_percentage}
+                                        {$product.discount_percentage}
+                                    {elseif isset($flag.label)}
+                                        {$flag.label}
+                                    {/if}
+                                </li>
+                            {/if}
+                        {/foreach}
+                    </ul>
                 {/if}
-                {/foreach}
-            </ul>
-            <ul class="tvproduct-flags tvproduct-sale-pack-wrapper">
-                {foreach from=$product.flags item=flag}
-                {*if $flag.type == 'on-sale' || $flag.type == 'pack'*}
-                {if $flag.type == 'on-sale'}
-                <li class="product-flag {$flag.type}">{$product.discount_percentage}</li>
+
+                {if isset($product.condition.type) && $product.condition.type == 'used'}
+                    <ul class="tvproduct-flags tvproduct-used-wrapper">
+                        <li class="product-flag {$product.condition.type}">
+                            {if isset($product.condition.label) && $product.condition.label}
+                                {$product.condition.label}
+                            {else}
+                                {l s='Used' d='Shop.Theme.Catalog'}
+                            {/if}
+                        </li>
+                    </ul>
                 {/if}
-                {/foreach}
-            </ul>
-            <ul class="tvproduct-flags tvproduct-used-wrapper">
-                {*foreach from=$product.condition.type item=flag*}
-                {if $product.condition.type == 'used'}
-                <li class="product-flag {$product.condition.type}">{$product.condition.label}</li>
+
+                {if isset($product.discount_type) && $product.discount_type === 'percentage' && isset($product.discount_percentage) && $product.discount_percentage}
+                    <ul class="tvproduct-flags tvproduct-sale-pack-wrapper">
+                        <li class="product-flag on-sale">{$product.discount_percentage}</li>
+                    </ul>
+                {elseif isset($product.discount_type) && $product.discount_type === 'amount' && isset($product.discount_amount_to_display) && $product.discount_amount_to_display}
+                    <span class="product-flag on-sale">{$product.discount_amount_to_display}</span>
                 {/if}
-                {*/foreach*}
-            </ul>
-            {if $product.discount_type === 'percentage'}
-                <ul class="tvproduct-flags tvproduct-sale-pack-wrapper">
-                    <li class="product-flag on-sale">{$product.discount_percentage}</li>
-                </ul>
-                {elseif $product.discount_type === 'amount'}
-                <span class="product-flag on-sale">{$product.discount_amount_to_display}</span>
-            {/if}
 
             {/block}
-            {if !empty($product.specific_prices.from) && !empty($product.specific_prices.to) && $product.specific_prices.from != '0000-00-00 00:00:00' && $product.specific_prices.to != '0000-00-00 00:00:00'}
-            {include file='catalog/_partials/miniatures/product-timer.tpl' timer=$product.specific_prices.to}
+
+            {if isset($product.specific_prices.from)
+                && isset($product.specific_prices.to)
+                && !empty($product.specific_prices.from)
+                && !empty($product.specific_prices.to)
+                && $product.specific_prices.from != '0000-00-00 00:00:00'
+                && $product.specific_prices.to != '0000-00-00 00:00:00'
+            }
+                {include file='catalog/_partials/miniatures/product-timer.tpl' timer=$product.specific_prices.to}
             {/if}
+
             <div class="tvproduct-btn-color">
                 {if Configuration::get('TVCMSCUSTOMSETTING_PRODUCT_COLOR') == '1'}
-                {block name='product_variants'}
-                <div class='tvproduct-color'>
-                    {if $product.main_variants}
                     {block name='product_variants'}
-                    {assign var="isMore" value=4}
-                    {assign var="colorCount" value=0}
-                    {foreach from=$product.main_variants item=color_info}
-                    {if $isMore == $colorCount && $isMore < count($product.main_variants)} <a href="javascript:void(0)" class='tvcmsmorecolor-icon'>
-                        {(count($product.main_variants)-4)}
-                        <i class='material-icons'>&#xe145;</i>
-                        </a>
-                        <span class="tvcmsmorecolor">
+                        <div class="tvproduct-color">
+                            {if isset($product.main_variants) && $product.main_variants|count}
+
+                                {assign var="isMore" value=4}
+                                {assign var="colorCount" value=0}
+                                {assign var="variantCount" value=$product.main_variants|count}
+
+                                {foreach from=$product.main_variants item=color_info}
+
+                                    {if $colorCount == $isMore && $isMore < $variantCount}
+                                        <a href="javascript:void(0)" class="tvcmsmorecolor-icon">
+                                            {$variantCount-$isMore}
+                                            <i class="material-icons">&#xe145;</i>
+                                        </a>
+                                        <span class="tvcmsmorecolor">
+                                    {/if}
+
+                                    <div
+                                        class="tvproduct-color-box-border"
+                                        data-toggle="tvtooltip"
+                                        data-placement="top"
+                                        data-html="true"
+                                        data-original-title="{if isset($color_info.name)}{$color_info.name}{/if}"
+                                    >
+                                        <a
+                                            href="{if isset($color_info.url) && $color_info.url}{$color_info.url}{else}javascript:void(0){/if}"
+                                            class="tvporoduct-color-box"
+                                            style="{if isset($color_info.html_color_code) && $color_info.html_color_code != ''}background-color: {$color_info.html_color_code};{elseif isset($color_info.texture) && $color_info.texture != ''}background-image: url({$color_info.texture});{/if}"
+                                        >
+                                        </a>
+                                    </div>
+
+                                    {assign var="colorCount" value=$colorCount+1}
+
+                                {/foreach}
+
+                                {if $isMore < $colorCount}
+                                        <a href="javascript:void(0)" class="tvcmslesscolor-icon tvcmslesscolor-close">
+                                            <i class="material-icons">&#xe15b;</i>
+                                        </a>
+                                    </span>
+                                {/if}
+
                             {/if}
-                            {$colorCount = $colorCount+1}
-                            <div class="tvproduct-color-box-border" data-toggle="tvtooltip" data-placement="top" data-html="true" data-original-title="{$color_info.name}">
-                                <a href="{$color_info.url}" class='tvporoduct-color-box' style='{if $color_info.html_color_code != ""}background-color: {$color_info.html_color_code};{else}background-image: url({$color_info.texture});{/if}'>
-                                </a>
-                            </div>
-                            {/foreach}
-                            {if $isMore < $colorCount} <a href="javascript:void(0)" class='tvcmslesscolor-icon tvcmslesscolor-close'>
-                                <i class='material-icons'>&#xe15b;</i>
-                                </a>
-                        </span>
-                        {/if}
-                        {/block}
-                        {/if}
-                </div>
-                {/block}
+                        </div>
+                    {/block}
                 {/if}
-              
             </div>
 
         </div>
-        {/block}
-        <div class="tvproduct-info-box-wrapper">
-            <div class="product-description">
-                {* Start Product Comment *}
-                {hook h='displayReviewProductList' product=$product productType="$class_name"}
-                {* End Product Comment *}
-                {block name='product_name'}
+    {/block}
+
+    <div class="tvproduct-info-box-wrapper">
+        <div class="product-description">
+
+            {* Start Product Comment *}
+            {hook h='displayReviewProductList' product=$product productType=$productClass}
+            {* End Product Comment *}
+
+            {block name='product_name'}
                 <div class="tvproduct-name product-title">
-                    {if !empty(Manufacturer::getnamebyid($product.id_manufacturer))}
-                        <span class="brand-text-grid"><a href="{$link->getManufacturerLink($product.id_manufacturer)|escape:'html':'UTF-8'}">{Manufacturer::getnamebyid($product.id_manufacturer)|escape:'html':'UTF-8'}</a></span>
-                        {else}
+
+                    {assign var=manufacturerName value=''}
+                    {if isset($product.id_manufacturer) && $product.id_manufacturer}
+                        {assign var=manufacturerName value=Manufacturer::getnamebyid($product.id_manufacturer)}
+                    {/if}
+
+                    {if isset($manufacturerName) && !empty($manufacturerName)}
+                        <span class="brand-text-grid">
+                            {if isset($link)}
+                                <a href="{$link->getManufacturerLink($product.id_manufacturer)|escape:'html':'UTF-8'}">
+                                    {$manufacturerName|escape:'html':'UTF-8'}
+                                </a>
+                            {else}
+                                {$manufacturerName|escape:'html':'UTF-8'}
+                            {/if}
+                        </span>
+                    {else}
                         <span class="brand-text-grid">SPOC</span>
                     {/if}
-                    <a href="{$product.url}">
-                        <h6 itemprop="name">{$product.name|truncate:60:'...'}</h6>
+
+                    <a href="{$productUrl}">
+                        <h6 itemprop="name">{$productName|truncate:60:'...'}</h6>
                     </a>
                 </div>
-                {* <div class="tvproduct-cat-name">{$product.category_name}</div> *}
-                {/block}
-                {block name='product_price_and_shipping'}
+            {/block}
+
+            {block name='product_price_and_shipping'}
                 <div class="tv-product-price tvproduct-name-price-wrapper">
-                    {if $product.show_price}
-                    <div class="product-price-and-shipping">
-                        <meta itemprop="sku" content="1234" />
-                        <meta itemprop="mpn" content="1234" />
-                        <meta itemprop="brand" content="fashion" />
-                        {if $product.has_discount}
-                            <span class="product-grid-price-discount">{$product.price}</span>
-                            <span class="regular-price">{l s='Regular price: ' d='Shop.Theme.Catalog'} {$product.regular_price}</span>
+                    {if isset($product.show_price) && $product.show_price}
+                        <div class="product-price-and-shipping">
+
+                            {if isset($product.reference) && $product.reference}
+                                <meta itemprop="sku" content="{$product.reference|escape:'html':'UTF-8'}" />
+                                <meta itemprop="mpn" content="{$product.reference|escape:'html':'UTF-8'}" />
+                            {/if}
+
+                            {if isset($manufacturerName) && !empty($manufacturerName)}
+                                <meta itemprop="brand" content="{$manufacturerName|escape:'html':'UTF-8'}" />
+                            {/if}
+
+                            {if isset($product.has_discount) && $product.has_discount}
+
+                                {if isset($product.price)}
+                                    <span class="product-grid-price-discount">{$product.price}</span>
+                                {/if}
+
+                                {if isset($product.regular_price)}
+                                    <span class="regular-price">
+                                        {l s='Regular price: ' d='Shop.Theme.Catalog'} {$product.regular_price}
+                                    </span>
+                                {/if}
+
                             {else}
-                            <span class="product-grid-price">{$product.price}</span>
-                        {/if}
-                        {if $product.has_discount}
-                        {hook h='displayProductPriceBlock' product=$product type="old_price"}
-                        <span class="sr-only">{l s='Regular price' d='Shop.Theme.Catalog'}</span>
-                        {if $product.discount_type === 'percentage'}
-                        <span class="discount-percentage discount-product tvproduct-discount-price">{$product.discount_percentage}{l s=' off' d='Shop.Theme.Catalog'}</span>
-                        {elseif $product.discount_type === 'amount'}
-                        <span class="discount-amount discount-product tvproduct-discount-price">{$product.discount_amount_to_display} {l s=' off' d='Shop.Theme.Catalog'}</span>
-                        {/if}
-                        {/if}
-                        {hook h='displayProductPriceBlock' product=$product type="before_price"}
-                        <span class="sr-only">{l s='Price' d='Shop.Theme.Catalog'}</span> 
-                        {hook h='displayProductPriceBlock' product=$product type='unit_price'}
-                        {hook h='displayProductPriceBlock' product=$product type='weight'}
-                    </div>
+
+                                {if isset($product.price)}
+                                    <span class="product-grid-price">{$product.price}</span>
+                                {/if}
+
+                            {/if}
+
+                            {if isset($product.has_discount) && $product.has_discount}
+
+                                {hook h='displayProductPriceBlock' product=$product type="old_price"}
+
+                                <span class="sr-only">{l s='Regular price' d='Shop.Theme.Catalog'}</span>
+
+                                {if isset($product.discount_type) && $product.discount_type === 'percentage' && isset($product.discount_percentage)}
+                                    <span class="discount-percentage discount-product tvproduct-discount-price">
+                                        {$product.discount_percentage}{l s=' off' d='Shop.Theme.Catalog'}
+                                    </span>
+                                {elseif isset($product.discount_type) && $product.discount_type === 'amount' && isset($product.discount_amount_to_display)}
+                                    <span class="discount-amount discount-product tvproduct-discount-price">
+                                        {$product.discount_amount_to_display} {l s=' off' d='Shop.Theme.Catalog'}
+                                    </span>
+                                {/if}
+
+                            {/if}
+
+                            {hook h='displayProductPriceBlock' product=$product type="before_price"}
+
+                            <span class="sr-only">{l s='Price' d='Shop.Theme.Catalog'}</span>
+
+                            {hook h='displayProductPriceBlock' product=$product type='unit_price'}
+                            {hook h='displayProductPriceBlock' product=$product type='weight'}
+
+                        </div>
                     {/if}
                 </div>
-                {/block}
-            </div>
-            {* <div class="tv-product-price-info-box">
-                <div class='tvcmsstock-indicator-wraper'>
-                    {hook h='displayProductListStockIndicator' product=$product}
-                </div>
-                {if Configuration::get('TVCMSCUSTOMSETTING_PRODUCT_COLOR') == '1'}
-                {block name='product_variants'}
-                {if $product.main_variants}
-                <div class="tvproduct-color">
-                    {foreach from=$product.main_variants item=color_info}
-                    <div class='tvproduct-color-wrapper'>
-                        <a href="{$color_info.url}">
-                            <div class="tvproduct-color-box-border">
-                                <div class='tvporoduct-color-box' style='{if $color_info.html_color_code != ""}background-color: {$color_info.html_color_code};{else}background-image: url({$color_info.texture});{/if}'></div>
-                            </div>
-                        </a>
-                    </div>
-                    {/foreach}
-                </div>
-                {/if}
-                {/block}
-                {/if}
-            </div> *}
+            {/block}
+
         </div>
     </div>
-    {/strip}
+
+</div>
+
+{/strip}
