@@ -96,7 +96,7 @@ class TvcmsCategorySlider extends Module
             $parentTab->name = [];
             $parentTab->class_name = 'AdminThemeVolty';
             foreach (Language::getLanguages() as $lang) {
-                $parentTab->name[$lang['id_lang']] = 'ThemeVolty Extension';
+                $parentTab->name[(int) $lang['id_lang']] = 'ThemeVolty Extension';
             }
             $parentTab->id_parent = 0;
             $parentTab->module = $this->name;
@@ -113,21 +113,22 @@ class TvcmsCategorySlider extends Module
             $parentTab_2->name = [];
             $parentTab_2->class_name = 'AdminThemeVoltyModules';
             foreach (Language::getLanguages() as $lang) {
-                $parentTab_2->name[$lang['id_lang']] = 'ThemeVolty Configure';
+                $parentTab_2->name[(int) $lang['id_lang']] = 'ThemeVolty Configure';
             }
-            $parentTab_2->id_parent = $parentTab->id;
+            $parentTab_2->id_parent = (int) $parentTab->id;
             $parentTab_2->module = $this->name;
             $response &= $parentTab_2->add();
         }
+
         // Created tab
         $tab = new Tab();
         $tab->active = 1;
         $tab->class_name = 'Admin' . $this->name;
         $tab->name = [];
         foreach (Language::getLanguages() as $lang) {
-            $tab->name[$lang['id_lang']] = 'Category Slider';
+            $tab->name[(int) $lang['id_lang']] = 'Category Slider';
         }
-        $tab->id_parent = $parentTab_2->id;
+        $tab->id_parent = (int) $parentTab_2->id;
         $tab->module = $this->name;
         $response &= $tab->add();
 
@@ -151,24 +152,20 @@ class TvcmsCategorySlider extends Module
         $languages = Language::getLanguages();
 
         foreach ($languages as $lang) {
-            $result['TVCMSCATEGORY_SLIDER_TITLE'][$lang['id_lang']] = 'Featured Category';
-            $result['TVCMSCATEGORY_SLIDER_SUB_DESCRIPTION'][$lang['id_lang']] = 'This is Show Short Description';
-            $result['TVCMSCATEGORY_SLIDER_DESCRIPTION'][$lang['id_lang']] = 'Description';
-            $result['TVCMSCATEGORY_SLIDER_IMG'][$lang['id_lang']] = 'demo_title.jpg';
+            $id_lang = (int) $lang['id_lang'];
+            $result['TVCMSCATEGORY_SLIDER_TITLE'][$id_lang] = 'Featured Category';
+            $result['TVCMSCATEGORY_SLIDER_SUB_DESCRIPTION'][$id_lang] = 'This is Show Short Description';
+            $result['TVCMSCATEGORY_SLIDER_DESCRIPTION'][$id_lang] = 'Description';
+            $result['TVCMSCATEGORY_SLIDER_IMG'][$id_lang] = 'demo_title.jpg';
         }
-        $tmp = $result['TVCMSCATEGORY_SLIDER_TITLE'];
-        Configuration::updateValue('TVCMSCATEGORY_SLIDER_TITLE', $tmp);
-        $tmp = $result['TVCMSCATEGORY_SLIDER_SUB_DESCRIPTION'];
-        Configuration::updateValue('TVCMSCATEGORY_SLIDER_SUB_DESCRIPTION', $tmp);
-        $tmp = $result['TVCMSCATEGORY_SLIDER_DESCRIPTION'];
-        Configuration::updateValue('TVCMSCATEGORY_SLIDER_DESCRIPTION', $tmp);
-        $tmp = $result['TVCMSCATEGORY_SLIDER_IMG'];
-        Configuration::updateValue('TVCMSCATEGORY_SLIDER_IMG', $tmp);
+
+        Configuration::updateValue('TVCMSCATEGORY_SLIDER_TITLE', $result['TVCMSCATEGORY_SLIDER_TITLE']);
+        Configuration::updateValue('TVCMSCATEGORY_SLIDER_SUB_DESCRIPTION', $result['TVCMSCATEGORY_SLIDER_SUB_DESCRIPTION']);
+        Configuration::updateValue('TVCMSCATEGORY_SLIDER_DESCRIPTION', $result['TVCMSCATEGORY_SLIDER_DESCRIPTION']);
+        Configuration::updateValue('TVCMSCATEGORY_SLIDER_IMG', $result['TVCMSCATEGORY_SLIDER_IMG']);
     }
 
     // Create Table For Second Form
-
-    // Insert Semple Data Form Second Form
     public function createTable()
     {
         $create_table = [];
@@ -205,23 +202,30 @@ class TvcmsCategorySlider extends Module
     {
         $data = [];
         $category = $this->getAllCategory();
-        for ($i = 1; $i <= $num_of_data; ++$i) {
-            if (isset($category[$i]['id_category'])) {
-                $ImageSizePath = _MODULE_DIR_ . $this->name . '/views/img/';
-                $imagedata = getimagesize(_PS_BASE_URL_ . $ImageSizePath . 'demo_img_' . $i . '.png');
-                $width = $imagedata[0];
-                $height = $imagedata[1];
-                if (empty($width) || empty($height)) {
-                    $width = '177';
-                    $height = '238';
+
+        for ($i = 1; $i <= (int) $num_of_data; ++$i) {
+            $width = 177;
+            $height = 238;
+
+            $image_path = dirname(__FILE__) . '/views/img/demo_img_' . (int) $i . '.png';
+            if (file_exists($image_path)) {
+                $imagedata = @getimagesize($image_path);
+                if (!empty($imagedata[0]) && !empty($imagedata[1])) {
+                    $width = (int) $imagedata[0];
+                    $height = (int) $imagedata[1];
                 }
+            }
+
+            if (isset($category[$i]['id_category'])) {
+                $id_category = (int) $category[$i]['id_category'];
+
                 $data[] = 'INSERT INTO `' . _DB_PREFIX_ . 'tvcmscategory_slider`
                             SET 
-                                id_tvcmscategory_slider = \'' . $i . '\',
-                                id_category = \'' . (int) $category[$i]['id_category'] . '\',
+                                id_tvcmscategory_slider = ' . (int) $i . ',
+                                id_category = ' . (int) $id_category . ',
                                 `id_shop_group` = ' . (int) $this->id_shop_group . ',
                                 `id_shop` = ' . (int) $this->id_shop . ',
-                                image = \'demo_img_' . $i . '.png\',
+                                image = \'demo_img_' . (int) $i . '.png\',
                                 `width` = ' . (int) $width . ',
                                 `height` = ' . (int) $height . ',
                                 status = \'1\'';
@@ -231,22 +235,24 @@ class TvcmsCategorySlider extends Module
                     $data[] = 'INSERT INTO `' . _DB_PREFIX_ . 'tvcmscategory_slider_lang`
                             SET 
                                 id_tvcmscategory_slider_lang = NULL,
-                                id_tvcmscategory_slider = \'' . $i . '\',
-                                id_category = \'' . (int) $category[$i]['id_category'] . '\',
+                                id_tvcmscategory_slider = ' . (int) $i . ',
+                                id_category = ' . (int) $id_category . ',
                                 `id_shop_group` = ' . (int) $this->id_shop_group . ',
                                 `id_shop` = ' . (int) $this->id_shop . ',
-                                id_lang = \'' . (int) $lang['id_lang'] . '\',
-                                title = \'Title ' . $i . '\',
-                                short_description = \'Short Description' . $i . '\'';
+                                id_lang = ' . (int) $lang['id_lang'] . ',
+                                title = \'Title ' . (int) $i . '\',
+                                short_description = \'Short Description ' . (int) $i . '\'';
                 }
             } else {
                 $data[] = 'INSERT INTO `' . _DB_PREFIX_ . 'tvcmscategory_slider`
                             SET 
-                                id_tvcmscategory_slider = \'' . $i . '\',
-                                id_category = \'1\',
+                                id_tvcmscategory_slider = ' . (int) $i . ',
+                                id_category = 1,
                                 `id_shop_group` = ' . (int) $this->id_shop_group . ',
                                 `id_shop` = ' . (int) $this->id_shop . ',
-                                image = \'demo_img_' . $i . '.png\',
+                                image = \'demo_img_' . (int) $i . '.png\',
+                                `width` = ' . (int) $width . ',
+                                `height` = ' . (int) $height . ',
                                 status = \'0\'';
 
                 $languages = Language::getLanguages();
@@ -254,16 +260,17 @@ class TvcmsCategorySlider extends Module
                     $data[] = 'INSERT INTO `' . _DB_PREFIX_ . 'tvcmscategory_slider_lang`
                             SET 
                                 id_tvcmscategory_slider_lang = NULL,
-                                id_tvcmscategory_slider = \'' . $i . '\',
-                                id_category = \'1\',
+                                id_tvcmscategory_slider = ' . (int) $i . ',
+                                id_category = 1,
                                 `id_shop_group` = ' . (int) $this->id_shop_group . ',
                                 `id_shop` = ' . (int) $this->id_shop . ',
-                                id_lang = \'' . (int) $lang['id_lang'] . '\',
-                                title = \'Title ' . $i . '\',
-                                short_description = \'Short Description' . $i . '\'';
+                                id_lang = ' . (int) $lang['id_lang'] . ',
+                                title = \'Title ' . (int) $i . '\',
+                                short_description = \'Short Description ' . (int) $i . '\'';
                 }
             }
         }
+
         foreach ($data as $query) {
             Db::getInstance()->execute($query);
         }
@@ -274,19 +281,23 @@ class TvcmsCategorySlider extends Module
         $select_data = 'SELECT MAX(id_tvcmscategory_slider) as max_id FROM `' . _DB_PREFIX_ . 'tvcmscategory_slider`';
         $ans = Db::getInstance()->executeS($select_data);
 
-        return $ans[0]['max_id'];
+        return isset($ans[0]['max_id']) ? (int) $ans[0]['max_id'] : 0;
     }
 
     // Select All Category id From Table
     public function selectAllIdFromTable()
     {
-        $select_data = 'SELECT MAX(id_tvcmscategory_slider) as max_id FROM `' . _DB_PREFIX_ . 'tvcmscategory_slider`'
-             . ' WHERE `id_shop_group` = ' . (int) $this->id_shop_group . ' AND `id_shop` = ' . (int) $this->id_shop . ';';
+        $select_data = 'SELECT id_tvcmscategory_slider FROM `' . _DB_PREFIX_ . 'tvcmscategory_slider`'
+             . ' WHERE `id_shop_group` = ' . (int) $this->id_shop_group . ' AND `id_shop` = ' . (int) $this->id_shop
+             . ' ORDER BY id_tvcmscategory_slider;';
 
         $ans = Db::getInstance()->executeS($select_data);
         $final_ans = [];
+
         foreach ($ans as $a) {
-            $final_ans[] = $a['id_tvcmscategory_slider'];
+            if (isset($a['id_tvcmscategory_slider'])) {
+                $final_ans[] = (int) $a['id_tvcmscategory_slider'];
+            }
         }
 
         return $final_ans;
@@ -303,10 +314,12 @@ class TvcmsCategorySlider extends Module
                             `id_shop_group` = ' . (int) $this->id_shop_group . '
                             AND `id_shop` = ' . (int) $this->id_shop . '
                             AND id_tvcmscategory_slider = ' . (int) $id_tvcmscategory_slider;
+
         $ans = Db::getInstance()->executeS($select_data);
         $return = [];
+
         foreach ($ans as $a) {
-            $return[] = $a['id_lang'];
+            $return[] = (int) $a['id_lang'];
         }
 
         return $return;
@@ -316,15 +329,22 @@ class TvcmsCategorySlider extends Module
     public function insertData($data)
     {
         $insert_data = [];
-        if ($data['id']) {
-            $id = $data['id'];
+        $id_category = isset($data['id_category']) ? (int) $data['id_category'] : 0;
+        $status = !empty($data['status']) ? 1 : 0;
+        $image = isset($data['image']) ? pSQL($data['image']) : '';
+        $width = isset($data['width']) ? (int) $data['width'] : 0;
+        $height = isset($data['height']) ? (int) $data['height'] : 0;
+
+        if (!empty($data['id'])) {
+            $id = (int) $data['id'];
+
             $insert_data[] = 'UPDATE `' . _DB_PREFIX_ . 'tvcmscategory_slider`
                         SET 
-                            id_category = \'' . (int) $data['id_category'] . '\',
-                            image = \'' . pSQL($data['image']) . '\',
-                            width = \'' . (int) $data['width'] . '\',
-                            height = \'' . (int) $data['height'] . '\',
-                            status = \'' . (int) $data['status'] . '\'
+                            id_category = ' . (int) $id_category . ',
+                            image = \'' . $image . '\',
+                            width = ' . (int) $width . ',
+                            height = ' . (int) $height . ',
+                            status = ' . (int) $status . '
                         WHERE
                             `id_shop_group` = ' . (int) $this->id_shop_group . '
                             AND `id_shop` = ' . (int) $this->id_shop . '
@@ -334,13 +354,23 @@ class TvcmsCategorySlider extends Module
 
             $languages = Language::getLanguages();
             foreach ($languages as $lang) {
-                if (in_array($lang['id_lang'], $result)) {
+                $id_lang = (int) $lang['id_lang'];
+
+                $custom_title = isset($data['lang_info'][$id_lang]['custom_title'])
+                    ? pSQL($data['lang_info'][$id_lang]['custom_title'])
+                    : '';
+
+                $short_description = isset($data['lang_info'][$id_lang]['short_description'])
+                    ? pSQL($data['lang_info'][$id_lang]['short_description'])
+                    : '';
+
+                if (in_array($id_lang, $result)) {
                     $insert_data[] = 'UPDATE `' . _DB_PREFIX_ . 'tvcmscategory_slider_lang`
                             SET 
-                                id_category = \'' . (int) $data['id_category'] . '\',
-                                id_lang = \'' . (int) $lang['id_lang'] . '\',
-                                title = \'' . pSQL($data['lang_info'][$lang['id_lang']]['custom_title']) . '\',
-                                short_description = \'' . pSQL($data['lang_info'][$lang['id_lang']]['short_description']) . '\'
+                                id_category = ' . (int) $id_category . ',
+                                id_lang = ' . (int) $id_lang . ',
+                                title = \'' . $custom_title . '\',
+                                short_description = \'' . $short_description . '\'
                             WHERE
                                     `id_shop_group` = ' . (int) $this->id_shop_group . '
                                 AND 
@@ -348,54 +378,138 @@ class TvcmsCategorySlider extends Module
                                 AND
                                     `id_tvcmscategory_slider` = ' . (int) $id . '
                                 AND
-                                    `id_lang` = ' . (int) $lang['id_lang'] . ';';
+                                    `id_lang` = ' . (int) $id_lang . ';';
                 } else {
                     $insert_data[] = 'INSERT INTO `' . _DB_PREFIX_ . 'tvcmscategory_slider_lang`
                         SET 
                             id_tvcmscategory_slider_lang = NULL,
                             id_tvcmscategory_slider = ' . (int) $id . ',
-                            id_category = \'' . (int) $data['id_category'] . '\',
+                            id_category = ' . (int) $id_category . ',
                             `id_shop_group` = ' . (int) $this->id_shop_group . ',
                             `id_shop` = ' . (int) $this->id_shop . ',
-                            id_lang = \'' . (int) $lang['id_lang'] . '\',
-                            title = \'' . pSQL($data['lang_info'][$lang['id_lang']]['custom_title']) . '\',
-                            short_description = \'' . pSQL($data['lang_info'][$lang['id_lang']]['short_description']) . '\';';
+                            id_lang = ' . (int) $id_lang . ',
+                            title = \'' . $custom_title . '\',
+                            short_description = \'' . $short_description . '\';';
                 }
             }
         } else {
             $max_id = $this->maxId();
-            $new_id = $max_id + 1;
+            $new_id = (int) $max_id + 1;
 
             $insert_data[] = 'INSERT INTO `' . _DB_PREFIX_ . 'tvcmscategory_slider`
                         SET 
                             id_tvcmscategory_slider = ' . (int) $new_id . ',
-                            id_category = \'' . (int) $data['id_category'] . '\',
+                            id_category = ' . (int) $id_category . ',
                             position = ' . (int) $new_id . ',
                             `id_shop_group` = ' . (int) $this->id_shop_group . ',
                             `id_shop` = ' . (int) $this->id_shop . ',
-                            image = \'' . pSQL($data['image']) . '\',
-                            width = \'' . (int) $data['width'] . '\',
-                            height = \'' . (int) $data['height'] . '\',
-                            status = \'' . (int) $data['status'] . '\';';
+                            image = \'' . $image . '\',
+                            width = ' . (int) $width . ',
+                            height = ' . (int) $height . ',
+                            status = ' . (int) $status . ';';
 
             $languages = Language::getLanguages();
             foreach ($languages as $lang) {
+                $id_lang = (int) $lang['id_lang'];
+
+                $custom_title = isset($data['lang_info'][$id_lang]['custom_title'])
+                    ? pSQL($data['lang_info'][$id_lang]['custom_title'])
+                    : '';
+
+                $short_description = isset($data['lang_info'][$id_lang]['short_description'])
+                    ? pSQL($data['lang_info'][$id_lang]['short_description'])
+                    : '';
+
                 $insert_data[] = 'INSERT INTO `' . _DB_PREFIX_ . 'tvcmscategory_slider_lang`
                         SET 
                             id_tvcmscategory_slider_lang = NULL,
                             id_tvcmscategory_slider = ' . (int) $new_id . ',
-                            id_category = \'' . (int) $data['id_category'] . '\',
+                            id_category = ' . (int) $id_category . ',
                             `id_shop_group` = ' . (int) $this->id_shop_group . ',
                             `id_shop` = ' . (int) $this->id_shop . ',
-                            id_lang = \'' . (int) $lang['id_lang'] . '\',
-                            title = \'' . pSQL($data['lang_info'][$lang['id_lang']]['custom_title']) . '\',
-                            short_description = \'' . pSQL($data['lang_info'][$lang['id_lang']]['short_description']) . '\';';
+                            id_lang = ' . (int) $id_lang . ',
+                            title = \'' . $custom_title . '\',
+                            short_description = \'' . $short_description . '\';';
             }
         }
 
-        foreach ($insert_data as $data) {
-            Db::getInstance()->execute($data);
+        foreach ($insert_data as $query) {
+            Db::getInstance()->execute($query);
         }
+    }
+
+    private function compareCategoryNames($nameA, $nameB)
+    {
+        $nameA = trim((string) $nameA);
+        $nameB = trim((string) $nameB);
+
+        static $collator = null;
+
+        if (null === $collator && class_exists('Collator')) {
+            $collator = new Collator('fr_FR');
+        }
+
+        if ($collator instanceof Collator) {
+            $result = $collator->compare($nameA, $nameB);
+            if (false !== $result) {
+                return $result;
+            }
+        }
+
+        if (function_exists('mb_strtolower')) {
+            $nameA = mb_strtolower($nameA, 'UTF-8');
+            $nameB = mb_strtolower($nameB, 'UTF-8');
+        }
+
+        return strnatcasecmp($nameA, $nameB);
+    }
+
+    private function sortCategoryRowsByName($categories)
+    {
+        if (!is_array($categories) || empty($categories)) {
+            return [];
+        }
+
+        usort($categories, function ($a, $b) {
+            $nameA = isset($a['name']) ? $a['name'] : '';
+            $nameB = isset($b['name']) ? $b['name'] : '';
+
+            return $this->compareCategoryNames($nameA, $nameB);
+        });
+
+        return $categories;
+    }
+
+    private function sortCategoryNameMap($categories)
+    {
+        if (!is_array($categories) || empty($categories)) {
+            return [];
+        }
+
+        uasort($categories, function ($a, $b) {
+            return $this->compareCategoryNames($a, $b);
+        });
+
+        return $categories;
+    }
+
+    private function isSelectableCategory($id_category)
+    {
+        $id_category = (int) $id_category;
+
+        if ($id_category <= 0) {
+            return false;
+        }
+
+        $categories = $this->getAllCategory();
+
+        foreach ($categories as $category) {
+            if (isset($category['id_category']) && (int) $category['id_category'] === $id_category) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     // Get all Category Which Key is Id And Value is Category Name
@@ -404,15 +518,28 @@ class TvcmsCategorySlider extends Module
         $category = Category::getAllCategoriesName();
         $all_category_id = [];
         $i = 0;
+
         unset($category[0]);
         unset($category[1]);
+
         foreach ($category as $cat) {
-            $all_category_id[$i]['id_category'] = $cat['id_category'];
-            $all_category_id[$i]['name'] = $cat['name'];
+            if (!isset($cat['id_category']) || !isset($cat['name'])) {
+                continue;
+            }
+
+            $id_category = (int) $cat['id_category'];
+            $name = trim((string) $cat['name']);
+
+            if ($id_category <= 0 || '' === $name) {
+                continue;
+            }
+
+            $all_category_id[$i]['id_category'] = $id_category;
+            $all_category_id[$i]['name'] = $name;
             ++$i;
         }
 
-        return $all_category_id;
+        return $this->sortCategoryRowsByName($all_category_id);
     }
 
     // Show Admin Data in Table
@@ -420,7 +547,7 @@ class TvcmsCategorySlider extends Module
     {
         $result = [];
         $return_data = [];
-        $default_lang_id = $this->context->language->id;
+        $default_lang_id = (int) $this->context->language->id;
 
         $select_data = 'SELECT * FROM `' . _DB_PREFIX_ . 'tvcmscategory_slider`'
              . ' WHERE `id_shop_group` = ' . (int) $this->id_shop_group . ' AND `id_shop` = ' . (int) $this->id_shop
@@ -434,23 +561,22 @@ class TvcmsCategorySlider extends Module
         $result['tvcmscategory_slider_lang'] = Db::getInstance()->executeS($select_data);
 
         foreach ($result['tvcmscategory_slider'] as $key => $data) {
-            $return_data[$key]['id'] = $data['id_tvcmscategory_slider'];
-            $id = $data['id_tvcmscategory_slider'];
+            $return_data[$key]['id'] = (int) $data['id_tvcmscategory_slider'];
+            $id = (int) $data['id_tvcmscategory_slider'];
 
             foreach ($result['tvcmscategory_slider_lang'] as $lang) {
-                if ($default_lang_id == $lang['id_lang'] && $id == $lang['id_tvcmscategory_slider']) {
-                    // $lang_id = $lang['id_lang'];
-                    $return_data[$key]['id_lang'] = $lang['id_lang'];
+                if ($default_lang_id == (int) $lang['id_lang'] && $id == (int) $lang['id_tvcmscategory_slider']) {
+                    $return_data[$key]['id_lang'] = (int) $lang['id_lang'];
                     $return_data[$key]['title'] = $lang['title'];
                     $return_data[$key]['short_description'] = $lang['short_description'];
                 }
             }
 
-            $return_data[$key]['id_category'] = $data['id_category'];
+            $return_data[$key]['id_category'] = (int) $data['id_category'];
             $return_data[$key]['image'] = $data['image'];
-            $return_data[$key]['width'] = $data['width'];
-            $return_data[$key]['height'] = $data['height'];
-            $return_data[$key]['status'] = $data['status'];
+            $return_data[$key]['width'] = (int) $data['width'];
+            $return_data[$key]['height'] = (int) $data['height'];
+            $return_data[$key]['status'] = (int) $data['status'];
         }
 
         return $return_data;
@@ -467,6 +593,7 @@ class TvcmsCategorySlider extends Module
                 WHERE 
                 `id_shop_group` = ' . (int) $this->id_shop_group
                  . ' AND `id_shop` = ' . (int) $this->id_shop;
+
         if ($id) {
             $select_data .= ' AND `id_tvcmscategory_slider` = ' . (int) $id;
         } else {
@@ -478,6 +605,7 @@ class TvcmsCategorySlider extends Module
         $select_data = '';
         $select_data .= 'SELECT * FROM `' . _DB_PREFIX_ . 'tvcmscategory_slider_lang`'
              . ' WHERE `id_shop_group` = ' . (int) $this->id_shop_group . ' AND `id_shop` = ' . (int) $this->id_shop;
+
         if ($id) {
             $select_data .= ' AND id_tvcmscategory_slider = ' . (int) $id;
         }
@@ -485,22 +613,22 @@ class TvcmsCategorySlider extends Module
         $result['tvcmscategory_slider_lang'] = Db::getInstance()->executeS($select_data);
 
         foreach ($result['tvcmscategory_slider'] as $key => $data) {
-            $return_data[$key]['id'] = $data['id_tvcmscategory_slider'];
-            $id = $data['id_tvcmscategory_slider'];
+            $return_data[$key]['id'] = (int) $data['id_tvcmscategory_slider'];
+
             foreach ($result['tvcmscategory_slider_lang'] as $lang) {
-                // $lang_id = $lang['id_lang'];
-                if ($data['id_tvcmscategory_slider'] == $lang['id_tvcmscategory_slider']) {
-                    $return_data[$key]['lang_info'][$lang['id_lang']]['id_lang'] = $lang['id_lang'];
-                    $return_data[$key]['lang_info'][$lang['id_lang']]['title'] = $lang['title'];
-                    $return_data[$key]['lang_info'][$lang['id_lang']]['short_description'] = $lang['short_description'];
+                if ((int) $data['id_tvcmscategory_slider'] == (int) $lang['id_tvcmscategory_slider']) {
+                    $id_lang = (int) $lang['id_lang'];
+                    $return_data[$key]['lang_info'][$id_lang]['id_lang'] = $id_lang;
+                    $return_data[$key]['lang_info'][$id_lang]['title'] = $lang['title'];
+                    $return_data[$key]['lang_info'][$id_lang]['short_description'] = $lang['short_description'];
                 }
             }
 
-            $return_data[$key]['id_category'] = $data['id_category'];
+            $return_data[$key]['id_category'] = (int) $data['id_category'];
             $return_data[$key]['image'] = $data['image'];
-            $return_data[$key]['width'] = $data['width'];
-            $return_data[$key]['height'] = $data['height'];
-            $return_data[$key]['status'] = $data['status'];
+            $return_data[$key]['width'] = (int) $data['width'];
+            $return_data[$key]['height'] = (int) $data['height'];
+            $return_data[$key]['status'] = (int) $data['status'];
         }
 
         return $return_data;
@@ -509,7 +637,7 @@ class TvcmsCategorySlider extends Module
     public function showFrontData()
     {
         $cookie = Context::getContext()->cookie;
-        $id_lang = $cookie->id_lang;
+        $id_lang = (int) $cookie->id_lang;
 
         $select_data = '
             SELECT 
@@ -523,7 +651,7 @@ class TvcmsCategorySlider extends Module
             FROM 
                 `' . _DB_PREFIX_ . 'tvcmscategory_slider` mainTable
             LEFT JOIN
-                ' . _DB_PREFIX_ . 'tvcmscategory_slider_lang subTable
+                `' . _DB_PREFIX_ . 'tvcmscategory_slider_lang` subTable
             ON
                 mainTable.id_tvcmscategory_slider = subTable.id_tvcmscategory_slider
             WHERE 
@@ -534,10 +662,11 @@ class TvcmsCategorySlider extends Module
                 mainTable.status = 1
             AND
                 subTable.id_lang = ' . (int) $id_lang . '
-            ORDER BY `position`';
+            ORDER BY mainTable.`position`';
 
         $result = Db::getInstance()->executeS($select_data);
         $result_data = [];
+
         if (!empty($result)) {
             $result_data = $result;
         }
@@ -549,11 +678,23 @@ class TvcmsCategorySlider extends Module
     {
         $category = Category::getAllCategoriesName();
         $all_category_id = [];
+
         foreach ($category as $cat) {
-            $all_category_id[$cat['id_category']] = $cat['name'];
+            if (!isset($cat['id_category']) || !isset($cat['name'])) {
+                continue;
+            }
+
+            $id_category = (int) $cat['id_category'];
+            $name = trim((string) $cat['name']);
+
+            if ($id_category <= 0 || '' === $name) {
+                continue;
+            }
+
+            $all_category_id[$id_category] = $name;
         }
 
-        return $all_category_id;
+        return $this->sortCategoryNameMap($all_category_id);
     }
 
     public function uninstall()
@@ -577,6 +718,12 @@ class TvcmsCategorySlider extends Module
     // Delete Record by id Form Table
     public function removeRecord($id)
     {
+        $id = (int) $id;
+
+        if ($id <= 0) {
+            return;
+        }
+
         $this->removeImage($id);
 
         $delete_data = [];
@@ -615,27 +762,41 @@ class TvcmsCategorySlider extends Module
 
     public function uninstallTab()
     {
-        $id_tab = Tab::getIdFromClassName('Admin' . $this->name);
-        $tab = new Tab($id_tab);
-        $tab->delete();
+        $id_tab = (int) Tab::getIdFromClassName('Admin' . $this->name);
+
+        if ($id_tab > 0) {
+            $tab = new Tab($id_tab);
+            $tab->delete();
+        }
 
         return true;
     }
 
     public function removeImage($id)
     {
-        $remove_images = [];
+        $id = (int) $id;
+
+        if ($id <= 0) {
+            return;
+        }
+
         $result = $this->showData($id);
 
-        $remove_images[] = $result[0]['image'];
+        if (empty($result[0]['image'])) {
+            return;
+        }
 
-        foreach ($remove_images as $image) {
-            // Match Pattern Which image you Don't want to delete.
-            $res = preg_match('/^demo_img_.*$/', $image);
-            if (file_exists(dirname(__FILE__) . './views/img/' . $image)
-                && '1' != $res) {
-                unlink(dirname(__FILE__) . './views/img/' . $image);
-            }
+        $image = basename((string) $result[0]['image']);
+
+        if ('' === $image) {
+            return;
+        }
+
+        $res = preg_match('/^demo_img_.*$/', $image);
+        $image_path = dirname(__FILE__) . '/views/img/' . $image;
+
+        if (file_exists($image_path) && '1' != $res) {
+            @unlink($image_path);
         }
     }
 
@@ -644,6 +805,7 @@ class TvcmsCategorySlider extends Module
         $trn_tbl = [];
         $trn_tbl[] = 'TRUNCATE `' . _DB_PREFIX_ . 'tvcmscategory_slider`';
         $trn_tbl[] = 'TRUNCATE `' . _DB_PREFIX_ . 'tvcmscategory_slider_lang`';
+
         foreach ($trn_tbl as $table) {
             Db::getInstance()->execute($table);
         }
@@ -655,11 +817,13 @@ class TvcmsCategorySlider extends Module
         $protocol_content = $useSSL ? 'https://' : 'http://';
         $baseDir = $protocol_content . Tools::getHttpHost() . __PS_BASE_URI__;
         $link = PS_ADMIN_DIR;
+
         if (Tools::substr(strrchr($link, '/'), 1)) {
             $admin_folder = Tools::substr(strrchr($link, '/'), 1);
         } else {
             $admin_folder = Tools::substr(strrchr($link, "\'"), 1);
         }
+
         $static_token = Tools::getAdminToken('AdminModules' . (int) Tab::getIdFromClassName('AdminModules') . (int) $this->context->employee->id);
         $url_Catsampleupgrade = $baseDir . $admin_folder . '/index.php?controller=AdminModules&configure=' . $this->name . '&tab_module=front_office_features&module_name=' . $this->name . '&token=' . $static_token;
         $this->context->smarty->assign('tvurlCatsampleupgrade', $url_Catsampleupgrade);
@@ -671,48 +835,64 @@ class TvcmsCategorySlider extends Module
         $languages = Language::getLanguages();
         $message = '';
         $result = [];
+
         if (Tools::getValue('action')) {
             $action = Tools::getValue('action');
-            $id = Tools::getValue('id');
-            if ('remove' == $action) {
-                // remove record
-                $this->removeRecord($id);
+            $id = (int) Tools::getValue('id');
 
+            if ('remove' == $action && $id > 0) {
+                $this->removeRecord($id);
                 $message .= $this->displayConfirmation($this->l('Record is Deleted.'));
             }
         }
 
         if (Tools::isSubmit('submitTvcmsCategoryForm')) {
             $old_file = '';
+            $old_width = 0;
+            $old_height = 0;
             $no_image_selected = false;
+
             $result['id'] = '';
+            $result['image'] = '';
+            $result['width'] = 0;
+            $result['height'] = 0;
+
             if (Tools::getValue('id')) {
-                $id = Tools::getValue('id');
+                $id = (int) Tools::getValue('id');
                 $result['id'] = $id;
                 $data = $this->showData($id);
-                $old_file = $data[0]['image'];
-                $old_width = $data[0]['width'];
-                $old_height = $data[0]['height'];
+
+                if (!empty($data[0])) {
+                    $old_file = isset($data[0]['image']) ? $data[0]['image'] : '';
+                    $old_width = isset($data[0]['width']) ? (int) $data[0]['width'] : 0;
+                    $old_height = isset($data[0]['height']) ? (int) $data[0]['height'] : 0;
+                }
+
+                $result['image'] = $old_file;
+                $result['width'] = $old_width;
+                $result['height'] = $old_height;
             }
 
             $tvcms_obj = new TvcmsCategorySliderStatus();
             $show_fields = $tvcms_obj->fieldStatusInformation();
 
-            $result['image'] = '';
             if ($show_fields['image']) {
                 $this->obj_image = new TvcmsCategorySliderImageUpload();
+
                 if (!empty($_FILES['image']['name'])) {
                     $new_file = $_FILES['image'];
                     $ans = $this->obj_image->imageUploading($new_file, $old_file);
-                    if ($ans['success']) {
-                        $result['image'] = $ans['name'];
-                        $result['width'] = $ans['width'];
-                        $result['height'] = $ans['height'];
+
+                    if (!empty($ans['success'])) {
+                        $result['image'] = isset($ans['name']) ? $ans['name'] : '';
+                        $result['width'] = isset($ans['width']) ? (int) $ans['width'] : 0;
+                        $result['height'] = isset($ans['height']) ? (int) $ans['height'] : 0;
                     } else {
-                        $message .= $ans['error'];
+                        $message .= isset($ans['error']) ? $ans['error'] : $this->displayError($this->l('Image upload error.'));
                         $result['image'] = $old_file;
                         $result['width'] = $old_width;
-                        $result['image'] = $old_file;
+                        $result['height'] = $old_height;
+
                         if (!Tools::getValue('id')) {
                             $no_image_selected = true;
                         }
@@ -721,6 +901,7 @@ class TvcmsCategorySlider extends Module
                     $result['image'] = $old_file;
                     $result['width'] = $old_width;
                     $result['height'] = $old_height;
+
                     if (!Tools::getValue('id')) {
                         $message .= $this->displayError($this->l('Please Select Image.'));
                         $no_image_selected = true;
@@ -730,61 +911,64 @@ class TvcmsCategorySlider extends Module
 
             if (!$no_image_selected) {
                 foreach ($languages as $lang) {
-                    $tmp = Tools::getValue('custom_title_' . $lang['id_lang']);
-                    $result['lang_info'][$lang['id_lang']]['custom_title'] = $tmp;
-                    $tmp = Tools::getValue('short_description_' . $lang['id_lang']);
-                    $result['lang_info'][$lang['id_lang']]['short_description'] = addslashes($tmp);
+                    $id_lang = (int) $lang['id_lang'];
+
+                    $tmp = Tools::getValue('custom_title_' . $id_lang);
+                    $result['lang_info'][$id_lang]['custom_title'] = $tmp;
+
+                    $tmp = Tools::getValue('short_description_' . $id_lang);
+                    $result['lang_info'][$id_lang]['short_description'] = $tmp;
                 }
 
-                $result['id_category'] = Tools::getValue('id_category');
-                $result['status'] = Tools::getValue('status');
+                $result['id_category'] = (int) Tools::getValue('id_category');
+                $result['status'] = !empty(Tools::getValue('status')) ? 1 : 0;
 
-                if (0 == $result['id_category']) {
+                if ($result['id_category'] <= 0 || !$this->isSelectableCategory($result['id_category'])) {
                     $message .= $this->displayError($this->l('Please select valid category.'));
                 } else {
                     $this->insertData($result);
                     $message .= $this->displayConfirmation($this->l('Record is save successfully.'));
                 }
+
                 $this->clearCustomSmartyCache('tvcmscategoryslider_display_home.tpl');
             }
         }
 
         if (Tools::isSubmit('submitTvcmsCategoryTitle')) {
             foreach ($languages as $lang) {
+                $id_lang = (int) $lang['id_lang'];
                 $this->obj_image = new TvcmsCategorySliderImageUpload();
-                if (!empty($_FILES['TVCMSCATEGORY_SLIDER_IMG_' . $lang['id_lang']]['name'])) {
-                    $old_file = Configuration::get('TVCMSCATEGORY_SLIDER_IMG', $lang['id_lang']);
-                    $new_file = $_FILES['TVCMSCATEGORY_SLIDER_IMG_' . $lang['id_lang']];
+
+                if (!empty($_FILES['TVCMSCATEGORY_SLIDER_IMG_' . $id_lang]['name'])) {
+                    $old_file = Configuration::get('TVCMSCATEGORY_SLIDER_IMG', $id_lang);
+                    $new_file = $_FILES['TVCMSCATEGORY_SLIDER_IMG_' . $id_lang];
                     $ans = $this->obj_image->imageUploading($new_file, $old_file);
-                    if ($ans['success']) {
-                        $result['TVCMSCATEGORY_SLIDER_IMG'][$lang['id_lang']] = $ans['name'];
+
+                    if (!empty($ans['success'])) {
+                        $result['TVCMSCATEGORY_SLIDER_IMG'][$id_lang] = isset($ans['name']) ? $ans['name'] : '';
                     } else {
-                        $message .= $ans['error'];
-                        $result['TVCMSCATEGORY_SLIDER_IMG'][$lang['id_lang']] = $old_file;
+                        $message .= isset($ans['error']) ? $ans['error'] : $this->displayError($this->l('Image upload error.'));
+                        $result['TVCMSCATEGORY_SLIDER_IMG'][$id_lang] = $old_file;
                     }
                 } else {
-                    $old_file = Configuration::get('TVCMSCATEGORY_SLIDER_IMG', $lang['id_lang']);
-                    $result['TVCMSCATEGORY_SLIDER_IMG'][$lang['id_lang']] = $old_file;
+                    $old_file = Configuration::get('TVCMSCATEGORY_SLIDER_IMG', $id_lang);
+                    $result['TVCMSCATEGORY_SLIDER_IMG'][$id_lang] = $old_file;
                 }
 
-                $tmp = Tools::getValue('TVCMSCATEGORY_SLIDER_TITLE_' . $lang['id_lang']);
-                $result['TVCMSCATEGORY_SLIDER_TITLE'][$lang['id_lang']] = $tmp;
+                $tmp = Tools::getValue('TVCMSCATEGORY_SLIDER_TITLE_' . $id_lang);
+                $result['TVCMSCATEGORY_SLIDER_TITLE'][$id_lang] = $tmp;
 
-                $tmp = Tools::getValue('TVCMSCATEGORY_SLIDER_SUB_DESCRIPTION_' . $lang['id_lang']);
-                $result['TVCMSCATEGORY_SLIDER_SUB_DESCRIPTION'][$lang['id_lang']] = $tmp;
+                $tmp = Tools::getValue('TVCMSCATEGORY_SLIDER_SUB_DESCRIPTION_' . $id_lang);
+                $result['TVCMSCATEGORY_SLIDER_SUB_DESCRIPTION'][$id_lang] = $tmp;
 
-                $tmp = Tools::getValue('TVCMSCATEGORY_SLIDER_DESCRIPTION_' . $lang['id_lang']);
-                $result['TVCMSCATEGORY_SLIDER_DESCRIPTION'][$lang['id_lang']] = $tmp;
+                $tmp = Tools::getValue('TVCMSCATEGORY_SLIDER_DESCRIPTION_' . $id_lang);
+                $result['TVCMSCATEGORY_SLIDER_DESCRIPTION'][$id_lang] = $tmp;
             }
 
-            $tmp = $result['TVCMSCATEGORY_SLIDER_TITLE'];
-            Configuration::updateValue('TVCMSCATEGORY_SLIDER_TITLE', $tmp);
-            $tmp = $result['TVCMSCATEGORY_SLIDER_SUB_DESCRIPTION'];
-            Configuration::updateValue('TVCMSCATEGORY_SLIDER_SUB_DESCRIPTION', $tmp);
-            $tmp = $result['TVCMSCATEGORY_SLIDER_DESCRIPTION'];
-            Configuration::updateValue('TVCMSCATEGORY_SLIDER_DESCRIPTION', $tmp);
-            $tmp = $result['TVCMSCATEGORY_SLIDER_IMG'];
-            Configuration::updateValue('TVCMSCATEGORY_SLIDER_IMG', $tmp);
+            Configuration::updateValue('TVCMSCATEGORY_SLIDER_TITLE', $result['TVCMSCATEGORY_SLIDER_TITLE']);
+            Configuration::updateValue('TVCMSCATEGORY_SLIDER_SUB_DESCRIPTION', $result['TVCMSCATEGORY_SLIDER_SUB_DESCRIPTION']);
+            Configuration::updateValue('TVCMSCATEGORY_SLIDER_DESCRIPTION', $result['TVCMSCATEGORY_SLIDER_DESCRIPTION']);
+            Configuration::updateValue('TVCMSCATEGORY_SLIDER_IMG', $result['TVCMSCATEGORY_SLIDER_IMG']);
 
             $message .= $this->displayConfirmation($this->l('Category Slider Title Updated.'));
         }
@@ -811,7 +995,7 @@ class TvcmsCategorySlider extends Module
 
         $tvcms_obj = new TvcmsCategorySliderStatus();
         $show_fields = $tvcms_obj->fieldStatusInformation();
-        $default_lang_id = $this->context->language->id;
+        $default_lang_id = (int) $this->context->language->id;
 
         $this->context->smarty->assign('array_list', $array_list);
         $this->context->smarty->assign('category_list', $category_list);
@@ -824,56 +1008,66 @@ class TvcmsCategorySlider extends Module
     public function getConfigFormValues()
     {
         $cookie = Context::getContext()->cookie;
-        $id_lang = $cookie->id_lang;
+        $id_lang = (int) $cookie->id_lang;
         $this->context->smarty->assign('id_lang', $id_lang);
+
         $fields = [];
         $languages = Language::getLanguages();
 
         // Frist Form Information
         foreach ($languages as $lang) {
-            $a = Configuration::get('TVCMSCATEGORY_SLIDER_TITLE', $lang['id_lang']);
-            $fields['TVCMSCATEGORY_SLIDER_TITLE'][$lang['id_lang']] = $a;
+            $id_lang_item = (int) $lang['id_lang'];
 
-            $a = Configuration::get('TVCMSCATEGORY_SLIDER_SUB_DESCRIPTION', $lang['id_lang']);
-            $fields['TVCMSCATEGORY_SLIDER_SUB_DESCRIPTION'][$lang['id_lang']] = $a;
-
-            $a = Configuration::get('TVCMSCATEGORY_SLIDER_DESCRIPTION', $lang['id_lang']);
-            $fields['TVCMSCATEGORY_SLIDER_DESCRIPTION'][$lang['id_lang']] = $a;
-
-            $a = Configuration::get('TVCMSCATEGORY_SLIDER_IMG', $lang['id_lang']);
-            $fields['TVCMSCATEGORY_SLIDER_IMG'][$lang['id_lang']] = $a;
+            $fields['TVCMSCATEGORY_SLIDER_TITLE'][$id_lang_item] = Configuration::get('TVCMSCATEGORY_SLIDER_TITLE', $id_lang_item);
+            $fields['TVCMSCATEGORY_SLIDER_SUB_DESCRIPTION'][$id_lang_item] = Configuration::get('TVCMSCATEGORY_SLIDER_SUB_DESCRIPTION', $id_lang_item);
+            $fields['TVCMSCATEGORY_SLIDER_DESCRIPTION'][$id_lang_item] = Configuration::get('TVCMSCATEGORY_SLIDER_DESCRIPTION', $id_lang_item);
+            $fields['TVCMSCATEGORY_SLIDER_IMG'][$id_lang_item] = Configuration::get('TVCMSCATEGORY_SLIDER_IMG', $id_lang_item);
         }
 
         $path = _MODULE_DIR_ . $this->name . '/views/img/';
         $this->context->smarty->assign('path', $path);
+
         $all_category = $this->getAllCategory();
         $this->context->smarty->assign('all_category', $all_category);
 
         // Second Form Information
         $fields['id'] = '';
+
         foreach ($languages as $lang) {
-            $fields['custom_title'][$lang['id_lang']] = '';
-            $fields['short_description'][$lang['id_lang']] = '';
+            $id_lang_item = (int) $lang['id_lang'];
+            $fields['custom_title'][$id_lang_item] = '';
+            $fields['short_description'][$id_lang_item] = '';
         }
+
         $fields['image'] = '';
         $fields['status'] = 1;
         $this->context->smarty->assign('id_category_select', '0');
 
         if ('edit' == Tools::getValue('action')) {
-            $id = Tools::getValue('id');
+            $id = (int) Tools::getValue('id');
             $data = $this->showData($id);
-            $data = $data[0];
 
-            $fields['id'] = $id;
-            foreach ($languages as $lang) {
-                $fields['custom_title'][$lang['id_lang']] = $data['lang_info'][$lang['id_lang']]['title'];
-                $tmp = $data['lang_info'][$lang['id_lang']]['short_description'];
-                $fields['short_description'][$lang['id_lang']] = $tmp;
+            if (!empty($data[0])) {
+                $data = $data[0];
+                $fields['id'] = $id;
+
+                foreach ($languages as $lang) {
+                    $id_lang_item = (int) $lang['id_lang'];
+
+                    $fields['custom_title'][$id_lang_item] = isset($data['lang_info'][$id_lang_item]['title'])
+                        ? $data['lang_info'][$id_lang_item]['title']
+                        : '';
+
+                    $fields['short_description'][$id_lang_item] = isset($data['lang_info'][$id_lang_item]['short_description'])
+                        ? $data['lang_info'][$id_lang_item]['short_description']
+                        : '';
+                }
+
+                $fields['status'] = isset($data['status']) ? (int) $data['status'] : 1;
+                $fields['image'] = isset($data['image']) ? $data['image'] : '';
+
+                $this->context->smarty->assign('id_category_select', isset($data['id_category']) ? (int) $data['id_category'] : 0);
             }
-            $fields['status'] = $data['status'];
-            $fields['image'] = $data['image'];
-
-            $this->context->smarty->assign('id_category_select', $data['id_category']);
         }
 
         return $fields;
@@ -886,7 +1080,7 @@ class TvcmsCategorySlider extends Module
         $helper->show_toolbar = false;
         $helper->table = $this->table;
         $helper->module = $this;
-        $helper->default_form_language = $this->context->language->id;
+        $helper->default_form_language = (int) $this->context->language->id;
         $helper->allow_employee_form_lang = Configuration::get('PS_BO_ALLOW_EMPLOYEE_FORM_LANG', 0);
 
         $helper->identifier = $this->identifier;
@@ -894,15 +1088,16 @@ class TvcmsCategorySlider extends Module
              . '&configure=' . $this->name . '&tab_module=' . $this->tab . '&module_name=' . $this->name;
         $helper->token = Tools::getAdminTokenLite('AdminModules');
         $helper->show_cancel_button = true;
+
         $module = 'tvcmscategoryslider';
         $url = 'index.php?controller=AdminModules&configure=' . $module . '&token=' . Tools::getAdminTokenLite('AdminModules');
 
         $helper->back_url = $url;
 
         $helper->tpl_vars = [
-            'fields_value' => $this->getConfigFormValues(), // Add values for your inputs
+            'fields_value' => $this->getConfigFormValues(),
             'languages' => $this->context->controller->getLanguages(),
-            'id_language' => $this->context->language->id,
+            'id_language' => (int) $this->context->language->id,
         ];
 
         $form = [];
@@ -970,10 +1165,6 @@ class TvcmsCategorySlider extends Module
                         'name' => 'short_description',
                         'label' => $this->l('Short Description'),
                         'lang' => true,
-                        // 'cols' => 40,
-                        // 'rows' => 10,
-                        // 'class' => 'rte',
-                        // 'autoload_rte' => true,
                     ];
         }
 
@@ -1074,6 +1265,7 @@ class TvcmsCategorySlider extends Module
     public function hookDisplayBackOfficeHeader()
     {
         $this->context->controller->addJqueryUI('ui.sortable');
+
         if ($this->name == Tools::getValue('configure')) {
             $this->context->controller->addJS($this->_path . 'views/js/back.js');
             $this->context->controller->addCSS($this->_path . 'views/css/back.css');
@@ -1106,15 +1298,19 @@ class TvcmsCategorySlider extends Module
         if (!$main_heading['main_title'] || empty($main_heading_data['title'])) {
             $main_heading['main_title'] = false;
         }
+
         if (!$main_heading['main_sub_title'] || empty($main_heading_data['short_desc'])) {
             $main_heading['main_sub_title'] = false;
         }
+
         if (!$main_heading['main_description'] || empty($main_heading_data['desc'])) {
             $main_heading['main_description'] = false;
         }
+
         if (!$main_heading['main_image'] || empty($main_heading_data['image'])) {
             $main_heading['main_image'] = false;
         }
+
         if (!$main_heading['main_title']
             && !$main_heading['main_sub_title']
             && !$main_heading['main_description']
@@ -1128,7 +1324,7 @@ class TvcmsCategorySlider extends Module
     public function showFrontSideResult()
     {
         $cookie = Context::getContext()->cookie;
-        $id_lang = $cookie->id_lang;
+        $id_lang = (int) $cookie->id_lang;
 
         $tvcms_obj = new TvcmsCategorySliderStatus();
         $main_heading = $tvcms_obj->fieldStatusInformation();
@@ -1159,11 +1355,13 @@ class TvcmsCategorySlider extends Module
     {
         if (!Cache::isStored('tvcmscategoryslider_display_home.tpl')) {
             $result = $this->showFrontSideResult();
+
             if ($result) {
                 $output = $this->display(__FILE__, 'views/templates/front/display_home.tpl');
             } else {
                 $output = '';
             }
+
             Cache::store('tvcmscategoryslider_display_home.tpl', $output);
         }
 
