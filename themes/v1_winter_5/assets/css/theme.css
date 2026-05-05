@@ -9639,6 +9639,59 @@ a:hover {
 #header .header-nav #_desktop_contact_link #contact-link {
     margin-top: .9375rem
 }
+
+
+.cart-contact-link {
+    padding:10px;
+    float: right;
+    osition: relative;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: left;
+    flex-flow: column;
+    
+}
+
+.cart-contact-link-help {
+    padding:10px;
+    float: right;
+    osition: relative;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: left;
+    flex-flow: column;
+    background: #2a99cc;
+    
+}
+
+.cart-contact-link-title {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.02rem;
+    height: 10px;
+    color: #ffffff;
+}
+
+.cart-contact-link-text {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: -0.02rem;
+    height: 10px;
+    color: #ffffff;
+}
+    
+
+
 #header .header-nav .search-widget {
     margin-top: .2rem
 }
