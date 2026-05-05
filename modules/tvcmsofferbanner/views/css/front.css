@@ -173,6 +173,7 @@
     color: #ffffff;
     font-weight: 400;
     margin-bottom: 0;
+    letter-spacing: normal;
 }
 @media(max-width: 991px) {
     .tvofferbanner-content h4 {
