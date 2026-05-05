@@ -27,7 +27,8 @@
     <div class="container-fluid tvcmsbrandlist-slider">
         <div class='container tvbrandlist-slider'>
             <div class='tvcmsbrandlist-slider-main-title-wrapper'>
-                {include file='_partials/tvcms-main-title.tpl' main_heading=$main_heading path=$dis_arr_result['path']}
+                {capture name='brandlist_main_heading'}{l s='Nos marques sélectionnées' mod='tvcmsbrandlist'}{/capture}
+                {include file='_partials/tvcms-main-title.tpl' main_heading=$smarty.capture.brandlist_main_heading path=$dis_arr_result['path']}
             </div>
             <div class="tvbrandlist-slider-block">
                 <div class='tvbrandlist-slider-inner tvbrandlist-slider-content-box owl-theme owl-carousel'>
