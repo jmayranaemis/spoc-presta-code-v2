@@ -28,9 +28,15 @@
     <div class='tvcategory-slider container'>
         {if $main_heading['main_status']}
         <div class='tvcategory-slider-main-title-wrapper'>
-            {include file='_partials/tvcms-main-title.tpl' main_heading=$main_heading path=$dis_arr_result['path']}
+            {*include file='_partials/tvcms-main-title.tpl' main_heading=$main_heading path=$dis_arr_result['path']*}
         </div>
         {/if}
+           <div class="tvcms-main-title">
+            <div class="tvmain-title">
+            <h2>{l s='Les Univers SPOC' mod='tvcmsbrandlist'}</h2>
+            </div>
+        
+            </div>
         <div class="tvcategory-slider-inner-info-box">
             <div class='tvcategory-slider-content-box owl-theme owl-carousel'>
                 {foreach $dis_arr_result['data'] as $data}
