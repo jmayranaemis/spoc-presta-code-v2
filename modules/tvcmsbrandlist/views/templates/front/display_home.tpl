@@ -26,6 +26,7 @@
     {if $dis_arr_result['status']}
     <div class="container-fluid tvcmsbrandlist-slider">
         <div class='container tvbrandlist-slider'>
+        {l s='Nos marques sélectionnées' mod='tvcmsbrandlist'}
             <div class='tvcmsbrandlist-slider-main-title-wrapper'>
                 {include file='_partials/tvcms-main-title.tpl' main_heading=$main_heading path=$dis_arr_result['path']}
             </div>
