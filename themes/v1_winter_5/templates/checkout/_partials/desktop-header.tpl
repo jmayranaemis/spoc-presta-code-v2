@@ -1,5 +1,5 @@
 {**
-* 2007-2025 PrestaShop
+* 2007-2024 PrestaShop
 *
 * NOTICE OF LICENSE
 *
@@ -18,7 +18,7 @@
 * needs please refer to http://www.prestashop.com for more information.
 *
 * @author PrestaShop SA <contact@prestashop.com>
-* @copyright 2007-2025 PrestaShop SA
+* @copyright 2007-2024 PrestaShop SA
 * @license https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
 * International Registered Trademark & Property of PrestaShop SA
 *}
@@ -95,16 +95,11 @@
                         </div>
                     </div>
                     <div class="tvcmsdesktop-contact col-lg-6 col-md-6 col-xl-6 col-sm-12">
-                        {if $withData}
-                        <div id="_desktop_contact_link">
-                            <div id="contact-link">
-                                <a href="{$urls.pages.contact}" target="_blank">
-                                    {* <i class='material-icons'>&#xe0b0;</i> *}
-                                    <span>{l s='Contact Us' d='Shop.Theme.Catalog'}</span>
-                                </a>
-                            </div>
-                        </div>
-                        {/if}
+                     
+                        <div class="cart-contact-link-help">
+                        <p class="cart-contact-link-title">BESOIN D'AIDE&nbsp;<strong>+33 4 93 07 40 44</strong></p>
+                        <p class="cart-contact-link-text">Lundi 14h-19h & Mardi - Samedi 9h30-12h/14h-19h </p>
+                        </div>  
                     </div>
                 </div>
             </div>
