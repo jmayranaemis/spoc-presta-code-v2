@@ -4308,7 +4308,7 @@ input {
 }
 @media(min-width:1400px) and (max-width: 1500px) {
     .tvcms-main-title .tvmain-title h2 {
-        font-size: 28px;
+        font-size: 32px;
     }
     .tvtab-title-wrapper .tvtabs-products li span,
     .tvleft-right-title.facet-label,
@@ -4614,6 +4614,7 @@ body#checkout .custom-checkbox {
     .tv-main-div #wrapper .container {
         max-width: 100%;
         padding: 0 45px;
+        margin-top: 30px;
     }
 }
 /*@media (min-width: 1661px){
