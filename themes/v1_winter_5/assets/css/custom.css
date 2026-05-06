@@ -10616,4 +10616,78 @@ body {
     overflow-x: hidden;
 }
 
+/* ==========================================
+   VARIANTES PRODUIT - suppression du saut au hover
+   Taille / Couleur / boutons radio
+   ========================================== */
+
+.product-variants .product-variants-item ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-left: 0;
+    margin: 8px 0 15px 0;
+}
+
+.product-variants .product-variants-item li.input-container {
+    float: none !important;
+    list-style: none;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.product-variants .product-variants-item label {
+    margin: 0;
+    cursor: pointer;
+}
+
+/* État normal : bordure déjà présente mais invisible */
+.product-variants .product-variants-item .radio-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 42px;
+    height: 36px;
+    padding: 0 12px;
+
+    border: 2px solid transparent;
+    border-radius: 4px;
+
+    background: #ffffff;
+    color: #333333;
+
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+
+    box-sizing: border-box;
+    transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Hover : on change la couleur, pas la taille */
+.product-variants .product-variants-item label:hover .radio-label {
+    border-color: #145078;
+    color: #145078;
+    background-color: #ffffff;
+}
+
+/* Variante sélectionnée */
+.product-variants .product-variants-item input.input-radio:checked + .radio-label {
+    border-color: #145078;
+    background-color: #145078;
+    color: #ffffff;
+}
+
+/* Focus clavier propre, sans décalage */
+.product-variants .product-variants-item input.input-radio:focus + .radio-label {
+    box-shadow: 0 0 0 2px rgba(20, 80, 120, 0.20);
+}
+
+/* Évite qu'un style thème ajoute outline/border différent */
+.product-variants .product-variants-item .radio-label:hover,
+.product-variants .product-variants-item input.input-radio:checked + .radio-label {
+    box-sizing: border-box;
+}
+
 /*mailalert css end*/

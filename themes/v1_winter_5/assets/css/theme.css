@@ -13322,19 +13322,5 @@ data-toggle[tooltip] {
     display: none;
 }
 
-/* ===== Variants : gris 1px / noir 2px, sans shadow, zéro reflow ===== */
 
-.product-variants .product-variants-item .radio-label {
-    border: 2px solid transparent !important;
-    box-sizing: border-box !important;
-}
 
-.product-variants .product-variants-item label:hover .radio-label {
-    border-color: #145078 !important;
-}
-
-.product-variants .product-variants-item input.input-radio:checked + .radio-label {
-    border-color: #145078 !important;
-    background-color: #145078 !important;
-    color: #ffffff !important;
-}
