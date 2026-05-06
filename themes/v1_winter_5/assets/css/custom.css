@@ -4609,14 +4609,21 @@ body#checkout .custom-checkbox {
 @media (min-width: 1024px) and (max-width: 1661px) {
     .tvcmsbrandlist-slider .container,
     .tvcmscustomer-services .container,
-    .footer-container .container,
-    .tvfooter-product-box-layout .container,
     .tv-main-div #wrapper .container {
+        max-width: 100%;
+        padding: 0 45px;
+        margin-top: 30px;
+    }
+}
+@media (min-width: 1024px) and (max-width: 1661px) {
+    .footer-container .container,
+    .tvfooter-product-box-layout .container {
         max-width: 100%;
         padding: 0 45px;
        /* margin-top: 30px;*/
     }
 }
+
 /*@media (min-width: 1661px){
     .tvcmsbrandlist-slider .container,
     .tvcmscustomer-services .container,
