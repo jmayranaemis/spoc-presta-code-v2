@@ -914,8 +914,8 @@ span.tvcart-product-price {
 }
 /***** product title design *****/
 .tvcmsmain-title-wrapper {
-    margin-bottom: 30px;
-    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-top: 20px;
     position: relative;
 }
 .tvtab-title-wrapper {
@@ -10436,7 +10436,7 @@ body#checkout .tvtheme-control-icon{
 .product-add-to-cart .tvall-inner-btn.add-to-cart {
     background: #145078 !important;
     border: 1px solid #145078 !important;
-    border-radius: 20px !important;
+    border-radius: 40px !important;
     color: #fff !important;
     overflow: hidden;
     transition: all .3s ease-in-out;
@@ -10453,7 +10453,7 @@ body#checkout .tvtheme-control-icon{
 .product-add-to-cart .tvall-inner-btn.add-to-cart:active {
     background: #31a9e1 !important;
     border-color: #31a9e1 !important;
-    border-radius: 20px !important;
+    border-radius: 40px !important;
     color: #fff !important;
     text-decoration: none !important;
 }
@@ -10471,7 +10471,7 @@ body#checkout .tvtheme-control-icon{
 .product-add-to-cart .tvall-inner-btn.add-to-cart:before,
 .product-add-to-cart .tvall-inner-btn.add-to-cart:after {
     background: transparent !important;
-    border-radius: 20px !important;
+    border-radius: 40px !important;
 }
 
 
