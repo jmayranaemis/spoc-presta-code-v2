@@ -10617,8 +10617,7 @@ body {
 }
 
 /* ==========================================
-   VARIANTES PRODUIT - suppression du saut au hover
-   Taille / Couleur / boutons radio
+   VARIANTES PRODUIT - hover sans saut + état sélectionné propre
    ========================================== */
 
 .product-variants .product-variants-item ul {
@@ -10641,7 +10640,7 @@ body {
     cursor: pointer;
 }
 
-/* État normal : bordure déjà présente mais invisible */
+/* Base commune */
 .product-variants .product-variants-item .radio-label {
     display: inline-flex;
     align-items: center;
@@ -10651,43 +10650,50 @@ body {
     height: 36px;
     padding: 0 12px;
 
-    border: 2px solid transparent;
+    border: 2px solid transparent !important;
     border-radius: 4px;
 
-    background: #ffffff;
-    color: #333333;
+    background-color: #ffffff !important;
+    color: #333333 !important;
 
     font-size: 14px;
     font-weight: 500;
     line-height: 1;
 
-    box-sizing: border-box;
+    box-sizing: border-box !important;
     transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* Hover : on change la couleur, pas la taille */
-.product-variants .product-variants-item label:hover .radio-label {
-    border-color: #145078;
-    color: #145078;
-    background-color: #ffffff;
+/* État explicitement NON sélectionné */
+.product-variants .product-variants-item input.input-radio:not(:checked) + .radio-label {
+    background-color: #ffffff !important;
+    color: #333333 !important;
+    border-color: transparent !important;
+}
+
+/* Hover uniquement sur une variante NON sélectionnée */
+.product-variants .product-variants-item label:hover input.input-radio:not(:checked) + .radio-label {
+    border-color: #145078 !important;
+    color: #145078 !important;
+    background-color: #ffffff !important;
 }
 
 /* Variante sélectionnée */
 .product-variants .product-variants-item input.input-radio:checked + .radio-label {
-    border-color: #145078;
-    background-color: #145078;
-    color: #ffffff;
+    border-color: #145078 !important;
+    background-color: #145078 !important;
+    color: #ffffff !important;
+}
+
+/* Variante sélectionnée même au hover : le texte reste blanc */
+.product-variants .product-variants-item label:hover input.input-radio:checked + .radio-label {
+    border-color: #145078 !important;
+    background-color: #145078 !important;
+    color: #ffffff !important;
 }
 
 /* Focus clavier propre, sans décalage */
 .product-variants .product-variants-item input.input-radio:focus + .radio-label {
     box-shadow: 0 0 0 2px rgba(20, 80, 120, 0.20);
 }
-
-/* Évite qu'un style thème ajoute outline/border différent */
-.product-variants .product-variants-item .radio-label:hover,
-.product-variants .product-variants-item input.input-radio:checked + .radio-label {
-    box-sizing: border-box;
-}
-
 /*mailalert css end*/
