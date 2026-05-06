@@ -1180,7 +1180,7 @@ span.tvcart-product-price {
   justify-content: center;
 
   padding: 0.25rem 0.45rem;
-  border-radius: 999px;
+  /* border-radius: 999px; */
 
   font-size: 14px;
   font-weight: 700;
@@ -4614,7 +4614,7 @@ body#checkout .custom-checkbox {
     .tv-main-div #wrapper .container {
         max-width: 100%;
         padding: 0 45px;
-        margin-top: 30px;
+       /* margin-top: 30px;*/
     }
 }
 /*@media (min-width: 1661px){
