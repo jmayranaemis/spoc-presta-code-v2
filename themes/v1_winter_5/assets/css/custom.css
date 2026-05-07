@@ -10811,6 +10811,7 @@ body {
 
 .footer-container .spoc-footer-infoline {
     color: #0b2f4f;
+    border: 1px solid rgba(0, 0, 0, 0.07);
 }
 
 /* Bloc global */
@@ -10826,7 +10827,7 @@ body {
 /* Titre INFOLINE */
 .footer-container .spoc-infoline-title {
     font-size: 34px;
-    line-height: 36px;
+    line-height: 50px;
     font-weight: 800;
     letter-spacing: 2px;
     color: #0b2f4f;
@@ -10849,15 +10850,15 @@ body {
 
 .footer-container .spoc-infoline-hours strong {
     display: block;
-    font-size: 26px;
+    font-size: 20px;
     line-height: 30px;
     font-weight: 800;
 }
 
 .footer-container .spoc-infoline-hours span {
     display: block;
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 15px;
+    line-height: 20px;
     font-weight: 400;
 }
 
@@ -10882,7 +10883,7 @@ body {
 }
 
 .footer-container .spoc-infoline-icon .material-icons {
-    font-size: 64px;
+    font-size: 50px;
     line-height: 1;
     color: #0b2f4f;
 }
@@ -10895,14 +10896,14 @@ body {
 }
 
 .footer-container .spoc-infoline-text span {
-    font-size: 22px;
+    font-size: 15px;
     line-height: 26px;
     font-weight: 400;
     color: #0b2f4f;
 }
 
 .footer-container .spoc-infoline-text a {
-    font-size: 24px;
+    font-size: 15px;
     line-height: 30px;
     font-weight: 800;
     color: #0b2f4f;
@@ -10916,7 +10917,7 @@ body {
 
 /* Téléphone un peu plus large */
 .footer-container .spoc-infoline-phone .spoc-infoline-text a {
-    font-size: 25px;
+    font-size: 15px;
     white-space: nowrap;
 }
 
