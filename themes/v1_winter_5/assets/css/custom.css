@@ -2544,8 +2544,8 @@ ul.wlp_bought_list li .product_infos .product-name {
     display: none;
 }
 .tvfooter-title-wrapper .tvfooter-title,
-.tvdekstop-footer-all-title-wrapper .tvfooter-title,
-.block_newsletter .tvnewsletter-title {
+.tvdekstop-footer-all-title-wrapper .tvfooter-title {
+
     font-size: 18px;
     color: #145078;
     display: block;
@@ -2553,7 +2553,7 @@ ul.wlp_bought_list li .product_infos .product-name {
     text-transform: uppercase;
 }
 .block_newsletter p {
-    padding-top: 0;
+    
 }
 .footer-container li i,
 .tvfooter-title-wrapper .tvfooter-toggle-icon {
@@ -4318,7 +4318,6 @@ input {
     .block-categories .category-top-menu>li.tv-category-title-wrapper a,
     .tvfooter-title-wrapper .tvfooter-title,
     .tvdekstop-footer-all-title-wrapper .tvfooter-title,
-    .block_newsletter .tvnewsletter-title,
     .tvservices-content-box .tvservices-title {
         font-size: 16px;
     }
@@ -10767,7 +10766,13 @@ body {
         flex: 0 0 auto;
     }
 }
-
+.block_newsletter .tvnewsletter-title {
+    font-size: 20px;
+    color: #145078;
+    display: block;
+    font-weight: 700;
+    text-transform: capitalize;
+}
 /* Mobile : on laisse respirer */
 @media (max-width: 767px) {
     #index .tvcms-newsletter-wrapper .tvnewsletter-block {
