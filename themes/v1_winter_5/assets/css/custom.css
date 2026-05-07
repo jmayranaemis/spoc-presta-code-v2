@@ -10978,5 +10978,118 @@ body {
         font-size: 21px;
     }
 }
+
+/* =========================================================
+   TVCMSTABCATEGORY - Onglets catégories SPOC
+   Suppression anciens styles rouges hover / active
+   ========================================================= */
+
+/* Wrapper des onglets */
+.tvcmstabcategory-product-slider .tvtabcategory-product-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+/* Chaque item */
+.tvcmstabcategory-product-slider .tvtabcategory-product-li {
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none;
+}
+
+/* Bloc interne du bouton */
+.tvcmstabcategory-product-slider .tvtabcategory-product-li-inner-block {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* État normal du bouton */
+.tvcmstabcategory-product-slider .tvtabcategory-tab-sub-title {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 40px;
+    padding: 8px 22px !important;
+
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.2;
+
+    color: #145078 !important;
+    background-color: #ffffff !important;
+
+    border: 1px solid #145078 !important;
+    border-radius: 24px;
+
+    text-decoration: none !important;
+    box-shadow: none !important;
+
+    transition: all 0.2s ease-in-out;
+}
+
+/* Hover */
+.tvcmstabcategory-product-slider .tvtabcategory-product-li:hover .tvtabcategory-tab-sub-title,
+.tvcmstabcategory-product-slider .tvtabcategory-tab-sub-title:hover,
+.tvcmstabcategory-product-slider .tvtabcategory-tab-sub-title:focus {
+    color: #ffffff !important;
+    background-color: #145078 !important;
+    border-color: #145078 !important;
+    box-shadow: none !important;
+    text-decoration: none !important;
+}
+
+/* Onglet actif */
+.tvcmstabcategory-product-slider .tvtabcategory-product-li.active .tvtabcategory-tab-sub-title,
+.tvcmstabcategory-product-slider .tvtabcategory-product-li.active:hover .tvtabcategory-tab-sub-title {
+    color: #ffffff !important;
+    background-color: #145078 !important;
+    border-color: #145078 !important;
+    box-shadow: none !important;
+}
+
+/* Suppression des anciens effets rouges du thème */
+.tvcmstabcategory-product-slider .tvtabcategory-product-li:before,
+.tvcmstabcategory-product-slider .tvtabcategory-product-li:after,
+.tvcmstabcategory-product-slider .tvtabcategory-product-li-inner-block:before,
+.tvcmstabcategory-product-slider .tvtabcategory-product-li-inner-block:after,
+.tvcmstabcategory-product-slider .tvtabcategory-tab-sub-title:before,
+.tvcmstabcategory-product-slider .tvtabcategory-tab-sub-title:after {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Cas où le thème applique le rouge directement sur le li actif */
+.tvcmstabcategory-product-slider .tvtabcategory-product-li.active,
+.tvcmstabcategory-product-slider .tvtabcategory-product-li:hover {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Show / Hide category éventuels */
+.tvcmstabcategory-product-slider .tvtabcategory-show .tvtabcategory-tab-sub-title,
+.tvcmstabcategory-product-slider .tvtabcategory-hide .tvtabcategory-tab-sub-title {
+    color: #145078 !important;
+    background-color: #ffffff !important;
+    border-color: #145078 !important;
+}
+
+.tvcmstabcategory-product-slider .tvtabcategory-show:hover .tvtabcategory-tab-sub-title,
+.tvcmstabcategory-product-slider .tvtabcategory-hide:hover .tvtabcategory-tab-sub-title {
+    color: #ffffff !important;
+    background-color: #145078 !important;
+    border-color: #145078 !important;
+}
 /*mailalert css end*/
 
