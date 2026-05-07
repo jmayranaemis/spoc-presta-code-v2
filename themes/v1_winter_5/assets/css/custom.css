@@ -10757,12 +10757,7 @@ body {
 }
 
 
-.block_newsletter .tvnewsletter-title {
-    font-size: 20px;
-    color: #145078;
-    display: block;
-    font-weight: 700;
-    text-transform: capitalize;
+
 
 /* Desktop : titre + formulaire sur une ligne */
 @media (min-width: 992px) {
