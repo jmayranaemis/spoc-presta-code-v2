@@ -11733,6 +11733,7 @@ data-toggle[tooltip] {
     margin: 0 0 2.5rem;
     padding: 1.1rem 1.1rem 1.1rem;
     width: 50%;
+    border-radius: 20px;
 }
 .tvproduct-page-wrapper .tvall-product-star-icon .tvall-product-review {
     display: inline-block;
