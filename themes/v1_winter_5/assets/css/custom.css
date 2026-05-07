@@ -10763,9 +10763,12 @@ body {
 @media (min-width: 992px) {
     #index .tvcms-newsletter-wrapper .tvnewsletter-block {
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 30px;
+        background-color: #eff1f3;
+       /* gap: 30px;*/
+
     }
 
     #index .tvcms-newsletter-wrapper .tvnewsletter-lable-wrapper {
