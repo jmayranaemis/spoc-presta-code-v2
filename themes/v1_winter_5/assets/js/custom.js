@@ -1404,9 +1404,17 @@ $(window).on('load', function() {
         titles.forEach(function (title) {
             var text = normalizeText(title.textContent);
 
-            if (!serviceTitle && (text === 'services' || text === 'nos services')) {
-                serviceTitle = title;
-            }
+           if (     !serviceTitle &&
+    (
+        text === 'services' ||
+        text === 'nos services' ||
+        text === 'aide & services' ||
+        text === 'aide et services' ||
+        text.includes('services')
+    )
+                                ) {
+    serviceTitle = title;
+}
         });
 
         if (!serviceTitle) {
