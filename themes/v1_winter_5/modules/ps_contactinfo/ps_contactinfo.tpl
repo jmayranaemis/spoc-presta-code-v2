@@ -1,85 +1,65 @@
 {**
-* 2007-2025 PrestaShop
-*
-* NOTICE OF LICENSE
-*
-* This source file is subject to the Academic Free License 3.0 (AFL-3.0)
-* that is bundled with this package in the file LICENSE.txt.
-* It is also available through the world-wide-web at this URL:
-* https://opensource.org/licenses/AFL-3.0
-* If you did not receive a copy of the license and are unable to
-* obtain it through the world-wide-web, please send an email
-* to license@prestashop.com so we can send you a copy immediately.
-*
-* DISCLAIMER
-*
-* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
-* versions in the future. If you wish to customize PrestaShop for your
-* needs please refer to http://www.prestashop.com for more information.
-*
-* @author PrestaShop SA <contact@prestashop.com>
-* @copyright 2007-2025 PrestaShop SA
-* @license https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
-* International Registered Trademark & Property of PrestaShop SA
-*}
-{strip}
-    <div class="tvfooter-contact-link-wrapper links col-xl-3 col-lg-3 col-md-12">
-        <div class="tvfooter-address">
-            <div class="tvfooter-title-wrapper" data-target="#footer_sub_menu_store_info" data-toggle="collapse">
-                <span class="tvfooter-title">{l s='Store information' d='Shop.Theme.Global'}</span>
-                <span class="float-xs-right tvfooter-toggle-icon-wrapper navbar-toggler collapse-icons tvfooter-toggle-icon">
-                    <i class="material-icons add">&#xE313;</i>
-                    <i class="material-icons remove">&#xE316;</i>
-                </span>
+ * Custom footer contact block - SPOC Infoline
+ * Theme override: themes/v1_winter_5/modules/ps_contactinfo/ps_contactinfo.tpl
+ *}
+
+{assign var='spoc_infoline_title' value='INFOLINE'}
+{assign var='spoc_infoline_subtitle' value='Nous vous répondons'}
+{assign var='spoc_infoline_days' value='du Lundi au Samedi'}
+{assign var='spoc_infoline_hours' value='de 9h à 12h & de 14h à 19h'}
+
+{assign var='spoc_infoline_email_label' value='par mail'}
+{assign var='spoc_infoline_email_cta' value='cliquez ici'}
+{assign var='spoc_infoline_email' value='support@m2j-exp.fr'}
+
+{assign var='spoc_infoline_phone_label' value='nous téléphoner'}
+{assign var='spoc_infoline_phone_display' value='+33(0)4 93 07 40 44'}
+{assign var='spoc_infoline_phone_href' value='+33493074044'}
+
+<div class="tvfooter-contact-link-wrapper links col-xl-3 col-lg-3 col-md-12 spoc-footer-infoline">
+    <div class="spoc-infoline-block">
+
+        <div class="spoc-infoline-header">
+            <div class="spoc-infoline-title">
+                {$spoc_infoline_title|escape:'html':'UTF-8'}
             </div>
-            <div id="footer_sub_menu_store_info" class="collapse">
-                <div class="tvfooter-addresses">
-                    <i class="material-icons">location_on</i>
-                    {* <div class="tvfooter-address-lable">{l s='Address:' d='Shop.Theme.Global'}</div> *}
-                    {$contact_infos.address.formatted nofilter}
-                </div>
-                {if $contact_infos.email}
-                <div class="tvfooter-store-link">
-                    {* [1][/1] is for a HTML tag. *}
-                    <i class="material-icons">email</i>
-                    {l s='[1]%email%[/1]'
-                    sprintf=[
-                    '[1]' => '<a href="mailto:'|cat:$contact_infos.email|cat:'" class="dropdown">',
-                        '[/1]' => '</a>',
-                    '%email%' => $contact_infos.email
-                    ]
-                    d='Shop.Theme.Global'
-                    }
-                </div>
-                {/if}
-                {if $contact_infos.phone}
-                <div class="tvfooter-store-link-content">
-                    {* [1][/1] is for a HTML tag. *}
-                    <i class="material-icons">call</i>
-                    {l s='[1]%phone%[/1]'
-                    sprintf=[
-                    '[1]' => '<a href="tel:'|cat:$contact_infos.email|cat:'" class="dropdown">',
-                        '[/1]' => '</a>',
-                    '%phone%' => $contact_infos.phone
-                    ]
-                    d='Shop.Theme.Global'
-                    }
-                </div>
-                {/if}
-                {if $contact_infos.fax}
-                <div class="tvfooter-store-link-fax">{* [1][/1] is for a HTML tag.
-                    *}<i class="material-icons">print</i>{l
-                    s='[1]%fax%[/1]'
-                    sprintf=[
-                    '[1]' => '<a href="fax:'|cat:$contact_infos.email|cat:'" class="dropdown">',
-                        '[/1]' => '</a>',
-                    '%fax%' => $contact_infos.fax
-                    ]
-                    d='Shop.Theme.Global'
-                    }
-                </div>
-                {/if}
+            <div class="spoc-infoline-subtitle">
+                {$spoc_infoline_subtitle|escape:'html':'UTF-8'}
             </div>
         </div>
+
+        <div class="spoc-infoline-hours">
+            <strong>{$spoc_infoline_days|escape:'html':'UTF-8'}</strong>
+            <span>{$spoc_infoline_hours|escape:'html':'UTF-8'}</span>
+        </div>
+
+        <div class="spoc-infoline-contact spoc-infoline-mail">
+            <div class="spoc-infoline-icon" aria-hidden="true">
+                <i class="material-icons">mail_outline</i>
+            </div>
+
+            <div class="spoc-infoline-text">
+                <span>{$spoc_infoline_email_label|escape:'html':'UTF-8'}</span>
+                <a href="mailto:{$spoc_infoline_email|escape:'html':'UTF-8'}"
+                   title="Contacter SPOC par mail">
+                    {$spoc_infoline_email_cta|escape:'html':'UTF-8'}
+                </a>
+            </div>
+        </div>
+
+        <div class="spoc-infoline-contact spoc-infoline-phone">
+            <div class="spoc-infoline-icon" aria-hidden="true">
+                <i class="material-icons">phone_iphone</i>
+            </div>
+
+            <div class="spoc-infoline-text">
+                <span>{$spoc_infoline_phone_label|escape:'html':'UTF-8'}</span>
+                <a href="tel:{$spoc_infoline_phone_href|escape:'html':'UTF-8'}"
+                   title="Appeler SPOC">
+                    {$spoc_infoline_phone_display|escape:'html':'UTF-8'}
+                </a>
+            </div>
+        </div>
+
     </div>
-{/strip}
+</div>

@@ -10803,5 +10803,179 @@ body {
         max-width: 100% !important;
     }
 }
+
+/* =========================================================
+   FOOTER - BLOC INFOLINE SPOC
+   Remplace le bloc informations natif du footer
+   ========================================================= */
+
+.footer-container .spoc-footer-infoline {
+    color: #0b2f4f;
+}
+
+/* Bloc global */
+.footer-container .spoc-infoline-block {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    color: #0b2f4f;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+/* Titre INFOLINE */
+.footer-container .spoc-infoline-title {
+    font-size: 34px;
+    line-height: 36px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #0b2f4f;
+    text-transform: uppercase;
+}
+
+/* Sous-titre */
+.footer-container .spoc-infoline-subtitle {
+    font-size: 17px;
+    line-height: 20px;
+    font-weight: 700;
+    color: #0b2f4f;
+}
+
+/* Horaires */
+.footer-container .spoc-infoline-hours {
+    margin-top: 18px;
+    color: #0b2f4f;
+}
+
+.footer-container .spoc-infoline-hours strong {
+    display: block;
+    font-size: 26px;
+    line-height: 30px;
+    font-weight: 800;
+}
+
+.footer-container .spoc-infoline-hours span {
+    display: block;
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 400;
+}
+
+/* Lignes mail / téléphone */
+.footer-container .spoc-infoline-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 34px;
+    text-align: left;
+}
+
+/* Icônes */
+.footer-container .spoc-infoline-icon {
+    flex: 0 0 auto;
+    width: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0b2f4f;
+}
+
+.footer-container .spoc-infoline-icon .material-icons {
+    font-size: 64px;
+    line-height: 1;
+    color: #0b2f4f;
+}
+
+/* Textes contact */
+.footer-container .spoc-infoline-text {
+    display: flex;
+    flex-direction: column;
+    color: #0b2f4f;
+}
+
+.footer-container .spoc-infoline-text span {
+    font-size: 22px;
+    line-height: 26px;
+    font-weight: 400;
+    color: #0b2f4f;
+}
+
+.footer-container .spoc-infoline-text a {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 800;
+    color: #0b2f4f;
+    text-decoration: none;
+}
+
+.footer-container .spoc-infoline-text a:hover {
+    color: #145078;
+    text-decoration: underline;
+}
+
+/* Téléphone un peu plus large */
+.footer-container .spoc-infoline-phone .spoc-infoline-text a {
+    font-size: 25px;
+    white-space: nowrap;
+}
+
+/* Responsive tablette / mobile */
+@media (max-width: 1199px) {
+    .footer-container .spoc-infoline-block {
+        max-width: 360px;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .footer-container .spoc-infoline-block {
+        max-width: 320px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .footer-container .spoc-infoline-title {
+        font-size: 30px;
+        line-height: 32px;
+    }
+
+    .footer-container .spoc-infoline-hours strong {
+        font-size: 23px;
+        line-height: 27px;
+    }
+
+    .footer-container .spoc-infoline-hours span {
+        font-size: 21px;
+        line-height: 25px;
+    }
+
+    .footer-container .spoc-infoline-contact {
+        gap: 12px;
+        margin-top: 28px;
+    }
+
+    .footer-container .spoc-infoline-icon {
+        width: 58px;
+    }
+
+    .footer-container .spoc-infoline-icon .material-icons {
+        font-size: 54px;
+    }
+
+    .footer-container .spoc-infoline-text span {
+        font-size: 19px;
+        line-height: 23px;
+    }
+
+    .footer-container .spoc-infoline-text a {
+        font-size: 21px;
+        line-height: 26px;
+    }
+
+    .footer-container .spoc-infoline-phone .spoc-infoline-text a {
+        font-size: 21px;
+    }
+}
 /*mailalert css end*/
 
