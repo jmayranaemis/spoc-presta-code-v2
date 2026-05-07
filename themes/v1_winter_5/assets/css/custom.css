@@ -10980,36 +10980,11 @@ body {
 }
 
 /* =========================================================
-   TVCMSTABCATEGORY - Correction couleurs hover / actif
-   Ne modifie PAS les formes, tailles, marges ou alignements
+   TVCMSTABCATEGORY - Correction hover / actif sans débordement
+   On ne touche pas aux tailles, formes, marges, positions
    ========================================================= */
 
-/* État normal : texte bleu SPOC */
-.tvcmstabcategory-product-slider .tvtabcategory-tab-sub-title {
-    color: #145078 !important;
-    text-decoration: none !important;
-}
-
-/* Passage souris */
-.tvcmstabcategory-product-slider .tvtabcategory-product-li:hover .tvtabcategory-tab-sub-title,
-.tvcmstabcategory-product-slider .tvtabcategory-tab-sub-title:hover,
-.tvcmstabcategory-product-slider .tvtabcategory-tab-sub-title:focus {
-    color: #ffffff !important;
-    background-color: #145078 !important;
-    border-color: #145078 !important;
-    text-decoration: none !important;
-}
-
-/* Onglet actif / sélectionné */
-.tvcmstabcategory-product-slider .tvtabcategory-product-li.active .tvtabcategory-tab-sub-title,
-.tvcmstabcategory-product-slider .tvtabcategory-product-li.active:hover .tvtabcategory-tab-sub-title {
-    color: #ffffff !important;
-    background-color: #145078 !important;
-    border-color: #145078 !important;
-    text-decoration: none !important;
-}
-
-/* Si le rouge vient d'un effet :before / :after du thème */
+/* On neutralise uniquement les vieux effets rouges du thème */
 .tvcmstabcategory-product-slider .tvtabcategory-product-li:hover:before,
 .tvcmstabcategory-product-slider .tvtabcategory-product-li:hover:after,
 .tvcmstabcategory-product-slider .tvtabcategory-product-li.active:before,
@@ -11022,17 +10997,51 @@ body {
 .tvcmstabcategory-product-slider .tvtabcategory-tab-sub-title:hover:after,
 .tvcmstabcategory-product-slider .tvtabcategory-product-li.active .tvtabcategory-tab-sub-title:before,
 .tvcmstabcategory-product-slider .tvtabcategory-product-li.active .tvtabcategory-tab-sub-title:after {
-    background-color: #145078 !important;
-    border-color: #145078 !important;
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
 }
 
-/* Si le rouge est porté par le li ou le bloc interne */
+/* Très important : le li ne doit JAMAIS recevoir le fond bleu */
+.tvcmstabcategory-product-slider .tvtabcategory-product-li,
 .tvcmstabcategory-product-slider .tvtabcategory-product-li:hover,
-.tvcmstabcategory-product-slider .tvtabcategory-product-li.active,
+.tvcmstabcategory-product-slider .tvtabcategory-product-li.active {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Le wrapper ne doit pas non plus créer une nappe bleue autour du bouton */
+.tvcmstabcategory-product-slider .tvtabcategory-product-li-inner-block,
 .tvcmstabcategory-product-slider .tvtabcategory-product-li:hover .tvtabcategory-product-li-inner-block,
 .tvcmstabcategory-product-slider .tvtabcategory-product-li.active .tvtabcategory-product-li-inner-block {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* État normal : on garde la forme existante */
+.tvcmstabcategory-product-slider .tvtabcategory-tab-sub-title {
+    color: #145078 !important;
+    text-decoration: none !important;
+}
+
+/* Hover : seul le lien/bouton reçoit la couleur */
+.tvcmstabcategory-product-slider .tvtabcategory-tab-sub-title:hover,
+.tvcmstabcategory-product-slider .tvtabcategory-product-li:hover .tvtabcategory-tab-sub-title {
+    color: #ffffff !important;
     background-color: #145078 !important;
     border-color: #145078 !important;
+    text-decoration: none !important;
+    box-shadow: none !important;
+}
+
+/* Actif / sélectionné : seul le lien/bouton reçoit la couleur */
+.tvcmstabcategory-product-slider .tvtabcategory-product-li.active .tvtabcategory-tab-sub-title,
+.tvcmstabcategory-product-slider .tvtabcategory-product-li.active:hover .tvtabcategory-tab-sub-title {
+    color: #ffffff !important;
+    background-color: #145078 !important;
+    border-color: #145078 !important;
+    text-decoration: none !important;
+    box-shadow: none !important;
 }
 /*mailalert css end*/
 
