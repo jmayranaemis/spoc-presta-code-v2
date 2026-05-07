@@ -9282,6 +9282,9 @@ a:hover {
 }
 .block_newsletter p {
     padding-top: .625rem
+    color: #145078;
+    font-size: 35px;
+    font-weight: 700;
 }
 .block_newsletter form .input-wrapper {
     overflow: hidden
