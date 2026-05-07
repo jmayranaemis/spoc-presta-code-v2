@@ -2429,6 +2429,7 @@ ul.wlp_bought_list li .product_infos .product-name {
     font-weight: 400;
     line-height: 20px;
     letter-spacing: 0.3px;
+    text-align: center;
 }
 .tvnewsleeter-input-button-wraper {
     position: relative;
@@ -2533,7 +2534,7 @@ ul.wlp_bought_list li .product_infos .product-name {
 .tvdekstop-footer-all-title-wrapper,
 .tvnewsletter-lable-wrapper {
     position: relative;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
 }
 .block-social.tvcmsfooter-social-icon .tvfooter-title {
     display: none;
@@ -10749,9 +10750,10 @@ body {
 @media (min-width: 992px) {
     #index .tvcms-newsletter-wrapper .tvnewsletter-block {
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 30px;
+        gap: 0px;
     }
 
     #index .tvcms-newsletter-wrapper .tvnewsletter-lable-wrapper {
