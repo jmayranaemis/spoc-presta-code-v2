@@ -2534,7 +2534,8 @@ ul.wlp_bought_list li .product_infos .product-name {
 .tvdekstop-footer-all-title-wrapper,
 .tvnewsletter-lable-wrapper {
     position: relative;
-    margin-bottom: 15px;
+    /*margin-bottom: 15px;*/
+    margin-top: 15px;
 }
 .block-social.tvcmsfooter-social-icon .tvfooter-title {
     display: none;
@@ -2544,7 +2545,7 @@ ul.wlp_bought_list li .product_infos .product-name {
 }
 .tvfooter-title-wrapper .tvfooter-title,
 .tvdekstop-footer-all-title-wrapper .tvfooter-title,
-.block_newsletter .tvnewsletter-title {
+{
     font-size: 18px;
     color: #145078;
     display: block;
@@ -10722,6 +10723,15 @@ body {
 #index .tvcms-newsletter-wrapper .tvnewsletter-block {
     width: 100%;
     box-sizing: border-box;
+    background-color: #eff1f3;
+}
+
+.block_newsletter .tvnewsletter-title {
+    font-size: 20px;
+    color: #145078;
+    display: block;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
 /* Le champ email + bouton restent à une largeur normale */
