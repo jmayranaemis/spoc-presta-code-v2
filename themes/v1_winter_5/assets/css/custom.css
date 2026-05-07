@@ -10826,39 +10826,40 @@ body {
 
 /* Titre INFOLINE */
 .footer-container .spoc-infoline-title {
-    font-size: 34px;
-    line-height: 50px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    color: #0b2f4f;
+    font-size: 16px;
+    line-height: 55px;
+    font-weight: 700;
+    /*letter-spacing: 2px;*/
+    color: #145078;
     text-transform: uppercase;
 }
 
 /* Sous-titre */
 .footer-container .spoc-infoline-subtitle {
-    font-size: 17px;
-    line-height: 20px;
-    font-weight: 700;
+    font-size: 14px;
+    line-height: 10px;
+    font-weight: 400;
     color: #0b2f4f;
+    letter-spacing: normal;
 }
 
 /* Horaires */
 .footer-container .spoc-infoline-hours {
-    margin-top: 18px;
-    color: #0b2f4f;
+    margin-top: 0px;
+    color: #1999CA;
 }
 
 .footer-container .spoc-infoline-hours strong {
     display: block;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 30px;
     font-weight: 800;
 }
 
 .footer-container .spoc-infoline-hours span {
     display: block;
-    font-size: 15px;
-    line-height: 20px;
+    font-size: 12px;
+    line-height: 14px;
     font-weight: 400;
 }
 
@@ -10867,9 +10868,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 14px;
-    margin-top: 34px;
+    gap: 2px;
+    margin-top: 12px;
     text-align: left;
+    flex-direction: column;
 }
 
 /* Icônes */
@@ -10883,7 +10885,7 @@ body {
 }
 
 .footer-container .spoc-infoline-icon .material-icons {
-    font-size: 50px;
+    font-size: 35px;
     line-height: 1;
     color: #0b2f4f;
 }
@@ -10896,15 +10898,16 @@ body {
 }
 
 .footer-container .spoc-infoline-text span {
-    font-size: 15px;
-    line-height: 26px;
+    font-size: 12px;
+    line-height: 15px;
     font-weight: 400;
     color: #0b2f4f;
+    text-align: center;
 }
 
 .footer-container .spoc-infoline-text a {
-    font-size: 15px;
-    line-height: 30px;
+    font-size: 12px;
+    line-height: 18px;
     font-weight: 800;
     color: #0b2f4f;
     text-decoration: none;
@@ -10985,33 +10988,33 @@ body {
    ========================================================= */
 
 .footer-container .spoc-store-block {
-    margin-top: 34px;
-    padding-top: 28px;
+    margin-top: 14px;
+    padding-top: 14px;
     border-top: 1px solid rgba(11, 47, 79, 0.15);
     text-align: center;
     color: #0b2f4f;
 }
 
 .footer-container .spoc-store-title {
-    font-size: 24px;
-    line-height: 30px;
-    font-weight: 800;
-    color: #0b2f4f;
+    font-size: 16px;
+    line-height: 15px;
+    font-weight: 700;
+    color:#145078;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 16px;
+    /*letter-spacing: 1px;*/
+    margin-bottom: 0px;
 }
 
 .footer-container .spoc-store-image-wrapper {
     width: 100%;
-    margin: 0 auto 16px auto;
+    margin: 0 auto 10px auto;
     overflow: hidden;
     border-radius: 4px;
-    border: 1px solid rgba(11, 47, 79, 0.12);
+   /* border: 1px solid rgba(11, 47, 79, 0.12); */
 }
 
 .footer-container .spoc-store-image {
-    display: block;
+    display: none;
     width: 100%;
     height: auto;
     object-fit: cover;
@@ -11022,7 +11025,7 @@ body {
     align-items: flex-start;
     justify-content: center;
     gap: 8px;
-    margin-top: 14px;
+    margin-top: 0px;
     color: #0b2f4f;
     text-align: left;
 }
@@ -11041,9 +11044,9 @@ body {
 
 .footer-container .spoc-store-address span {
     display: block;
-    font-size: 14px;
-    line-height: 20px;
-    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 400;
     color: #0b2f4f;
 }
 
@@ -11052,12 +11055,13 @@ body {
     align-items: center;
     justify-content: center;
 
-    margin-top: 16px;
+    margin-top: 8px;
+    margin-bottom: 12px;
     padding: 8px 16px;
 
     font-size: 14px;
     line-height: 20px;
-    font-weight: 800;
+    font-weight: 700;
 
     color: #ffffff;
     background-color: #0b2f4f;
@@ -11065,6 +11069,8 @@ body {
 
     text-decoration: none;
     text-transform: uppercase;
+    border-radius: 10px;
+}
 }
 
 .footer-container .spoc-store-map-link:hover {
