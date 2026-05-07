@@ -2569,6 +2569,7 @@ ul.wlp_bought_list li .product_infos .product-name {
     font-size: 14px;
     font-weight: 400;
     position: relative;
+    letter-spacing: normal;
 }
 .footer-container li a:hover {
     color: #db1212;
@@ -5431,7 +5432,7 @@ i.material-icons.block {
 }
 .tvcmsofferbanners-one .tvbanner-hover-wrapper {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 #cms .tv-sub-pages-inner-content {
     overflow: hidden;
