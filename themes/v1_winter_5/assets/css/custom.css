@@ -10980,29 +10980,11 @@ body {
 }
 
 /* =========================================================
-   TVCMSTABCATEGORY - Correction hover / actif sans débordement
-   On ne touche pas aux tailles, formes, marges, positions
+   TVCMSTABCATEGORY - Hover / actif propre
+   Coloration du cadre uniquement, sans dépasser du contour
    ========================================================= */
 
-/* On neutralise uniquement les vieux effets rouges du thème */
-.tvcmstabcategory-product-slider .tvtabcategory-product-li:hover:before,
-.tvcmstabcategory-product-slider .tvtabcategory-product-li:hover:after,
-.tvcmstabcategory-product-slider .tvtabcategory-product-li.active:before,
-.tvcmstabcategory-product-slider .tvtabcategory-product-li.active:after,
-.tvcmstabcategory-product-slider .tvtabcategory-product-li-inner-block:hover:before,
-.tvcmstabcategory-product-slider .tvtabcategory-product-li-inner-block:hover:after,
-.tvcmstabcategory-product-slider .tvtabcategory-product-li.active .tvtabcategory-product-li-inner-block:before,
-.tvcmstabcategory-product-slider .tvtabcategory-product-li.active .tvtabcategory-product-li-inner-block:after,
-.tvcmstabcategory-product-slider .tvtabcategory-tab-sub-title:hover:before,
-.tvcmstabcategory-product-slider .tvtabcategory-tab-sub-title:hover:after,
-.tvcmstabcategory-product-slider .tvtabcategory-product-li.active .tvtabcategory-tab-sub-title:before,
-.tvcmstabcategory-product-slider .tvtabcategory-product-li.active .tvtabcategory-tab-sub-title:after {
-    background: transparent !important;
-    border-color: transparent !important;
-    box-shadow: none !important;
-}
-
-/* Très important : le li ne doit JAMAIS recevoir le fond bleu */
+/* Le LI reste neutre : jamais de fond ici, sinon ça déborde */
 .tvcmstabcategory-product-slider .tvtabcategory-product-li,
 .tvcmstabcategory-product-slider .tvtabcategory-product-li:hover,
 .tvcmstabcategory-product-slider .tvtabcategory-product-li.active {
@@ -11010,37 +10992,58 @@ body {
     box-shadow: none !important;
 }
 
-/* Le wrapper ne doit pas non plus créer une nappe bleue autour du bouton */
-.tvcmstabcategory-product-slider .tvtabcategory-product-li-inner-block,
-.tvcmstabcategory-product-slider .tvtabcategory-product-li:hover .tvtabcategory-product-li-inner-block,
-.tvcmstabcategory-product-slider .tvtabcategory-product-li.active .tvtabcategory-product-li-inner-block {
-    background: transparent !important;
-    box-shadow: none !important;
+/* Le cadre réel du bouton : on limite tout à l'intérieur du bloc */
+.tvcmstabcategory-product-slider .tvtabcategory-product-li-inner-block {
+    overflow: hidden !important;
+    box-sizing: border-box;
 }
 
-/* État normal : on garde la forme existante */
-.tvcmstabcategory-product-slider .tvtabcategory-tab-sub-title {
+/* Le lien doit remplir le cadre existant, sans changer la forme */
+.tvcmstabcategory-product-slider .tvtabcategory-product-li-inner-block .tvtabcategory-tab-sub-title {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    box-sizing: border-box;
+
     color: #145078 !important;
+    background: transparent !important;
     text-decoration: none !important;
 }
 
-/* Hover : seul le lien/bouton reçoit la couleur */
-.tvcmstabcategory-product-slider .tvtabcategory-tab-sub-title:hover,
+/* Hover : on colore le CADRE, pas le li autour */
+.tvcmstabcategory-product-slider .tvtabcategory-product-li:hover .tvtabcategory-product-li-inner-block {
+    background-color: #145078 !important;
+    border-color: #145078 !important;
+}
+
+/* Hover : texte blanc dans le cadre */
 .tvcmstabcategory-product-slider .tvtabcategory-product-li:hover .tvtabcategory-tab-sub-title {
     color: #ffffff !important;
-    background-color: #145078 !important;
-    border-color: #145078 !important;
+    background: transparent !important;
     text-decoration: none !important;
-    box-shadow: none !important;
 }
 
-/* Actif / sélectionné : seul le lien/bouton reçoit la couleur */
-.tvcmstabcategory-product-slider .tvtabcategory-product-li.active .tvtabcategory-tab-sub-title,
-.tvcmstabcategory-product-slider .tvtabcategory-product-li.active:hover .tvtabcategory-tab-sub-title {
-    color: #ffffff !important;
+/* Actif / sélectionné : même comportement que hover */
+.tvcmstabcategory-product-slider .tvtabcategory-product-li.active .tvtabcategory-product-li-inner-block {
     background-color: #145078 !important;
     border-color: #145078 !important;
+}
+
+.tvcmstabcategory-product-slider .tvtabcategory-product-li.active .tvtabcategory-tab-sub-title {
+    color: #ffffff !important;
+    background: transparent !important;
     text-decoration: none !important;
+}
+
+/* Suppression des vieux effets rouges éventuels sans toucher à la forme */
+.tvcmstabcategory-product-slider .tvtabcategory-product-li:before,
+.tvcmstabcategory-product-slider .tvtabcategory-product-li:after,
+.tvcmstabcategory-product-slider .tvtabcategory-product-li-inner-block:before,
+.tvcmstabcategory-product-slider .tvtabcategory-product-li-inner-block:after,
+.tvcmstabcategory-product-slider .tvtabcategory-tab-sub-title:before,
+.tvcmstabcategory-product-slider .tvtabcategory-tab-sub-title:after {
+    background-color: transparent !important;
+    border-color: transparent !important;
     box-shadow: none !important;
 }
 /*mailalert css end*/
