@@ -2480,14 +2480,14 @@ ul.wlp_bought_list li .product_infos .product-name {
 }
 /*****footer *****/
 .tvfooter-storelogo-inner .tvtags-wrapper-info {
-    border: 1px solid #cccccc;
+    /* border: 1px solid #cccccc; */
     padding: 0 10px;
 }
 .tvfooter-storelogo-inner .tvtags-wrapper-info .tvtags-title a {
     color: #999999;
 }
 .tvfooter-storelogo-inner {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  /*  border-bottom: 1px solid rgba(0, 0, 0, 0.07);*/
     text-align: center;
 }
 .footer-container {
@@ -2499,7 +2499,7 @@ ul.wlp_bought_list li .product_infos .product-name {
     /*border-top: 1px solid rgba(0, 0, 0, 0.07);*/
 }
 .tvfooter-storelogo-imformation {
-    padding: 40px 0;
+    padding: 10px 0;
     display: flex;
     flex-wrap: wrap;
 }
@@ -11071,7 +11071,7 @@ body {
     text-transform: uppercase;
     border-radius: 10px;
 }
-}
+
 
 .footer-container .spoc-store-map-link:hover {
     color: #0b2f4f;
