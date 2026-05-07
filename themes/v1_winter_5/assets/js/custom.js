@@ -1355,6 +1355,112 @@ $(window).on('load', function() {
         themevoltyCallEvents(false);
     }
 });
+
+
+/* =========================================================
+   FOOTER - Déplacement du bloc "Services" dans la colonne vide
+   ========================================================= */
+
+(function () {
+    function normalizeText(value) {
+        return (value || '')
+            .replace(/\s+/g, ' ')
+            .trim()
+            .toLowerCase();
+    }
+
+    function moveFooterServicesBlock() {
+        var footerRow = document.querySelector('.footer-container .tvfooter-storelogo-imformation');
+
+        if (!footerRow) {
+            return;
+        }
+
+        /*
+         * Colonne vide actuelle :
+         * <div class="col-xl-2 col-lg-2 col-md-12 tvfooter-account-link">
+         *   <div class="tvfooter-account-wrapper"></div>
+         * </div>
+         */
+        var emptyWrapper = null;
+        var footerWrappers = footerRow.querySelectorAll('.tvfooter-account-link .tvfooter-account-wrapper');
+
+        footerWrappers.forEach(function (wrapper) {
+            if (!emptyWrapper && wrapper.children.length === 0 && wrapper.textContent.trim() === '') {
+                emptyWrapper = wrapper;
+            }
+        });
+
+        if (!emptyWrapper) {
+            return;
+        }
+
+        /*
+         * On cherche le titre "Services" généré par le module Liste de liens.
+         */
+        var serviceTitle = null;
+        var titles = footerRow.querySelectorAll('.tvfooter-title');
+
+        titles.forEach(function (title) {
+            var text = normalizeText(title.textContent);
+
+            if (!serviceTitle && (text === 'services' || text === 'nos services')) {
+                serviceTitle = title;
+            }
+        });
+
+        if (!serviceTitle) {
+            return;
+        }
+
+        var serviceTitleWrapper = serviceTitle.closest('.tvfooter-title-wrapper');
+
+        if (!serviceTitleWrapper) {
+            return;
+        }
+
+        var sourceWrapper = serviceTitleWrapper.closest('.tvfooter-account-wrapper');
+
+        if (!sourceWrapper || sourceWrapper === emptyWrapper) {
+            return;
+        }
+
+        /*
+         * On déplace le bloc Services :
+         * - son titre
+         * - sa liste UL juste après
+         * jusqu'au prochain titre de footer
+         */
+        var nodesToMove = [];
+        var currentNode = serviceTitleWrapper;
+
+        while (currentNode) {
+            nodesToMove.push(currentNode);
+
+            var nextNode = currentNode.nextElementSibling;
+
+            if (!nextNode || nextNode.classList.contains('tvfooter-title-wrapper')) {
+                break;
+            }
+
+            currentNode = nextNode;
+        }
+
+        nodesToMove.forEach(function (node) {
+            emptyWrapper.appendChild(node);
+        });
+
+        emptyWrapper.closest('.tvfooter-account-link').classList.add('tvfooter-services-link');
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', moveFooterServicesBlock);
+    } else {
+        moveFooterServicesBlock();
+    }
+})();
+
+
 // $(document).on('click', '.tvproduct-add-to-cart', function() {
 //     $(this).addClass("loading-wake");
 //     $(this).find('.add-cart').addClass('tvcms-cart-loading');
