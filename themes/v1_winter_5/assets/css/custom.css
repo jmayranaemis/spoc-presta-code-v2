@@ -5178,7 +5178,7 @@ i.material-icons.block {
     background-color: transparent;
 }
 .tvnews-event-content-wrapper .tvnews-event-read-more a.tvall-inner-btn span {
-    color: #31a9e1;
+    color: #fff;
 }
 .tvnews-event-content-wrapper .tvnews-event-read-more a.tvall-inner-btn:hover span {
     color: #fff;
@@ -10426,10 +10426,417 @@ body#checkout .tvtheme-control-icon{
   }
 }
 
-/* SPOC UI CLEANUP - hovers/boutons/prix - lignes 10429-10432 utilisées volontairement pour préserver le bloc protégé ligne 10433 */
-:root{--spoc-primary:#145078;--spoc-secondary:#31a9e1;--spoc-bg-light:#f7f9fb;--spoc-border:#d9e2ec;--spoc-text:#243447;--spoc-text-muted:#6b7a89;--spoc-radius-md:8px;--spoc-radius-lg:12px;--spoc-transition:all .25s ease;}a:hover,a:focus,.btn-link:hover,.btn-link:focus,.dropdown-item:hover,.dropdown-item:focus,#header .top-menu a[data-depth="0"]:hover,.top-menu .sub-menu a:hover,.tv-language-dropdown li a:hover,.tv-currency-dropdown li a:hover,.footer-container li a:hover,.tvfooter-store-link a:hover,.tvcopylink p:hover,.account-list a:hover,.cart-grid-body a.label:hover,.sitemap ul li a:hover,.cms-description a:hover,#search_filters .facet .facet-label:hover a,#search_filters_brands .facet .tvsearch-filter-brand-wrapper li.facet-label a:hover,#search_filters_suppliers .facet .tvserach-filter-suppliers li.facet-label a:hover,.tvserach-filter-suppliers p:hover,.block-categories .category-sub-menu li[data-depth="2"]:hover>a,.block-categories .category-sub-menu li[data-depth="0"]:hover>a,.block-categories .category-sub-menu li[data-depth="1"]:hover>a,.block-categories .category-sub-menu li .category-sub-link:hover,.block-categories .category-sub-menu li:hover>.navbar-toggler,.block-categories .collapse-icons .add:hover,.block-categories .collapse-icons .remove:hover,.block-categories .arrows .arrow-down:hover,.block-categories .arrows .arrow-right:hover,.page-my-account #content .links a:hover i,.carousel .carousel-control .icon-next:hover i,.carousel .carousel-control .icon-prev:hover i,.tvsearch-dropdown-total-wrapper:hover .tvsearch-dropdown-total,.tvblog-event-all-content-block .tvnews-event-titel a:hover,.tvcategory-chain-title a:hover,.tv-sub-category-inner:hover .tvcategory-name a,.tvmain-slider-contant .tvmain-slider-button:hover,.tvmenu-link-wrapper .tvdropdown-submenu.tvmenu-link span:hover,#wrapper .breadcrumb a:hover i,.search-widget form input[type=text]:focus+button .search,.search-widget form button[type=submit] .search:hover,.block_newsletter form input[type=text]:focus+button .search,.block_newsletter form button[type=submit] .search:hover,.tvdesktop-wishlist:hover .tvwishlist-name span,.tvcmsdesktop-view-compare:hover .tvdesktop-view-compare-name,.tvdesktop-wishlist:hover .tvwishlist-icon i,.tvdesktop-view-compare:hover .tvdesktop-compare-icon i,.header-7 .tv-cart-icon:hover i,.header-7 .tvdesktop-wishlist:hover .tvwishlist-icon i,.header-7 .tvdesktop-view-compare:hover .tvdesktop-compare-icon i,.tvcmsdesktop-top-wrapper .tv-account-wrapper .tv-myaccount-btn:hover span,.header-7 .tvcms-header-myaccount .tv-myaccount-btn:hover i,.tvcmsdesktop-top-wrapper #tvcmsdesktop-language-selector .tv-language-btn:hover .tv-language-span,.tvcmsdesktop-top-wrapper #tvcmsdesktop-currency-selector .tv-currency-btn:hover .tv-currency-span,.tvproduct-wishlist-compare .tvcompare-wrapper:hover i,.tvproduct-wishlist-compare .tvcompare-wrapper:hover span,.tvproduct-wishlist-compare .tvproduct-wishlist:hover i,.tvproduct-wishlist-compare .tvproduct-wishlist:hover span{color:var(--spoc-secondary)!important;}
-#tvcmsdesktop-main-menu .tvcmsmain-menu-wrapper .tv-header-menu[data-depth="0"]>li>.tvmenu-link-wrapper a span:after,.tvproduct-wrapper .tvproduct-quick-btn:hover .tvproduct-quick-icon,.tvproduct-wrapper .tvproduct-cart-btn:hover .tvproduct-add-to-cart,.tvproduct-wrapper .tvproduct-wishlist:hover .tvproduct-wishlist-icon,.tvproduct-wrapper .tvcompare-wrapper:hover .tvproduct-compare-icon i.add,.tvproduct-cart-quentity-increment:hover,.tvproduct-cart-quentity-decrement:hover,.tvcmsprev-btn:hover,.tvcmsnext-btn:hover,.nivo-controlNav .nivo-control.active,.owl-theme .owl-dots .owl-dot.active span,.owl-theme .owl-dots .owl-dot:hover span,.tvnewsleteer-btn-wrapper .btn-primary:hover,.tvbottom-to-top:hover,.products-sort-order .select-list:hover,.facet-dropdown .select-list:hover,.tvall-inner-btn:hover:after,.tvsticky-up-arrow:hover,.tvsticky-wishlist:hover,.tvsticky-compare:hover,.tvright-sticky-account:hover,.tvright-sticky-add-to-cart:hover,.tvright-sticky-option .tvtight-sticky:hover,.tvcmsNewsLetterPopup-i .tvnewsletterpopup-button-icon:hover{background-color:var(--spoc-secondary)!important;border-color:var(--spoc-secondary)!important;color:#fff!important;}.tvcmsheader-search.search-widget form .tvheader-top-search-wrapper button[type=submit] svg g path,.tvcmsheader-search.search-widget form .tvheader-top-search-wrapper button[type=submit] svg g rect,.tvcmsheader-search.search-widget form .tvheader-top-search-wrapper:hover button[type=submit] svg g path,.tvcmsheader-search.search-widget form .tvheader-top-search-wrapper:hover button[type=submit] svg g rect{fill:var(--spoc-secondary)!important;}.btn-primary,button.btn-primary,input.btn-primary,.tvall-inner-btn,.cart-content-btn a.tvall-inner-btn,.tvcart-product-list-checkout,.ttvcmscart-show-dropdown-right .ttvcart-product-list-checkout,.tvprocess-to-checkout,.checkout .tvprocess-to-checkout,.bootstrap-touchspin .group-span-filestyle .btn-touchspin,.group-span-filestyle .bootstrap-touchspin .btn-touchspin,.group-span-filestyle .btn-default,.dropdown-item.active,.dropdown-item.active:focus,.dropdown-item.active:hover,.nav-pills .nav-item.open .nav-link,.nav-pills .nav-item.open .nav-link:focus,.nav-pills .nav-item.open .nav-link:hover,.nav-pills .nav-link.active,.nav-pills .nav-link.active:focus,.nav-pills .nav-link.active:hover,.page-item.active .page-link,.page-item.active .page-link:focus,.page-item.active .page-link:hover,.list-group-item.active,.list-group-item.active:focus,.list-group-item.active:hover,.card-primary,.tag-primary,.bg-primary,#header .header-nav .cart-preview.active,.header-7 .tvcmsdesktop-view-wishlist .tvwishlist-name .cart-wishlist-number,.header-7 .tvcmsdesktop-view-compare .tvdesktop-view-compare-name .count-product{background-color:var(--spoc-primary)!important;border-color:var(--spoc-primary)!important;color:#fff!important;}.btn-primary:hover,.btn-primary:focus,.btn-primary:active,button.btn-primary:hover,button.btn-primary:focus,input.btn-primary:hover,input.btn-primary:focus,.tvall-inner-btn:hover,.tvall-inner-btn:focus,.cart-content-btn a.tvall-inner-btn:hover,.cart-content-btn a.tvall-inner-btn:focus,.tvcart-product-list-checkout:hover,.ttvcmscart-show-dropdown-right .ttvcart-product-list-checkout:hover,.tvprocess-to-checkout:hover,.tvprocess-to-checkout:focus,.checkout .tvprocess-to-checkout:hover,.checkout .tvprocess-to-checkout:focus{background-color:var(--spoc-secondary)!important;border-color:var(--spoc-secondary)!important;color:#fff!important;}.tvcart-product-list-checkout a,.tvcart-product-list-checkout:hover a,.ttvcmscart-show-dropdown-right .ttvcart-product-list-checkout a,.ttvcmscart-show-dropdown-right .ttvcart-product-list-checkout:hover a,.tvprocess-to-checkout,.tvprocess-to-checkout:hover,.tvprocess-to-checkout:focus,.cart-content-btn a.tvall-inner-btn,.cart-content-btn a.tvall-inner-btn:hover,.cart-content-btn a.tvall-inner-btn:focus{color:#fff!important;}
-.btn-secondary,.btn-tertiary,.btn-outline-primary,.btn-outline-secondary,#products .up .btn-secondary,#products .up .btn-tertiary,.cart-content-btn .btn-secondary,#blockcart-modal .cart-content .cart-content-btn .btn-secondary,.tvcart-product-list-viewcart,.ttvcmscart-show-dropdown-right .ttvcart-product-list-viewcart,.tv-continue-shopping-btn,a.tv-continue-shopping-btn,button.tv-continue-shopping-btn,body#checkout section.checkout-step .delete-address,body#checkout section.checkout-step .edit-address,.clear-all-wrapper .btn{background:#fff!important;background-color:#fff!important;border:1px solid var(--spoc-primary)!important;color:var(--spoc-primary)!important;border-radius:var(--spoc-radius-md)!important;box-shadow:none!important;transition:var(--spoc-transition);}.btn-secondary:hover,.btn-secondary:focus,.btn-secondary:active,.btn-tertiary:hover,.btn-tertiary:focus,.btn-tertiary:active,.btn-outline-primary:hover,.btn-outline-primary:focus,.btn-outline-primary:active,.btn-outline-secondary:hover,.btn-outline-secondary:focus,.btn-outline-secondary:active,#products .up .btn-secondary:hover,#products .up .btn-secondary:focus,#products .up .btn-tertiary:hover,#products .up .btn-tertiary:focus,.cart-content-btn .btn-secondary:hover,.cart-content-btn .btn-secondary:focus,#blockcart-modal .cart-content .cart-content-btn .btn-secondary:hover,#blockcart-modal .cart-content .cart-content-btn .btn-secondary:focus,.tvcart-product-list-viewcart:hover,.ttvcmscart-show-dropdown-right .ttvcart-product-list-viewcart:hover,.tv-continue-shopping-btn:hover,.tv-continue-shopping-btn:focus,a.tv-continue-shopping-btn:hover,a.tv-continue-shopping-btn:focus,button.tv-continue-shopping-btn:hover,button.tv-continue-shopping-btn:focus,body#checkout section.checkout-step .delete-address:hover,body#checkout section.checkout-step .edit-address:hover,.clear-all-wrapper .btn:hover,.clear-all-wrapper .btn:focus{background:var(--spoc-primary)!important;background-color:var(--spoc-primary)!important;border-color:var(--spoc-primary)!important;color:#fff!important;}.btn-secondary:hover *,.btn-secondary:focus *,.btn-tertiary:hover *,.btn-tertiary:focus *,.btn-outline-primary:hover *,.btn-outline-primary:focus *,.btn-outline-secondary:hover *,.btn-outline-secondary:focus *,.tvcart-product-list-viewcart:hover a,.ttvcmscart-show-dropdown-right .ttvcart-product-list-viewcart:hover a,.tv-continue-shopping-btn:hover *,.tv-continue-shopping-btn:focus *,body#checkout section.checkout-step .delete-address:hover *,body#checkout section.checkout-step .edit-address:hover *{color:#fff!important;}.tvcart-product-list-viewcart a,.ttvcmscart-show-dropdown-right .ttvcart-product-list-viewcart a{color:var(--spoc-primary)!important;}.product-price,span.tvcart-product-price,.current-price,.current-price span,.product-line-grid-right .product-price,.product-line-grid-right .current-price,.product-price-and-shipping .price,.product-price-and-shipping .product-grid-price-discount,.product-price-discount,.tv-product-price .price,.tvleft-right-product-slider .tv-product-price .price,.ttvcmscart-show-dropdown-right .tvcart-product-content .product-price,.ttvcmscart-show-dropdown-right .ttvcart-product-label-value.total .ttvcart-product-value,.cart-summary-line .value,.cart-summary-line.cart-total .value,.cart-summary-line .price,#cart-subtotal-products .value,#cart-subtotal-shipping .value,#cart-subtotal-tax .value,#cart-subtotal-discount .value{color:var(--spoc-primary)!important;}.product-price-and-shipping .regular-price,.regular-price,.old-price,.product-discount .regular-price,.has-discount .regular-price,.tvproduct-discount-price{color:var(--spoc-text-muted)!important;}.discount,.discount-percentage,.product-discount,.product-price-and-shipping .discount,.product-price-and-shipping .discount-percentage,.tvproduct-flags li.product-flag.on-sale,.tvproduct-flags li.product-flag.discount{background-color:var(--spoc-secondary)!important;border-color:var(--spoc-secondary)!important;color:#fff!important;}.card,.tvproduct-wrapper,.tvverticalmenu-dropdown .product-container,.tvfooter-product-box-layout .tvleft-right-product-slider .tvproduct-wrapper,.tv-category-main-div,.products-sort-order .select-title,.facet-dropdown.open>.select-title{border-color:var(--spoc-border)!important;}.tvproduct-wrapper:hover,.tvverticalmenu-dropdown .product-container:hover{border-color:var(--spoc-secondary)!important;}.btn-link,.page-link,.text-primary,.card-outline-primary,.cms-description a{color:var(--spoc-primary)!important;border-color:var(--spoc-primary)!important;}.custom-radio input[type=radio]:checked+span{background-color:var(--spoc-primary)!important;}.tabs .nav-tabs .nav-link.active{color:var(--spoc-primary)!important;border-bottom-color:var(--spoc-primary)!important;}
+/******************************************************
+ * SPOC UI CLEANUP
+ * Hovers / boutons / prix
+ *
+ * Objectif :
+ * - supprimer les restes de rouge thème sur les hovers ;
+ * - uniformiser les boutons secondaires et tertiaires ;
+ * - remettre les prix sur la couleur primaire SPOC ;
+ * - garder les promotions sur un bleu accent maîtrisé.
+ *
+ * Important :
+ * - ne pas modifier le bloc protégé "SPOC - bouton principal add to cart"
+ *   situé juste après ce bloc.
+ ******************************************************/
+
+/* ==============================
+   Variables UI SPOC
+   ============================== */
+
+:root {
+    --spoc-primary: #145078;
+    --spoc-secondary: #1999cb;
+    --spoc-promo: #31a9e1;
+    --spoc-bg-light: #f7f9fb;
+    --spoc-border: #d9e2ec;
+    --spoc-text: #243447;
+    --spoc-text-muted: #6b7a89;
+    --spoc-radius-md: 8px;
+    --spoc-radius-lg: 12px;
+    --spoc-transition: all 0.25s ease;
+}
+
+
+/* ==============================
+   Liens et états hover
+   ============================== */
+
+a:hover,
+a:focus,
+.btn-link:hover,
+.btn-link:focus,
+.dropdown-item:hover,
+.dropdown-item:focus,
+.footer-container li a:hover,
+.tvfooter-store-link a:hover,
+.tvcopylink p:hover,
+.account-list a:hover,
+.cart-grid-body a.label:hover,
+.sitemap ul li a:hover,
+.cms-description a:hover,
+#header .header-nav .blockcart a:hover,
+#header .top-menu a[data-depth="0"]:hover,
+.top-menu .sub-menu a:hover,
+.tv-language-dropdown li a:hover,
+.tv-currency-dropdown li a:hover,
+.tvsearch-dropdown-total-wrapper:hover .tvsearch-dropdown-total,
+.tvblog-event-all-content-block .tvnews-event-titel a:hover,
+.tvcategory-chain-title a:hover,
+.tv-sub-category-inner:hover .tvcategory-name a,
+.tvmain-slider-contant .tvmain-slider-button:hover,
+.tvmenu-link-wrapper .tvdropdown-submenu.tvmenu-link span:hover,
+#wrapper .breadcrumb a:hover i,
+#search_filters .facet .facet-label:hover a,
+#search_filters_brands .facet .tvsearch-filter-brand-wrapper li.facet-label a:hover,
+#search_filters_suppliers .facet .tvserach-filter-suppliers li.facet-label a:hover,
+.tvserach-filter-suppliers p:hover,
+.block-categories .category-sub-menu li[data-depth="0"]:hover > a,
+.block-categories .category-sub-menu li[data-depth="1"]:hover > a,
+.block-categories .category-sub-menu li[data-depth="2"]:hover > a,
+.block-categories .category-sub-menu li .category-sub-link:hover,
+.block-categories .category-sub-menu li:hover > .navbar-toggler,
+.block-categories .collapse-icons .add:hover,
+.block-categories .collapse-icons .remove:hover,
+.block-categories .arrows .arrow-down:hover,
+.block-categories .arrows .arrow-right:hover,
+.page-my-account #content .links a:hover i,
+.carousel .carousel-control .icon-next:hover i,
+.carousel .carousel-control .icon-prev:hover i,
+.search-widget form input[type="text"]:focus + button .search,
+.search-widget form button[type="submit"] .search:hover,
+.block_newsletter form input[type="text"]:focus + button .search,
+.block_newsletter form button[type="submit"] .search:hover,
+.tvdesktop-wishlist:hover .tvwishlist-name span,
+.tvcmsdesktop-view-compare:hover .tvdesktop-view-compare-name,
+.tvdesktop-wishlist:hover .tvwishlist-icon i,
+.tvdesktop-view-compare:hover .tvdesktop-compare-icon i,
+.header-7 .tv-cart-icon:hover i,
+.header-7 .tvdesktop-wishlist:hover .tvwishlist-icon i,
+.header-7 .tvdesktop-view-compare:hover .tvdesktop-compare-icon i,
+.tvcmsdesktop-top-wrapper .tv-account-wrapper .tv-myaccount-btn:hover span,
+.header-7 .tvcms-header-myaccount .tv-myaccount-btn:hover i,
+.tvcmsdesktop-top-wrapper #tvcmsdesktop-language-selector .tv-language-btn:hover .tv-language-span,
+.tvcmsdesktop-top-wrapper #tvcmsdesktop-currency-selector .tv-currency-btn:hover .tv-currency-span,
+.tvproduct-wishlist-compare .tvcompare-wrapper:hover i,
+.tvproduct-wishlist-compare .tvcompare-wrapper:hover span,
+.tvproduct-wishlist-compare .tvproduct-wishlist:hover i,
+.tvproduct-wishlist-compare .tvproduct-wishlist:hover span {
+    color: var(--spoc-secondary) !important;
+}
+
+
+/* ==============================
+   Menus, pagination et icônes hover
+   ============================== */
+
+#tvcmsdesktop-main-menu .tvcmsmain-menu-wrapper .tv-header-menu[data-depth="0"] > li > .tvmenu-link-wrapper a span::after,
+.tvcmsprev-btn:hover,
+.tvcmsnext-btn:hover,
+.nivo-controlNav .nivo-control.active,
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span,
+.tvbottom-to-top:hover,
+.tvsticky-up-arrow:hover,
+.tvsticky-wishlist:hover,
+.tvsticky-compare:hover,
+.tvright-sticky-account:hover,
+.tvright-sticky-add-to-cart:hover,
+.tvright-sticky-option .tvtight-sticky:hover,
+.tvcmsNewsLetterPopup-i .tvnewsletterpopup-button-icon:hover,
+.products-sort-order .select-list:hover,
+.facet-dropdown .select-list:hover {
+    background-color: var(--spoc-secondary) !important;
+    border-color: var(--spoc-secondary) !important;
+    color: #ffffff !important;
+}
+
+.tvcmsheader-search.search-widget form .tvheader-top-search-wrapper button[type="submit"] svg g path,
+.tvcmsheader-search.search-widget form .tvheader-top-search-wrapper button[type="submit"] svg g rect,
+.tvcmsheader-search.search-widget form .tvheader-top-search-wrapper:hover button[type="submit"] svg g path,
+.tvcmsheader-search.search-widget form .tvheader-top-search-wrapper:hover button[type="submit"] svg g rect {
+    fill: var(--spoc-secondary) !important;
+}
+
+
+/* ==============================
+   Boutons principaux
+   ============================== */
+
+.btn-primary,
+button.btn-primary,
+input.btn-primary,
+.tvall-inner-btn,
+.cart-content-btn a.tvall-inner-btn,
+.tvprocess-to-checkout,
+.checkout .tvprocess-to-checkout,
+.tvcart-product-list-checkout,
+.ttvcmscart-show-dropdown-right .ttvcart-product-list-checkout,
+.bootstrap-touchspin .group-span-filestyle .btn-touchspin,
+.group-span-filestyle .bootstrap-touchspin .btn-touchspin,
+.group-span-filestyle .btn-default,
+.dropdown-item.active,
+.dropdown-item.active:focus,
+.dropdown-item.active:hover,
+.nav-pills .nav-link.active,
+.nav-pills .nav-link.active:focus,
+.nav-pills .nav-link.active:hover,
+.page-item.active .page-link,
+.page-item.active .page-link:focus,
+.page-item.active .page-link:hover,
+.list-group-item.active,
+.list-group-item.active:focus,
+.list-group-item.active:hover,
+.card-primary,
+.tag-primary,
+.bg-primary,
+#header .header-nav .cart-preview.active,
+.header-7 .tvcmsdesktop-view-wishlist .tvwishlist-name .cart-wishlist-number,
+.header-7 .tvcmsdesktop-view-compare .tvdesktop-view-compare-name .count-product {
+    background-color: var(--spoc-primary) !important;
+    border-color: var(--spoc-primary) !important;
+    color: #ffffff !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+button.btn-primary:hover,
+button.btn-primary:focus,
+input.btn-primary:hover,
+input.btn-primary:focus,
+.tvall-inner-btn:hover,
+.tvall-inner-btn:focus,
+.cart-content-btn a.tvall-inner-btn:hover,
+.cart-content-btn a.tvall-inner-btn:focus,
+.tvprocess-to-checkout:hover,
+.tvprocess-to-checkout:focus,
+.checkout .tvprocess-to-checkout:hover,
+.checkout .tvprocess-to-checkout:focus,
+.tvcart-product-list-checkout:hover,
+.ttvcmscart-show-dropdown-right .ttvcart-product-list-checkout:hover {
+    background-color: var(--spoc-secondary) !important;
+    border-color: var(--spoc-secondary) !important;
+    color: #ffffff !important;
+}
+
+.tvcart-product-list-checkout a,
+.tvcart-product-list-checkout:hover a,
+.ttvcmscart-show-dropdown-right .ttvcart-product-list-checkout a,
+.ttvcmscart-show-dropdown-right .ttvcart-product-list-checkout:hover a,
+.tvprocess-to-checkout,
+.tvprocess-to-checkout:hover,
+.tvprocess-to-checkout:focus,
+.cart-content-btn a.tvall-inner-btn,
+.cart-content-btn a.tvall-inner-btn:hover,
+.cart-content-btn a.tvall-inner-btn:focus {
+    color: #ffffff !important;
+}
+
+
+/* ==============================
+   Boutons secondaires et tertiaires
+   ============================== */
+
+.btn-secondary,
+.btn-tertiary,
+.btn-outline-primary,
+.btn-outline-secondary,
+#products .up .btn-secondary,
+#products .up .btn-tertiary,
+.cart-content-btn .btn-secondary,
+#blockcart-modal .cart-content .cart-content-btn .btn-secondary,
+.tvcart-product-list-viewcart,
+.ttvcmscart-show-dropdown-right .ttvcart-product-list-viewcart,
+.tv-continue-shopping-btn,
+a.tv-continue-shopping-btn,
+button.tv-continue-shopping-btn,
+body#checkout section.checkout-step .delete-address,
+body#checkout section.checkout-step .edit-address,
+.clear-all-wrapper .btn {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    border: 1px solid var(--spoc-primary) !important;
+    border-radius: var(--spoc-radius-md) !important;
+    box-shadow: none !important;
+    color: var(--spoc-primary) !important;
+    transition: var(--spoc-transition);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active,
+.btn-tertiary:hover,
+.btn-tertiary:focus,
+.btn-tertiary:active,
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active,
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus,
+.btn-outline-secondary:active,
+#products .up .btn-secondary:hover,
+#products .up .btn-secondary:focus,
+#products .up .btn-tertiary:hover,
+#products .up .btn-tertiary:focus,
+.cart-content-btn .btn-secondary:hover,
+.cart-content-btn .btn-secondary:focus,
+#blockcart-modal .cart-content .cart-content-btn .btn-secondary:hover,
+#blockcart-modal .cart-content .cart-content-btn .btn-secondary:focus,
+.tvcart-product-list-viewcart:hover,
+.ttvcmscart-show-dropdown-right .ttvcart-product-list-viewcart:hover,
+.tv-continue-shopping-btn:hover,
+.tv-continue-shopping-btn:focus,
+a.tv-continue-shopping-btn:hover,
+a.tv-continue-shopping-btn:focus,
+button.tv-continue-shopping-btn:hover,
+button.tv-continue-shopping-btn:focus,
+body#checkout section.checkout-step .delete-address:hover,
+body#checkout section.checkout-step .edit-address:hover,
+.clear-all-wrapper .btn:hover,
+.clear-all-wrapper .btn:focus {
+    background: var(--spoc-primary) !important;
+    background-color: var(--spoc-primary) !important;
+    border-color: var(--spoc-primary) !important;
+    color: #ffffff !important;
+}
+
+.btn-secondary:hover *,
+.btn-secondary:focus *,
+.btn-tertiary:hover *,
+.btn-tertiary:focus *,
+.btn-outline-primary:hover *,
+.btn-outline-primary:focus *,
+.btn-outline-secondary:hover *,
+.btn-outline-secondary:focus *,
+.tvcart-product-list-viewcart:hover a,
+.ttvcmscart-show-dropdown-right .ttvcart-product-list-viewcart:hover a,
+.tv-continue-shopping-btn:hover *,
+.tv-continue-shopping-btn:focus *,
+body#checkout section.checkout-step .delete-address:hover *,
+body#checkout section.checkout-step .edit-address:hover * {
+    color: #ffffff !important;
+}
+
+.tvcart-product-list-viewcart a,
+.ttvcmscart-show-dropdown-right .ttvcart-product-list-viewcart a {
+    color: var(--spoc-primary) !important;
+}
+
+
+/* ==============================
+   Prix
+   ============================== */
+
+.product-price,
+.current-price,
+.current-price span,
+span.tvcart-product-price,
+.product-line-grid-right .product-price,
+.product-line-grid-right .current-price,
+.product-price-and-shipping .price,
+.product-price-and-shipping .product-grid-price-discount,
+.product-price-discount,
+.tv-product-price .price,
+.tvleft-right-product-slider .tv-product-price .price,
+.ttvcmscart-show-dropdown-right .tvcart-product-content .product-price,
+.ttvcmscart-show-dropdown-right .ttvcart-product-label-value.total .ttvcart-product-value,
+.cart-summary-line .value,
+.cart-summary-line.cart-total .value,
+.cart-summary-line .price,
+#cart-subtotal-products .value,
+#cart-subtotal-shipping .value,
+#cart-subtotal-tax .value,
+#cart-subtotal-discount .value {
+    color: var(--spoc-primary) !important;
+}
+
+.product-price-and-shipping .regular-price,
+.regular-price,
+.old-price,
+.product-discount .regular-price,
+.has-discount .regular-price,
+.tvproduct-discount-price {
+    color: var(--spoc-text-muted) !important;
+}
+
+
+/* ==============================
+   Promotions et badges
+   ============================== */
+
+.discount,
+.discount-percentage,
+.product-discount,
+.product-price-and-shipping .discount,
+.product-price-and-shipping .discount-percentage,
+.tvproduct-flags li.product-flag.on-sale,
+.tvproduct-flags li.product-flag.discount {
+    background-color: var(--spoc-promo) !important;
+    border-color: var(--spoc-promo) !important;
+    color: #ffffff !important;
+}
+
+
+/* ==============================
+   Cards produit et bordures UI
+   ============================== */
+
+.card,
+.tvproduct-wrapper,
+.tvverticalmenu-dropdown .product-container,
+.tvfooter-product-box-layout .tvleft-right-product-slider .tvproduct-wrapper,
+.tv-category-main-div,
+.products-sort-order .select-title,
+.facet-dropdown.open > .select-title {
+    border-color: var(--spoc-border) !important;
+}
+
+.tvproduct-wrapper:hover,
+.tvverticalmenu-dropdown .product-container:hover {
+    border-color: var(--spoc-secondary) !important;
+}
+
+
+/* ==============================
+   Boutons produits hover
+   ============================== */
+
+.tvproduct-wrapper .tvproduct-quick-btn:hover .tvproduct-quick-icon,
+.tvproduct-wrapper .tvproduct-cart-btn:hover .tvproduct-add-to-cart,
+.tvproduct-wrapper .tvproduct-wishlist:hover .tvproduct-wishlist-icon,
+.tvproduct-wrapper .tvcompare-wrapper:hover .tvproduct-compare-icon i.add,
+.tvproduct-cart-quentity-increment:hover,
+.tvproduct-cart-quentity-decrement:hover {
+    background-color: var(--spoc-secondary) !important;
+    border-color: var(--spoc-secondary) !important;
+    color: #ffffff !important;
+}
+
+
+/* ==============================
+   Liens primaires et formulaires
+   ============================== */
+
+.btn-link,
+.page-link,
+.text-primary,
+.card-outline-primary,
+.cms-description a {
+    color: var(--spoc-primary) !important;
+    border-color: var(--spoc-primary) !important;
+}
+
+.custom-radio input[type="radio"]:checked + span {
+    background-color: var(--spoc-primary) !important;
+}
+
+.tabs .nav-tabs .nav-link.active {
+    color: var(--spoc-primary) !important;
+    border-bottom-color: var(--spoc-primary) !important;
+}
+
 /******************************************************
  * SPOC - bouton principal add to cart
  ******************************************************/
