@@ -2725,6 +2725,7 @@ ul.wlp_bought_list li .product_infos .product-name {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    gap: 5px;
 }
 .tvcopylink {
     text-align: center;
@@ -2740,7 +2741,7 @@ ul.wlp_bought_list li .product_infos .product-name {
     display: inline-block;
 }
 .tvcopylink p:hover {
-    color: #31a9e1;
+    color: #1999cb;
 }
 .tvbottom-to-top {
     position: fixed;
@@ -10451,6 +10452,7 @@ body#checkout .tvtheme-control-icon{
     --spoc-promo: #a80115;
     --spoc-bg-light: #f7f9fb;
     --spoc-border: #d9e2ec;
+    --spoc-border-hover: #808183;
     --spoc-text: #243447;
     --spoc-text-muted: #6b7a89;
     --spoc-radius-md: 8px;
@@ -10779,7 +10781,7 @@ span.tvcart-product-price,
 .tvproduct-flags li.product-flag.on-sale,
 .tvproduct-flags li.product-flag.discount {
     background-color: #ffffff;
-    border-color: var(--spoc-promo) !important;
+    border: 1px solid var(--spoc-promo);
     color: var(--spoc-promo) !important;
 }
 
@@ -10801,7 +10803,7 @@ span.tvcart-product-price,
 
 .tvproduct-wrapper:hover,
 .tvverticalmenu-dropdown .product-container:hover {
-    border-color: var(--spoc-secondary) !important;
+    border-color: var(--spoc-border-hover) !important;
 }
 
 
