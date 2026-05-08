@@ -11555,6 +11555,9 @@ body {
     color: #145078 !important;
     background: transparent !important;
     text-decoration: none !important;
+    font-weight:700;
+    border: 1px solid #145078;
+    
 }
 
 /* Hover : on colore le CADRE, pas le li autour */
