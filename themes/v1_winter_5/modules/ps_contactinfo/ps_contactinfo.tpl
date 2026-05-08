@@ -8,11 +8,11 @@
 {assign var='spoc_infoline_days' value='du Lundi au Samedi'}
 {assign var='spoc_infoline_hours' value='de 9h à 12h & de 14h à 19h'}
 
-{assign var='spoc_infoline_email_label' value='par mail'}
-{assign var='spoc_infoline_email_cta' value='cliquez ici'}
+{*assign var='spoc_infoline_email_label' value='par mail'*}
+{assign var='spoc_infoline_email_cta' value='par mail'}
 {assign var='spoc_infoline_email' value='support@m2j-exp.fr'}
 
-{assign var='spoc_infoline_phone_label' value='nous téléphoner'}
+{*assign var='spoc_infoline_phone_label' value='nous téléphoner'*}
 {assign var='spoc_infoline_phone_display' value='+33(0)4 93 07 40 44'}
 {assign var='spoc_infoline_phone_href' value='+33493074044'}
 
@@ -46,7 +46,7 @@
             </div>
 
             <div class="spoc-infoline-text">
-                <span>{$spoc_infoline_email_label|escape:'html':'UTF-8'}</span>
+             {*   <span>{$spoc_infoline_email_label|escape:'html':'UTF-8'}</span> *}
                 <a href="mailto:{$spoc_infoline_email|escape:'html':'UTF-8'}"
                    title="Contacter SPOC par mail">
                     {$spoc_infoline_email_cta|escape:'html':'UTF-8'}
@@ -60,7 +60,7 @@
             </div>
 
             <div class="spoc-infoline-text">
-                <span>{$spoc_infoline_phone_label|escape:'html':'UTF-8'}</span>
+               {* <span>{$spoc_infoline_phone_label|escape:'html':'UTF-8'}</span> *}
                 <a href="tel:{$spoc_infoline_phone_href|escape:'html':'UTF-8'}"
                    title="Appeler SPOC">
                     {$spoc_infoline_phone_display|escape:'html':'UTF-8'}
