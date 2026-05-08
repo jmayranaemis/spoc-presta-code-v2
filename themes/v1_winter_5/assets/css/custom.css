@@ -11178,5 +11178,129 @@ body {
     border-color: transparent !important;
     box-shadow: none !important;
 }
+
+/* =========================================================
+   HOMEPAGE - SLIDER PRINCIPAL SPOC
+   Réduction hauteur slider / override Owl Carousel
+   Objectif : réduire d'environ 30% la hauteur actuelle
+   606px -> environ 420px sur desktop
+   ========================================================= */
+
+/* Bloc global du slider */
+.tvcmsmain-slider-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* On force la hauteur du slider malgré le style inline généré */
+.tvcmsmain-slider-wrapper #tvmain-slider,
+.tvcmsmain-slider-wrapper .tvcms-main-slider,
+.tvcmsmain-slider-wrapper .tv-main-slider {
+    height: 420px !important;
+    max-height: 420px !important;
+    aspect-ratio: auto !important;
+    overflow: hidden;
+}
+
+/* Structure Owl Carousel */
+.tvcmsmain-slider-wrapper #tvmain-slider .owl-stage-outer,
+.tvcmsmain-slider-wrapper #tvmain-slider .owl-stage,
+.tvcmsmain-slider-wrapper #tvmain-slider .owl-item {
+    height: 420px !important;
+    max-height: 420px !important;
+    overflow: hidden;
+}
+
+/* Lien/image du slide */
+.tvcmsmain-slider-wrapper .tvslider-list,
+.tvcmsmain-slider-wrapper .tvimage,
+.tvcmsmain-slider-wrapper picture {
+    display: block;
+    width: 100%;
+    height: 420px !important;
+    max-height: 420px !important;
+    overflow: hidden;
+}
+
+/* Image du slider : pleine largeur + recadrage propre */
+.tvcmsmain-slider-wrapper .tvmain-slider-img,
+.tvcmsmain-slider-wrapper .tv-img-responsive {
+    display: block !important;
+    width: 100% !important;
+    height: 420px !important;
+    max-height: 420px !important;
+    object-fit: cover;
+    object-position: center center;
+}
+
+/* Contenu texte du slider : on évite qu'il dépasse après réduction */
+.tvcmsmain-slider-wrapper .tvmain-slider-content-inner {
+    height: 420px !important;
+    max-height: 420px !important;
+}
+
+/* Boutons précédent / suivant */
+.tvcmsmain-slider-wrapper .tvmain-slider-next-pre-btn {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* =========================================================
+   Responsive tablette
+   ========================================================= */
+
+@media (max-width: 991px) {
+    .tvcmsmain-slider-wrapper #tvmain-slider,
+    .tvcmsmain-slider-wrapper .tvcms-main-slider,
+    .tvcmsmain-slider-wrapper .tv-main-slider,
+    .tvcmsmain-slider-wrapper #tvmain-slider .owl-stage-outer,
+    .tvcmsmain-slider-wrapper #tvmain-slider .owl-stage,
+    .tvcmsmain-slider-wrapper #tvmain-slider .owl-item,
+    .tvcmsmain-slider-wrapper .tvslider-list,
+    .tvcmsmain-slider-wrapper .tvimage,
+    .tvcmsmain-slider-wrapper picture,
+    .tvcmsmain-slider-wrapper .tvmain-slider-img,
+    .tvcmsmain-slider-wrapper .tv-img-responsive,
+    .tvcmsmain-slider-wrapper .tvmain-slider-content-inner {
+        height: 300px !important;
+        max-height: 300px !important;
+    }
+}
+
+/* =========================================================
+   Responsive mobile
+   ========================================================= */
+
+@media (max-width: 575px) {
+    .tvcmsmain-slider-wrapper #tvmain-slider,
+    .tvcmsmain-slider-wrapper .tvcms-main-slider,
+    .tvcmsmain-slider-wrapper .tv-main-slider,
+    .tvcmsmain-slider-wrapper #tvmain-slider .owl-stage-outer,
+    .tvcmsmain-slider-wrapper #tvmain-slider .owl-stage,
+    .tvcmsmain-slider-wrapper #tvmain-slider .owl-item,
+    .tvcmsmain-slider-wrapper .tvslider-list,
+    .tvcmsmain-slider-wrapper .tvimage,
+    .tvcmsmain-slider-wrapper picture,
+    .tvcmsmain-slider-wrapper .tvmain-slider-img,
+    .tvcmsmain-slider-wrapper .tv-img-responsive,
+    .tvcmsmain-slider-wrapper .tvmain-slider-content-inner {
+        height: 190px !important;
+        max-height: 190px !important;
+    }
+
+    .tvcmsmain-slider-wrapper .tvmain-slider-title {
+        font-size: 20px;
+        line-height: 26px;
+    }
+
+    .tvcmsmain-slider-wrapper .tvmain-slider-info h2 {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .tvcmsmain-slider-wrapper .tvmain-slider-info p {
+        display: none;
+    }
+}
 /*mailalert css end*/
 
