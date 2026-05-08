@@ -51,7 +51,8 @@
 .tvcmsmultibanners .tvmultibanner-3 {
     /*display: inline-block;*/
     vertical-align: middle;
-    padding: 0 0px;
+    padding: 5px 15px 5px 15px;
+    /*padding: 0 0px; */
     position: relative;
 }
 .tvcmsmultibanners .tvmultibanner-1 {
@@ -68,6 +69,7 @@
 }
 .tvcmsmultibanners .tvbanner-hover-wrapper {
     display: block;
+    border-radius: 30px;
 }
 .none.tvmultibanner-content {
     display: none;

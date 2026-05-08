@@ -11022,12 +11022,14 @@ body {
 
 .footer-container .spoc-store-address {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
+    flex-direction: column;
     gap: 8px;
     margin-top: 0px;
     color: #0b2f4f;
-    text-align: left;
+    text-align: center;
+    align-content: center;
 }
 
 .footer-container .spoc-store-address .material-icons {
@@ -11048,6 +11050,7 @@ body {
     line-height: 15px;
     font-weight: 400;
     color: #0b2f4f;
+    text-align: center;
 }
 
 .footer-container .spoc-store-map-link {
@@ -11056,6 +11059,7 @@ body {
     justify-content: center;
 
     margin-top: 8px;
+    margin-top: 15px;
     margin-bottom: 12px;
     padding: 8px 16px;
 
