@@ -10448,7 +10448,7 @@ body#checkout .tvtheme-control-icon{
 :root {
     --spoc-primary: #145078;
     --spoc-secondary: #1999cb;
-    --spoc-promo: #31a9e1;
+    --spoc-promo: #a80115;
     --spoc-bg-light: #f7f9fb;
     --spoc-border: #d9e2ec;
     --spoc-text: #243447;
@@ -10736,8 +10736,7 @@ span.tvcart-product-price,
 .product-line-grid-right .product-price,
 .product-line-grid-right .current-price,
 .product-price-and-shipping .price,
-.product-price-and-shipping .product-grid-price-discount,
-.product-price-discount,
+.product-price-and-shipping 
 .tv-product-price .price,
 .tvleft-right-product-slider .tv-product-price .price,
 .ttvcmscart-show-dropdown-right .tvcart-product-content .product-price,
@@ -10748,8 +10747,15 @@ span.tvcart-product-price,
 #cart-subtotal-products .value,
 #cart-subtotal-shipping .value,
 #cart-subtotal-tax .value,
-#cart-subtotal-discount .value {
+{
     color: var(--spoc-primary) !important;
+}
+
+.product-grid-price-discount,
+.product-price-discount,
+#cart-subtotal-discount .value 
+{
+    color: var(--spoc-promo) !important;
 }
 
 .product-price-and-shipping .regular-price,
@@ -10768,15 +10774,15 @@ span.tvcart-product-price,
 
 .discount,
 .discount-percentage,
-.product-discount,
 .product-price-and-shipping .discount,
 .product-price-and-shipping .discount-percentage,
 .tvproduct-flags li.product-flag.on-sale,
 .tvproduct-flags li.product-flag.discount {
-    background-color: var(--spoc-promo) !important;
+    background-color: #ffffff;
     border-color: var(--spoc-promo) !important;
-    color: #ffffff !important;
+    color: var(--spoc-promo) !important;
 }
+
 
 
 /* ==============================
@@ -11678,13 +11684,13 @@ body {
     position: absolute !important;
     top: 50%;
     transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
+    width: 20px;
+    height: 20px;
     z-index: 60 !important;
     cursor: pointer;
     pointer-events: auto;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.92);
+    background-color: #145078;
     color: #145078;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
 }
@@ -11709,6 +11715,7 @@ body {
     font-size: 28px;
     line-height: 1;
     color: #145078;
+    display: none;
 }
 
 /* Hover */
