@@ -11543,6 +11543,7 @@ body {
 .tvcmstabcategory-product-slider .tvtabcategory-product-li-inner-block {
     overflow: hidden !important;
     box-sizing: border-box;
+    border: 1px solid #145078;
 }
 
 /* Le lien doit remplir le cadre existant, sans changer la forme */
@@ -11556,7 +11557,7 @@ body {
     background: transparent !important;
     text-decoration: none !important;
     font-weight:700;
-    border: 1px solid #145078;
+    
     
 }
 
