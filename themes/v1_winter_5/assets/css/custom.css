@@ -11181,34 +11181,35 @@ body {
 
 /* =========================================================
    HOMEPAGE - SLIDER PRINCIPAL SPOC
-   Réduction hauteur slider / override Owl Carousel
+   Réduction hauteur slider + conservation des flèches
    Objectif : réduire d'environ 30% la hauteur actuelle
    606px -> environ 420px sur desktop
    ========================================================= */
 
-/* Bloc global du slider */
+/* Wrapper global : surtout NE PAS cacher les flèches */
 .tvcmsmain-slider-wrapper {
     width: 100%;
-    overflow: hidden;
+    position: relative;
+    overflow: visible !important;
 }
 
-/* On force la hauteur du slider malgré le style inline généré */
+/* Slider principal : on limite uniquement la zone image */
 .tvcmsmain-slider-wrapper #tvmain-slider,
 .tvcmsmain-slider-wrapper .tvcms-main-slider,
 .tvcmsmain-slider-wrapper .tv-main-slider {
     height: 420px !important;
     max-height: 420px !important;
     aspect-ratio: auto !important;
-    overflow: hidden;
+    position: relative;
 }
 
-/* Structure Owl Carousel */
+/* Zone interne Owl Carousel : recadrage de l’image */
 .tvcmsmain-slider-wrapper #tvmain-slider .owl-stage-outer,
 .tvcmsmain-slider-wrapper #tvmain-slider .owl-stage,
 .tvcmsmain-slider-wrapper #tvmain-slider .owl-item {
     height: 420px !important;
     max-height: 420px !important;
-    overflow: hidden;
+    overflow: hidden !important;
 }
 
 /* Lien/image du slide */
@@ -11219,7 +11220,7 @@ body {
     width: 100%;
     height: 420px !important;
     max-height: 420px !important;
-    overflow: hidden;
+    overflow: hidden !important;
 }
 
 /* Image du slider : pleine largeur + recadrage propre */
@@ -11233,16 +11234,90 @@ body {
     object-position: center center;
 }
 
-/* Contenu texte du slider : on évite qu'il dépasse après réduction */
+/* Contenu texte du slider */
 .tvcmsmain-slider-wrapper .tvmain-slider-content-inner {
     height: 420px !important;
     max-height: 420px !important;
 }
 
-/* Boutons précédent / suivant */
+/* =========================================================
+   Flèches gauche / droite
+   ========================================================= */
+
+/* Conteneur des flèches */
 .tvcmsmain-slider-wrapper .tvmain-slider-next-pre-btn {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 0;
+    right: 0;
+    z-index: 50 !important;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* Flèches */
+.tvcmsmain-slider-wrapper .tvcmsmain-prev,
+.tvcmsmain-slider-wrapper .tvcmsmain-next,
+.tvcmsmain-slider-wrapper .tvcmsprev-btn,
+.tvcmsmain-slider-wrapper .tvcmsnext-btn {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    align-items: center;
+    justify-content: center;
+    position: absolute !important;
     top: 50%;
     transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    z-index: 60 !important;
+    cursor: pointer;
+    pointer-events: auto;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.92);
+    color: #145078;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+}
+
+/* Flèche gauche */
+.tvcmsmain-slider-wrapper .tvcmsmain-prev,
+.tvcmsmain-slider-wrapper .tvcmsprev-btn {
+    left: 24px;
+}
+
+/* Flèche droite */
+.tvcmsmain-slider-wrapper .tvcmsmain-next,
+.tvcmsmain-slider-wrapper .tvcmsnext-btn {
+    right: 24px;
+}
+
+/* Icônes */
+.tvcmsmain-slider-wrapper .tvcmsmain-prev i,
+.tvcmsmain-slider-wrapper .tvcmsmain-next i,
+.tvcmsmain-slider-wrapper .tvcmsprev-btn i,
+.tvcmsmain-slider-wrapper .tvcmsnext-btn i {
+    font-size: 28px;
+    line-height: 1;
+    color: #145078;
+}
+
+/* Hover */
+.tvcmsmain-slider-wrapper .tvcmsmain-prev:hover,
+.tvcmsmain-slider-wrapper .tvcmsmain-next:hover,
+.tvcmsmain-slider-wrapper .tvcmsprev-btn:hover,
+.tvcmsmain-slider-wrapper .tvcmsnext-btn:hover {
+    background: #145078;
+    color: #ffffff;
+}
+
+.tvcmsmain-slider-wrapper .tvcmsmain-prev:hover i,
+.tvcmsmain-slider-wrapper .tvcmsmain-next:hover i,
+.tvcmsmain-slider-wrapper .tvcmsprev-btn:hover i,
+.tvcmsmain-slider-wrapper .tvcmsnext-btn:hover i {
+    color: #ffffff;
 }
 
 /* =========================================================
@@ -11286,6 +11361,31 @@ body {
     .tvcmsmain-slider-wrapper .tvmain-slider-content-inner {
         height: 190px !important;
         max-height: 190px !important;
+    }
+
+    .tvcmsmain-slider-wrapper .tvcmsmain-prev,
+    .tvcmsmain-slider-wrapper .tvcmsmain-next,
+    .tvcmsmain-slider-wrapper .tvcmsprev-btn,
+    .tvcmsmain-slider-wrapper .tvcmsnext-btn {
+        width: 34px;
+        height: 34px;
+    }
+
+    .tvcmsmain-slider-wrapper .tvcmsmain-prev,
+    .tvcmsmain-slider-wrapper .tvcmsprev-btn {
+        left: 10px;
+    }
+
+    .tvcmsmain-slider-wrapper .tvcmsmain-next,
+    .tvcmsmain-slider-wrapper .tvcmsnext-btn {
+        right: 10px;
+    }
+
+    .tvcmsmain-slider-wrapper .tvcmsmain-prev i,
+    .tvcmsmain-slider-wrapper .tvcmsmain-next i,
+    .tvcmsmain-slider-wrapper .tvcmsprev-btn i,
+    .tvcmsmain-slider-wrapper .tvcmsnext-btn i {
+        font-size: 22px;
     }
 
     .tvcmsmain-slider-wrapper .tvmain-slider-title {
