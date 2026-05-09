@@ -1,52 +1,73 @@
+docker exec -it spoc_build-php-1 sh -lc "cat > /var/www/html/modules/tvcmsbrandlist/views/js/front.js <<'EOF'
 /**
-* 2007-2025 PrestaShop
-*
-* NOTICE OF LICENSE
-*
-* This source file is subject to the Academic Free License (AFL 3.0)
-* that is bundled with this package in the file LICENSE.txt.
-* It is also available through the world-wide-web at this URL:
-* http://opensource.org/licenses/afl-3.0.php
-* If you did not receive a copy of the license and are unable to
-* obtain it through the world-wide-web, please send an email
-* to license@prestashop.com so we can send you a copy immediately.
-*
-* DISCLAIMER
-*
-* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
-* versions in the future. If you wish to customize PrestaShop for your
-* needs please refer to http://www.prestashop.com for more information.
-*
-*  @author    PrestaShop SA <contact@prestashop.com>
-*  @copyright 2007-2025 PrestaShop SA
-*  @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
-*  International Registered Trademark & Property of PrestaShop SA
-*/
+ * SPOC - tvcmsbrandlist
+ * Carousel marques :
+ * 1 item Owl = 1 slide complète contenant 12 marques
+ * affichées en grille 2 lignes x 6 colonnes.
+ */
 
-jQuery(document).ready(function($){
-  $('.tvcmsbrandlist-slider .tvbrandlist-slider-content-box').owlCarousel({
-    loop: false,
-    dots: false,
-    nav: false,
-    smartSpeed: tvMainSmartSpeed,
-    responsive: {
-      0: { items: 1},
-      320:{ items: 2, slideBy: 2},
-      400:{ items: 2, slideBy: 1},
-      768:{ items: 3, slideBy: 1},
-      992:{ items: 4, slideBy: 1},
-      1200:{ items: 5, slideBy: 1},
-      1600:{ items: 6, slideBy: 1},
-      1800:{ items: 6, slideBy: 1}
-    },
-  });
-  $('.tvbrandlist-slider-prev').click(function(e){
-    e.preventDefault();
-    $('.tvcmsbrandlist-slider .owl-nav .owl-prev').trigger('click');
-  });
-  $('.tvbrandlist-slider-next').click(function(e){
-    e.preventDefault();
-    $('.tvcmsbrandlist-slider .owl-nav .owl-next').trigger('click');
-  });
-  $('.tvcmsbrandlist-slider .tvcms-brandlist-pagination-wrapper').insertAfter('.tvcmsbrandlist-slider .tvbrandlist-slider-content-box');
+$(document).ready(function () {
+    var \$brandSlider = $('.tvcmsbrandlist-slider .tvbrandlist-slider-content-box');
+
+    if (!\$brandSlider.length) {
+        return;
+    }
+
+    /*
+     * Sécurité :
+     * si Owl a déjà été initialisé par le thème ou par un ancien script,
+     * on le détruit proprement avant de le réinitialiser.
+     */
+    if (\$brandSlider.hasClass('owl-loaded')) {
+        \$brandSlider.trigger('destroy.owl.carousel');
+        \$brandSlider.removeClass('owl-loaded owl-drag');
+        \$brandSlider.find('.owl-stage-outer').children().unwrap();
+    }
+
+    /*
+     * IMPORTANT :
+     * items: 1 car chaque item est maintenant une slide complète
+     * contenant 12 marques.
+     */
+    \$brandSlider.owlCarousel({
+        items: 1,
+        margin: 0,
+        loop: \$brandSlider.children('.spoc-brand-slide').length > 1,
+        nav: false,
+        dots: false,
+        autoplay: false,
+        smartSpeed: 500,
+        autoHeight: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 1
+            },
+            1200: {
+                items: 1
+            }
+        }
+    });
+
+    /*
+     * Flèches custom du module.
+     * On ne déclenche plus .owl-nav .owl-prev / .owl-next
+     * car nav:false masque la navigation native Owl.
+     */
+    $('.tvcmsbrandlist-slider .tvbrandlist-slider-prev')
+        .off('click.spocBrand')
+        .on('click.spocBrand', function (e) {
+            e.preventDefault();
+            \$brandSlider.trigger('prev.owl.carousel');
+        });
+
+    $('.tvcmsbrandlist-slider .tvbrandlist-slider-next')
+        .off('click.spocBrand')
+        .on('click.spocBrand', function (e) {
+            e.preventDefault();
+            \$brandSlider.trigger('next.owl.carousel');
+        });
 });
+EOF"
