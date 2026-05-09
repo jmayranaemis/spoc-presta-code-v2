@@ -4060,6 +4060,7 @@ input {
 .tvnews-event-content-wrapper {
     text-align: left;
     padding: 22px 20px;
+    display:none; /* supprime l'affichage du détail des cards pour garder uniquement les images*/
 }
 .tvnews-event-read-more {
     text-align: left;
@@ -10898,12 +10899,25 @@ span.tvcart-product-price,
    1 slide = grille de 12 marques : 2 lignes x 6 colonnes
    ========================================================= */
 
-.tvbrandlist-slider-block {
+/* Bloc global */
+.tvcmsbrandlist-slider {
     position: relative;
 }
 
+/* Sécurité : Owl masque .owl-carousel tant qu'il n'est pas initialisé */
+.tvcmsbrandlist-slider .tvbrandlist-slider-content-box.owl-carousel {
+    display: block !important;
+    width: 100% !important;
+}
+
+/* Bloc slider */
+.tvcmsbrandlist-slider .tvbrandlist-slider-block {
+    position: relative;
+    width: 100%;
+}
+
 /* Chaque slide Owl contient une grille complète */
-.tvbrandlist-slider-block .spoc-brand-slide {
+.tvcmsbrandlist-slider .spoc-brand-slide {
     display: grid !important;
     grid-template-columns: repeat(6, minmax(0, 1fr));
     grid-auto-rows: 105px;
@@ -10912,8 +10926,8 @@ span.tvcart-product-price,
 }
 
 /* Carte logo */
-.tvbrandlist-slider-block .spoc-brand-card,
-.tvbrandlist-slider-block .tvbrandlist-slider-wrapper-info {
+.tvcmsbrandlist-slider .spoc-brand-card,
+.tvcmsbrandlist-slider .tvbrandlist-slider-wrapper-info {
     width: 100%;
     height: 105px;
     display: flex;
@@ -10922,8 +10936,16 @@ span.tvcart-product-price,
     box-sizing: border-box;
 }
 
+/* Sécurité contre WOW/ZoomIn qui peut masquer les blocs */
+.tvcmsbrandlist-slider .tvbrandlist-slider-wrapper-info.wow,
+.tvcmsbrandlist-slider .tvbrandlist-slider-wrapper-info.zoomIn {
+    visibility: visible !important;
+    opacity: 1 !important;
+    animation-name: none !important;
+}
+
 /* Bloc image */
-.tvbrandlist-slider-block .tvbrand-img-block {
+.tvcmsbrandlist-slider .tvbrand-img-block {
     width: 100%;
     height: 100%;
     min-height: 105px;
@@ -10938,7 +10960,7 @@ span.tvcart-product-price,
 }
 
 /* Lien logo */
-.tvbrandlist-slider-block .tvbrand-img-block a {
+.tvcmsbrandlist-slider .tvbrand-img-block a {
     width: 100%;
     height: 100%;
     display: flex;
@@ -10947,37 +10969,46 @@ span.tvcart-product-price,
 }
 
 /* Image logo : taille homogène */
-.tvbrandlist-slider-block .tvbrand-img-block img,
-.tvbrandlist-slider-block img.tv-img-responsive {
+.tvcmsbrandlist-slider .tvbrand-img-block img,
+.tvcmsbrandlist-slider img.tv-img-responsive {
     display: block;
     width: auto !important;
     height: auto !important;
     max-width: 100% !important;
     max-height: 70px !important;
     object-fit: contain !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
-/* On garde Owl propre : un owl-item = une slide */
-.tvbrandlist-slider-block .owl-item {
+/* Owl : un owl-item = une slide */
+.tvcmsbrandlist-slider .owl-item {
     float: left;
 }
 
-/* On réaffiche les flèches custom */
-.tvbrandlist-slider-block .tvcms-brandlist-pagination-wrapper {
+/* Sécurité sur les wrappers Owl */
+.tvcmsbrandlist-slider .owl-stage-outer,
+.tvcmsbrandlist-slider .owl-stage,
+.tvcmsbrandlist-slider .owl-item {
+    min-height: 230px;
+}
+
+/* Flèches custom : attention, ce bloc est hors .tvbrandlist-slider-block */
+.tvcmsbrandlist-slider .tvcms-brandlist-pagination-wrapper {
     display: flex !important;
     justify-content: center;
     margin-top: 20px;
 }
 
-.tvbrandlist-slider-block .tvcms-brandlist-next-pre-btn {
+.tvcmsbrandlist-slider .tvcms-brandlist-next-pre-btn {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
 }
 
-.tvbrandlist-slider-block .tvbrandlist-slider-prev,
-.tvbrandlist-slider-block .tvbrandlist-slider-next {
+.tvcmsbrandlist-slider .tvbrandlist-slider-prev,
+.tvcmsbrandlist-slider .tvbrandlist-slider-next {
     width: 38px;
     height: 38px;
     border-radius: 50%;
@@ -10990,18 +11021,25 @@ span.tvcart-product-price,
     transition: all 0.25s ease;
 }
 
-.tvbrandlist-slider-block .tvbrandlist-slider-prev:hover,
-.tvbrandlist-slider-block .tvbrandlist-slider-next:hover {
+.tvcmsbrandlist-slider .tvbrandlist-slider-prev:hover,
+.tvcmsbrandlist-slider .tvbrandlist-slider-next:hover {
     background: #1999cb;
 }
 
-/* Lien toutes nos marques */
-.tvbrandlist-slider-block .spoc-all-brands-link {
+.tvcmsbrandlist-slider .tvbrandlist-slider-prev i,
+.tvcmsbrandlist-slider .tvbrandlist-slider-next i {
+    color: #fff;
+    font-size: 24px;
+    line-height: 1;
+}
+
+/* Lien toutes nos marques : attention, ce bloc est hors .tvbrandlist-slider-block */
+.tvcmsbrandlist-slider .spoc-all-brands-link {
     margin-top: 22px;
     text-align: center;
 }
 
-.tvbrandlist-slider-block .spoc-all-brands-link a {
+.tvcmsbrandlist-slider .spoc-all-brands-link a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -11016,44 +11054,56 @@ span.tvcart-product-price,
     transition: all 0.25s ease;
 }
 
-.tvbrandlist-slider-block .spoc-all-brands-link a:hover {
+.tvcmsbrandlist-slider .spoc-all-brands-link a:hover {
     background: #1999cb;
     color: #fff !important;
 }
 
 /* Responsive tablette : 4 par ligne */
 @media (max-width: 1199px) {
-    .tvbrandlist-slider-block .spoc-brand-slide {
+    .tvcmsbrandlist-slider .spoc-brand-slide {
         grid-template-columns: repeat(4, minmax(0, 1fr));
         grid-auto-rows: 100px;
     }
 
-    .tvbrandlist-slider-block .spoc-brand-card,
-    .tvbrandlist-slider-block .tvbrandlist-slider-wrapper-info,
-    .tvbrandlist-slider-block .tvbrand-img-block {
+    .tvcmsbrandlist-slider .spoc-brand-card,
+    .tvcmsbrandlist-slider .tvbrandlist-slider-wrapper-info,
+    .tvcmsbrandlist-slider .tvbrand-img-block {
         height: 100px;
         min-height: 100px;
+    }
+
+    .tvcmsbrandlist-slider .owl-stage-outer,
+    .tvcmsbrandlist-slider .owl-stage,
+    .tvcmsbrandlist-slider .owl-item {
+        min-height: 220px;
     }
 }
 
 /* Responsive mobile : 2 par ligne */
 @media (max-width: 767px) {
-    .tvbrandlist-slider-block .spoc-brand-slide {
+    .tvcmsbrandlist-slider .spoc-brand-slide {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         grid-auto-rows: 90px;
         gap: 15px;
     }
 
-    .tvbrandlist-slider-block .spoc-brand-card,
-    .tvbrandlist-slider-block .tvbrandlist-slider-wrapper-info,
-    .tvbrandlist-slider-block .tvbrand-img-block {
+    .tvcmsbrandlist-slider .spoc-brand-card,
+    .tvcmsbrandlist-slider .tvbrandlist-slider-wrapper-info,
+    .tvcmsbrandlist-slider .tvbrand-img-block {
         height: 90px;
         min-height: 90px;
     }
 
-    .tvbrandlist-slider-block .tvbrand-img-block img,
-    .tvbrandlist-slider-block img.tv-img-responsive {
+    .tvcmsbrandlist-slider .tvbrand-img-block img,
+    .tvcmsbrandlist-slider img.tv-img-responsive {
         max-height: 55px !important;
+    }
+
+    .tvcmsbrandlist-slider .owl-stage-outer,
+    .tvcmsbrandlist-slider .owl-stage,
+    .tvcmsbrandlist-slider .owl-item {
+        min-height: 195px;
     }
 }
 
