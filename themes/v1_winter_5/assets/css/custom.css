@@ -104,7 +104,7 @@
     width: 100%;
 }*/
 .tv-header-logo img {
-    max-width: 40%;
+    max-width: 50%;
 }
 .tvcms-loading-inner img.logo {
     padding: 0;
@@ -448,7 +448,7 @@
 /***** main header-navbar *****/
 .tvcmsdesktop-top-header-wrapper .tvcmsdesktop-top-header {
     /*border-bottom: 1px solid rgba(0, 0, 0, 0.07);*/
-    background-color: #145078!important;
+    background-color: #0b2f4f!important;
 }
 .container.tvcmsdesktop-top-wrapper {
     padding: 0;
@@ -11597,7 +11597,7 @@ body {
     font-size: 12px;
     line-height: 15px;
     font-weight: 400;
-    color: #0b2f4f;
+    color: #a541ff;
     text-align: center;
 }
 
@@ -12033,6 +12033,70 @@ html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]::after 
     background-color: transparent !important;
     opacity: 0 !important;
 }
+
+
+/* =========================================================
+   SPOC - Offer Banner sans image de fond
+   Module : tvcmsofferbanner
+   Objectif : masquer l'image obligatoire BO sans supprimer le bandeau
+   ========================================================= */
+
+.tvcmsofferbanners-one {
+    width: 100%;
+}
+
+/* Le lien devient le vrai conteneur du bandeau */
+.tvcmsofferbanners-one .tvbanner-hover-wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: 34px;
+    overflow: hidden;
+}
+
+/* On masque l'image obligatoire du BO sans casser la hauteur/layout */
+.tvcmsofferbanners-one .tvbanner-hover-wrapper > img {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none;
+}
+
+/* Le bloc texte passe au-dessus */
+.tvcmsofferbanners-one .tvofferbanner-content {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+    text-align: center;
+}
+
+/* Le paragraphe pilote maintenant l'affichage visuel du bandeau */
+.tvcmsofferbanners-one .tvofferbanner-content p {
+    width: 100%;
+    min-height: 34px;
+    margin: 0;
+    padding: 6px 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #145078; /* couleur de fond du bandeau */
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.tvcmsofferbanners-one .tvofferbanner-content p strong {
+    font-weight: 700;
+    color: inherit;
+}
+
 
 /*mailalert css end*/
 

@@ -12050,7 +12050,7 @@ data-toggle[tooltip] {
     padding: 15px;
     background-color: #fff;
    /* border-left: 3px solid #aaa;*/
-    border-radius: 3px;
+    border-radius: 30px;
 }
 #block-reassurance {
     background-color: #F6F6F6;
