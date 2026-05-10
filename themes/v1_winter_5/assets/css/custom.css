@@ -11958,5 +11958,67 @@ body {
     }
 }
 
+
+/* =========================================================
+   SPOC - Exception bouton newsletter footer
+   Bouton blanc, texte primaire, hover sans fond secondaire
+   ========================================================= */
+
+/* État normal */
+html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"],
+html body .footer-container button.tvall-inner-btn[name="submitNewsletter"][type="submit"],
+html body .tvnewsleteer-btn-wrapper button.tvall-inner-btn[name="submitNewsletter"][type="submit"] {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #145078 !important;
+    border: 1px solid #145078 !important;
+    box-shadow: none !important;
+}
+
+/* Texte interne */
+html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"] span,
+html body .footer-container button.tvall-inner-btn[name="submitNewsletter"][type="submit"] span,
+html body .tvnewsleteer-btn-wrapper button.tvall-inner-btn[name="submitNewsletter"][type="submit"] span {
+    color: #145078 !important;
+}
+
+/* Hover / focus / active : on garde le fond blanc */
+html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]:hover,
+html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]:focus,
+html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]:active,
+html body .footer-container button.tvall-inner-btn[name="submitNewsletter"][type="submit"]:hover,
+html body .footer-container button.tvall-inner-btn[name="submitNewsletter"][type="submit"]:focus,
+html body .footer-container button.tvall-inner-btn[name="submitNewsletter"][type="submit"]:active,
+html body .tvnewsleteer-btn-wrapper button.tvall-inner-btn[name="submitNewsletter"][type="submit"]:hover,
+html body .tvnewsleteer-btn-wrapper button.tvall-inner-btn[name="submitNewsletter"][type="submit"]:focus,
+html body .tvnewsleteer-btn-wrapper button.tvall-inner-btn[name="submitNewsletter"][type="submit"]:active {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #1999cb !important;
+    border-color: #1999cb !important;
+    box-shadow: none !important;
+}
+
+/* Texte interne au hover */
+html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]:hover span,
+html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]:focus span,
+html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]:active span,
+html body .footer-container button.tvall-inner-btn[name="submitNewsletter"][type="submit"]:hover span,
+html body .footer-container button.tvall-inner-btn[name="submitNewsletter"][type="submit"]:focus span,
+html body .footer-container button.tvall-inner-btn[name="submitNewsletter"][type="submit"]:active span,
+html body .tvnewsleteer-btn-wrapper button.tvall-inner-btn[name="submitNewsletter"][type="submit"]:hover span,
+html body .tvnewsleteer-btn-wrapper button.tvall-inner-btn[name="submitNewsletter"][type="submit"]:focus span,
+html body .tvnewsleteer-btn-wrapper button.tvall-inner-btn[name="submitNewsletter"][type="submit"]:active span {
+    color: #1999cb !important;
+}
+
+/* Sécurité si le thème applique un fond via pseudo-élément */
+html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]::before,
+html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]::after {
+    background: transparent !important;
+    background-color: transparent !important;
+    opacity: 0 !important;
+}
+
 /*mailalert css end*/
 
