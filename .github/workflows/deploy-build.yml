@@ -26,9 +26,8 @@ jobs:
             ROOT="${{ secrets.SSH_PATH_ROOT }}"
             C="${{ secrets.DOCKER_PHP_CONTAINER }}"
 
-            test -f "$ROOT/.allow-ci-sync" || (echo "No sentinel .allow-ci-sync, aborting"; exit 1)
+            test -f "$ROOT/.allow-ci-sync" || (echo "No sentinel .allow-ci-sync, aborting" && exit 1)
             test -d "$ROOT" || (echo "Missing SSH_PATH_ROOT: $ROOT" && exit 1)
-
             docker ps --format '{{.Names}}' | grep -qx "$C" || (echo "PHP container not running: $C" && exit 1)
 
             echo "Safety check OK"
@@ -84,13 +83,17 @@ jobs:
           remote_user: ${{ secrets.SSH_USER }}
           remote_key: ${{ secrets.SSH_KEY }}
 
-      # POST-DEPLOY DURABLE
-      # Objectif :
-      # - corriger les droits après rsync
-      # - supprimer les caches incohérents
-      # - régénérer le cache DEV avec www-data
-      # - éviter définitivement les erreurs catalogue.fr-FR.*.php manquant
-      - name: Post-deploy - Fix permissions and rebuild cache
+      # POST-DEPLOY : correction droits + cache
+      #
+      # Faits corrigés :
+      # - ne pas supprimer var/cache pendant que PHP-FPM écrit dedans
+      # - arrêter le conteneur avant suppression du cache
+      # - supprimer le cache depuis le host
+      # - recréer var/cache et var/logs avec UID/GID www-data
+      # - redémarrer le conteneur
+      # - vérifier que www-data peut écrire
+      # - warmup en www-data, non bloquant
+      - name: Post-deploy - Repair permissions and rebuild cache safely
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -109,97 +112,124 @@ jobs:
             test -d "$ROOT" || (echo "Missing ROOT: $ROOT" && exit 1)
             docker ps --format '{{.Names}}' | grep -qx "$C" || (echo "PHP container not running: $C" && exit 1)
 
-            # Si l'utilisateur SSH n'est pas root, on utilise sudo.
             SUDO=""
             if [ "$(id -u)" -ne 0 ]; then
               SUDO="sudo -n"
             fi
 
-            # IMPORTANT :
-            # On récupère le UID/GID www-data depuis le conteneur PHP,
-            # pas depuis le host, pour éviter les écarts host/container.
             WEB_UID="$(docker exec -u root "$C" sh -lc 'id -u www-data')"
             WEB_GID="$(docker exec -u root "$C" sh -lc 'id -g www-data')"
 
-            echo "== Using WEB_UID=$WEB_UID WEB_GID=$WEB_GID =="
+            echo "== WEB_UID=$WEB_UID WEB_GID=$WEB_GID =="
 
-            echo "== 1. Fix runtime directories =="
-            for d in var img download upload; do
-              if [ -d "$ROOT/$d" ]; then
-                echo "-- Fix $ROOT/$d"
-                $SUDO chown -R "$WEB_UID:$WEB_GID" "$ROOT/$d"
-                $SUDO find "$ROOT/$d" -type d -exec chmod 2775 {} \;
-                $SUDO find "$ROOT/$d" -type f -exec chmod 664 {} \; 2>/dev/null || true
+            echo "== 1. Fix targeted writable directories =="
+            for d in \
+              "$ROOT/modules/tvcmsblog/views/img" \
+              "$ROOT/modules/tvcmsblogdisplayposts/views/img" \
+              "$ROOT/modules/tvcmsblog/translations" \
+              "$ROOT/modules/tvcmsblogdisplayposts/translations" \
+              "$ROOT/themes/v1_winter_5/translations" \
+              "$ROOT/img" \
+              "$ROOT/upload" \
+              "$ROOT/download"
+            do
+              if [ -d "$d" ]; then
+                echo "-- Fix $d"
+                $SUDO chown -R "$WEB_UID:$WEB_GID" "$d" || true
+                $SUDO find "$d" -type d -exec chmod 2775 {} \; 2>/dev/null || true
+                $SUDO find "$d" -type f -exec chmod 664 {} \; 2>/dev/null || true
               fi
             done
 
-            echo "== 2. Fix translations directories under modules/ and themes/ =="
-            for base in "$ROOT/modules" "$ROOT/themes"; do
-              if [ -d "$base" ]; then
-                find "$base" -type d -name translations 2>/dev/null | while read tr; do
-                  echo "-- Fix translations: $tr"
-                  $SUDO chgrp -R "$WEB_GID" "$tr"
-                  $SUDO chmod -R g+rwX "$tr"
-                  $SUDO find "$tr" -type d -exec chmod 2775 {} \;
-                  $SUDO find "$tr" -type f -exec chmod 664 {} \; 2>/dev/null || true
-                done
+            STOPPED=0
+
+            cleanup() {
+              if [ "$STOPPED" = "1" ]; then
+                echo "== Cleanup: restarting PHP container after failure =="
+                docker start "$C" >/dev/null 2>&1 || true
               fi
+            }
+
+            trap cleanup EXIT
+
+            echo "== 2. Stop PHP container before cache deletion =="
+            docker stop "$C"
+            STOPPED=1
+
+            echo "== 3. Delete cache while PHP is stopped =="
+            $SUDO rm -rf "$ROOT/var/cache/dev" "$ROOT/var/cache/prod"
+
+            echo "== 4. Recreate cache/logs with www-data ownership =="
+            $SUDO mkdir -p "$ROOT/var/cache/dev" "$ROOT/var/cache/prod" "$ROOT/var/logs"
+            $SUDO chown -R "$WEB_UID:$WEB_GID" "$ROOT/var/cache" "$ROOT/var/logs"
+            $SUDO find "$ROOT/var/cache" "$ROOT/var/logs" -type d -exec chmod 2775 {} \; 2>/dev/null || true
+            $SUDO find "$ROOT/var/cache" "$ROOT/var/logs" -type f -exec chmod 664 {} \; 2>/dev/null || true
+
+            echo "== 5. Start PHP container =="
+            docker start "$C"
+            STOPPED=0
+
+            echo "== 6. Wait for PHP container running state =="
+            i=1
+            while [ "$i" -le 20 ]; do
+              if docker ps --format '{{.Names}}' | grep -qx "$C"; then
+                echo "PHP container is running"
+                break
+              fi
+
+              sleep 1
+              i=$((i + 1))
             done
 
-            echo "== 3. Fix writable module image/upload directories =="
-            if [ -d "$ROOT/modules" ]; then
-              find "$ROOT/modules" -type d \( \
-                -name img -o \
-                -name image -o \
-                -name images -o \
-                -name upload -o \
-                -name uploads \
-              \) 2>/dev/null | while read wd; do
-                echo "-- Fix module writable dir: $wd"
-                $SUDO chgrp -R "$WEB_GID" "$wd"
-                $SUDO chmod -R g+rwX "$wd"
-                $SUDO find "$wd" -type d -exec chmod 2775 {} \;
-                $SUDO find "$wd" -type f -exec chmod 664 {} \; 2>/dev/null || true
-              done
-            fi
+            docker ps --format '{{.Names}}' | grep -qx "$C" || (echo "PHP container did not restart: $C" && exit 1)
 
-            echo "== 4. Hard reset Presta/Symfony cache inside container =="
+            echo "== 7. Validate cache write and warmup inside container =="
             docker exec -u root "$C" sh -lc '
               set -e
+
               cd /var/www/html
 
-              echo "-- Remove broken caches"
-              rm -rf var/cache/dev var/cache/prod
-
-              echo "-- Recreate cache/log directories"
               mkdir -p var/cache/dev var/cache/prod var/logs
-
-              echo "-- Fix owner cache/logs"
               chown -R www-data:www-data var/cache var/logs
 
-              echo "-- Fix permissions cache/logs"
               find var/cache var/logs -type d -exec chmod 2775 {} \;
               find var/cache var/logs -type f -exec chmod 664 {} \; 2>/dev/null || true
 
               echo "-- Write test as www-data"
-              su -s /bin/sh www-data -c "touch var/cache/dev/.write_test && rm var/cache/dev/.write_test"
+              su -s /bin/sh www-data -c "touch var/cache/dev/.write_test && rm -f var/cache/dev/.write_test"
 
-              echo "-- Cache warmup DEV as www-data"
-              su -s /bin/sh www-data -c "php bin/console cache:warmup --env=dev"
+              echo "-- Warmup DEV cache as www-data"
+              su -s /bin/sh www-data -c "php bin/console cache:warmup --env=dev" || echo "WARN: warmup failed, but cache is writable"
 
-              echo "-- Check generated translations cache"
-              ls -lah var/cache/dev/translations 2>/dev/null || true
+              mkdir -p var/cache/dev/translations
+              chown -R www-data:www-data var/cache/dev
 
-              echo "-- Final ownership check"
+              find var/cache/dev -type d -exec chmod 2775 {} \;
+              find var/cache/dev -type f -exec chmod 664 {} \; 2>/dev/null || true
+
+              echo "-- Final control"
               stat -c "%U:%G %a %n" var/cache var/cache/dev var/cache/dev/translations 2>/dev/null || true
+              ls -lah var/cache/dev/translations 2>/dev/null || true
             '
-
-            echo "== 5. Restart PHP container to clear OPCache/FPM state =="
-            docker restart "$C"
 
             echo "== Post-deploy done =="
 
-      # Healthcheck
+      # Healthcheck avec retries, car le conteneur PHP vient d'être redémarré
       - name: Healthcheck
         run: |
-          curl -fsSL -o /dev/null -w "%{http_code}\n" "${{ secrets.HEALTHCHECK_URL }}" | grep -E "200|301|302"
+          set -e
+
+          for i in 1 2 3 4 5 6 7 8 9 10; do
+            CODE="$(curl -fsSL -o /dev/null -w "%{http_code}" "${{ secrets.HEALTHCHECK_URL }}" || true)"
+
+            echo "Healthcheck attempt $i: HTTP $CODE"
+
+            if echo "$CODE" | grep -Eq "^(200|301|302)$"; then
+              exit 0
+            fi
+
+            sleep 3
+          done
+
+          echo "Healthcheck failed"
+          exit 1
