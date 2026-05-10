@@ -11617,9 +11617,9 @@ body {
     line-height: 20px;
     font-weight: 700;
 
-    color: #ffffff;
-    background-color: #0b2f4f;
-    border: 1px solid #0b2f4f;
+    color: #145078;
+    background-color: #fff;
+    border: 1px solid #145078;
 
     text-decoration: none;
     text-transform: uppercase;
@@ -11628,9 +11628,9 @@ body {
 
 
 .footer-container .spoc-store-map-link:hover {
-    color: #0b2f4f;
-    background-color: #ffffff;
-    border-color: #0b2f4f;
+    color: #fff;
+    background-color: #145078;
+    border-color: #145078;
     text-decoration: none;
 }
 
