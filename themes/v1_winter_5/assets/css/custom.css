@@ -2442,7 +2442,7 @@ ul.wlp_bought_list li .product_infos .product-name {
 }
 .tvnewsleteer-btn-wrapper .tvall-inner-btn {
     /*background-color: #222;*/
-    padding: 8px 15px;
+    padding: 7px 15px;
 }
 .block_newsletter form {
     width: 100%;
@@ -11971,7 +11971,7 @@ html body .tvnewsleteer-btn-wrapper button.tvall-inner-btn[name="submitNewslette
     background: #ffffff !important;
     background-color: #ffffff !important;
     color: #145078 !important;
-    border: 1px solid #145078 !important;
+    /* border: 1px solid #145078 !important; */
     box-shadow: none !important;
 }
 
@@ -11979,7 +11979,7 @@ html body .tvnewsleteer-btn-wrapper button.tvall-inner-btn[name="submitNewslette
 html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"] span,
 html body .footer-container button.tvall-inner-btn[name="submitNewsletter"][type="submit"] span,
 html body .tvnewsleteer-btn-wrapper button.tvall-inner-btn[name="submitNewsletter"][type="submit"] span {
-    color: #145078 !important;
+    color: #a541ff !important;
 }
 
 /* Hover / focus / active : on garde le fond blanc */
