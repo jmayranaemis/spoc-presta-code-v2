@@ -2423,7 +2423,7 @@ ul.wlp_bought_list li .product_infos .product-name {
     text-align: left;
 }
 .tvnewsletter-description p {
-    color: #666666;
+    color: #fff;
     font-size: 14px;
     padding: 0;
     font-weight: 400;
@@ -10894,6 +10894,47 @@ span.tvcart-product-price,
 }
 
 
+
+/* =========================================================
+   SPOC - Exception bouton newsletter
+   Fond blanc + couleur primaire
+   ========================================================= */
+
+.footer-container .tvnewsleteer-btn-wrapper button.tvall-inner-btn[name="submitNewsletter"],
+.footer-container .tvnewsleteer-btn-wrapper .tvall-inner-btn[name="submitNewsletter"] {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #145078 !important;
+    border: 1px solid #145078 !important;
+    box-shadow: none;
+}
+
+/* Force la couleur du texte dans les spans internes */
+.footer-container .tvnewsleteer-btn-wrapper button.tvall-inner-btn[name="submitNewsletter"] span,
+.footer-container .tvnewsleteer-btn-wrapper .tvall-inner-btn[name="submitNewsletter"] span {
+    color: #145078 !important;
+}
+
+/* Hover spécifique newsletter */
+.footer-container .tvnewsleteer-btn-wrapper button.tvall-inner-btn[name="submitNewsletter"]:hover,
+.footer-container .tvnewsleteer-btn-wrapper .tvall-inner-btn[name="submitNewsletter"]:hover,
+.footer-container .tvnewsleteer-btn-wrapper button.tvall-inner-btn[name="submitNewsletter"]:focus,
+.footer-container .tvnewsleteer-btn-wrapper .tvall-inner-btn[name="submitNewsletter"]:focus {
+    background: #1999cb !important;
+    background-color: #1999cb !important;
+    color: #ffffff !important;
+    border-color: #1999cb !important;
+}
+
+/* Texte blanc au hover */
+.footer-container .tvnewsleteer-btn-wrapper button.tvall-inner-btn[name="submitNewsletter"]:hover span,
+.footer-container .tvnewsleteer-btn-wrapper .tvall-inner-btn[name="submitNewsletter"]:hover span,
+.footer-container .tvnewsleteer-btn-wrapper button.tvall-inner-btn[name="submitNewsletter"]:focus span,
+.footer-container .tvnewsleteer-btn-wrapper .tvall-inner-btn[name="submitNewsletter"]:focus span {
+    color: #ffffff !important;
+}
+
+
 /* =========================================================
    SPOC - Brand list carousel
    1 slide = grille de 12 marques : 2 lignes x 6 colonnes
@@ -10975,7 +11016,7 @@ span.tvcart-product-price,
     width: auto !important;
     height: auto !important;
     max-width: 100% !important;
-    max-height: 70px !important;
+    max-height: 105px !important;
     object-fit: contain !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -11315,7 +11356,7 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-color: #eff1f3;
+        background-color: #a541ff;
        /* gap: 30px;*/
 
     }
@@ -11395,7 +11436,7 @@ body {
 /* Horaires */
 .footer-container .spoc-infoline-hours {
     margin-top: 0px;
-    color: #1999CA;
+    color: #a541ff;
 }
 
 .footer-container .spoc-infoline-hours strong {
