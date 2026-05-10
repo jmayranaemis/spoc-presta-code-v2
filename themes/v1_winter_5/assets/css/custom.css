@@ -12084,15 +12084,16 @@ html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]::after 
 /* Le paragraphe pilote maintenant l'affichage visuel du bandeau */
 .tvcmsofferbanners-one .tvofferbanner-content p {
     width: 100%;
-    min-height: 34px;
+    min-height: 40px;
     margin: 0;
     padding: 6px 15px;
 
     display: flex;
     align-items: center;
     justify-content: center;
+    gap:10px;
 
-    background: #145078; /* couleur de fond du bandeau */
+    background: #a541ff; /* couleur de fond du bandeau */
     color: #ffffff;
 
     font-size: 16px;
