@@ -11536,13 +11536,78 @@ body {
    Ajout "Venez nous voir" dans le bloc infoline
    ========================================================= */
 
+.footer-container .spoc-store-block {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(11, 47, 79, 0.15);
+    text-align: center;
+    color: #0b2f4f;
+}
+
+.footer-container .spoc-store-title {
+    font-size: 16px;
+    line-height: 15px;
+    font-weight: 700;
+    color: #145078;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+.footer-container .spoc-store-image-wrapper {
+    width: 100%;
+    margin: 0 auto 10px auto;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.footer-container .spoc-store-image {
+    display: none;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.footer-container .spoc-store-address {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 0;
+    color: #0b2f4f;
+    text-align: center;
+    align-content: center;
+}
+
+.footer-container .spoc-store-address .material-icons {
+    display: none;
+    font-size: 24px;
+    line-height: 1;
+    color: #0b2f4f;
+    margin-top: 2px;
+}
+
+.footer-container .spoc-store-address div {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-container .spoc-store-address span {
+    display: block;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 400;
+    color: #0b2f4f;
+    text-align: center;
+}
+
+/* Bouton secondaire SPOC - Accès au magasin */
 .footer-container .spoc-store-map-link,
 .footer-container a.spoc-store-map-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
 
-    margin-top: 8px;
     margin-top: 15px;
     margin-bottom: 12px;
     padding: 8px 16px;
@@ -11552,16 +11617,16 @@ body {
     font-weight: 700;
 
     color: #145078 !important;
-    background: #ffffff !important;
     background-color: #ffffff !important;
     border: 1px solid #145078 !important;
 
-    text-decoration: none;
+    text-decoration: none !important;
     text-transform: uppercase;
     border-radius: 10px;
+    box-shadow: none !important;
 }
 
-/* Hover / focus / active : écrase le hover global var(--spoc-secondary) */
+/* Hover bouton secondaire SPOC */
 .footer-container .spoc-store-map-link:hover,
 .footer-container .spoc-store-map-link:focus,
 .footer-container .spoc-store-map-link:active,
@@ -11569,14 +11634,13 @@ body {
 .footer-container a.spoc-store-map-link:focus,
 .footer-container a.spoc-store-map-link:active {
     color: #ffffff !important;
-    background: #145078 !important;
     background-color: #145078 !important;
     border-color: #145078 !important;
     text-decoration: none !important;
     box-shadow: none !important;
 }
 
-/* Sécurité si le texte est dans un span ou une icône */
+/* Sécurité si un span ou une icône est ajouté dans le bouton */
 .footer-container .spoc-store-map-link:hover *,
 .footer-container .spoc-store-map-link:focus *,
 .footer-container .spoc-store-map-link:active * {
