@@ -10894,8 +10894,6 @@ span.tvcart-product-price,
 }
 
 
-
-
 /* =========================================================
    SPOC - Brand list carousel
    1 slide = grille de 12 marques : 2 lignes x 6 colonnes
@@ -11317,7 +11315,7 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-color: #a541ff;
+        background-color:#a541ff;
        /* gap: 30px;*/
 
     }
@@ -11539,7 +11537,6 @@ body {
    ========================================================= */
 
 .footer-container .spoc-store-block {
-    display: none;
     margin-top: 14px;
     padding-top: 14px;
     border-top: 1px solid rgba(11, 47, 79, 0.15);
@@ -11959,48 +11956,6 @@ body {
         display: none;
     }
 }
-
-
-/* =========================================================
-   SPOC - Exception bouton newsletter
-   Fond blanc + couleur primaire
-   ========================================================= */
-
-.footer-container .tvnewsleteer-btn-wrapper button.tvall-inner-btn[name="submitNewsletter"],
-.footer-container .tvnewsleteer-btn-wrapper .tvall-inner-btn[name="submitNewsletter"] {
-    background: #ffffff !important;
-    background-color: #ffffff !important;
-    color: #145078 !important;
-    border: 1px solid #145078 !important;
-    box-shadow: none;
-}
-
-/* Force la couleur du texte dans les spans internes */
-.footer-container .tvnewsleteer-btn-wrapper button.tvall-inner-btn[name="submitNewsletter"] span,
-.footer-container .tvnewsleteer-btn-wrapper .tvall-inner-btn[name="submitNewsletter"] span {
-    color: #145078 !important;
-}
-
-/* Hover spécifique newsletter */
-.footer-container .tvnewsleteer-btn-wrapper button.tvall-inner-btn[name="submitNewsletter"]:hover,
-.footer-container .tvnewsleteer-btn-wrapper .tvall-inner-btn[name="submitNewsletter"]:hover,
-.footer-container .tvnewsleteer-btn-wrapper button.tvall-inner-btn[name="submitNewsletter"]:focus,
-.footer-container .tvnewsleteer-btn-wrapper .tvall-inner-btn[name="submitNewsletter"]:focus {
-    background: #1999cb !important;
-    background-color: #1999cb !important;
-    color: #ffffff !important;
-    border-color: #1999cb !important;
-}
-
-/* Texte blanc au hover */
-.footer-container .tvnewsleteer-btn-wrapper button.tvall-inner-btn[name="submitNewsletter"]:hover span,
-.footer-container .tvnewsleteer-btn-wrapper .tvall-inner-btn[name="submitNewsletter"]:hover span,
-.footer-container .tvnewsleteer-btn-wrapper button.tvall-inner-btn[name="submitNewsletter"]:focus span,
-.footer-container .tvnewsleteer-btn-wrapper .tvall-inner-btn[name="submitNewsletter"]:focus span {
-    color: #ffffff !important;
-}
-
-
 
 /*mailalert css end*/
 
