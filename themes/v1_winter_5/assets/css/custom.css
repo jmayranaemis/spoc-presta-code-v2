@@ -4108,7 +4108,7 @@ input {
 }
 .tvblog-img-content-wrapper {
     background-color: #ffffff;
-    border: 1px solid #eee;
+    /* border: 1px solid #eee; */
     transition: all 0.6s ease-in-out 0s;
     -webkit-transition: all 0.6s ease-in-out 0s;
     -moz-transition: all 0.6s ease-in-out 0s;

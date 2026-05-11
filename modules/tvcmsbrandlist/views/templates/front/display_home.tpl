@@ -87,7 +87,7 @@
 
             <div class="spoc-all-brands-link">
                 <a href="{$link->getPageLink('manufacturer', true)|escape:'html':'UTF-8'}">
-                    {l s='Toutes nos marques' mod='tvcmsbrandlist'}
+                    {l s='Toutes nos marques' mod='tvcmsbrandlist'}<i class='material-icons'>&#xe315;</i>
                 </a>
             </div>
 
