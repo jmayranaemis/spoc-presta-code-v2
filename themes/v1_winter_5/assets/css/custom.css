@@ -11047,18 +11047,18 @@ span.tvcart-product-price,
     justify-content: center;
     padding: 11px 24px;
     border-radius: 999px;
-    background: #145078;
-    color: #fff !important;
+   /* background: #145078; */
+    color: #145078 !important;
     font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 700;
     text-decoration: none !important;
     transition: all 0.25s ease;
 }
 
 .tvcmsbrandlist-slider .spoc-all-brands-link a:hover {
-    background: #1999cb;
-    color: #fff !important;
+   /* background: #1999cb; */
+    color: #1999cb !important;
 }
 
 /* Responsive tablette : 4 par ligne */
