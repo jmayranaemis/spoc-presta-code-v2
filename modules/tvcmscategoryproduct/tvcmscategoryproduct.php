@@ -9,7 +9,7 @@
  * It is also available through the world-wide-web at this URL:
  * http://opensource.org/licenses/afl-3.0.php
  * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
+ * obtain a copy immediately, please send an email
  * to license@prestashop.com so we can send you a copy immediately.
  *
  * DISCLAIMER
@@ -90,7 +90,7 @@ class TvcmsCategoryProduct extends Module
     public function installTab()
     {
         $response = true;
-        // First check for parent tab
+
         $parentTabID = Tab::getIdFromClassName('AdminThemeVolty');
 
         if ($parentTabID) {
@@ -100,16 +100,18 @@ class TvcmsCategoryProduct extends Module
             $parentTab->active = 1;
             $parentTab->name = [];
             $parentTab->class_name = 'AdminThemeVolty';
+
             foreach (Language::getLanguages() as $lang) {
-                $parentTab->name[$lang['id_lang']] = 'ThemeVolty Extension';
+                $parentTab->name[(int) $lang['id_lang']] = 'ThemeVolty Extension';
             }
+
             $parentTab->id_parent = 0;
             $parentTab->module = $this->name;
             $response &= $parentTab->add();
         }
 
-        // Check for parent tab2
         $parentTab_2ID = Tab::getIdFromClassName('AdminThemeVoltyModules');
+
         if ($parentTab_2ID) {
             $parentTab_2 = new Tab($parentTab_2ID);
         } else {
@@ -117,29 +119,32 @@ class TvcmsCategoryProduct extends Module
             $parentTab_2->active = 1;
             $parentTab_2->name = [];
             $parentTab_2->class_name = 'AdminThemeVoltyModules';
+
             foreach (Language::getLanguages() as $lang) {
-                $parentTab_2->name[$lang['id_lang']] = 'ThemeVolty Configure';
+                $parentTab_2->name[(int) $lang['id_lang']] = 'ThemeVolty Configure';
             }
-            $parentTab_2->id_parent = $parentTab->id;
+
+            $parentTab_2->id_parent = (int) $parentTab->id;
             $parentTab_2->module = $this->name;
             $response &= $parentTab_2->add();
         }
-        // Created tab
+
         $tab = new Tab();
         $tab->active = 1;
         $tab->class_name = 'Admin' . $this->name;
         $tab->name = [];
+
         foreach (Language::getLanguages() as $lang) {
-            $tab->name[$lang['id_lang']] = 'Tab Category Product Slider';
+            $tab->name[(int) $lang['id_lang']] = 'Tab Category Product Slider';
         }
-        $tab->id_parent = $parentTab_2->id;
+
+        $tab->id_parent = (int) $parentTab_2->id;
         $tab->module = $this->name;
         $response &= $tab->add();
 
         return $response;
     }
 
-    // Store Default Data Such As CreateVariable, CreateTable & Insert Data
     public function createDefaultData()
     {
         $this->reset();
@@ -149,35 +154,32 @@ class TvcmsCategoryProduct extends Module
         $this->insertSmapleData($num_of_data);
     }
 
-    // Create Default Variable form Frist Form
     public function createVariable()
     {
         $result = [];
         $languages = Language::getLanguages();
 
         foreach ($languages as $lang) {
-            $result['TVCMSCATEGORYPRODUCT_TITLE'][$lang['id_lang']] = 'Categories Products';
-            $result['TVCMSCATEGORYPRODUCT_PRODUCT_TITLE'][$lang['id_lang']] = 'Offer Zone Category';
-            $result['TVCMSCATEGORYPRODUCT_SUB_DESCRIPTION'][$lang['id_lang']] = 'This is Show Short Description';
-            $result['TVCMSCATEGORYPRODUCT_DESCRIPTION'][$lang['id_lang']] = 'Description';
-            $result['TVCMSCATEGORYPRODUCT_IMG'][$lang['id_lang']] = 'demo_title.jpg';
+            $id_lang = (int) $lang['id_lang'];
+
+            $result['TVCMSCATEGORYPRODUCT_TITLE'][$id_lang] = 'Categories Products';
+            $result['TVCMSCATEGORYPRODUCT_PRODUCT_TITLE'][$id_lang] = 'Offer Zone Category';
+            $result['TVCMSCATEGORYPRODUCT_SUB_DESCRIPTION'][$id_lang] = 'This is Show Short Description';
+            $result['TVCMSCATEGORYPRODUCT_DESCRIPTION'][$id_lang] = 'Description';
+            $result['TVCMSCATEGORYPRODUCT_IMG'][$id_lang] = 'demo_title.jpg';
         }
-        $tmp = $result['TVCMSCATEGORYPRODUCT_TITLE'];
-        Configuration::updateValue('TVCMSCATEGORYPRODUCT_TITLE', $tmp);
-        $tmp = $result['TVCMSCATEGORYPRODUCT_PRODUCT_TITLE'];
-        Configuration::updateValue('TVCMSCATEGORYPRODUCT_PRODUCT_TITLE', $tmp);
-        $tmp = $result['TVCMSCATEGORYPRODUCT_SUB_DESCRIPTION'];
-        Configuration::updateValue('TVCMSCATEGORYPRODUCT_SUB_DESCRIPTION', $tmp);
-        $tmp = $result['TVCMSCATEGORYPRODUCT_DESCRIPTION'];
-        Configuration::updateValue('TVCMSCATEGORYPRODUCT_DESCRIPTION', $tmp);
-        $tmp = $result['TVCMSCATEGORYPRODUCT_IMG'];
-        Configuration::updateValue('TVCMSCATEGORYPRODUCT_IMG', $tmp);
+
+        Configuration::updateValue('TVCMSCATEGORYPRODUCT_TITLE', $result['TVCMSCATEGORYPRODUCT_TITLE']);
+        Configuration::updateValue('TVCMSCATEGORYPRODUCT_PRODUCT_TITLE', $result['TVCMSCATEGORYPRODUCT_PRODUCT_TITLE']);
+        Configuration::updateValue('TVCMSCATEGORYPRODUCT_SUB_DESCRIPTION', $result['TVCMSCATEGORYPRODUCT_SUB_DESCRIPTION']);
+        Configuration::updateValue('TVCMSCATEGORYPRODUCT_DESCRIPTION', $result['TVCMSCATEGORYPRODUCT_DESCRIPTION']);
+        Configuration::updateValue('TVCMSCATEGORYPRODUCT_IMG', $result['TVCMSCATEGORYPRODUCT_IMG']);
     }
 
-    // Create Table For Second Form
     public function createTable()
     {
         $create_table = [];
+
         $create_table[] = 'CREATE TABLE IF NOT EXISTS `' . _DB_PREFIX_ . 'tvcmscategoryproduct` (
                         `id_tvcmscategoryproduct` int(11) AUTO_INCREMENT PRIMARY KEY,
                         `id_category` int(11),
@@ -204,62 +206,69 @@ class TvcmsCategoryProduct extends Module
         }
     }
 
-    // Insert Semple Data Form Second Form
     public function insertSmapleData($num_of_data)
     {
         $data = [];
         $category = $this->getAllCategory();
-        for ($i = 1; $i <= $num_of_data; ++$i) {
-            if (isset($category[$i]['id_category'])) {
+
+        for ($i = 1; $i <= (int) $num_of_data; ++$i) {
+            $category_index = $i - 1;
+
+            if (isset($category[$category_index]['id_category'])) {
+                $id_category = (int) $category[$category_index]['id_category'];
+
                 $data[] = 'INSERT INTO `' . _DB_PREFIX_ . 'tvcmscategoryproduct`
                         SET 
-                            `id_tvcmscategoryproduct` = \'' . $i . '\',
-                            `position` = ' . $i . ',
+                            `id_tvcmscategoryproduct` = ' . (int) $i . ',
+                            `position` = ' . (int) $i . ',
                             `id_shop_group` = ' . (int) $this->id_shop_group . ',
                             `id_shop` = ' . (int) $this->id_shop . ',
-                            `id_category` = \'' . (int) $category[$i]['id_category'] . '\',
-                            `image` = \'Category_product_icon_' . $i . '.png\',
+                            `id_category` = ' . (int) $id_category . ',
+                            `image` = \'Category_product_icon_' . (int) $i . '.png\',
                             `num_of_prod` = 8,
                             `status` = \'1\'';
 
                 $languages = Language::getLanguages();
+
                 foreach ($languages as $lang) {
                     $data[] = 'INSERT INTO `' . _DB_PREFIX_ . 'tvcmscategoryproduct_lang`
                         SET 
                             `id_tvcmscategoryproduct_lang` = NULL,
-                            `id_tvcmscategoryproduct` = \'' . $i . '\',
+                            `id_tvcmscategoryproduct` = ' . (int) $i . ',
                             `id_shop_group` = ' . (int) $this->id_shop_group . ',
                             `id_shop` = ' . (int) $this->id_shop . ',
-                            `id_category` = \'' . (int) $category[$i]['id_category'] . '\',
-                            `id_lang` = \'' . (int) $lang['id_lang'] . '\',
-                            `title` = \'Title ' . $i . '\'';
+                            `id_category` = ' . (int) $id_category . ',
+                            `id_lang` = ' . (int) $lang['id_lang'] . ',
+                            `title` = \'Title ' . (int) $i . '\'';
                 }
             } else {
                 $data[] = 'INSERT INTO `' . _DB_PREFIX_ . 'tvcmscategoryproduct`
                         SET 
-                            `id_tvcmscategoryproduct` = \'' . $i . '\',
-                            `position` = ' . $i . ',
+                            `id_tvcmscategoryproduct` = ' . (int) $i . ',
+                            `position` = ' . (int) $i . ',
                             `id_shop_group` = ' . (int) $this->id_shop_group . ',
                             `id_shop` = ' . (int) $this->id_shop . ',
-                            `id_category` = \'1\',
-                            `image` = \'Category_product_icon_' . $i . '.png\',
+                            `id_category` = 1,
+                            `image` = \'Category_product_icon_' . (int) $i . '.png\',
                             `num_of_prod` = 8,
                             `status` = \'0\'';
 
                 $languages = Language::getLanguages();
+
                 foreach ($languages as $lang) {
                     $data[] = 'INSERT INTO `' . _DB_PREFIX_ . 'tvcmscategoryproduct_lang`
                         SET 
                             `id_tvcmscategoryproduct_lang` = NULL,
-                            `id_tvcmscategoryproduct` = \'' . $i . '\',
+                            `id_tvcmscategoryproduct` = ' . (int) $i . ',
                             `id_shop_group` = ' . (int) $this->id_shop_group . ',
                             `id_shop` = ' . (int) $this->id_shop . ',
-                            `id_category` = \'1\',
-                            `id_lang` = \'' . (int) $lang['id_lang'] . '\',
-                            `title` = \'Title ' . $i . '\'';
+                            `id_category` = 1,
+                            `id_lang` = ' . (int) $lang['id_lang'] . ',
+                            `title` = \'Title ' . (int) $i . '\'';
                 }
             }
         }
+
         foreach ($data as $query) {
             Db::getInstance()->execute($query);
         }
@@ -270,23 +279,28 @@ class TvcmsCategoryProduct extends Module
         $select_data = 'SELECT MAX(id_tvcmscategoryproduct) as max_id FROM `' . _DB_PREFIX_ . 'tvcmscategoryproduct`';
         $ans = Db::getInstance()->executeS($select_data);
 
-        return $ans[0]['max_id'];
+        return isset($ans[0]['max_id']) ? (int) $ans[0]['max_id'] : 0;
     }
 
-    // Select All Category id From Table
     public function selectAllIdFromTable()
     {
-        $select_data = 'SELECT id_tvcmscategoryproduct FROM `' . _DB_PREFIX_ . 'tvcmscategoryproduct`';
+        $select_data = 'SELECT id_tvcmscategoryproduct FROM `' . _DB_PREFIX_ . 'tvcmscategoryproduct`
+            WHERE `id_shop_group` = ' . (int) $this->id_shop_group . '
+            AND `id_shop` = ' . (int) $this->id_shop . '
+            ORDER BY id_tvcmscategoryproduct';
+
         $ans = Db::getInstance()->executeS($select_data);
         $final_ans = [];
+
         foreach ($ans as $a) {
-            $final_ans[] = $a['id_tvcmscategoryproduct'];
+            if (isset($a['id_tvcmscategoryproduct'])) {
+                $final_ans[] = (int) $a['id_tvcmscategoryproduct'];
+            }
         }
 
         return $final_ans;
     }
 
-    // Select All Language By id From Table
     public function selectAllLangIdById($id_tvcmscategoryproduct)
     {
         $select_data = 'SELECT 
@@ -294,28 +308,46 @@ class TvcmsCategoryProduct extends Module
                         FROM 
                             `' . _DB_PREFIX_ . 'tvcmscategoryproduct_lang` 
                         WHERE 
-                            id_tvcmscategoryproduct = ' . (int) $id_tvcmscategoryproduct;
+                            `id_shop_group` = ' . (int) $this->id_shop_group . '
+                            AND `id_shop` = ' . (int) $this->id_shop . '
+                            AND id_tvcmscategoryproduct = ' . (int) $id_tvcmscategoryproduct;
+
         $ans = Db::getInstance()->executeS($select_data);
         $return = [];
+
         foreach ($ans as $a) {
-            $return[] = $a['id_lang'];
+            $return[] = (int) $a['id_lang'];
         }
 
         return $return;
     }
 
-    // Insert & Update Data Which Customer Add.
     public function insertData($data)
     {
         $insert_data = [];
+
+        $id_category = isset($data['id_category']) ? (int) $data['id_category'] : 0;
+        $image = isset($data['image']) ? pSQL($data['image']) : '';
+        $num_of_prod = isset($data['num_of_prod']) ? (int) $data['num_of_prod'] : 0;
+        $status = !empty($data['status']) ? 1 : 0;
+
+        if ($num_of_prod < 1) {
+            $num_of_prod = 1;
+        }
+
+        if ($num_of_prod > 12) {
+            $num_of_prod = 12;
+        }
+
         if (isset($data['id']) && !empty($data['id'])) {
-            $id = $data['id'];
+            $id = (int) $data['id'];
+
             $insert_data[] = 'UPDATE `' . _DB_PREFIX_ . 'tvcmscategoryproduct`
                         SET 
-                            `id_category` = \'' . (int) $data['id_category'] . '\',
-                            `image` = \'' . pSQL($data['image']) . '\',
-                            `num_of_prod` = \'' . (int) $data['num_of_prod'] . '\',
-                            `status` = \'' . (int) $data['status'] . '\'
+                            `id_category` = ' . (int) $id_category . ',
+                            `image` = \'' . $image . '\',
+                            `num_of_prod` = ' . (int) $num_of_prod . ',
+                            `status` = ' . (int) $status . '
                         WHERE
                             `id_shop_group` = ' . (int) $this->id_shop_group . '
                         AND `id_shop` = ' . (int) $this->id_shop . '
@@ -324,13 +356,19 @@ class TvcmsCategoryProduct extends Module
             $result = $this->selectAllLangIdById($id);
 
             $languages = Language::getLanguages();
+
             foreach ($languages as $lang) {
-                if (in_array($lang['id_lang'], $result)) {
+                $id_lang = (int) $lang['id_lang'];
+                $custom_title = isset($data['lang_info'][$id_lang]['custom_title'])
+                    ? pSQL($data['lang_info'][$id_lang]['custom_title'])
+                    : '';
+
+                if (in_array($id_lang, $result)) {
                     $insert_data[] = 'UPDATE `' . _DB_PREFIX_ . 'tvcmscategoryproduct_lang`
                             SET 
-                                `id_category` = \'' . (int) $data['id_category'] . '\',
-                                `id_lang` = \'' . (int) $lang['id_lang'] . '\',
-                                `title` = \'' . pSQL($data['lang_info'][$lang['id_lang']]['custom_title']) . '\'
+                                `id_category` = ' . (int) $id_category . ',
+                                `id_lang` = ' . (int) $id_lang . ',
+                                `title` = \'' . $custom_title . '\'
                             WHERE
                                 `id_shop_group` = ' . (int) $this->id_shop_group . '
                             AND 
@@ -338,76 +376,168 @@ class TvcmsCategoryProduct extends Module
                             AND
                                 `id_tvcmscategoryproduct` = ' . (int) $id . '
                             AND 
-                                `id_lang` = \'' . (int) $lang['id_lang'] . '\';';
+                                `id_lang` = ' . (int) $id_lang . ';';
                 } else {
                     $insert_data[] = 'INSERT INTO `' . _DB_PREFIX_ . 'tvcmscategoryproduct_lang`
                         SET 
                             `id_tvcmscategoryproduct_lang` = NULL,
-                            `id_tvcmscategoryproduct` = ' . $id . ',
+                            `id_tvcmscategoryproduct` = ' . (int) $id . ',
                             `id_shop_group` = ' . (int) $this->id_shop_group . ',
                             `id_shop` = ' . (int) $this->id_shop . ',
-                            `id_category` = \'' . (int) $data['id_category'] . '\',
-                            `id_lang` = \'' . (int) $lang['id_lang'] . '\',
-                            `title` = \'' . pSQL($data['lang_info'][$lang['id_lang']]['custom_title']) . '\';';
+                            `id_category` = ' . (int) $id_category . ',
+                            `id_lang` = ' . (int) $id_lang . ',
+                            `title` = \'' . $custom_title . '\';';
                 }
             }
         } else {
             $max_id = $this->maxId();
-            $new_id = $max_id + 1;
+            $new_id = (int) $max_id + 1;
 
             $insert_data[] = 'INSERT INTO `' . _DB_PREFIX_ . 'tvcmscategoryproduct`
                         SET 
                             `id_tvcmscategoryproduct` = ' . (int) $new_id . ',
-                            `id_category` = \'' . (int) $data['id_category'] . '\',
+                            `id_category` = ' . (int) $id_category . ',
                             `position` = ' . (int) $new_id . ',
                             `id_shop_group` = ' . (int) $this->id_shop_group . ',
                             `id_shop` = ' . (int) $this->id_shop . ',
-                            `image` = \'' . pSQL($data['image']) . '\',
-                            `num_of_prod` = \'' . (int) $data['num_of_prod'] . '\',
-                            `status` = \'' . (int) $data['status'] . '\';';
+                            `image` = \'' . $image . '\',
+                            `num_of_prod` = ' . (int) $num_of_prod . ',
+                            `status` = ' . (int) $status . ';';
 
             $languages = Language::getLanguages();
+
             foreach ($languages as $lang) {
+                $id_lang = (int) $lang['id_lang'];
+                $custom_title = isset($data['lang_info'][$id_lang]['custom_title'])
+                    ? pSQL($data['lang_info'][$id_lang]['custom_title'])
+                    : '';
+
                 $insert_data[] = 'INSERT INTO `' . _DB_PREFIX_ . 'tvcmscategoryproduct_lang`
                         SET 
                             `id_tvcmscategoryproduct_lang` = NULL,
                             `id_tvcmscategoryproduct` = ' . (int) $new_id . ',
                             `id_shop_group` = ' . (int) $this->id_shop_group . ',
                             `id_shop` = ' . (int) $this->id_shop . ',
-                            `id_category` = \'' . (int) $data['id_category'] . '\',
-                            `id_lang` = \'' . (int) $lang['id_lang'] . '\',
-                            `title` = \'' . pSQL($data['lang_info'][$lang['id_lang']]['custom_title']) . '\';';
+                            `id_category` = ' . (int) $id_category . ',
+                            `id_lang` = ' . (int) $id_lang . ',
+                            `title` = \'' . $custom_title . '\';';
             }
         }
 
-        foreach ($insert_data as $data) {
-            Db::getInstance()->execute($data);
+        foreach ($insert_data as $query) {
+            Db::getInstance()->execute($query);
         }
     }
 
-    // Get all Category Which Key is Id And Value is Category Name
+    private function compareCategoryNames($nameA, $nameB)
+    {
+        $nameA = trim((string) $nameA);
+        $nameB = trim((string) $nameB);
+
+        static $collator = null;
+
+        if (null === $collator && class_exists('Collator')) {
+            $collator = new Collator('fr_FR');
+        }
+
+        if (class_exists('Collator') && $collator instanceof Collator) {
+            $result = $collator->compare($nameA, $nameB);
+
+            if (false !== $result) {
+                return $result;
+            }
+        }
+
+        if (function_exists('mb_strtolower')) {
+            $nameA = mb_strtolower($nameA, 'UTF-8');
+            $nameB = mb_strtolower($nameB, 'UTF-8');
+        }
+
+        return strnatcasecmp($nameA, $nameB);
+    }
+
+    private function sortCategoryRowsByName($categories)
+    {
+        if (!is_array($categories) || empty($categories)) {
+            return [];
+        }
+
+        usort($categories, function ($a, $b) {
+            $nameA = isset($a['name']) ? $a['name'] : '';
+            $nameB = isset($b['name']) ? $b['name'] : '';
+
+            return $this->compareCategoryNames($nameA, $nameB);
+        });
+
+        return $categories;
+    }
+
+    private function sortCategoryNameMap($categories)
+    {
+        if (!is_array($categories) || empty($categories)) {
+            return [];
+        }
+
+        uasort($categories, function ($a, $b) {
+            return $this->compareCategoryNames($a, $b);
+        });
+
+        return $categories;
+    }
+
+    private function isSelectableCategory($id_category)
+    {
+        $id_category = (int) $id_category;
+
+        if ($id_category <= 0) {
+            return false;
+        }
+
+        $categories = $this->getAllCategory();
+
+        foreach ($categories as $category) {
+            if (isset($category['id_category']) && (int) $category['id_category'] === $id_category) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public function getAllCategory()
     {
         $category = Category::getAllCategoriesName();
         $all_category_id = [];
-        $i = 1;
+
         unset($category[0]);
         unset($category[1]);
+
         foreach ($category as $cat) {
-            $all_category_id[$i]['id_category'] = $cat['id_category'];
-            $all_category_id[$i]['name'] = $cat['name'];
-            ++$i;
+            if (!isset($cat['id_category']) || !isset($cat['name'])) {
+                continue;
+            }
+
+            $id_category = (int) $cat['id_category'];
+            $name = trim((string) $cat['name']);
+
+            if ($id_category <= 0 || '' === $name) {
+                continue;
+            }
+
+            $all_category_id[] = [
+                'id_category' => $id_category,
+                'name' => $name,
+            ];
         }
 
-        return $all_category_id;
+        return $this->sortCategoryRowsByName($all_category_id);
     }
 
-    // Show Admin Data in Table
     public function showAdminData()
     {
         $result = [];
         $return_data = [];
-        $default_lang_id = $this->context->language->id;
+        $default_lang_id = (int) $this->context->language->id;
 
         $select_data = 'SELECT * FROM `' . _DB_PREFIX_ . 'tvcmscategoryproduct`'
              . ' WHERE `id_shop_group` = ' . (int) $this->id_shop_group . ' AND `id_shop` = ' . (int) $this->id_shop
@@ -421,27 +551,25 @@ class TvcmsCategoryProduct extends Module
         $result['tvcmscategoryproduct_lang'] = Db::getInstance()->executeS($select_data);
 
         foreach ($result['tvcmscategoryproduct'] as $key => $data) {
-            $return_data[$key]['id'] = $data['id_tvcmscategoryproduct'];
-            $id = $data['id_tvcmscategoryproduct'];
+            $return_data[$key]['id'] = (int) $data['id_tvcmscategoryproduct'];
+            $id = (int) $data['id_tvcmscategoryproduct'];
 
             foreach ($result['tvcmscategoryproduct_lang'] as $lang) {
-                if ($default_lang_id == $lang['id_lang'] && $id == $lang['id_tvcmscategoryproduct']) {
-                    // $lang_id = $lang['id_lang'];
-                    $return_data[$key]['id_lang'] = $lang['id_lang'];
+                if ($default_lang_id == (int) $lang['id_lang'] && $id == (int) $lang['id_tvcmscategoryproduct']) {
+                    $return_data[$key]['id_lang'] = (int) $lang['id_lang'];
                     $return_data[$key]['title'] = $lang['title'];
                 }
             }
 
-            $return_data[$key]['id_category'] = $data['id_category'];
+            $return_data[$key]['id_category'] = (int) $data['id_category'];
             $return_data[$key]['image'] = $data['image'];
-            $return_data[$key]['num_of_prod'] = $data['num_of_prod'];
-            $return_data[$key]['status'] = $data['status'];
+            $return_data[$key]['num_of_prod'] = (int) $data['num_of_prod'];
+            $return_data[$key]['status'] = (int) $data['status'];
         }
 
         return $return_data;
     }
 
-    // Show Front Side Data
     public function showData($id = null)
     {
         $result = [];
@@ -452,6 +580,7 @@ class TvcmsCategoryProduct extends Module
                 WHERE 
                 `id_shop_group` = ' . (int) $this->id_shop_group
                  . ' AND `id_shop` = ' . (int) $this->id_shop;
+
         if ($id) {
             $select_data .= ' AND `id_tvcmscategoryproduct` = ' . (int) $id;
         } else {
@@ -463,6 +592,7 @@ class TvcmsCategoryProduct extends Module
         $select_data = '';
         $select_data .= 'SELECT * FROM `' . _DB_PREFIX_ . 'tvcmscategoryproduct_lang`'
              . ' WHERE `id_shop_group` = ' . (int) $this->id_shop_group . ' AND `id_shop` = ' . (int) $this->id_shop;
+
         if ($id) {
             $select_data .= ' AND id_tvcmscategoryproduct = ' . (int) $id;
         }
@@ -470,20 +600,21 @@ class TvcmsCategoryProduct extends Module
         $result['tvcmscategoryproduct_lang'] = Db::getInstance()->executeS($select_data);
 
         foreach ($result['tvcmscategoryproduct'] as $key => $data) {
-            $return_data[$key]['id'] = $data['id_tvcmscategoryproduct'];
-            $id = $data['id_tvcmscategoryproduct'];
+            $return_data[$key]['id'] = (int) $data['id_tvcmscategoryproduct'];
+            $id = (int) $data['id_tvcmscategoryproduct'];
+
             foreach ($result['tvcmscategoryproduct_lang'] as $lang) {
-                // $lang_id = $lang['id_lang'];
-                if ($id == $lang['id_tvcmscategoryproduct']) {
-                    $return_data[$key]['lang_info'][$lang['id_lang']]['id_lang'] = $lang['id_lang'];
-                    $return_data[$key]['lang_info'][$lang['id_lang']]['title'] = $lang['title'];
+                if ($id == (int) $lang['id_tvcmscategoryproduct']) {
+                    $id_lang = (int) $lang['id_lang'];
+                    $return_data[$key]['lang_info'][$id_lang]['id_lang'] = $id_lang;
+                    $return_data[$key]['lang_info'][$id_lang]['title'] = $lang['title'];
                 }
             }
 
-            $return_data[$key]['id_category'] = $data['id_category'];
+            $return_data[$key]['id_category'] = (int) $data['id_category'];
             $return_data[$key]['image'] = $data['image'];
-            $return_data[$key]['num_of_prod'] = $data['num_of_prod'];
-            $return_data[$key]['status'] = $data['status'];
+            $return_data[$key]['num_of_prod'] = (int) $data['num_of_prod'];
+            $return_data[$key]['status'] = (int) $data['status'];
         }
 
         return $return_data;
@@ -492,7 +623,7 @@ class TvcmsCategoryProduct extends Module
     public function showFrontData()
     {
         $cookie = Context::getContext()->cookie;
-        $id_lang = $cookie->id_lang;
+        $id_lang = (int) $cookie->id_lang;
 
         $select_data = '
             SELECT 
@@ -504,7 +635,7 @@ class TvcmsCategoryProduct extends Module
             FROM 
                 `' . _DB_PREFIX_ . 'tvcmscategoryproduct` mainTable
             LEFT JOIN
-                ' . _DB_PREFIX_ . 'tvcmscategoryproduct_lang subTable
+                `' . _DB_PREFIX_ . 'tvcmscategoryproduct_lang` subTable
             ON
                 mainTable.id_tvcmscategoryproduct = subTable.id_tvcmscategoryproduct
             WHERE 
@@ -515,10 +646,11 @@ class TvcmsCategoryProduct extends Module
                 mainTable.status = 1
             AND
                 subTable.id_lang = ' . (int) $id_lang . '
-            ORDER BY `position`';
+            ORDER BY mainTable.`position`';
 
         $result = Db::getInstance()->executeS($select_data);
         $result_data = [];
+
         if (!empty($result)) {
             $result_data = $result;
         }
@@ -530,11 +662,23 @@ class TvcmsCategoryProduct extends Module
     {
         $category = Category::getAllCategoriesName();
         $all_category_id = [];
+
         foreach ($category as $cat) {
-            $all_category_id[$cat['id_category']] = $cat['name'];
+            if (!isset($cat['id_category']) || !isset($cat['name'])) {
+                continue;
+            }
+
+            $id_category = (int) $cat['id_category'];
+            $name = trim((string) $cat['name']);
+
+            if ($id_category <= 0 || '' === $name) {
+                continue;
+            }
+
+            $all_category_id[$id_category] = $name;
         }
 
-        return $all_category_id;
+        return $this->sortCategoryNameMap($all_category_id);
     }
 
     public function uninstall()
@@ -546,7 +690,6 @@ class TvcmsCategoryProduct extends Module
         return parent::uninstall();
     }
 
-    // Delete All Variable of Frist Form
     public function deleteVariable()
     {
         Configuration::deleteByName('TVCMSCATEGORYPRODUCT_TITLE');
@@ -556,12 +699,18 @@ class TvcmsCategoryProduct extends Module
         Configuration::deleteByName('TVCMSCATEGORYPRODUCT_IMG');
     }
 
-    // Delete Record by id Form Table
     public function deleteRecord($id)
     {
+        $id = (int) $id;
+
+        if ($id <= 0) {
+            return;
+        }
+
         $this->removeImage($id);
 
         $delete_data = [];
+
         $delete_data[] = 'DELETE FROM `' . _DB_PREFIX_ . 'tvcmscategoryproduct`
             WHERE 
                     `id_shop_group` = ' . (int) $this->id_shop_group . '
@@ -578,15 +727,15 @@ class TvcmsCategoryProduct extends Module
                 AND 
                     id_tvcmscategoryproduct = ' . (int) $id;
 
-        foreach ($delete_data as $data) {
-            Db::getInstance()->execute($data);
+        foreach ($delete_data as $query) {
+            Db::getInstance()->execute($query);
         }
     }
 
-    // Delete All table
     public function deleteTable()
     {
         $delete_table = [];
+
         $delete_table[] = 'DROP TABLE IF EXISTS `' . _DB_PREFIX_ . 'tvcmscategoryproduct`';
         $delete_table[] = 'DROP TABLE IF EXISTS `' . _DB_PREFIX_ . 'tvcmscategoryproduct_lang`';
 
@@ -597,35 +746,51 @@ class TvcmsCategoryProduct extends Module
 
     public function uninstallTab()
     {
-        $id_tab = Tab::getIdFromClassName('Admin' . $this->name);
-        $tab = new Tab($id_tab);
-        $tab->delete();
+        $id_tab = (int) Tab::getIdFromClassName('Admin' . $this->name);
+
+        if ($id_tab > 0) {
+            $tab = new Tab($id_tab);
+            $tab->delete();
+        }
 
         return true;
     }
 
     public function removeImage($id)
     {
-        $remove_images = [];
+        $id = (int) $id;
+
+        if ($id <= 0) {
+            return;
+        }
+
         $result = $this->showData($id);
 
-        $remove_images[] = $result[0]['image'];
+        if (empty($result[0]['image'])) {
+            return;
+        }
 
-        foreach ($remove_images as $image) {
-            // Match Pattern Which image you Don't want to delete.
-            $res = preg_match('/^demo_img_.*$/', $image);
-            if (file_exists(dirname(__FILE__) . './views/img/' . $image)
-                && '1' != $res) {
-                unlink(dirname(__FILE__) . './views/img/' . $image);
-            }
+        $image = basename((string) $result[0]['image']);
+
+        if ('' === $image) {
+            return;
+        }
+
+        $res = preg_match('/^demo_img_.*$/', $image);
+        $image_path = dirname(__FILE__) . '/views/img/' . $image;
+
+        if (file_exists($image_path) && '1' != $res) {
+            @unlink($image_path);
         }
     }
 
     public function reset()
     {
         $trn_tbl = [];
+
         $trn_tbl[] = 'TRUNCATE `' . _DB_PREFIX_ . 'tvcmscategoryproduct`';
         $trn_tbl[] = 'TRUNCATE `' . _DB_PREFIX_ . 'tvcmscategoryproduct_lang`';
+
         foreach ($trn_tbl as $table) {
             Db::getInstance()->execute($table);
         }
@@ -637,11 +802,13 @@ class TvcmsCategoryProduct extends Module
         $protocol_content = $useSSL ? 'https://' : 'http://';
         $baseDir = $protocol_content . Tools::getHttpHost() . __PS_BASE_URI__;
         $link = PS_ADMIN_DIR;
+
         if (Tools::substr(strrchr($link, '/'), 1)) {
             $admin_folder = Tools::substr(strrchr($link, '/'), 1);
         } else {
             $admin_folder = Tools::substr(strrchr($link, "\'"), 1);
         }
+
         $static_token = Tools::getAdminToken('AdminModules' . (int) Tab::getIdFromClassName('AdminModules') . (int) $this->context->employee->id);
         $url_slidersampleupgrade = $baseDir . $admin_folder . '/index.php?controller=AdminModules&configure=' . $this->name . '&tab_module=front_office_features&module_name=' . $this->name . '&token=' . $static_token;
         $this->context->smarty->assign('tvurlupgrade', $url_slidersampleupgrade);
@@ -649,7 +816,9 @@ class TvcmsCategoryProduct extends Module
         if (Tools::isSubmit('submitTvcmsSampleinstall')) {
             $this->createDefaultData();
         }
+
         $message = $this->postProcess();
+
         $this->html .= $message;
         $this->html .= $this->renderForm();
         $this->html .= $this->showRecord();
@@ -662,12 +831,12 @@ class TvcmsCategoryProduct extends Module
         $languages = Language::getLanguages();
         $message = '';
         $result = [];
+
         if (Tools::getValue('action')) {
             $action = Tools::getValue('action');
-            $id = Tools::getValue('id');
-            // print_r($_POST);
-            if ('remove' == $action) {
-                // remove record
+            $id = (int) Tools::getValue('id');
+
+            if ('remove' == $action && $id > 0) {
                 $this->deleteRecord($id);
 
                 return $message .= $this->displayConfirmation($this->l('Record is Deleted . '));
@@ -677,11 +846,15 @@ class TvcmsCategoryProduct extends Module
         if (Tools::isSubmit('submitTvcmsCategoryForm')) {
             $old_file = 'demo_img_1.jpg';
             $no_image_selected = false;
+
             if (Tools::getValue('id')) {
-                $id = Tools::getValue('id');
+                $id = (int) Tools::getValue('id');
                 $result['id'] = $id;
                 $data = $this->showData($id);
-                $old_file = $data[0]['image'];
+
+                if (!empty($data[0]['image'])) {
+                    $old_file = $data[0]['image'];
+                }
             }
 
             $tvcms_obj = new TvcmsCategoryProductStatus();
@@ -689,20 +862,24 @@ class TvcmsCategoryProduct extends Module
 
             if ($show_fields['image']) {
                 $this->obj_image = new TvcmsCategoryProductImageUpload();
+
                 if (!empty($_FILES['image']['name'])) {
                     $new_file = $_FILES['image'];
                     $ans = $this->obj_image->imageUploading($new_file, $old_file);
-                    if ($ans['success']) {
-                        $result['image'] = $ans['name'];
+
+                    if (!empty($ans['success'])) {
+                        $result['image'] = isset($ans['name']) ? $ans['name'] : '';
                     } else {
-                        $message .= $ans['error'];
+                        $message .= isset($ans['error']) ? $ans['error'] : $this->displayError($this->l('Image upload error.'));
                         $result['image'] = $old_file;
+
                         if (!Tools::getValue('id')) {
                             $no_image_selected = true;
                         }
                     }
                 } else {
                     $result['image'] = $old_file;
+
                     if (!Tools::getValue('id')) {
                         $message .= $this->displayError($this->l('Please Select Image . '));
                         $no_image_selected = true;
@@ -714,20 +891,22 @@ class TvcmsCategoryProduct extends Module
 
             if (!$no_image_selected) {
                 foreach ($languages as $lang) {
-                    $tmp = Tools::getValue('custom_title_' . $lang['id_lang']);
-                    $result['lang_info'][$lang['id_lang']]['custom_title'] = $tmp;
+                    $id_lang = (int) $lang['id_lang'];
+                    $tmp = Tools::getValue('custom_title_' . $id_lang);
+                    $result['lang_info'][$id_lang]['custom_title'] = $tmp;
                 }
 
-                $result['id_category'] = Tools::getValue('id_category');
-                $result['num_of_prod'] = Tools::getValue('num_of_prod');
-                $result['status'] = Tools::getValue('status');
+                $result['id_category'] = (int) Tools::getValue('id_category');
+                $result['num_of_prod'] = (int) Tools::getValue('num_of_prod');
+                $result['status'] = !empty(Tools::getValue('status')) ? 1 : 0;
 
-                if (0 == $result['id_category']) {
+                if ($result['id_category'] <= 0 || !$this->isSelectableCategory($result['id_category'])) {
                     $message .= $this->displayError($this->l('Please select valid category.'));
                 } else {
                     $this->insertData($result);
                     $message .= $this->displayConfirmation($this->l('Record is save successfully.'));
                 }
+
                 $this->clearCustomSmartyCache('tvcmscategoryproduct_display_home.tpl');
             }
 
@@ -736,48 +915,49 @@ class TvcmsCategoryProduct extends Module
 
         if (Tools::isSubmit('submitTvcmsCategoryTitle')) {
             foreach ($languages as $lang) {
+                $id_lang = (int) $lang['id_lang'];
+
                 $this->obj_image = new TvcmsCategoryProductImageUpload();
-                if (!empty($_FILES['TVCMSCATEGORYPRODUCT_IMG_' . $lang['id_lang']]['name'])) {
-                    $old_file = Configuration::get('TVCMSCATEGORYPRODUCT_IMG', $lang['id_lang']);
-                    $new_file = $_FILES['TVCMSCATEGORYPRODUCT_IMG_' . $lang['id_lang']];
+
+                if (!empty($_FILES['TVCMSCATEGORYPRODUCT_IMG_' . $id_lang]['name'])) {
+                    $old_file = Configuration::get('TVCMSCATEGORYPRODUCT_IMG', $id_lang);
+                    $new_file = $_FILES['TVCMSCATEGORYPRODUCT_IMG_' . $id_lang];
                     $ans = $this->obj_image->imageUploading($new_file, $old_file);
-                    if ($ans['success']) {
-                        $result['TVCMSCATEGORYPRODUCT_IMG'][$lang['id_lang']] = $ans['name'];
+
+                    if (!empty($ans['success'])) {
+                        $result['TVCMSCATEGORYPRODUCT_IMG'][$id_lang] = isset($ans['name']) ? $ans['name'] : '';
                     } else {
-                        $message .= $ans['error'];
-                        $result['TVCMSCATEGORYPRODUCT_IMG'][$lang['id_lang']] = $old_file;
+                        $message .= isset($ans['error']) ? $ans['error'] : $this->displayError($this->l('Image upload error.'));
+                        $result['TVCMSCATEGORYPRODUCT_IMG'][$id_lang] = $old_file;
                     }
                 } else {
-                    $old_file = Configuration::get('TVCMSCATEGORYPRODUCT_IMG', $lang['id_lang']);
-                    $result['TVCMSCATEGORYPRODUCT_IMG'][$lang['id_lang']] = $old_file;
+                    $old_file = Configuration::get('TVCMSCATEGORYPRODUCT_IMG', $id_lang);
+                    $result['TVCMSCATEGORYPRODUCT_IMG'][$id_lang] = $old_file;
                 }
 
-                $tmp = Tools::getValue('TVCMSCATEGORYPRODUCT_TITLE_' . $lang['id_lang']);
-                $result['TVCMSCATEGORYPRODUCT_TITLE'][$lang['id_lang']] = $tmp;
+                $tmp = Tools::getValue('TVCMSCATEGORYPRODUCT_TITLE_' . $id_lang);
+                $result['TVCMSCATEGORYPRODUCT_TITLE'][$id_lang] = $tmp;
 
-                $tmp = Tools::getValue('TVCMSCATEGORYPRODUCT_PRODUCT_TITLE_' . $lang['id_lang']);
-                $result['TVCMSCATEGORYPRODUCT_PRODUCT_TITLE'][$lang['id_lang']] = $tmp;
+                $tmp = Tools::getValue('TVCMSCATEGORYPRODUCT_PRODUCT_TITLE_' . $id_lang);
+                $result['TVCMSCATEGORYPRODUCT_PRODUCT_TITLE'][$id_lang] = $tmp;
 
-                $tmp = Tools::getValue('TVCMSCATEGORYPRODUCT_SUB_DESCRIPTION_' . $lang['id_lang']);
-                $result['TVCMSCATEGORYPRODUCT_SUB_DESCRIPTION'][$lang['id_lang']] = $tmp;
+                $tmp = Tools::getValue('TVCMSCATEGORYPRODUCT_SUB_DESCRIPTION_' . $id_lang);
+                $result['TVCMSCATEGORYPRODUCT_SUB_DESCRIPTION'][$id_lang] = $tmp;
 
-                $tmp = Tools::getValue('TVCMSCATEGORYPRODUCT_DESCRIPTION_' . $lang['id_lang']);
-                $result['TVCMSCATEGORYPRODUCT_DESCRIPTION'][$lang['id_lang']] = $tmp;
+                $tmp = Tools::getValue('TVCMSCATEGORYPRODUCT_DESCRIPTION_' . $id_lang);
+                $result['TVCMSCATEGORYPRODUCT_DESCRIPTION'][$id_lang] = $tmp;
             }
 
-            $tmp = $result['TVCMSCATEGORYPRODUCT_TITLE'];
-            Configuration::updateValue('TVCMSCATEGORYPRODUCT_TITLE', $tmp);
-            $tmp = $result['TVCMSCATEGORYPRODUCT_PRODUCT_TITLE'];
-            Configuration::updateValue('TVCMSCATEGORYPRODUCT_PRODUCT_TITLE', $tmp);
-            $tmp = $result['TVCMSCATEGORYPRODUCT_SUB_DESCRIPTION'];
-            Configuration::updateValue('TVCMSCATEGORYPRODUCT_SUB_DESCRIPTION', $tmp);
-            $tmp = $result['TVCMSCATEGORYPRODUCT_DESCRIPTION'];
-            Configuration::updateValue('TVCMSCATEGORYPRODUCT_DESCRIPTION', $tmp);
-            $tmp = $result['TVCMSCATEGORYPRODUCT_IMG'];
-            Configuration::updateValue('TVCMSCATEGORYPRODUCT_IMG', $tmp);
+            Configuration::updateValue('TVCMSCATEGORYPRODUCT_TITLE', $result['TVCMSCATEGORYPRODUCT_TITLE']);
+            Configuration::updateValue('TVCMSCATEGORYPRODUCT_PRODUCT_TITLE', $result['TVCMSCATEGORYPRODUCT_PRODUCT_TITLE']);
+            Configuration::updateValue('TVCMSCATEGORYPRODUCT_SUB_DESCRIPTION', $result['TVCMSCATEGORYPRODUCT_SUB_DESCRIPTION']);
+            Configuration::updateValue('TVCMSCATEGORYPRODUCT_DESCRIPTION', $result['TVCMSCATEGORYPRODUCT_DESCRIPTION']);
+            Configuration::updateValue('TVCMSCATEGORYPRODUCT_IMG', $result['TVCMSCATEGORYPRODUCT_IMG']);
 
             return $message .= $this->displayConfirmation($this->l('Category Slider Title Updated.'));
         }
+
+        return $message;
     }
 
     public function clearCustomSmartyCache($cache_id)
@@ -787,7 +967,6 @@ class TvcmsCategoryProduct extends Module
         }
     }
 
-    // Show All Admin data in getContent Function
     public function showRecord()
     {
         $array_list = $this->showAdminData();
@@ -795,7 +974,7 @@ class TvcmsCategoryProduct extends Module
 
         $tvcms_obj = new TvcmsCategoryProductStatus();
         $show_fields = $tvcms_obj->fieldStatusInformation();
-        $default_lang_id = $this->context->language->id;
+        $default_lang_id = (int) $this->context->language->id;
 
         $this->context->smarty->assign('array_list', $array_list);
         $this->context->smarty->assign('category_list', $category_list);
@@ -808,39 +987,34 @@ class TvcmsCategoryProduct extends Module
     public function getConfigFormValues()
     {
         $cookie = Context::getContext()->cookie;
-        $id_lang = $cookie->id_lang;
+        $id_lang = (int) $cookie->id_lang;
         $this->context->smarty->assign('id_lang', $id_lang);
+
         $fields = [];
         $languages = Language::getLanguages();
 
-        // Frist Form Information
         foreach ($languages as $lang) {
-            $a = Configuration::get('TVCMSCATEGORYPRODUCT_TITLE', $lang['id_lang']);
-            $fields['TVCMSCATEGORYPRODUCT_TITLE'][$lang['id_lang']] = $a;
+            $id_lang_item = (int) $lang['id_lang'];
 
-            $a = Configuration::get('TVCMSCATEGORYPRODUCT_PRODUCT_TITLE', $lang['id_lang']);
-            $fields['TVCMSCATEGORYPRODUCT_PRODUCT_TITLE'][$lang['id_lang']] = $a;
-
-            $a = Configuration::get('TVCMSCATEGORYPRODUCT_SUB_DESCRIPTION', $lang['id_lang']);
-            $fields['TVCMSCATEGORYPRODUCT_SUB_DESCRIPTION'][$lang['id_lang']] = $a;
-
-            $a = Configuration::get('TVCMSCATEGORYPRODUCT_DESCRIPTION', $lang['id_lang']);
-            $fields['TVCMSCATEGORYPRODUCT_DESCRIPTION'][$lang['id_lang']] = $a;
-
-            $a = Configuration::get('TVCMSCATEGORYPRODUCT_IMG', $lang['id_lang']);
-            $fields['TVCMSCATEGORYPRODUCT_IMG'][$lang['id_lang']] = $a;
+            $fields['TVCMSCATEGORYPRODUCT_TITLE'][$id_lang_item] = Configuration::get('TVCMSCATEGORYPRODUCT_TITLE', $id_lang_item);
+            $fields['TVCMSCATEGORYPRODUCT_PRODUCT_TITLE'][$id_lang_item] = Configuration::get('TVCMSCATEGORYPRODUCT_PRODUCT_TITLE', $id_lang_item);
+            $fields['TVCMSCATEGORYPRODUCT_SUB_DESCRIPTION'][$id_lang_item] = Configuration::get('TVCMSCATEGORYPRODUCT_SUB_DESCRIPTION', $id_lang_item);
+            $fields['TVCMSCATEGORYPRODUCT_DESCRIPTION'][$id_lang_item] = Configuration::get('TVCMSCATEGORYPRODUCT_DESCRIPTION', $id_lang_item);
+            $fields['TVCMSCATEGORYPRODUCT_IMG'][$id_lang_item] = Configuration::get('TVCMSCATEGORYPRODUCT_IMG', $id_lang_item);
         }
 
         $path = _MODULE_DIR_ . $this->name . '/views/img/';
         $this->context->smarty->assign('path', $path);
+
         $all_category = $this->getAllCategory();
         $this->context->smarty->assign('all_category', $all_category);
 
-        // Second Form Information
         $fields['id'] = '';
+
         foreach ($languages as $lang) {
-            $fields['custom_title'][$lang['id_lang']] = '';
+            $fields['custom_title'][(int) $lang['id_lang']] = '';
         }
+
         $fields['image'] = '';
         $fields['num_of_prod'] = '';
         $fields['status'] = 1;
@@ -848,19 +1022,27 @@ class TvcmsCategoryProduct extends Module
         $this->context->smarty->assign('id_category_select', '0');
 
         if ('edit' == Tools::getValue('action')) {
-            $id = Tools::getValue('id');
+            $id = (int) Tools::getValue('id');
             $data = $this->showData($id);
-            $data = $data[0];
-            $fields['id'] = $id;
 
-            foreach ($languages as $lang) {
-                $fields['custom_title'][$lang['id_lang']] = $data['lang_info'][$lang['id_lang']]['title'];
+            if (!empty($data[0])) {
+                $data = $data[0];
+                $fields['id'] = $id;
+
+                foreach ($languages as $lang) {
+                    $id_lang_item = (int) $lang['id_lang'];
+
+                    $fields['custom_title'][$id_lang_item] = isset($data['lang_info'][$id_lang_item]['title'])
+                        ? $data['lang_info'][$id_lang_item]['title']
+                        : '';
+                }
+
+                $fields['image'] = isset($data['image']) ? $data['image'] : '';
+                $fields['num_of_prod'] = isset($data['num_of_prod']) ? (int) $data['num_of_prod'] : '';
+                $fields['status'] = isset($data['status']) ? (int) $data['status'] : 1;
+
+                $this->context->smarty->assign('id_category_select', isset($data['id_category']) ? (int) $data['id_category'] : 0);
             }
-            $fields['image'] = $data['image'];
-            $fields['num_of_prod'] = $data['num_of_prod'];
-            $fields['status'] = $data['status'];
-
-            $this->context->smarty->assign('id_category_select', $data['id_category']);
         }
 
         return $fields;
@@ -873,7 +1055,7 @@ class TvcmsCategoryProduct extends Module
         $helper->show_toolbar = false;
         $helper->table = $this->table;
         $helper->module = $this;
-        $helper->default_form_language = $this->context->language->id;
+        $helper->default_form_language = (int) $this->context->language->id;
         $helper->allow_employee_form_lang = Configuration::get('PS_BO_ALLOW_EMPLOYEE_FORM_LANG', 0);
 
         $helper->identifier = $this->identifier;
@@ -881,14 +1063,15 @@ class TvcmsCategoryProduct extends Module
              . '&configure=' . $this->name . '&tab_module=' . $this->tab . '&module_name=' . $this->name;
         $helper->token = Tools::getAdminTokenLite('AdminModules');
         $helper->show_cancel_button = true;
+
         $module = 'tvcmscategoryproduct';
         $url = 'index.php?controller=AdminModules&configure=' . $module . '&token=' . Tools::getAdminTokenLite('AdminModules');
 
         $helper->back_url = $url;
         $helper->tpl_vars = [
-            'fields_value' => $this->getConfigFormValues(), // Add values for your inputs
+            'fields_value' => $this->getConfigFormValues(),
             'languages' => $this->context->controller->getLanguages(),
-            'id_language' => $this->context->language->id,
+            'id_language' => (int) $this->context->language->id,
         ];
 
         $form = [];
@@ -915,93 +1098,91 @@ class TvcmsCategoryProduct extends Module
         if (Tools::getValue('action')) {
             if ('edit' == Tools::getValue('action')) {
                 $input[] = [
-                        'type' => 'hidden',
-                        'name' => 'id',
-                    ];
+                    'type' => 'hidden',
+                    'name' => 'id',
+                ];
             }
         }
 
         if ($show_fields['image']) {
             $input[] = [
-                        'col' => 8,
-                        'type' => 'tvcmscategory_img',
-                        'name' => 'image',
-                        'label' => $this->l('Category image'),
-                    ];
+                'col' => 8,
+                'type' => 'tvcmscategory_img',
+                'name' => 'image',
+                'label' => $this->l('Category image'),
+            ];
         }
 
         $input[] = [
-                        'col' => 8,
-                        'type' => 'tvcmscategory_select',
-                        'name' => 'id_category',
-                        'label' => $this->l('Category'),
-                        'lang' => true,
-                    ];
+            'col' => 8,
+            'type' => 'tvcmscategory_select',
+            'name' => 'id_category',
+            'label' => $this->l('Category'),
+            'lang' => true,
+        ];
 
         if ($show_fields['title']) {
             $input[] = [
-                        'col' => 8,
-                        'class' => 'tvcmsvategory-slider-custom-name',
-                        'type' => 'text',
-                        'name' => 'custom_title',
-                        'label' => $this->l('Custom Name'),
-                        'lang' => true,
-                    ];
+                'col' => 8,
+                'class' => 'tvcmsvategory-slider-custom-name',
+                'type' => 'text',
+                'name' => 'custom_title',
+                'label' => $this->l('Custom Name'),
+                'lang' => true,
+            ];
         }
 
         if ($show_fields['num_of_prod']) {
             $min = 1;
             $max = 12;
             $range = [];
+
             for ($i = $min; $i <= $max; ++$i) {
                 $range[] = [
                     'id_option' => $i,
                     'name' => $i,
-                    ];
+                ];
             }
-            $input[] = [
-                        'col' => 8,
-                        'type' => 'text',
-                        'name' => 'num_of_prod',
-                        'label' => $this->l('Number of Product'),
 
-                        'type' => 'select',
-                        'label' => $this->l('Number Of Product'),
-                        'desc' => $this->l('Number of product which show in tab category products'),
-                        'name' => 'num_of_prod',
-                        'options' => [
-                            'query' => $range,
-                            'id' => 'id_option',
-                            'name' => 'name',
-                        ],
-                    ];
+            $input[] = [
+                'col' => 8,
+                'type' => 'select',
+                'label' => $this->l('Number Of Product'),
+                'desc' => $this->l('Number of product which show in tab category products'),
+                'name' => 'num_of_prod',
+                'options' => [
+                    'query' => $range,
+                    'id' => 'id_option',
+                    'name' => 'name',
+                ],
+            ];
         }
 
         $input[] = [
-                        'col' => 8,
-                        'type' => 'switch',
-                        'name' => 'status',
-                        'label' => $this->l('Status'),
-                        'is_bool' => true,
-                        'values' => [
-                            [
-                                'id' => 'active_on',
-                                'value' => 1,
-                                'label' => $this->l('Show'),
-                            ],
-                            [
-                                'id' => 'active_off',
-                                'value' => 0,
-                                'label' => $this->l('Hide'),
-                            ],
-                        ],
-                    ];
+            'col' => 8,
+            'type' => 'switch',
+            'name' => 'status',
+            'label' => $this->l('Status'),
+            'is_bool' => true,
+            'values' => [
+                [
+                    'id' => 'active_on',
+                    'value' => 1,
+                    'label' => $this->l('Show'),
+                ],
+                [
+                    'id' => 'active_off',
+                    'value' => 0,
+                    'label' => $this->l('Hide'),
+                ],
+            ],
+        ];
 
         return [
             'form' => [
                 'legend' => [
-                'title' => $this->l('Category Slider'),
-                'icon' => 'icon-image',
+                    'title' => $this->l('Category Slider'),
+                    'icon' => 'icon-image',
                 ],
                 'input' => $input,
                 'submit' => [
@@ -1020,57 +1201,57 @@ class TvcmsCategoryProduct extends Module
 
         if ($show_fields['main_title']) {
             $input[] = [
-                        'col' => 7,
-                        'type' => 'text',
-                        'name' => 'TVCMSCATEGORYPRODUCT_TITLE',
-                        'label' => $this->l('Category Title'),
-                        'lang' => true,
-                    ];
+                'col' => 7,
+                'type' => 'text',
+                'name' => 'TVCMSCATEGORYPRODUCT_TITLE',
+                'label' => $this->l('Category Title'),
+                'lang' => true,
+            ];
         }
 
         if ($show_fields['main_product_title']) {
             $input[] = [
-                        'col' => 7,
-                        'type' => 'text',
-                        'name' => 'TVCMSCATEGORYPRODUCT_PRODUCT_TITLE',
-                        'label' => $this->l('Category Product Title'),
-                        'lang' => true,
-                    ];
+                'col' => 7,
+                'type' => 'text',
+                'name' => 'TVCMSCATEGORYPRODUCT_PRODUCT_TITLE',
+                'label' => $this->l('Category Product Title'),
+                'lang' => true,
+            ];
         }
 
         if ($show_fields['main_sub_title']) {
             $input[] = [
-                    'col' => 7,
-                    'type' => 'text',
-                    'name' => 'TVCMSCATEGORYPRODUCT_SUB_DESCRIPTION',
-                    'label' => $this->l('Short Description'),
-                    'lang' => true,
-                ];
+                'col' => 7,
+                'type' => 'text',
+                'name' => 'TVCMSCATEGORYPRODUCT_SUB_DESCRIPTION',
+                'label' => $this->l('Short Description'),
+                'lang' => true,
+            ];
         }
 
         if ($show_fields['main_description']) {
             $input[] = [
-                    'col' => 7,
-                    'type' => 'text',
-                    'name' => 'TVCMSCATEGORYPRODUCT_DESCRIPTION',
-                    'label' => $this->l('Description'),
-                    'lang' => true,
-                ];
+                'col' => 7,
+                'type' => 'text',
+                'name' => 'TVCMSCATEGORYPRODUCT_DESCRIPTION',
+                'label' => $this->l('Description'),
+                'lang' => true,
+            ];
         }
 
         if ($show_fields['main_image']) {
             $input[] = [
-                        'type' => 'image_file',
-                        'name' => 'TVCMSCATEGORYPRODUCT_IMG',
-                        'label' => $this->l('Title Image'),
-                ];
+                'type' => 'image_file',
+                'name' => 'TVCMSCATEGORYPRODUCT_IMG',
+                'label' => $this->l('Title Image'),
+            ];
         }
 
         return [
             'form' => [
                 'legend' => [
-                'title' => $this->l('Category Slider Title'),
-                'icon' => 'icon-image',
+                    'title' => $this->l('Category Slider Title'),
+                    'icon' => 'icon-image',
                 ],
                 'input' => $input,
                 'submit' => [
@@ -1084,6 +1265,7 @@ class TvcmsCategoryProduct extends Module
     public function hookDisplayBackOfficeHeader()
     {
         $this->context->controller->addJqueryUI('ui.sortable');
+
         if ($this->name == Tools::getValue('configure')) {
             $this->context->controller->addJS($this->_path . 'views/js/back.js');
             $this->context->controller->addCSS($this->_path . 'views/css/back.css');
@@ -1104,9 +1286,6 @@ class TvcmsCategoryProduct extends Module
 
         Media::addJsDef(['baseDir' => $tmp]);
 
-        // $link = $this->context->link->getModuleLink($tmp, 'frontajax', array(), null, null, null, true);
-        // Media::addJsDef(array('front_ajax' => $link));
-
         $this->context->controller->addCSS($this->_path . 'views/css/front.css');
         $this->context->controller->addJS($this->_path . 'views/js/front.js');
     }
@@ -1116,15 +1295,19 @@ class TvcmsCategoryProduct extends Module
         if (!$main_heading['main_title'] || empty($main_heading_data['title'])) {
             $main_heading['main_title'] = false;
         }
+
         if (!$main_heading['main_sub_title'] || empty($main_heading_data['short_desc'])) {
             $main_heading['main_sub_title'] = false;
         }
+
         if (!$main_heading['main_description'] || empty($main_heading_data['desc'])) {
             $main_heading['main_description'] = false;
         }
+
         if (!$main_heading['main_image'] || empty($main_heading_data['image'])) {
             $main_heading['main_image'] = false;
         }
+
         if (!$main_heading['main_title']
             && !$main_heading['main_sub_title']
             && !$main_heading['main_description']
@@ -1138,7 +1321,7 @@ class TvcmsCategoryProduct extends Module
     public function showFrontSideResult()
     {
         $cookie = Context::getContext()->cookie;
-        $id_lang = $cookie->id_lang;
+        $id_lang = (int) $cookie->id_lang;
 
         $tvcms_obj = new TvcmsCategoryProductStatus();
         $main_heading = $tvcms_obj->fieldStatusInformation();
@@ -1159,10 +1342,13 @@ class TvcmsCategoryProduct extends Module
         $disArrResult['status'] = empty($disArrResult['data']) ? false : true;
         $disArrResult['path'] = _MODULE_DIR_ . $this->name . '/views/img/';
         $disArrResult['id_lang'] = $id_lang;
+
         $useSSL = ((isset($this->ssl) && $this->ssl && Configuration::get('PS_SSL_ENABLED'))
             || Tools::usingSecureMode()) ? true : false;
+
         $protocol_content = ($useSSL) ? 'https://' : 'http://';
         $baseurl = $protocol_content . Tools::getHttpHost() . __PS_BASE_URI__;
+
         $disArrResult['baseUrl'] = $baseurl;
 
         $this->context->smarty->assign('main_heading', $main_heading);
@@ -1175,41 +1361,18 @@ class TvcmsCategoryProduct extends Module
     {
         if (!Cache::isStored('tvcmscategoryproduct_display_home.tpl')) {
             $result = $this->showFrontSideResult();
+
             if ($result) {
                 $output = $this->display(__FILE__, 'views/templates/front/display_home.tpl');
             } else {
                 $output = '';
             }
+
             Cache::store('tvcmscategoryproduct_display_home.tpl', $output);
         }
 
         return Cache::retrieve('tvcmscategoryproduct_display_home.tpl');
     }
-
-    // public function hookdisplayHome()
-    // {
-    //     $cookie = Context::getContext()->cookie;
-    //     $id_lang = $cookie->id_lang;
-    //     $result = array();
-
-    //     if (!Cache::isStored('tvcmscategoryproduct_display_home.tpl')) {
-    //         $result = $this->showData();
-
-    //         $path = _MODULE_DIR_.$this->name."/views/img/";
-    //         $this->context->smarty->assign("path", $path);
-
-    //         $tvcms_obj = new TvcmsCategoryProductStatus();
-    //         $show_fields = $tvcms_obj->fieldStatusInformation();
-
-    //         $this->context->smarty->assign('arr_result', $result);
-    //         $this->context->smarty->assign('show_fields', $show_fields);
-    //         $this->context->smarty->assign('id_lang', $id_lang);
-    //         $output = $this->display(__FILE__, 'views/templates/front/display_home.tpl');
-    //         Cache::store('tvcmscategoryproduct_display_home.tpl', $output);
-    //     }
-
-    //     return Cache::retrieve('tvcmscategoryproduct_display_home.tpl');
-    // }
 
     public function getProductsUsingCategory($category_id, $num_of_prod)
     {
@@ -1224,7 +1387,15 @@ class TvcmsCategoryProduct extends Module
 
         $query = new ProductSearchQuery();
 
-        $nProducts = $num_of_prod;
+        $nProducts = (int) $num_of_prod;
+
+        if ($nProducts < 1) {
+            $nProducts = 1;
+        }
+
+        if ($nProducts > 12) {
+            $nProducts = 12;
+        }
 
         $query
             ->setResultsPerPage($nProducts)
@@ -1241,6 +1412,7 @@ class TvcmsCategoryProduct extends Module
 
         $presenterFactory = new ProductPresenterFactory($this->context);
         $presentationSettings = $presenterFactory->getPresentationSettings();
+
         $presenter = new ProductListingPresenter(
             new ImageRetriever(
                 $this->context->link
@@ -1264,7 +1436,7 @@ class TvcmsCategoryProduct extends Module
         $cart_page_url = $this->context->link->getPageLink(
             'cart',
             null,
-            $this->context->language->id,
+            (int) $this->context->language->id,
             null,
             false,
             null,
@@ -1275,15 +1447,17 @@ class TvcmsCategoryProduct extends Module
         $no_picture_image = $imageRetriever->getNoPictureImage($this->context->language);
 
         $img = $no_picture_image['bySize'][ImageType::getFormattedName('home')]['url'];
+
         $this->context->smarty->assign('no_picture_image', $img);
 
         $static_token = Tools::getToken(false);
         $img_url = _THEME_IMG_DIR_;
+
         $this->context->smarty->assign('img_url', $img_url);
         $this->context->smarty->assign('cart_page_url', $cart_page_url);
         $this->context->smarty->assign('static_token', $static_token);
         $this->context->smarty->assign('product_list', $product_list);
-        $this->context->smarty->assign('num_of_prod', $num_of_prod);
+        $this->context->smarty->assign('num_of_prod', $nProducts);
 
         return $this->display(__FILE__, './views/templates/front/show_product.tpl');
     }
