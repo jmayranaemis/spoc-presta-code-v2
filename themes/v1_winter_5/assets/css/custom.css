@@ -2835,11 +2835,11 @@ ul.wlp_bought_list li .product_infos .product-name {
 .ttvcmscart-show-dropdown-right .ttvcart-product-label-value .ttvshoping-cart-label {
     font-size: 14px;
     color: #222;
-    font-weight: 400;
+    font-weight: 700;
     letter-spacing: 1px;
 }
 .ttvcmscart-show-dropdown-right .ttvcart-product-label-value .ttvcart-product-value {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     color: #000000;
 }
@@ -2848,7 +2848,9 @@ ul.wlp_bought_list li .product_infos .product-name {
     font-size: 14px;
 }
 .ttvcmscart-show-dropdown-right .ttvcart-product-label-value.total .ttvcart-product-value {
-    color: #31a9e1;
+    color: #000;
+    font-weight:800;
+    font-size: 16px;
 }
 .ttvcmscart-show-dropdown-right .ttvclose-cart {
     height: 40px;
@@ -2995,7 +2997,7 @@ ul.wlp_bought_list li .product_infos .product-name {
     padding: 19px 15px;
     letter-spacing: 1px;
     text-transform: uppercase;
-    font-weight: 400;
+    font-weight: 800;
     font-size: 14px;
     display: block;
     color: #145078;
@@ -10459,7 +10461,7 @@ body#checkout .tvtheme-control-icon{
     --spoc-text: #243447;
     --spoc-text-muted: #6b7a89;
     --spoc-radius-md: 8px;
-    --spoc-radius-lg: 12px;
+    --spoc-radius-lg: 30px;
     --spoc-transition: all 0.25s ease;
 }
 
@@ -10663,7 +10665,7 @@ body#checkout section.checkout-step .edit-address,
     background: #ffffff !important;
     background-color: #ffffff !important;
     border: 1px solid var(--spoc-primary) !important;
-    border-radius: var(--spoc-radius-md) !important;
+    border-radius: var(--spoc-radius-lg) !important;
     box-shadow: none !important;
     color: var(--spoc-primary) !important;
     transition: var(--spoc-transition);
