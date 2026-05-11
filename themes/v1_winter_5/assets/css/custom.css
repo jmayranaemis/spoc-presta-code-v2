@@ -2033,9 +2033,9 @@ ul.wlp_bought_list li .product_infos .product-name {
 @media(min-width: 1401px) {
     .tvall-product-branner .tvbanner-hover-wrapper {
         display: block;
-        padding: 0 3px;
+        padding: 0 0px;
         background: #fff;
-        border-radius: 3px;
+        border-radius: 30px;
         /*border: 1px solid rgba(0, 0, 0, 0.07);*/
     }
 }
@@ -4180,6 +4180,7 @@ input {
 .blog_post_content_top.tvblog-img-block,
 .kr_blog_post_area .tvblog_post .post_thumbnail {
     overflow: hidden;
+    border-radius: 30px;
 }
 .tvblog-date-username {
     margin-bottom: 10px;
@@ -5652,6 +5653,7 @@ i.material-icons.block {
     }
     .tvbanner-hover-wrapper img {
         width: 100%;
+        border-radius: 30px;
     }
     #footer_sub_menu_store_info,
     #footer_sub_menu_link,
