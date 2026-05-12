@@ -2835,12 +2835,12 @@ ul.wlp_bought_list li .product_infos .product-name {
 .ttvcmscart-show-dropdown-right .ttvcart-product-label-value .ttvshoping-cart-label {
     font-size: 14px;
     color: #222;
-    font-weight: 700;
+    font-weight: 400;
     letter-spacing: 1px;
 }
 .ttvcmscart-show-dropdown-right .ttvcart-product-label-value .ttvcart-product-value {
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 400;
     color: #000000;
 }
 .ttvcmscart-show-dropdown-right .ttvcart-product-label-value.tax .ttvshoping-cart-label,
@@ -2934,10 +2934,10 @@ ul.wlp_bought_list li .product_infos .product-name {
 }
 .ttvcmscart-show-dropdown-right .tvshoping-cart-dropdown-title .product-name {
     white-space: normal;
-    font-size: 18px;
+    font-size: 14px;
 }
 .ttvcmscart-show-dropdown-right .tvcart-product-list-box .tvshopping-cart-qty {
-    font-size: 13px;
+    font-size: 10px;
     color: #666666;
 }
 .ttvcmscart-show-dropdown-right .tvcart-product-list-box .product-qty {
@@ -2946,7 +2946,7 @@ ul.wlp_bought_list li .product_infos .product-name {
     color: #666666;
 }
 .ttvcmscart-show-dropdown-right .tvcart-product-content .product-price {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
     color: #000;
     display: inline-block;
