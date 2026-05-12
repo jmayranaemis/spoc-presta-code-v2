@@ -10756,7 +10756,8 @@ a:focus {
     justify-content: center
 }
 .tv-total-product {
-    margin-left: 20px
+    margin-left: 20px;
+    display: none;
 }
 .tvcms-left-column-wrapper .tv-left-pannal-btn-wrapper,
 .tvcms-right-column-wrapper .tv-right-pannal-btn-wrapper,
