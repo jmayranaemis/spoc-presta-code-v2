@@ -2900,7 +2900,7 @@ ul.wlp_bought_list li .product_infos .product-name {
 .ttvcmscart-show-dropdown-right .ttvcart-counter .ttvcart-products-count {
     font-weight: 500;
     color: #ffffff;
-    font-size: 15px;
+    font-size: 14px;
 }
 .ttvcmscart-show-dropdown-right .ttvcart-scroll-container {
     height: calc(100vh - 255px);
@@ -2957,7 +2957,7 @@ ul.wlp_bought_list li .product_infos .product-name {
 }
 .ttvcmscart-show-dropdown-right .tvshoping-cart-dropdown-title,
 .ttvcmscart-show-dropdown-right .tvcart-product-list-box {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 .ttvcmscart-show-dropdown-right .ttvcart-product-list-viewcart {
     width: 90%;
