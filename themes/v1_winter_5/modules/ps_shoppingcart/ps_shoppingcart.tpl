@@ -29,20 +29,12 @@
                 <a rel="nofollow" href="javascript:void(0);" data-url="{$cart_url}" title="{l s='Cart' d='Shop.Theme.Checkout'}">
                     <div class="tvcart-icon-text-wrapper">
                         <div class="tv-cart-icon tvheader-right-icon tv-cart-icon-main">
-                            <svg version="1.1" id="Layer_1" x="0px" y="0px" width="36px" height="36.289px" viewBox="0 0 36 36.289" xml:space="preserve">
-                                <g>
-                                    <path style="fill:#FFD741;" d="M6.266,11.058h28.609l-6.657,11.975H8.019C8.019,23.033,5.582,12.35,6.266,11.058"></path>
-                                    <path d="M9.174,29.448c-0.29,0-0.525-0.235-0.525-0.523c0-0.291,0.236-0.528,0.525-0.528h22.059c1.223,0,2.217-0.995,2.217-2.218
-                                    c0-1.224-0.994-2.22-2.217-2.22H8.193c-0.257,0-0.475-0.183-0.517-0.435L4.537,5.223L0.25,0.992
-                                    c-0.101-0.098-0.157-0.229-0.16-0.37C0.088,0.483,0.142,0.351,0.241,0.248C0.339,0.146,0.473,0.09,0.615,0.09
-                                    c0.14,0,0.268,0.052,0.37,0.149l4.396,4.286c0.081,0.078,0.133,0.177,0.151,0.287l0.914,5.322h28.938
-                                    c0.188,0,0.361,0.101,0.454,0.264c0.095,0.163,0.094,0.364-0.001,0.526L28.88,22.907h2.354c1.803,0,3.27,1.468,3.27,3.271
-                                    c0,1.803-1.467,3.27-3.27,3.27H9.174z M8.637,22.907h18.912l6.922-11.721H6.626L8.637,22.907z"></path>
-                                    <ellipse style="fill:none;stroke:#000000;stroke-linejoin:round;stroke-miterlimit:10;" cx="15.269" cy="33.8" rx="1.934" ry="1.963"></ellipse>
-                                    <ellipse style="fill:none;stroke:#000000;stroke-linejoin:round;stroke-miterlimit:10;" cx="25.147" cy="33.8" rx="1.934" ry="1.963"></ellipse>
-                                </g>
+                            <svg class="spoc-cart-icon" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M6.75 8.25h10.5l-.7 11.25H7.45L6.75 8.25Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                                <path d="M9 8.25V6.5a3 3 0 0 1 6 0v1.75" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
                             </svg>
                         </div>
+
 
                         <div class="tv-cart-cart-inner">
                             <span class="cart-products-count">{$cartProductsCount}</span>
