@@ -32,11 +32,7 @@
             <img src="{$category.image.large.url}" width="{$category.image.large.width}" height="{$category.image.large.height}" alt="{if !empty($category.image.legend)}{$category.image.legend}{else}{$category.name}{/if}" class="tv-img-responsive" loading="lazy" />
         </div>
         {/if}
-        {if !empty($category.image.large.url)}
-        <div class="tv-all-page-main-title-wrapper">
-            <div class="tv-all-page-main-title">{$category.name}</div>
-        </div>
-        {/if}
+        
         {if !empty($category.description)}
         <div id="category-description" class="text-muted">{$category.description nofilter}</div>
         {/if}

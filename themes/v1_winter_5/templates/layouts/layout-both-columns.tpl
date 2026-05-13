@@ -72,6 +72,12 @@
             {block name='breadcrumb'}
               {include file='_partials/breadcrumb.tpl'}
             {/block}
+            {if $page.page_name == 'category' && isset($category) && !empty($category.name)}
+            <div class="tv-all-page-main-title-wrapper tv-category-title-under-breadcrumb">
+            <div class="tv-all-page-main-title">{$category.name}</div>
+            </div>
+            {/if}
+
             {/if}
             <div class="row">
             {if !Context::getContext()->isMobile() && !Context::getContext()->isTablet()}

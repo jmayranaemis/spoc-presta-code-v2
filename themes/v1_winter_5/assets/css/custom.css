@@ -4785,10 +4785,7 @@ body#checkout .custom-checkbox {
 .tv-category-block-wrapper .tv-category-cover img,
 .tv-category-image img {
     border-radius: 3px;
-    margin: 0;
-    padding: 0;
-    line-height: 0;
-    overflow: hidden;
+    
 }
 .page-content {
     background: #ffffff;
