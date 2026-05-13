@@ -12118,5 +12118,23 @@ html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]::after 
     border-radius: 0 !important;
 }
 
+
+
+/* Icone Cart : changement */
+#header .tv-cart-icon-main {
+    color: #1c191c;
+}
+
+#header .tv-cart-icon-main .spoc-cart-icon {
+    display: block;
+    width: 28px;
+    height: 28px;
+}
+
+#header .tv-cart-icon-main .spoc-cart-icon path {
+    stroke: currentColor !important;
+    fill: none !important;
+}
+
 /*mailalert css end*/
 
