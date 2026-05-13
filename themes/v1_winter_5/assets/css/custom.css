@@ -12111,6 +12111,12 @@ html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]::after 
     color: inherit;
 }
 
+/* Page catégorie : supprime le cadre autour du bloc image + description */
+.block-category.tv-category-block-wrapper {
+    border: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
 
 /*mailalert css end*/
 
