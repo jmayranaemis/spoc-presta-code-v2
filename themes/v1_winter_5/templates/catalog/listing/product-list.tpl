@@ -65,22 +65,5 @@
 
     </div>
   </div>
-{if Configuration::get('TVCMSCAT_BANNER_STATUS') == 0 && $page.page_name == 'category' && !empty($category.image.large.url)}
-  <div class="block-category card card-block clearfix tv-category-block-wrapper">
-      {if $category.image.large.url}
-      <div class="tv-category-cover">
-          <img src="{$category.image.large.url}" width="{$category.image.large.width}" height="{$category.image.large.height}" alt="{if !empty($category.image.legend)}{$category.image.legend}{else}{$category.name}{/if}" alt="{if !empty($category.image.legend)}{$category.image.legend}{else}{$category.name}{/if}" class="tv-img-responsive" loading="lazy"/>
-      </div>
-      {/if}
-      {if !empty($category.image.large.url)}
-      <div class="tv-all-page-main-title-wrapper">
-          <div class="tv-all-page-main-title">{$category.name}</div>
-      </div>
-      {/if}
-      {if $category.description}
-      <div id="category-description" class="text-muted">{$category.description nofilter}</div>
-      {/if}
- </div>
- {/if}
 {/block}
 {/strip}
