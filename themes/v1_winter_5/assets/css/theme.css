@@ -10916,10 +10916,10 @@ a:focus {
     font-size: 14px;
 }
 .tv-all-page-main-title {
-    font-size: 18px;
+    font-size: 30px;
     color: #333333;
-    text-transform: uppercase;
-    font-weight: 600
+    /*text-transform: uppercase;*/
+    font-weight: 700;
 }
 .tv-sub-category-title-wrapper {
     padding: 15px 0 0 15px;
