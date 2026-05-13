@@ -45,9 +45,7 @@
     {if isset($subcategories) && count($subcategories) > 0}
     {if (isset($display_subcategories) && $display_subcategories eq 1) || !isset($display_subcategories) }
     <div class='tv-category-main-div clearfix'>
-        <div class="tv-sub-category-title-wrapper">
-            <div class="tv-sub-category-title">{l s='Subcategory' d='Shop.Theme.Catalog'}</div>
-        </div>
+        
         <div class="tvcategory-name-image">
             {foreach from=$subcategories item=subcategory}
             <div class="tv-sub-category-wrapper">
