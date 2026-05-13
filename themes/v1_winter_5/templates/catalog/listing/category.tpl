@@ -25,7 +25,7 @@
     {strip}
     {extends file='catalog/listing/product-list.tpl'}
     {block name='product_list_header'}
-   {if Configuration::get('TVCMSCAT_BANNER_STATUS') || (!empty($category.description) && empty($category.image.large.url))}
+   {if !empty($category.description) || !empty($category.image.large.url)}
     <div class="block-category card card-block clearfix tv-category-block-wrapper">
         {if !empty($category.image.large.url)}
         <div class="tv-category-cover">
