@@ -1207,7 +1207,7 @@ span.tvcart-product-price {
 
 /* Nouveau */
 .tvproduct-flags li.product-flag.new{
-background: #E9BD39;
+background: #f2a70c;
 color: #fff;
 font-weight: normal;
 font-size: 0.8rem;
@@ -12127,8 +12127,8 @@ html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]::after 
 
 #header .tv-cart-icon-main .spoc-cart-icon {
     display: block;
-    width: 28px;
-    height: 28px;
+    width: 36px;
+    height: 36px;
 }
 
 #header .tv-cart-icon-main .spoc-cart-icon path {
