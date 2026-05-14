@@ -7751,9 +7751,9 @@ a:hover {
     color: #222
 }
 .tabs .nav-tabs .nav-link.active,
-.tabs .nav-tabs  {
+.tabs .nav-tabs .nav-link:hover {
     border: none;
-    border-bottom: 6px solid var(--spoc-primary) !important; 
+    border-bottom: 6px solid var(--spoc-primary) !important; */
 }
 #blockcart-modal .product-name {
     color: #222;
