@@ -12248,5 +12248,64 @@ html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]::after 
 }
 
 
+/* Wishlist + comparaison : icônes en cercle */
+.tvproduct-wishlist-compare {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tvproduct-wishlist-compare .tvproduct-wishlist a,
+.tvproduct-wishlist-compare .tvcmsproduct-compare-btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    padding: 0 !important;
+
+    border: 1px solid #d7d7d7 !important;
+    border-radius: 50% !important;
+    background: #ffffff !important;
+    color: #333333 !important;
+
+    box-shadow: none !important;
+    text-decoration: none !important;
+    transition: border-color .15s ease, color .15s ease, background-color .15s ease;
+}
+
+.tvproduct-wishlist-compare .tvproduct-wishlist-icon,
+.tvproduct-wishlist-compare .panel-product-line,
+.tvproduct-wishlist-compare .panel-product-actions {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.tvproduct-wishlist-compare i.material-icons {
+    font-size: 22px;
+    line-height: 1;
+    color: inherit !important;
+}
+
+.tvproduct-wishlist-compare .tvproduct-wishlist a:hover,
+.tvproduct-wishlist-compare .tvcmsproduct-compare-btn:hover {
+    border-color: #145078 !important;
+    background: #145078 !important;
+    color: #ffffff !important;
+}
+
+
 /*mailalert css end*/
 
