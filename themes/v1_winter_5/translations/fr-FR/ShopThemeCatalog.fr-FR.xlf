@@ -128,7 +128,7 @@ File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/t
       </trans-unit>
       <trans-unit id="b5a7adde1af5c87d7fd797b6245c2a39">
         <source>Description</source>
-        <target>La description</target>
+        <target>Description</target>
         <note>Context:
 File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/themes/tv_electronic_electron_1_7_v1/templates/catalog/product.tpl:186</note>
       </trans-unit>
