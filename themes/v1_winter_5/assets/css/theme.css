@@ -7753,7 +7753,7 @@ a:hover {
 .tabs .nav-tabs .nav-link.active,
 .tabs .nav-tabs .nav-link:hover {
     border: none;
-    border-bottom: 3px solid #222
+    border-bottom: 6px solid var(--spoc-primary) !important;
 }
 #blockcart-modal .product-name {
     color: #222;
@@ -11400,6 +11400,8 @@ data-toggle[tooltip] {
     display: block;
     text-align: center;
     border: none;
+    text-transform: uppercase;
+    border-bottom: 1px solid #f1f1f1;
 }
 .tvproduct-description-tab .nav-tabs li.nav-item {
     display: inline-block;

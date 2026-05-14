@@ -2133,7 +2133,8 @@ ul.wlp_bought_list li .product_infos .product-name {
     background: #fff;
     padding: 20px 40px;
     margin: 0;
-    border: 1px solid rgba(0, 0, 0, 0.07);
+   /* border: 1px solid rgba(0, 0, 0, 0.07);color: #9d9a9a;*/
+    font-weight: 500;
 }
 .pack-product-container .pack-product-name a {
     color: #373737;
@@ -10850,6 +10851,7 @@ span.tvcart-product-price,
 .tabs .nav-tabs .nav-link.active {
     color: var(--spoc-primary) !important;
     border-bottom-color: var(--spoc-primary) !important;
+    font-weight: 700;
 }
 
 /******************************************************
