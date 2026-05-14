@@ -12302,7 +12302,7 @@ html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]::after 
 .tvproduct-wishlist-compare .tvproduct-wishlist a:hover,
 .tvproduct-wishlist-compare .tvcmsproduct-compare-btn:hover {
     border-color: #145078 !important;
-    background: #145078 !important;
+   /* background: #145078 !important;*/
     color: #ffffff !important;
 }
 
