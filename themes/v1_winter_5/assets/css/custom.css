@@ -12470,4 +12470,144 @@ body#product #block-reassurance .block-reassurance-item {
   }
 }
 
+/* Product page: sticky add-to-cart bottom bar */
+body#product .tvfooter-product-sticky-bottom.sticky {
+  position: fixed !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  z-index: 95 !important;
+  display: block !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #ffffff !important;
+  border-top: 1px solid #e5e5e5 !important;
+  box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.12) !important;
+}
+
+body#product .tvfooter-product-sticky-bottom.sticky .container {
+  width: 100% !important;
+  max-width: 1400px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+body#product .tvfooter-product-sticky-bottom.sticky .tvflex-items {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 20px !important;
+}
+
+body#product .tvfooter-product-sticky-bottom.sticky .tvproduct-image-title-price {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  min-width: 0 !important;
+}
+
+body#product .tvfooter-product-sticky-bottom.sticky .product-image {
+  flex: 0 0 auto !important;
+  margin: 0 12px 0 0 !important;
+}
+
+body#product .tvfooter-product-sticky-bottom.sticky .product-image img {
+  display: block !important;
+  width: 56px !important;
+  height: 56px !important;
+  object-fit: cover !important;
+}
+
+body#product .tvfooter-product-sticky-bottom.sticky .tvtitle-price {
+  min-width: 0 !important;
+}
+
+body#product .tvfooter-product-sticky-bottom.sticky .tvtitle-price .h1 {
+  margin: 0 0 2px !important;
+  overflow: hidden !important;
+  font-size: 15px !important;
+  line-height: 1.2 !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+body#product .tvfooter-product-sticky-bottom.sticky .product-prices,
+body#product .tvfooter-product-sticky-bottom.sticky .product-price {
+  margin: 0 !important;
+}
+
+body#product .tvfooter-product-sticky-bottom.sticky #bottom_sticky_data form {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;
+  margin: 0 !important;
+}
+
+body#product .tvfooter-product-sticky-bottom.sticky .product-variants,
+body#product .tvfooter-product-sticky-bottom.sticky .product-add-to-cart {
+  margin: 0 !important;
+}
+
+body#product .tvfooter-product-sticky-bottom.sticky .product-variants > .product-variants-item {
+  display: flex !important;
+  align-items: center !important;
+  margin: 0 !important;
+}
+
+body#product .tvfooter-product-sticky-bottom.sticky .product-variants .control-label {
+  margin: 0 10px 0 0 !important;
+  white-space: nowrap !important;
+}
+
+body#product .tvfooter-product-sticky-bottom.sticky .product-variants ul {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin: 0 !important;
+}
+
+body#product .tvfooter-product-sticky-bottom.sticky .product-add-to-cart .tvwishlist-compare-wrapper-page {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin: 0 !important;
+}
+
+body#product .tvfooter-product-sticky-bottom.sticky .tax-shipping-delivery-label,
+body#product .tvfooter-product-sticky-bottom.sticky .tvproduct-stock-social {
+  display: none !important;
+}
+
+body#product {
+  padding-bottom: 88px;
+}
+
+@media (max-width: 991px) {
+  body#product .tvfooter-product-sticky-bottom.sticky .tvflex-items,
+  body#product .tvfooter-product-sticky-bottom.sticky #bottom_sticky_data form {
+    align-items: stretch !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  body#product .tvfooter-product-sticky-bottom.sticky .tvproduct-image-title-price {
+    display: none !important;
+  }
+
+  body#product .tvfooter-product-sticky-bottom.sticky .product-variants > .product-variants-item,
+  body#product .tvfooter-product-sticky-bottom.sticky .product-add-to-cart .tvwishlist-compare-wrapper-page {
+    justify-content: center !important;
+  }
+
+  body#product .tvfooter-product-sticky-bottom.sticky .tvcart-btn-model,
+  body#product .tvfooter-product-sticky-bottom.sticky .add-to-cart {
+    width: 100% !important;
+  }
+
+  body#product {
+    padding-bottom: 145px;
+  }
+}
+
 /*mailalert css end*/
