@@ -12830,5 +12830,11 @@ body#product #product-details .data-sheet dd.value {
   font-weight: 700 !important;
 }
 
+/* Product page: logo plus petit */
+body#product #product-details .product-manufacturer img {
+  display: block;
+  max-width: 90px !important;
+  height: auto !important;
+}
 
 /*mailalert css end*/

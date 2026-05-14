@@ -8816,13 +8816,14 @@ a:hover {
     word-break: normal;
     /* text-transform: capitalize; */
     margin-bottom: .7rem;
-    border: 1px solid #000000;
+    border: 1px solid #f1f1f1;
     font-size: 0.7rem;
     text-align: center;
     color: #000;
     align-items: center;
     display: grid;
     justify-content: center;
+    font-weight: 400;
 }
 
 .product-features-page>dl.data-sheet-product dd.value-feature:nth-of-type(2n),
