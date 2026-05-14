@@ -76,14 +76,23 @@
   {/block}
 
   {block name='product_features'}
-    {if $product.grouped_features}
+    {if $product.grouped_features || $product.condition}
       <div class="product-features">
         <p class="h6">{l s='Data sheet' d='Shop.Theme.Catalog'}</p>
         <dl class="data-sheet">
-          {foreach from=$product.grouped_features item=feature}
-            <dt class="name">{$feature.name}</dt>
-            <dd class="value">{$feature.value|escape:'htmlall'|nl2br nofilter}</dd>
-          {/foreach}
+          {if $product.grouped_features}
+           {foreach from=$product.grouped_features item=feature}
+              <dt class="name">{$feature.name}</dt>
+              <dd class="value">{$feature.value|escape:'htmlall'|nl2br nofilter}</dd>
+            {/foreach}
+          {/if}
+          {if $product.condition}
+            <dt class="name">{l s='Condition' d='Shop.Theme.Catalog'}</dt>
+            <dd class="value">
+              <link itemprop="itemCondition" href="{$product.condition.schema_url}"/>
+              {$product.condition.label}
+            </dd>
+          {/if}
         </dl>
       </div>
     {/if}
@@ -104,14 +113,6 @@
     {/if}
   {/block}
 
-  {block name='product_condition'}
-    {if $product.condition}
-      <div class="product-condition">
-        <label class="label">{l s='Condition' d='Shop.Theme.Catalog'} </label>
-        <link itemprop="itemCondition" href="{$product.condition.schema_url}"/>
-        <span>{$product.condition.label}</span>
-      </div>
-    {/if}
-  {/block}
+  {block name='product_condition'}{/block}
 </div>
 {/strip}

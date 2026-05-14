@@ -12646,7 +12646,7 @@ body#product .tvfooter-product-sticky-bottom.sticky .product-price-discount span
 
 body#product .tvfooter-product-sticky-bottom.sticky .discount {
   display: inline-block !important;
-  margin-left: 6px !important;
+  margin-left: 0px !important;
   padding: 2px 6px !important;
   font-size: 10px !important;
   line-height: 1.1 !important;
@@ -12833,7 +12833,7 @@ body#product #product-details .data-sheet dd.value {
 /* Product page: logo plus petit */
 body#product #product-details .product-manufacturer img {
   display: block;
-  max-width: 90px !important;
+  max-width: 60px !important;
   height: auto !important;
 }
 
