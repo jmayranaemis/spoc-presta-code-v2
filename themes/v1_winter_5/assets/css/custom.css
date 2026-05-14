@@ -12176,7 +12176,7 @@ html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]::after 
     justify-content: center;
 
     min-width: 75px;
-    min-height: 45px;
+    min-height: 40px;
     padding: 0 14px;
 
     border: 1px solid #d7d7d7 !important;
@@ -12234,8 +12234,8 @@ html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]::after 
     top: 50%;
     left: -8px;
     width: calc(100% + 16px);
-    height: 2px;
-    background: #9a9a9a;
+    height: 0.5px;
+    background: #bfbebe;
     transform: rotate(-32deg);
     pointer-events: none;
 }
