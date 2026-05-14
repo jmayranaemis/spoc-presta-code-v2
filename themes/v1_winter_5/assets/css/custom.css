@@ -4622,7 +4622,7 @@ body#checkout .custom-checkbox {
     .tv-main-div #wrapper .container {
         max-width: 100%;
         padding: 0 45px;
-        margin-top: 15px;
+        margin-top: 30px;
     }
 }
 @media (min-width: 1024px) and (max-width: 1661px) {
@@ -12394,6 +12394,82 @@ html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]::after 
     color: #ffffff !important;
 }
 
+/* Product page: bouton panier flexible avec wishlist/compare fixes */
+body#product .tv-product-page-content .product-add-to-cart {
+  width: 100% !important;
+}
+
+body#product .tv-product-page-content .product-add-to-cart .tv-product-page-add-to-cart-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  width: 100% !important;
+  margin: 0 0 25px !important;
+  padding: 0 !important;
+}
+
+body#product .tv-product-page-content .product-add-to-cart .tvcart-btn-model {
+  float: none !important;
+  display: flex !important;
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+}
+
+body#product .tv-product-page-content .product-add-to-cart .add-to-cart,
+body#product .tv-product-page-content .product-add-to-cart .tvall-inner-btn.add-to-cart {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+}
+
+body#product .tv-product-page-content .product-add-to-cart .tvproduct-wishlist-compare {
+  display: flex !important;
+  flex: 0 0 auto !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body#product .tv-product-page-content .product-add-to-cart .tvproduct-stock-social {
+  display: none !important;
+}
+
+body#product .product-prices .spoc-product-availability {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  margin-top: 6px !important;
+  font-size: 13px !important;
+  line-height: 1.2 !important;
+  color: #25824d !important;
+}
+
+body#product .product-prices .spoc-product-availability i {
+  font-size: 18px !important;
+  line-height: 1 !important;
+}
+
+@media (max-width: 575px) {
+  body#product .tv-product-page-content .product-add-to-cart .tv-product-page-add-to-cart-wrapper {
+    flex-wrap: wrap !important;
+  }
+
+  body#product .tv-product-page-content .product-add-to-cart .tvcart-btn-model {
+    flex: 1 1 100% !important;
+  }
+
+  body#product .tv-product-page-content .product-add-to-cart .tvproduct-wishlist-compare {
+    justify-content: center !important;
+    width: 100% !important;
+  }
+}
+
 /* Product page: reassurance band */
 body#product #block-reassurance {
   clear: both !important;
@@ -12569,10 +12645,20 @@ body#product .tvfooter-product-sticky-bottom.sticky .product-price-discount span
 
 body#product .tvfooter-product-sticky-bottom.sticky .discount {
   display: inline-block !important;
-  margin-left: 0px !important;
+  margin-left: 6px !important;
   padding: 2px 6px !important;
   font-size: 10px !important;
   line-height: 1.1 !important;
+}
+
+body#product .tvfooter-product-sticky-bottom.sticky .spoc-product-availability {
+  margin-top: 2px !important;
+  font-size: 12px !important;
+  line-height: 1 !important;
+}
+
+body#product .tvfooter-product-sticky-bottom.sticky .spoc-product-availability i {
+  font-size: 16px !important;
 }
 
 body#product .tvfooter-product-sticky-bottom.sticky #bottom_sticky_data form {
@@ -12682,7 +12768,7 @@ body#product .tvfooter-product-sticky-bottom.sticky #product-availability {
   display: inline-flex !important;
   align-items: center !important;
   margin: 0 !important;
-  font-size: 10px !important;
+  font-size: 12px !important;
   line-height: 1 !important;
   white-space: nowrap !important;
 }
