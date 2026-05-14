@@ -84,6 +84,6 @@ $_MODULE['<{tvcmsproductcomments}prestashop>tvcmsproductcomments_70397c4b252a516
 $_MODULE['<{tvcmsproductcomments}prestashop>tvcmsproductcomments_94966d90747b97d1f0f206c98a8b1ac3'] = 'Envoyer';
 $_MODULE['<{tvcmsproductcomments}prestashop>tvcmsproductcomments_e81c4e4f2b7b93b481e13a8553c2ae1b'] = 'ou';
 $_MODULE['<{tvcmsproductcomments}prestashop>tvcmsproductcomments_ea4788705e6873b424c65e91c2846b19'] = 'Annuler';
-$_MODULE['<{tvcmsproductcomments}prestashop>tvcmsproductcomments_reviews_386c63a46d6366624b52265f0e829f78'] = 'La revue';
+$_MODULE['<{tvcmsproductcomments}prestashop>tvcmsproductcomments_reviews_386c63a46d6366624b52265f0e829f78'] = 'Avis';
 $_MODULE['<{tvcmsproductcomments}prestashop>tvcmsproductcomments_reviews_9899e05947eadb394deb1b450265c0e1'] = 'Avis';
 $_MODULE['<{tvcmsproductcomments}prestashop>tvcmsproductcomments_tab_34e80a799d144cfe4af46815e103f017'] = 'Avis';
