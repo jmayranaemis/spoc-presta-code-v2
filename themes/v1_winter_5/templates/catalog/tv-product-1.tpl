@@ -96,20 +96,6 @@
                         {* {/if} *}
                         {* {/if} *}
                     </div>
-                    {block name='product_availability'}
-                        {if $product.show_availability && $product.availability_message}
-                            <span id="product-availability">
-                                {if $product.availability == 'available'}
-                                    <i class="material-icons rtl-no-flip product-available">&#xE5CA;</i>
-                                {elseif $product.availability == 'last_remaining_items'}
-                                    <i class="material-icons product-last-items">&#xE002;</i>
-                                {else}
-                                    <i class="material-icons product-unavailable">&#xE14B;</i>
-                                {/if}
-                                {$product.availability_message}
-                            </span>
-                        {/if}
-                    {/block}
                     {* Input to refresh product HTML removed, block kept for compatibility with themes *}
                     {block name='product_refresh'}{/block}
                 </form>
