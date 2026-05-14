@@ -117,10 +117,11 @@
         </div>
         {* On laisse ce hook hors du formulaire pour éviter les conflits si un module injecte un <form> *}
         {hook h='displayCustomtab'}
-        {if !empty($product.specific_prices.from) && !empty($product.specific_prices.to) && $product.specific_prices.from != '0000-00-00 00:00:00' && $product.specific_prices.to != '0000-00-00 00:00:00'}
+         {if !empty($product.specific_prices.from) && !empty($product.specific_prices.to) && $product.specific_prices.from != '0000-00-00 00:00:00' && $product.specific_prices.to != '0000-00-00 00:00:00'}
             {include file='catalog/_partials/miniatures/product-timer.tpl' timer=$product.specific_prices.to}
         {/if}
     </div>
+
     <div class="col-12 tv-product-reassurance-band">
         {block name='hook_display_reassurance'}
             {hook h='displayReassurance'}
