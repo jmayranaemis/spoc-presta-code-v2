@@ -122,7 +122,7 @@
         {/if}
     </div>
 
-    <div class="col-12 tv-product-reassurance-band">
+    <div class=tv-product-reassurance-band">
         {block name='hook_display_reassurance'}
             {hook h='displayReassurance'}
         {/block}
