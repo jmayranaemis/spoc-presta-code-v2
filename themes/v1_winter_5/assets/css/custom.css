@@ -12308,37 +12308,6 @@ html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]::after 
     color: #ffffff !important;
 }
 
-body#product .tv-product-reassurance-band {
-  margin-top: 30px;
-}
-
-body#product .tv-product-reassurance-band #block-reassurance ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: stretch;
-  list-style: none;
-  margin: 0;
-  padding: 12px 0;
-}
-
-body#product .tv-product-reassurance-band #block-reassurance li {
-  flex: 1 1 160px;
-  padding: 0 14px;
-  border-right: 1px solid #e5e5e5;
-}
-
-body#product .tv-product-reassurance-band #block-reassurance li:last-child {
-  border-right: 0;
-}
-
-body#product .tv-product-reassurance-band .block-reassurance-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  text-align: center;
-}
 
 /*mailalert css end*/
 
