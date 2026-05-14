@@ -123,7 +123,7 @@
     </div>
 
     <div class="col-12 tv-product-reassurance-band">
-        {block name='hook_display_reassurance'}
+        {block name='hook_display_reassurance'}zoooooob
             {hook h='displayReassurance'}
         {/block}
     </div>
