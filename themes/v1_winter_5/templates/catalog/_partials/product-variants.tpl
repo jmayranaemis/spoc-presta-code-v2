@@ -8,18 +8,12 @@
  * It is also available through the world-wide-web at this URL:
  * https://opensource.org/licenses/AFL-3.0
  * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@prestashop.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
- * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to http://www.prestashop.com for more information.
+ * obtain it through the world-wide-web at this URL:
+ * https://opensource.org/licenses/AFL-3.0
  *
  * @author    PrestaShop SA <contact@prestashop.com>
  * @copyright 2007-2025 PrestaShop SA
- * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
+ * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License (AFL 3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {strip}
@@ -29,18 +23,38 @@
     {if !empty($group.attributes)}
     <div class="clearfix product-variants-item">
       <span class="control-label">{$group.name}</span>
+
       {if $group.group_type == 'select'}
         <select class="form-control form-control-select" id="group_{$id_attribute_group}" data-product-attribute="{$id_attribute_group}" name="group[{$id_attribute_group}]">
           {foreach from=$group.attributes key=id_attribute item=group_attribute}
-            <option value="{$id_attribute}" title="{$group_attribute.name}"{if $group_attribute.selected} selected="selected"{/if}>{$group_attribute.name}</option>
+            {assign var=is_unavailable value=false}
+            {if isset($group_attribute.available) && !$group_attribute.available}
+              {assign var=is_unavailable value=true}
+            {/if}
+            {if isset($group_attribute.disabled) && $group_attribute.disabled}
+              {assign var=is_unavailable value=true}
+            {/if}
+
+            <option value="{$id_attribute}" title="{$group_attribute.name}"{if $group_attribute.selected} selected="selected"{/if}{if $is_unavailable} disabled="disabled"{/if}>
+              {$group_attribute.name}
+            </option>
           {/foreach}
-        </select> 
+        </select>
+
       {elseif $group.group_type == 'color'}
         <ul id="group_{$id_attribute_group}">
           {foreach from=$group.attributes key=id_attribute item=group_attribute}
-            <li class="float-xs-left input-container">
-              <label>
-                <input class="input-color" type="radio" data-product-attribute="{$id_attribute_group}" name="group[{$id_attribute_group}]" value="{$id_attribute}"{if $group_attribute.selected} checked="checked"{/if}>
+            {assign var=is_unavailable value=false}
+            {if isset($group_attribute.available) && !$group_attribute.available}
+              {assign var=is_unavailable value=true}
+            {/if}
+            {if isset($group_attribute.disabled) && $group_attribute.disabled}
+              {assign var=is_unavailable value=true}
+            {/if}
+
+            <li class="float-xs-left input-container{if $is_unavailable} disabled unavailable{/if}">
+              <label{if $is_unavailable} aria-disabled="true"{/if}>
+                <input class="input-color" type="radio" data-product-attribute="{$id_attribute_group}" name="group[{$id_attribute_group}]" value="{$id_attribute}"{if $group_attribute.selected} checked="checked"{/if}{if $is_unavailable} disabled="disabled"{/if}>
                 <span {if $group_attribute.html_color_code}class="color" style="background-color: {$group_attribute.html_color_code}" {/if} {if $group_attribute.texture}class="color texture" style="background-image: url({$group_attribute.texture})" {/if}>
                   <span class="sr-only">{$group_attribute.name}</span>
                   <i class="material-icons rtl-no-flip checkbox-checked">&#xE5CA;</i>
@@ -49,12 +63,21 @@
             </li>
           {/foreach}
         </ul>
+
       {elseif $group.group_type == 'radio'}
         <ul id="group_{$id_attribute_group}">
           {foreach from=$group.attributes key=id_attribute item=group_attribute}
-            <li class="input-container float-xs-left">
-              <label>
-                <input class="input-radio" type="radio" data-product-attribute="{$id_attribute_group}" name="group[{$id_attribute_group}]" value="{$id_attribute}"{if $group_attribute.selected} checked="checked"{/if}>
+            {assign var=is_unavailable value=false}
+            {if isset($group_attribute.available) && !$group_attribute.available}
+              {assign var=is_unavailable value=true}
+            {/if}
+            {if isset($group_attribute.disabled) && $group_attribute.disabled}
+              {assign var=is_unavailable value=true}
+            {/if}
+
+            <li class="input-container float-xs-left{if $is_unavailable} disabled unavailable{/if}">
+              <label{if $is_unavailable} aria-disabled="true"{/if}>
+                <input class="input-radio" type="radio" data-product-attribute="{$id_attribute_group}" name="group[{$id_attribute_group}]" value="{$id_attribute}"{if $group_attribute.selected} checked="checked"{/if}{if $is_unavailable} disabled="disabled"{/if}>
                 <span class="radio-label">{$group_attribute.name}</span>
               </label>
             </li>
@@ -64,6 +87,6 @@
     </div>
     {/if}
   {/foreach}
-  </div>
+</div>
 {/if}
 {/strip}
