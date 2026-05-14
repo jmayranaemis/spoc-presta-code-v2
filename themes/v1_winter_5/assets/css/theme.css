@@ -8734,7 +8734,9 @@ a:hover {
 #product-availability {
     margin-top: .625rem;
     display: inline-block;
-    font-weight: 700
+    font-weight: 600;
+    font-size: 12px;
+    color:#12e009
 }
 #product-availability .material-icons {
     line-height: inherit
