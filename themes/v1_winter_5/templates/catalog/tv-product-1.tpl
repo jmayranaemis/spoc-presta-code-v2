@@ -1,13 +1,11 @@
 {strip}
 <div class="tvprduct-image-info-wrapper clearfix row product-1" data-product-layout="1">
     {hook h='displayProductTabVideo'}
-
     <div class="col-md-6 tv-product-page-image">
         {block name='product_cover_thumbnails'}
             {include file='catalog/_partials/product-cover-thumbnails.tpl'}
         {/block}
     </div>
-
     <div class="col-md-6 tv-product-page-content">
         <div class="tvproduct-title-brandimage" itemprop="itemReviewed" itemscope itemtype="http://schema.org/Thing">
             {block name='page_header_container'}
@@ -21,16 +19,13 @@
                     {else}
                         <span class="brand-text">SPOC</span>
                     {/if}
-
                     <h1 class="h1" itemprop="name">
                         {block name='page_title'}{$product.name}{/block}
                     </h1>
                 {/block}
-
                 {* Start Product Comment *}
                 {hook h='displayReviewProductList' product=$product}
                 {* End Product Comment *}
-
                 {block name='product_features'}
                     {if $product.grouped_features}
                         <div class="product-features-page">
@@ -45,22 +40,18 @@
                 {/block}
             {/block}
         </div>
-
         {block name='product_prices'}
             {include file='catalog/_partials/product-prices.tpl'}
         {/block}
-
         <div class="product-actions">
             {block name='product_buy'}
                 <form action="{$urls.pages.cart}" method="post" id="add-to-cart-or-refresh">
                     <input type="hidden" name="token" value="{$static_token}">
                     <input type="hidden" name="id_product" value="{$product.id}" id="product_page_product_id">
                     <input type="hidden" name="id_customization" value="{$product.id_customization}" id="product_customization_id">
-
                     {block name='product_variants'}
                         {include file='catalog/_partials/product-variants.tpl'}
                     {/block}
-
                     {if $product.is_customizable && count($product.customizations.fields)}
                         {block name='product_customization'}
                             <div class="product-information tvproduct-special-desc">
@@ -68,7 +59,6 @@
                             </div>
                         {/block}
                     {/if}
-
                     {block name='product_pack'}
                         {if $packItems}
                             <div class="product-pack">
@@ -81,15 +71,12 @@
                             </div>
                         {/if}
                     {/block}
-
                     {block name='product_discounts'}
                         {include file='catalog/_partials/product-discounts.tpl'}
                     {/block}
-
                     {block name='product_add_to_cart'}
                         {include file='catalog/_partials/product-add-to-cart.tpl'}
                     {/block}
-
                     <div class="tax-shipping-delivery-label">
                         {if $configuration.return_enabled}
                             {l s='Return policy:' d='Shop.Theme.Catalog'}{$configuration.number_of_days_for_return}
@@ -109,7 +96,6 @@
                         {* {/if} *}
                         {* {/if} *}
                     </div>
-
                     {block name='product_availability'}
                         {if $product.show_availability && $product.availability_message}
                             <span id="product-availability">
@@ -124,20 +110,18 @@
                             </span>
                         {/if}
                     {/block}
-
                     {* Input to refresh product HTML removed, block kept for compatibility with themes *}
                     {block name='product_refresh'}{/block}
                 </form>
             {/block}
         </div>
-
         {* On laisse ce hook hors du formulaire pour éviter les conflits si un module injecte un <form> *}
         {hook h='displayCustomtab'}
-
         {if !empty($product.specific_prices.from) && !empty($product.specific_prices.to) && $product.specific_prices.from != '0000-00-00 00:00:00' && $product.specific_prices.to != '0000-00-00 00:00:00'}
             {include file='catalog/_partials/miniatures/product-timer.tpl' timer=$product.specific_prices.to}
         {/if}
-
+    </div>
+    <div class="col-12 tv-product-reassurance-band">
         {block name='hook_display_reassurance'}
             {hook h='displayReassurance'}
         {/block}
