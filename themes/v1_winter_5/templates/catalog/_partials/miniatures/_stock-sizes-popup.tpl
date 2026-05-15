@@ -1,4 +1,6 @@
-{if !isset($spoc_stock_sizes)}
+{if isset($product.spoc_stock_sizes)}
+    {assign var=spoc_stock_sizes value=$product.spoc_stock_sizes}
+{elseif !isset($spoc_stock_sizes)}
     {assign var=spoc_stock_sizes value=false}
     {if isset($product.id_product) && $product.id_product}
         {assign var=stockInfoModule value=Module::getInstanceByName('tvcmsstockinfo')}
