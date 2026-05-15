@@ -704,6 +704,91 @@ class TvcmsStockInfo extends Module
         );
     }
 
+    public function getProductGridStockSizes($productId)
+    {
+        $productId = (int) $productId;
+        if ($productId <= 0) {
+            return [];
+        }
+
+        $idShop = (int) $this->context->shop->id;
+        $idLang = (int) $this->context->language->id;
+        $cacheKey = $productId . '_' . $idShop . '_' . $idLang . '_grid_stock_sizes';
+
+        if (Cache::isStored($cacheKey)) {
+            return Cache::retrieve($cacheKey);
+        }
+
+        $query = new DbQuery();
+        $query->select('pa.`id_product_attribute`, al.`name` as attribute_name');
+        $query->from('product_attribute', 'pa');
+        $query->innerJoin(
+            'product_attribute_shop',
+            'pas',
+            'pas.`id_product_attribute` = pa.`id_product_attribute` and pas.`id_shop` = ' . (int) $idShop
+        );
+        $query->innerJoin(
+            'product_attribute_combination',
+            'pac',
+            'pac.`id_product_attribute` = pa.`id_product_attribute`'
+        );
+        $query->innerJoin('attribute', 'a', 'a.`id_attribute` = pac.`id_attribute`');
+        $query->innerJoin(
+            'attribute_lang',
+            'al',
+            'al.`id_attribute` = a.`id_attribute` and al.`id_lang` = ' . (int) $idLang
+        );
+        $query->innerJoin(
+            'attribute_group_lang',
+            'agl',
+            'agl.`id_attribute_group` = a.`id_attribute_group` and agl.`id_lang` = ' . (int) $idLang
+        );
+        $query->where('pa.`id_product` = ' . (int) $productId);
+        $query->where(
+            "(lower(agl.`name`) like '%taille%'"
+            . " or lower(agl.`public_name`) like '%taille%'"
+            . " or lower(agl.`name`) like '%pointure%'"
+            . " or lower(agl.`public_name`) like '%pointure%'"
+            . " or lower(agl.`name`) like '%size%'"
+            . " or lower(agl.`public_name`) like '%size%')"
+        );
+        $query->orderBy('a.`position` asc, al.`name` asc');
+
+        $rows = Db::getInstance()->executeS($query);
+        if (empty($rows)) {
+            Cache::store($cacheKey, []);
+
+            return [];
+        }
+
+        $sizes = [];
+        foreach ($rows as $row) {
+            $quantity = (int) StockAvailable::getQuantityAvailableByProduct(
+                $productId,
+                (int) $row['id_product_attribute']
+            );
+
+            if ($quantity <= 0 || empty($row['attribute_name'])) {
+                continue;
+            }
+
+            $name = trim($row['attribute_name']);
+            if (!isset($sizes[$name])) {
+                $sizes[$name] = [
+                    'name' => $name,
+                    'quantity' => 0,
+                ];
+            }
+
+            $sizes[$name]['quantity'] += $quantity;
+        }
+
+        $sizes = array_values($sizes);
+        Cache::store($cacheKey, $sizes);
+
+        return $sizes;
+    }
+
     protected function getProductVariantsQuantity($productId)
     {
         $table = _DB_PREFIX_ . 'product_attribute';
