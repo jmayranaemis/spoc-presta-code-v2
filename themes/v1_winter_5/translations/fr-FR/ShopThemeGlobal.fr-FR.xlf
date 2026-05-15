@@ -82,7 +82,7 @@ File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/t
     <body>
       <trans-unit id="34c869c542dee932ef8cd96d2f91cae6">
         <source>Our stores</source>
-        <target>Nos magasins</target>
+        <target>Magasin</target>
         <note>Context:
 File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/themes/tv_electronic_electron_1_7_v1/templates/cms/stores.tpl:29</note>
       </trans-unit>
