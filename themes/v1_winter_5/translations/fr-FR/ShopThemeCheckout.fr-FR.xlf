@@ -504,7 +504,7 @@ File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/t
       </trans-unit>
       <trans-unit id="ef5febb834c98ccf8d7fa88f33f77aef">
         <source>Your Cart: </source>
-        <target>Your Cart: </target>
+        <target>Mon panier: </target>
         <note>Context:
 File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/themes/tv_electronic_electron_1_7_v1/modules/ps_shoppingcart/ps_shoppingcart.tpl:52</note>
       </trans-unit>
@@ -538,13 +538,13 @@ File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/a
       </trans-unit>
       <trans-unit id="57c1fee9db05c07a96c99d9260d38d6d">
         <source>View cart</source>
-        <target>Voir le panier</target>
+        <target>Mon panier</target>
         <note>Context:
 File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/admin650ry5qno:</note>
       </trans-unit>
       <trans-unit id="7e0bf6d67701868aac3116ade8fea957">
         <source>Proceed to checkout</source>
-        <target>Passer à la caisse</target>
+        <target>Paiement</target>
         <note>Context:
 File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/admin650ry5qno:</note>
       </trans-unit>
