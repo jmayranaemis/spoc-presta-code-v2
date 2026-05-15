@@ -31,15 +31,23 @@
 
 {block name='product_miniature_item'}
 <article class="{if !isset($tab_slider)}item{/if} {if !empty($double_row) && $double_row == true}tvtab-first-product{/if} product-miniature js-product-miniature {$col} tvall-product-wrapper-info-box" data-id-product="{$product.id_product}" data-id-product-attribute="{$product.id_product_attribute}" itemscope itemtype="http://schema.org/Product">
+	{assign var=spocStockSizes value=false}
+	{if isset($product.id_product) && $product.id_product}
+		{assign var=stockInfoModule value=Module::getInstanceByName('tvcmsstockinfo')}
+		{if $stockInfoModule}
+			{assign var=spocStockSizes value=$stockInfoModule->getProductGridStockSizes($product.id_product)}
+		{/if}
+	{/if}
+
 	<div class="thumbnail-container">
 		
 		{* Start Grid View *}	
-		{include file='catalog/_partials/miniatures/product-grid-view.tpl' class_name='grid'  product=$product image_size='home_default'}
+		{include file='catalog/_partials/miniatures/product-grid-view.tpl' class_name='grid'  product=$product image_size='home_default' spoc_stock_sizes=$spocStockSizes}
 		{* End Grid View *}
 
 			{if empty($tv_product_type)}
 				{* Start Grid-2 View *}
-				{include file='catalog/_partials/miniatures/product-grid-view2.tpl' class_name='grid-2' product=$product image_size='medium_default'}
+				{include file='catalog/_partials/miniatures/product-grid-view2.tpl' class_name='grid-2' product=$product image_size='medium_default' spoc_stock_sizes=$spocStockSizes}
 				{* End Grid-2 View *}
 
 				{* Start List View *}
