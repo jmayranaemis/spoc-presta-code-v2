@@ -1433,6 +1433,17 @@ class TvcmsCategoryProduct extends Module
             );
         }
 
+        $stockInfoModule = Module::getInstanceByName('tvcmsstockinfo');
+        if ($stockInfoModule && method_exists($stockInfoModule, 'getProductGridStockSizes')) {
+            foreach ($product_list as $key => $product) {
+                if (!empty($product['id_product'])) {
+                    $product_list[$key]['spoc_stock_sizes'] = $stockInfoModule->getProductGridStockSizes(
+                        (int) $product['id_product']
+                    );
+                }
+            }
+        }
+
         $cart_page_url = $this->context->link->getPageLink(
             'cart',
             null,

@@ -141,16 +141,7 @@
                     {/if}
                 </div>
                 {/block}
-                {if isset($spoc_stock_sizes) && $spoc_stock_sizes && $spoc_stock_sizes|count}
-                <div class="spoc-grid-stock-popup" aria-hidden="true">
-                    <div class="spoc-grid-stock-title">{l s='Tailles disponibles' d='Shop.Theme.Catalog'}</div>
-                    <ul class="spoc-grid-stock-list">
-                        {foreach from=$spoc_stock_sizes item=stock_size}
-                        <li class="spoc-grid-stock-size">{$stock_size.name|escape:'html':'UTF-8'}</li>
-                        {/foreach}
-                    </ul>
-                </div>
-                {/if}
+                {include file='catalog/_partials/miniatures/_stock-sizes-popup.tpl' product=$product}
             </div>
             <div class="tv-product-price-info-box">
                 {* Start Product Stock Indicator *}
