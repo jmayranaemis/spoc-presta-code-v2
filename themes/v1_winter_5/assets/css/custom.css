@@ -1087,6 +1087,71 @@ span.tvcart-product-price {
     -o-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;*/
 }
+
+.spoc-grid-stock-popup {
+    position: absolute;
+    top: 48px;
+    left: 12px;
+    right: 12px;
+    z-index: 30;
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(20, 80, 120, 0.18);
+    border-radius: 4px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+}
+
+.tvproduct-wrapper.grid:hover .spoc-grid-stock-popup,
+.tvproduct-wrapper.grid:focus-within .spoc-grid-stock-popup,
+.tvproduct-wrapper.grid-2:hover .spoc-grid-stock-popup,
+.tvproduct-wrapper.grid-2:focus-within .spoc-grid-stock-popup {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.spoc-grid-stock-title {
+    margin-bottom: 7px;
+    color: var(--spoc-primary, #145078);
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.spoc-grid-stock-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.spoc-grid-stock-size {
+    min-width: 30px;
+    padding: 4px 8px;
+    border: 1px solid rgba(20, 80, 120, 0.22);
+    border-radius: 3px;
+    background: #f7fafc;
+    color: #1e2933;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+}
+
+@media (hover: none) {
+    .spoc-grid-stock-popup {
+        display: none;
+    }
+}
+
 .products.owl-carousel.owl-drag .owl-item:hover,
 .tvtabcategory-all-product-slider .owl-item:hover {
     position: relative;
