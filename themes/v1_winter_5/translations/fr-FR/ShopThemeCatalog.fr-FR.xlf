@@ -112,7 +112,7 @@ File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/t
     <body>
       <trans-unit id="f2fdea440d768b85591e936a803c3631">
         <source>Sign In</source>
-        <target>Se connecter</target>
+        <target>S'identifier</target>
         <note>Context:
 File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/themes/tv_electronic_electron_1_7_v1/templates/_partials/header.tpl:78</note>
       </trans-unit>
