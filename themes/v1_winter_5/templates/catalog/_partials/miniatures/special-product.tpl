@@ -183,6 +183,7 @@
                         {/if}
                     </div>
                     {/block}
+                    {include file='catalog/_partials/miniatures/_stock-sizes-popup.tpl' product=$product}
                 </div>
                 <div class="tv-product-price-info-box">
                     {* Start Product Stock Indicator *}
