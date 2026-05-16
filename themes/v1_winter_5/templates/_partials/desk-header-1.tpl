@@ -82,8 +82,8 @@
                                         <span>{l s='Sign In' d='Shop.Theme.Catalog'}</span>
                                         {/if}
                                     </button>
-                                    <ul class="dropdown-menu tv-account-dropdown tv-dropdown {if !$customer.is_logged}spoc-account-panel{/if}">
-                                        {if $customer.is_logged}
+                                    {if $customer.is_logged}
+                                    <ul class="dropdown-menu tv-account-dropdown tv-dropdown">
                                         <li class="tvcms-signin"><a href="{$urls.pages.my_account}" class="tvmyccount"><i class="material-icons">&#xe7fd;</i>{l s='My Account' d='Shop.Theme.Catalog'}</a></li>
                                             {* <li>{hook h='displayNavWishlistBlock'}</li>
                                             <li>{hook h='displayNavProductCompareBlock'}</li> *}
@@ -92,22 +92,25 @@
                                             <li class="tvheader-compare ">{hook h='displayNavProductCompareBlock'}</li>
                                             <li class="tvheader-language hidden-lg-up"></li>
                                             <li class="tvheader-currency hidden-lg-up"></li>
-                                        {else}
-                                            <li class="spoc-account-panel-item">
-                                                <div class="spoc-account-panel-header">
-                                                    <button type="button" class="spoc-account-close" aria-label="{l s='Close' d='Shop.Theme.Actions'}"></button>
-                                                    <div class="spoc-account-panel-title">
-                                                        {l s='Account' d='Shop.Theme.Catalog'}
-                                                    </div>
-                                                </div>
-                                                <div class="spoc-account-panel-content">
-                                                    <a class="spoc-account-primary" href="{$urls.pages.my_account}">
-                                                        {l s='Sign In' d='Shop.Theme.Catalog'}
-                                                    </a>
-                                                </div>
-                                            </li>
-                                        {/if}
                                     </ul>
+                                    {else}
+                                    <div class="ttvcmscart-show-dropdown-right spoc-account-drawer">
+                                        <div class="ttvcart-scroll-container">
+                                            <div class="ttvcart-close-title-count">
+                                                <button type="button" class="ttvclose-cart spoc-account-close" aria-label="{l s='Close' d='Shop.Theme.Actions'}"></button>
+                                                <div class="ttvcart-top-title">
+                                                    <h4>{l s='Account' d='Shop.Theme.Catalog'}</h4>
+                                                </div>
+                                                <div class="spoc-account-header-spacer" aria-hidden="true"></div>
+                                            </div>
+                                            <div class="ttvcart-product-content-box ttvscroll-container spoc-account-drawer-content">
+                                                <a class="spoc-account-primary" href="{$urls.pages.my_account}">
+                                                    {l s='Sign In' d='Shop.Theme.Catalog'}
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/if}
                                 </div>
                                 {/if}
                             </div>
