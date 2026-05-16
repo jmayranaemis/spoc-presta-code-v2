@@ -104,19 +104,19 @@
                                                 <div class="spoc-account-header-spacer" aria-hidden="true"></div>
                                             </div>
                                             <div class="ttvcart-product-content-box ttvscroll-container spoc-account-drawer-content">
-                                                <form class="spoc-account-login-form" action="{$urls.pages.authentication}" method="post">
-                                                    <div class="spoc-account-field">
-                                                        <label for="spoc-header-login-email">{l s='Adresse e-mail' d='Shop.Forms.Labels'}</label>
-                                                        <input id="spoc-header-login-email" class="form-control" type="email" name="email" autocomplete="email" required>
+                                                <form class="login-form spoc-account-login-form" action="{$urls.pages.authentication}" method="post">
+                                                    <div class="form-group spoc-account-field">
+                                                        <label class="form-control-label required" for="spoc-header-login-email">{l s='Adresse e-mail' d='Shop.Forms.Labels'}</label>
+                                                        <input id="spoc-header-login-email" class="form-control" type="email" name="email" autocomplete="email" placeholder="{l s='Adresse e-mail' d='Shop.Forms.Labels'}" required>
                                                     </div>
-                                                    <div class="spoc-account-field">
-                                                        <label for="spoc-header-login-password">{l s='Mot de passe' d='Shop.Forms.Labels'}</label>
-                                                        <input id="spoc-header-login-password" class="form-control" type="password" name="password" autocomplete="current-password" required>
+                                                    <div class="form-group spoc-account-field">
+                                                        <label class="form-control-label required" for="spoc-header-login-password">{l s='Mot de passe' d='Shop.Forms.Labels'}</label>
+                                                        <input id="spoc-header-login-password" class="form-control" type="password" name="password" autocomplete="current-password" placeholder="{l s='Mot de passe' d='Shop.Forms.Labels'}" required>
                                                     </div>
                                                     <input type="hidden" name="submitLogin" value="1">
                                                     <input type="hidden" name="back" value="{$urls.current_url|escape:'html':'UTF-8'}">
-                                                    <button class="spoc-account-primary" data-link-action="sign-in" type="submit">
-                                                        {l s="S'identifier" d='Shop.Theme.Actions'}
+                                                    <button class="tvall-inner-btn form-control-submit spoc-account-primary" data-link-action="sign-in" type="submit">
+                                                        <span>{l s="S'identifier" d='Shop.Theme.Actions'}</span>
                                                     </button>
                                                     <a class="spoc-account-forgot-link" href="{$urls.pages.password}" rel="nofollow">
                                                         {l s='Mot de passe oublié ?' d='Shop.Theme.Customeraccount'}
