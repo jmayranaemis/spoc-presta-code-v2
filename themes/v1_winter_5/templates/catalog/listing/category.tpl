@@ -69,4 +69,9 @@
     {/if}
     {/if}
     {/block}
+    {block name='product_list_page_bottom'}
+    <div class="spoc-category-bottom-banners">
+        {hook h='displayReassurance'}
+    </div>
+    {/block}
     {/strip}
