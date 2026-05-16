@@ -211,17 +211,9 @@
 
                         </div>
 
-                        {assign var=checkoutUrl value=$cart_url}
-                        {if isset($urls.pages.order) && $urls.pages.order}
-                            {assign var=checkoutUrl value=$urls.pages.order}
-                        {/if}
-
                         <div class="ttvcart-product-list-btn-wrapper spoc-cart-actions">
                             <a class="ttvcart-product-list-viewcart spoc-cart-secondary" href="{$cart_url}">
                                 {l s='View Cart' d='Shop.Theme.Actions'}
-                            </a>
-                            <a class="spoc-cart-primary" href="{$checkoutUrl}">
-                                {l s='Commander' d='Shop.Theme.Actions'}
                             </a>
                         </div>
 

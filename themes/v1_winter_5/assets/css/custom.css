@@ -12452,9 +12452,7 @@ html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]::after 
 }
 
 .ttvcart-product-list-btn-wrapper.spoc-cart-actions {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    display: block;
     padding: 16px 20px 20px;
 }
 
@@ -12470,6 +12468,7 @@ html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]::after 
     line-height: 1;
     letter-spacing: 0;
     text-decoration: none;
+    width: 100%;
 }
 
 .ttvcart-product-list-btn-wrapper.spoc-cart-actions .spoc-cart-secondary {
@@ -12478,14 +12477,7 @@ html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]::after 
     color: #145078;
 }
 
-.ttvcart-product-list-btn-wrapper.spoc-cart-actions .spoc-cart-primary {
-    border: 1px solid #145078;
-    background: #145078;
-    color: #ffffff;
-}
-
-.ttvcart-product-list-btn-wrapper.spoc-cart-actions .spoc-cart-secondary:hover,
-.ttvcart-product-list-btn-wrapper.spoc-cart-actions .spoc-cart-primary:hover {
+.ttvcart-product-list-btn-wrapper.spoc-cart-actions .spoc-cart-secondary:hover {
     filter: brightness(0.96);
 }
 
