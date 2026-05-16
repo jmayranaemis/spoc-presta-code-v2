@@ -879,7 +879,13 @@ $(document).on('click', '.tvproduct-cart-btn', function() {
     dropDownParentClass = '.tv-account-wrapper';
     dropDownClass = '.tv-account-dropdown';
     $('.tv-account-dropdown').hide();
-    tvDropDownCommon(dropDownParentClass, dropDownClass, true, false);
+    tvDropDown(dropDownParentClass, dropDownClass, true, false);
+    $(document).on('click', '.spoc-account-close', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        tvDropDownClose('.tv-account-wrapper', '.tv-account-dropdown', true, false);
+        $('body').removeClass('dropdown-open');
+    });
     /******* Start Language DropDown js *******/
     dropDownParentClass = '.tvcms-header-language .tvheader-language-btn-wrapper';
     dropDownClass = '.tv-language-dropdown';
