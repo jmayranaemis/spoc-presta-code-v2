@@ -3120,7 +3120,7 @@ body.classicCartOpen .ttvcmscart-show-dropdown-right+.modal-backdrop-cart {
     -o-transition: all 300ms ease-in-out;
     transition: all 300ms ease-in-out;
 }
-body.classicCartOpen .ttvcmscart-show-dropdown-right {
+body.classicCartOpen .ttvcmscart-show-dropdown-right.open {
     right: 0;
     visibility: visible;
 }
@@ -8074,7 +8074,7 @@ body#checkout section.checkout-step .address-footer {
 .lang-rtl .tabs .nav-tabs .nav-item {
     float: right;
 }
-body.lang-rtl.classicCartOpen .ttvcmscart-show-dropdown-right {
+body.lang-rtl.classicCartOpen .ttvcmscart-show-dropdown-right.open {
     right: auto;
     left: 0;
 }
@@ -12415,44 +12415,34 @@ html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]::after 
     box-shadow: 0 14px 34px rgba(15, 23, 42, 0.14);
 }
 
-#header .tvcmsdesktop-top-second .tv-account-dropdown.spoc-account-panel {
-    right: 0;
-    left: auto;
-    min-width: 320px;
-    padding: 0;
-    overflow: hidden;
-}
-
 #header .tvcmsdesktop-top-second .tv-account-dropdown li {
     margin: 0;
 }
 
-#header .tvcmsdesktop-top-second .spoc-account-panel-item {
-    list-style: none;
-}
-
-#header .tvcmsdesktop-top-second .spoc-account-panel-header {
+#header .tvcmsdesktop-top-second .spoc-account-drawer .ttvcart-close-title-count {
     min-height: 56px;
-    position: relative;
+    height: 56px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 14px 52px;
+    justify-content: space-between;
+    padding: 0 14px;
     border-bottom: 1px solid rgba(20, 80, 120, 0.1);
 }
 
 #header .tvcmsdesktop-top-second .spoc-account-close {
     width: 34px;
     height: 34px;
-    position: absolute;
-    left: 14px;
-    top: 50%;
+    position: relative;
+    flex: 0 0 34px;
+    left: auto;
+    top: auto;
     padding: 0;
     border: 0;
     border-radius: 50%;
     background: transparent;
+    background-image: none;
     cursor: pointer;
-    transform: translateY(-50%);
+    transform: none;
 }
 
 #header .tvcmsdesktop-top-second .spoc-account-close::before,
@@ -12479,14 +12469,17 @@ html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]::after 
     background: #f7fafc;
 }
 
-#header .tvcmsdesktop-top-second .spoc-account-panel-title {
-    color: #1c191c;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1;
+#header .tvcmsdesktop-top-second .spoc-account-header-spacer {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
 }
 
-#header .tvcmsdesktop-top-second .spoc-account-panel-content {
+#header .tvcmsdesktop-top-second .spoc-account-drawer .ttvcart-top-title h4 {
+    color: #1c191c;
+}
+
+#header .tvcmsdesktop-top-second .spoc-account-drawer-content {
     padding: 20px;
 }
 

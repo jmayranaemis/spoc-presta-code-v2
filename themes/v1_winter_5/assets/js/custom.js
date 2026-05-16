@@ -667,6 +667,10 @@ $(document).on('click', '.tvproduct-cart-btn', function() {
         $('#header .tv-account-dropdown').removeClass('open');
         $('#header').find('.tvcms-header-myaccount .tv-myaccount-btn').removeClass('open');
         $('#header').find('.tvcms-header-myaccount .tv-account-dropdown').removeClass('open').hide();
+        $('#header').find('.tvcms-header-myaccount .spoc-account-drawer').removeClass('open');
+        if (!$('#_desktop_cart .ttvcmscart-show-dropdown-right').hasClass('open')) {
+            $('body').removeClass('classicCartOpen');
+        }
         // Header Search Dropdown
         $('#header .tvcmsheader-search .tvsearch-open').show();
         $('#header .tvcmsheader-search .tvsearch-close').hide();
@@ -764,6 +768,7 @@ $(document).on('click', '.tvproduct-cart-btn', function() {
             $('.tvmobile-slidebar').removeClass('open');
             $('body').removeClass('mobile-menu-open');
             $('.ttvcmscart-show-dropdown-right').removeClass('open');
+            $('#header').find('.tvcms-header-myaccount .tv-myaccount-btn').removeClass('open');
             $('body').removeClass('classicCartOpen');
             $('body').removeClass('footerCartOpen');
         }
@@ -876,14 +881,47 @@ $(document).on('click', '.tvproduct-cart-btn', function() {
         });
     }
     /******* Start Account DropDown js *******/
-    dropDownParentClass = '.tv-account-wrapper';
-    dropDownClass = '.tv-account-dropdown';
     $('.tv-account-dropdown').hide();
-    tvDropDown(dropDownParentClass, dropDownClass, true, false);
-    $(document).on('click', '.spoc-account-close', function(e) {
+    $(document).on('click', '.tv-account-wrapper .tv-myaccount-btn', function(e) {
+        var $accountWrapper = $(this).closest('.tv-account-wrapper');
+        var $accountDrawer = $accountWrapper.find('.spoc-account-drawer');
+        var $accountDropdown = $accountWrapper.find('.tv-account-dropdown');
+        var accountDrawerIsOpen = $accountDrawer.hasClass('open');
+        var accountDropdownIsOpen = $accountDropdown.hasClass('open') || $accountDropdown.is(':visible');
+
         e.preventDefault();
         e.stopPropagation();
-        tvDropDownClose('.tv-account-wrapper', '.tv-account-dropdown', true, false);
+
+        removeDefaultDropdown();
+        $('#_desktop_cart .ttvcmscart-show-dropdown-right').removeClass('open');
+        $('body').removeClass('classicCartOpen');
+        $('body').removeClass('footerCartOpen');
+
+        if ($accountDrawer.length) {
+            if (accountDrawerIsOpen) {
+                $('body').removeClass('classicCartOpen');
+                return;
+            }
+
+            $accountDrawer.addClass('open');
+            $(this).addClass('open');
+            $('body').addClass('classicCartOpen');
+            return;
+        }
+
+        if ($accountDropdown.length && !accountDropdownIsOpen) {
+            $accountDropdown.addClass('open').stop(false, true).slideDown(100, 'swing');
+            $(this).addClass('open');
+            $('body').addClass('dropdown-open');
+        }
+    });
+    $(document).on('click', function(e) {
+        if ($(e.target).closest('.tv-account-wrapper').length) {
+            return;
+        }
+
+        $('#header').find('.tvcms-header-myaccount .tv-myaccount-btn').removeClass('open');
+        $('#header').find('.tvcms-header-myaccount .tv-account-dropdown').removeClass('open').hide();
         $('body').removeClass('dropdown-open');
     });
     /******* Start Language DropDown js *******/
@@ -1313,12 +1351,15 @@ $(document).on('click', '.tvproduct-cart-btn', function() {
     });
     $(document).on('click', '.ttvcmscart-show-dropdown-right .ttvclose-cart , .full-wrapper-backdrop', function() {
         $('.ttvcmscart-show-dropdown-right').removeClass('open');
+        $('#header').find('.tvcms-header-myaccount .tv-myaccount-btn').removeClass('open');
         $('body').removeClass('classicCartOpen');
         $('body').removeClass('footerCartOpen');
     });
     $(document).on('click', '.tvheader-cart-btn-wrapper', function() {
         removeDefaultDropdown();
-        $('.ttvcmscart-show-dropdown-right').addClass('open');
+        $('#header').find('.tvcms-header-myaccount .spoc-account-drawer').removeClass('open');
+        $('#header').find('.tvcms-header-myaccount .tv-myaccount-btn').removeClass('open');
+        $('#_desktop_cart .ttvcmscart-show-dropdown-right').addClass('open');
         $('body').removeClass('footerCartOpen');
         $('body').addClass('classicCartOpen');
     });
