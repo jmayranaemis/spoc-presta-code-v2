@@ -12291,6 +12291,214 @@ html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]::after 
     fill: none !important;
 }
 
+/* Header desktop : actions compte + panier */
+#header .tvcmsdesktop-top-second .tv-contact-account-cart-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    text-align: right;
+}
+
+#header .tvcmsdesktop-top-second #tvcmsdesktop-account-button,
+#header .tvcmsdesktop-top-second .tvcms-header-cart {
+    display: flex;
+    align-items: center;
+}
+
+#header .tvcmsdesktop-top-second .tv-account-wrapper,
+#header .tvcmsdesktop-top-second .tvheader-cart-wrapper {
+    padding: 20px 0;
+}
+
+#header .tvcmsdesktop-top-second .tv-myaccount-btn-desktop,
+#header .tvcmsdesktop-top-second .tvheader-cart-btn-wrapper > a {
+    min-height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 7px 11px;
+    border: 1px solid rgba(20, 80, 120, 0.18);
+    border-radius: 6px;
+    background: #ffffff;
+    color: #1c191c;
+    text-decoration: none;
+    transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+#header .tvcmsdesktop-top-second .tv-myaccount-btn-desktop {
+    flex-direction: row;
+}
+
+#header .tvcmsdesktop-top-second .tv-myaccount-btn-desktop:hover,
+#header .tvcmsdesktop-top-second .tv-myaccount-btn-desktop.open,
+#header .tvcmsdesktop-top-second .tvheader-cart-btn-wrapper > a:hover {
+    background: #f7fafc;
+    border-color: rgba(20, 80, 120, 0.36);
+    color: #145078;
+}
+
+#header .tvcmsdesktop-top-second .tv-myaccount-btn-desktop .spoc-account-icon,
+#header .tvcmsdesktop-top-second .tv-cart-icon-main .spoc-cart-icon {
+    display: block;
+    flex: 0 0 auto;
+}
+
+#header .tvcmsdesktop-top-second .tv-myaccount-btn-desktop .spoc-account-icon {
+    width: 28px;
+    height: 28px;
+}
+
+#header .tvcmsdesktop-top-second .tv-myaccount-btn-desktop .spoc-account-icon circle,
+#header .tvcmsdesktop-top-second .tv-myaccount-btn-desktop .spoc-account-icon path {
+    fill: none !important;
+    stroke: currentColor !important;
+}
+
+#header .tvcmsdesktop-top-second .tv-account-wrapper .tv-myaccount-btn span,
+#header .tvcmsdesktop-top-second .spoc-cart-label {
+    max-width: none;
+    color: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0;
+    text-align: left;
+    white-space: nowrap;
+}
+
+#header .tvcmsdesktop-top-second .tvcart-icon-text-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#header .tvcmsdesktop-top-second .tv-header-cart .tv-cart-icon {
+    margin-right: 0;
+}
+
+#header .tvcmsdesktop-top-second .tv-cart-icon-main {
+    color: #145078;
+}
+
+#header .tvcmsdesktop-top-second .tv-cart-icon-main .spoc-cart-icon {
+    width: 32px;
+    height: 32px;
+}
+
+#header .tvcmsdesktop-top-second .tv-cart-icon-main .spoc-cart-icon path {
+    fill: none !important;
+    stroke: currentColor !important;
+}
+
+#header .tvcmsdesktop-top-second .tv-cart-cart-inner {
+    top: -8px;
+    left: 23px;
+    width: 19px;
+    height: 19px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    background: #1c191c;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 15px;
+}
+
+#header .tvcmsdesktop-top-second .tv-account-dropdown {
+    min-width: 230px;
+    padding: 8px;
+    border: 1px solid rgba(20, 80, 120, 0.12);
+    border-radius: 6px;
+    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.14);
+}
+
+#header .tvcmsdesktop-top-second .tv-account-dropdown li {
+    margin: 0;
+}
+
+#header .tvcmsdesktop-top-second .tv-account-dropdown .tvhedaer-sign-btn,
+#header .tvcmsdesktop-top-second .tv-account-dropdown .tvdesktop-wishlist,
+#header .tvcmsdesktop-top-second .tv-account-dropdown .tvdesktop-view-compare,
+#header .tvcmsdesktop-top-second .tv-account-dropdown .tvmyccount {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 4px;
+    color: #1c191c;
+    text-decoration: none;
+}
+
+#header .tvcmsdesktop-top-second .tv-account-dropdown .tvhedaer-sign-btn:hover,
+#header .tvcmsdesktop-top-second .tv-account-dropdown .tvdesktop-wishlist:hover,
+#header .tvcmsdesktop-top-second .tv-account-dropdown .tvdesktop-view-compare:hover,
+#header .tvcmsdesktop-top-second .tv-account-dropdown .tvmyccount:hover {
+    background: #f7fafc;
+    color: #145078;
+}
+
+#header .tvcmsdesktop-top-second .tvwishlist-icon,
+#header .tvcmsdesktop-top-second .tvdesktop-compare-icon {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+}
+
+.ttvcart-product-list-btn-wrapper.spoc-cart-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 16px 20px 20px;
+}
+
+.ttvcart-product-list-btn-wrapper.spoc-cart-actions a {
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0;
+    text-decoration: none;
+}
+
+.ttvcart-product-list-btn-wrapper.spoc-cart-actions .spoc-cart-secondary {
+    border: 1px solid rgba(20, 80, 120, 0.22);
+    background: #ffffff;
+    color: #145078;
+}
+
+.ttvcart-product-list-btn-wrapper.spoc-cart-actions .spoc-cart-primary {
+    border: 1px solid #145078;
+    background: #145078;
+    color: #ffffff;
+}
+
+.ttvcart-product-list-btn-wrapper.spoc-cart-actions .spoc-cart-secondary:hover,
+.ttvcart-product-list-btn-wrapper.spoc-cart-actions .spoc-cart-primary:hover {
+    filter: brightness(0.96);
+}
+
+@media (max-width: 1199px) {
+    #header .tvcmsdesktop-top-second .spoc-cart-label {
+        display: none;
+    }
+
+    #header .tvcmsdesktop-top-second .tv-account-wrapper .tv-myaccount-btn span {
+        font-size: 11px;
+    }
+}
+
 /* ==========================================
    VARIANTES PRODUIT - blocs plats + indisponibles barrés
    ========================================== */
