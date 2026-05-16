@@ -57,7 +57,6 @@
         {include file='errors/not-found.tpl'}
       {/if}
     </div>
-    {block name='product_list_page_bottom'}{/block}
   </div>
 {/block}
 {/strip}

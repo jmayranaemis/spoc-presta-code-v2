@@ -37,6 +37,18 @@
     {block name='page_content'}
       <!-- Page content -->
     {/block}
+    {block name='customer_page_bottom_banners'}
+      {if isset($page.page_name) && $page.page_name == 'my-account'}
+        <div class="spoc-account-bottom-banners">
+          <div class="spoc-account-reassurance">
+            {hook h='displayReassurance'}
+          </div>
+          <div class="spoc-account-newsletter">
+            {hook h='displayNewslettersubscription'}
+          </div>
+        </div>
+      {/if}
+    {/block}
   </section>
 {/block}
 
