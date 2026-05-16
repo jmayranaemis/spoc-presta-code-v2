@@ -29,12 +29,13 @@
                 <a rel="nofollow" href="javascript:void(0);" data-url="{$cart_url}" title="{l s='Cart' d='Shop.Theme.Checkout'}">
                     <div class="tvcart-icon-text-wrapper">
                         <div class="tv-cart-icon tvheader-right-icon tv-cart-icon-main">
-                            <svg class="spoc-cart-icon" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                                <path d="M6.75 8.25h10.5l-.7 11.25H7.45L6.75 8.25Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-                                <path d="M9 8.25V6.5a3 3 0 0 1 6 0v1.75" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                            <svg class="spoc-cart-icon" width="32" height="32" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path d="M6.75 8.25h10.5l-.7 11.25H7.45L6.75 8.25Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/>
+                                <path d="M9 8.25V6.5a3 3 0 0 1 6 0v1.75" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
                             </svg>
                         </div>
 
+                        <span class="spoc-cart-label">{l s='Cart' d='Shop.Theme.Checkout'}</span>
 
                         <div class="tv-cart-cart-inner">
                             <span class="cart-products-count">{$cartProductsCount}</span>
@@ -210,12 +211,18 @@
 
                         </div>
 
-                        <div class="ttvcart-product-list-btn-wrapper">
-                            <button class="ttvcart-product-list-viewcart">
-                                <a href="{$cart_url}">
-                                    {l s='View Cart' d='Shop.Theme.Actions'}
-                                </a>
-                            </button>
+                        {assign var=checkoutUrl value=$cart_url}
+                        {if isset($urls.pages.order) && $urls.pages.order}
+                            {assign var=checkoutUrl value=$urls.pages.order}
+                        {/if}
+
+                        <div class="ttvcart-product-list-btn-wrapper spoc-cart-actions">
+                            <a class="ttvcart-product-list-viewcart spoc-cart-secondary" href="{$cart_url}">
+                                {l s='View Cart' d='Shop.Theme.Actions'}
+                            </a>
+                            <a class="spoc-cart-primary" href="{$checkoutUrl}">
+                                {l s='Commander' d='Shop.Theme.Actions'}
+                            </a>
                         </div>
 
                     {else}

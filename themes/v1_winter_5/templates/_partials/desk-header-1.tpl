@@ -62,7 +62,10 @@
                                 {if $withData}
                                 <div class="tv-header-account tv-account-wrapper tvcms-header-myaccount">
                                     <button class="btn-unstyle tv-myaccount-btn tv-myaccount-btn-desktop" name="User Icon" aria-label="User Icon">
-                                        <i class='material-icons'>&#xe897;</i>
+                                        <svg class="spoc-account-icon" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                            <circle cx="12" cy="7.75" r="3.25" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                                            <path d="M5.5 20c.9-4.3 3.2-6.5 6.5-6.5s5.6 2.2 6.5 6.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                                        </svg>
                                         {* <svg version="1.1" id="Layer_1" x="0px" y="0px" width="31.377px" height="30.938px" viewBox="0 0 31.377 30.938" xml:space="preserve">
                                             <g>
                                                 <path style="fill:none;stroke:#000000;stroke-width:0.6;stroke-miterlimit:10;" d="M15.666,17.321
