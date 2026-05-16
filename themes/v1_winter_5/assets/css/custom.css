@@ -12415,8 +12415,102 @@ html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]::after 
     box-shadow: 0 14px 34px rgba(15, 23, 42, 0.14);
 }
 
+#header .tvcmsdesktop-top-second .tv-account-dropdown.spoc-account-panel {
+    right: 0;
+    left: auto;
+    min-width: 320px;
+    padding: 0;
+    overflow: hidden;
+}
+
 #header .tvcmsdesktop-top-second .tv-account-dropdown li {
     margin: 0;
+}
+
+#header .tvcmsdesktop-top-second .spoc-account-panel-item {
+    list-style: none;
+}
+
+#header .tvcmsdesktop-top-second .spoc-account-panel-header {
+    min-height: 56px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 52px;
+    border-bottom: 1px solid rgba(20, 80, 120, 0.1);
+}
+
+#header .tvcmsdesktop-top-second .spoc-account-close {
+    width: 34px;
+    height: 34px;
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+#header .tvcmsdesktop-top-second .spoc-account-close::before,
+#header .tvcmsdesktop-top-second .spoc-account-close::after {
+    content: "";
+    width: 16px;
+    height: 2px;
+    position: absolute;
+    top: 16px;
+    left: 9px;
+    background: #1c191c;
+    border-radius: 2px;
+}
+
+#header .tvcmsdesktop-top-second .spoc-account-close::before {
+    transform: rotate(45deg);
+}
+
+#header .tvcmsdesktop-top-second .spoc-account-close::after {
+    transform: rotate(-45deg);
+}
+
+#header .tvcmsdesktop-top-second .spoc-account-close:hover {
+    background: #f7fafc;
+}
+
+#header .tvcmsdesktop-top-second .spoc-account-panel-title {
+    color: #1c191c;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+#header .tvcmsdesktop-top-second .spoc-account-panel-content {
+    padding: 20px;
+}
+
+#header .tvcmsdesktop-top-second .spoc-account-primary {
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 11px 16px;
+    border: 1px solid #145078;
+    border-radius: 4px;
+    background: #145078;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0;
+    text-decoration: none;
+}
+
+#header .tvcmsdesktop-top-second .spoc-account-primary:hover {
+    color: #ffffff;
+    filter: brightness(0.96);
 }
 
 #header .tvcmsdesktop-top-second .tv-account-dropdown .tvhedaer-sign-btn,

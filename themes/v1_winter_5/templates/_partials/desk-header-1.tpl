@@ -82,17 +82,31 @@
                                         <span>{l s='Sign In' d='Shop.Theme.Catalog'}</span>
                                         {/if}
                                     </button>
-                                    <ul class="dropdown-menu tv-account-dropdown tv-dropdown">
+                                    <ul class="dropdown-menu tv-account-dropdown tv-dropdown {if !$customer.is_logged}spoc-account-panel{/if}">
                                         {if $customer.is_logged}
                                         <li class="tvcms-signin"><a href="{$urls.pages.my_account}" class="tvmyccount"><i class="material-icons">&#xe7fd;</i>{l s='My Account' d='Shop.Theme.Catalog'}</a></li>
+                                            {* <li>{hook h='displayNavWishlistBlock'}</li>
+                                            <li>{hook h='displayNavProductCompareBlock'}</li> *}
+                                            <li>{hook h='displayNavCustomerSignInBlock'}</li>
+                                            <li class="ttvcms-wishlist-icon">{hook h='displayNavWishlistBlock'}</li>
+                                            <li class="tvheader-compare ">{hook h='displayNavProductCompareBlock'}</li>
+                                            <li class="tvheader-language hidden-lg-up"></li>
+                                            <li class="tvheader-currency hidden-lg-up"></li>
+                                        {else}
+                                            <li class="spoc-account-panel-item">
+                                                <div class="spoc-account-panel-header">
+                                                    <button type="button" class="spoc-account-close" aria-label="{l s='Close' d='Shop.Theme.Actions'}"></button>
+                                                    <div class="spoc-account-panel-title">
+                                                        {l s='Account' d='Shop.Theme.Catalog'}
+                                                    </div>
+                                                </div>
+                                                <div class="spoc-account-panel-content">
+                                                    <a class="spoc-account-primary" href="{$urls.pages.my_account}">
+                                                        {l s='Sign In' d='Shop.Theme.Catalog'}
+                                                    </a>
+                                                </div>
+                                            </li>
                                         {/if}
-                                        {* <li>{hook h='displayNavWishlistBlock'}</li>
-                                        <li>{hook h='displayNavProductCompareBlock'}</li> *}
-                                        <li>{hook h='displayNavCustomerSignInBlock'}</li>
-                                        <li class="ttvcms-wishlist-icon">{hook h='displayNavWishlistBlock'}</li>
-                                        <li class="tvheader-compare ">{hook h='displayNavProductCompareBlock'}</li>
-                                        <li class="tvheader-language hidden-lg-up"></li>
-                                        <li class="tvheader-currency hidden-lg-up"></li>
                                     </ul>
                                 </div>
                                 {/if}
