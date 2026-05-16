@@ -196,7 +196,7 @@ File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/t
     <body>
       <trans-unit id="49a9c7600337b79b14396cd15d579977">
         <source>Subcategory</source>
-        <target>Subcategory</target>
+        <target>sous-catégories</target>
         <note>Context:
 File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/themes/tv_electronic_electron_1_7_v1/templates/catalog/listing/category.tpl:50</note>
       </trans-unit>
@@ -342,7 +342,7 @@ File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/t
     <body>
       <trans-unit id="ef2b66b0b65479e08ff0cce29e19d006">
         <source>Customers who bought this product also bought:</source>
-        <target>Les clients qui ont acheté ce produit ont également acheté...</target>
+        <target>Les clients qui ont acheté ce produit ont également acheté ...</target>
         <note>Context:
 File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/themes/tv_electronic_electron_1_7_v1/modules/ps_crossselling/views/templates/hook/ps_crossselling.tpl:35</note>
       </trans-unit>

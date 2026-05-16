@@ -426,7 +426,7 @@ File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/t
     <body>
       <trans-unit id="e0aa021e21dddbd6d8cecec71e9cf564">
         <source>OK</source>
-        <target>D'accord</target>
+        <target>OK</target>
         <note>Context:
 File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/themes/tv_electronic_electron_1_7_v1/modules/ps_facetedsearch/ps_facetedsearch.tpl:32</note>
       </trans-unit>
