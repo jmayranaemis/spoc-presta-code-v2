@@ -82,8 +82,8 @@
                                         <span>{l s='Sign In' d='Shop.Theme.Catalog'}</span>
                                         {/if}
                                     </button>
-                                    <ul class="dropdown-menu tv-account-dropdown tv-dropdown {if !$customer.is_logged}spoc-account-panel{/if}">
-                                        {if $customer.is_logged}
+                                    {if $customer.is_logged}
+                                    <ul class="dropdown-menu tv-account-dropdown tv-dropdown">
                                         <li class="tvcms-signin"><a href="{$urls.pages.my_account}" class="tvmyccount"><i class="material-icons">&#xe7fd;</i>{l s='My Account' d='Shop.Theme.Catalog'}</a></li>
                                             {* <li>{hook h='displayNavWishlistBlock'}</li>
                                             <li>{hook h='displayNavProductCompareBlock'}</li> *}
@@ -92,22 +92,46 @@
                                             <li class="tvheader-compare ">{hook h='displayNavProductCompareBlock'}</li>
                                             <li class="tvheader-language hidden-lg-up"></li>
                                             <li class="tvheader-currency hidden-lg-up"></li>
-                                        {else}
-                                            <li class="spoc-account-panel-item">
-                                                <div class="spoc-account-panel-header">
-                                                    <button type="button" class="spoc-account-close" aria-label="{l s='Close' d='Shop.Theme.Actions'}"></button>
-                                                    <div class="spoc-account-panel-title">
-                                                        {l s='Account' d='Shop.Theme.Catalog'}
-                                                    </div>
+                                    </ul>
+                                    {else}
+                                    <div class="ttvcmscart-show-dropdown-right spoc-account-drawer">
+                                        <div class="ttvcart-scroll-container">
+                                            <div class="ttvcart-close-title-count">
+                                                <button type="button" class="ttvclose-cart spoc-account-close" aria-label="{l s='Close' d='Shop.Theme.Actions'}"></button>
+                                                <div class="ttvcart-top-title">
+                                                    <h4>{l s='Account' d='Shop.Theme.Catalog'}</h4>
                                                 </div>
-                                                <div class="spoc-account-panel-content">
-                                                    <a class="spoc-account-primary" href="{$urls.pages.my_account}">
-                                                        {l s='Sign In' d='Shop.Theme.Catalog'}
+                                                <div class="spoc-account-header-spacer" aria-hidden="true"></div>
+                                            </div>
+                                            <div class="ttvcart-product-content-box ttvscroll-container spoc-account-drawer-content">
+                                                <form class="spoc-account-login-form" action="{$urls.pages.authentication}" method="post">
+                                                    <div class="spoc-account-field">
+                                                        <label for="spoc-header-login-email">{l s='Adresse e-mail' d='Shop.Forms.Labels'}</label>
+                                                        <input id="spoc-header-login-email" class="form-control" type="email" name="email" autocomplete="email" required>
+                                                    </div>
+                                                    <div class="spoc-account-field">
+                                                        <label for="spoc-header-login-password">{l s='Mot de passe' d='Shop.Forms.Labels'}</label>
+                                                        <input id="spoc-header-login-password" class="form-control" type="password" name="password" autocomplete="current-password" required>
+                                                    </div>
+                                                    <input type="hidden" name="submitLogin" value="1">
+                                                    <input type="hidden" name="back" value="{$urls.current_url|escape:'html':'UTF-8'}">
+                                                    <button class="spoc-account-primary" data-link-action="sign-in" type="submit">
+                                                        {l s="S'identifier" d='Shop.Theme.Actions'}
+                                                    </button>
+                                                    <a class="spoc-account-forgot-link" href="{$urls.pages.password}" rel="nofollow">
+                                                        {l s='Mot de passe oublié ?' d='Shop.Theme.Customeraccount'}
+                                                    </a>
+                                                </form>
+                                                <div class="spoc-account-register">
+                                                    <span>{l s='Pas encore de compte ?' d='Shop.Theme.Customeraccount'}</span>
+                                                    <a href="{$urls.pages.register}" data-link-action="display-register-form">
+                                                        {l s="S'inscrire" d='Shop.Theme.Customeraccount'}
                                                     </a>
                                                 </div>
-                                            </li>
-                                        {/if}
-                                    </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/if}
                                 </div>
                                 {/if}
                             </div>
