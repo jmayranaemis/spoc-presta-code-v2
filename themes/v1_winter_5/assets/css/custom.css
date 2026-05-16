@@ -2942,17 +2942,17 @@ ul.wlp_bought_list li .product_infos .product-name {
     align-items: center;
     justify-content: space-between;
     /*border-bottom: 1px solid #eeeeee;*/
-    height: 40px;
+    height: 60px;
 }
 .ttvcmscart-show-dropdown-right .ttvcart-top-title h4 {
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: #px;
+   /* text-transform: uppercase;*/
     color: #000;
     padding-bottom: 0;
     margin-bottom: 0px;
     text-align: center;
-    font-size: 15px;
+    font-size: 20px;
 }
 .ttvcmscart-show-dropdown-right .ttvcart-counter {
     height: 20px;
