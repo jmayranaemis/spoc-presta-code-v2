@@ -104,9 +104,30 @@
                                                 <div class="spoc-account-header-spacer" aria-hidden="true"></div>
                                             </div>
                                             <div class="ttvcart-product-content-box ttvscroll-container spoc-account-drawer-content">
-                                                <a class="spoc-account-primary" href="{$urls.pages.my_account}">
-                                                    {l s='Sign In' d='Shop.Theme.Catalog'}
-                                                </a>
+                                                <form class="spoc-account-login-form" action="{$urls.pages.authentication}" method="post">
+                                                    <div class="spoc-account-field">
+                                                        <label for="spoc-header-login-email">{l s='Adresse e-mail' d='Shop.Forms.Labels'}</label>
+                                                        <input id="spoc-header-login-email" class="form-control" type="email" name="email" autocomplete="email" required>
+                                                    </div>
+                                                    <div class="spoc-account-field">
+                                                        <label for="spoc-header-login-password">{l s='Mot de passe' d='Shop.Forms.Labels'}</label>
+                                                        <input id="spoc-header-login-password" class="form-control" type="password" name="password" autocomplete="current-password" required>
+                                                    </div>
+                                                    <input type="hidden" name="submitLogin" value="1">
+                                                    <input type="hidden" name="back" value="{$urls.current_url|escape:'html':'UTF-8'}">
+                                                    <button class="spoc-account-primary" data-link-action="sign-in" type="submit">
+                                                        {l s="S'identifier" d='Shop.Theme.Actions'}
+                                                    </button>
+                                                    <a class="spoc-account-forgot-link" href="{$urls.pages.password}" rel="nofollow">
+                                                        {l s='Mot de passe oublié ?' d='Shop.Theme.Customeraccount'}
+                                                    </a>
+                                                </form>
+                                                <div class="spoc-account-register">
+                                                    <span>{l s='Pas encore de compte ?' d='Shop.Theme.Customeraccount'}</span>
+                                                    <a href="{$urls.pages.register}" data-link-action="display-register-form">
+                                                        {l s="S'inscrire" d='Shop.Theme.Customeraccount'}
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
