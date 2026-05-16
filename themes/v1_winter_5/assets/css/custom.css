@@ -13263,4 +13263,300 @@ body#product #product-details .product-manufacturer img {
   height: auto !important;
 }
 
+/* Account dashboard */
+body#my-account.page-customer-account #content {
+  background: transparent;
+  padding: 0;
+  color: #1c191c;
+}
+
+body#my-account .spoc-account-dashboard {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 36px;
+  padding: 28px 0 60px;
+}
+
+body#my-account .spoc-account-sidebar {
+  align-self: start;
+  position: sticky;
+  top: 120px;
+}
+
+body#my-account .spoc-account-sidebar-title {
+  margin: 0 0 14px;
+  color: #1c191c;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+body#my-account .spoc-account-nav,
+body#my-account .spoc-account-sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+body#my-account .spoc-account-nav {
+  border: 1px solid #eeeeee;
+  background: #ffffff;
+}
+
+body#my-account .spoc-account-nav-link,
+body#my-account .spoc-account-logout {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-height: 48px;
+  padding: 13px 16px;
+  border-bottom: 1px solid #eeeeee;
+  color: #1c191c;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: color .2s ease, background-color .2s ease;
+}
+
+body#my-account .spoc-account-nav-link:last-child {
+  border-bottom: 0;
+}
+
+body#my-account .spoc-account-nav-link i,
+body#my-account .spoc-account-logout i {
+  width: 22px;
+  flex: 0 0 22px;
+  color: #145078;
+  font-size: 21px;
+  line-height: 1;
+  text-align: center;
+}
+
+body#my-account .spoc-account-nav-link.active,
+body#my-account .spoc-account-nav-link:hover,
+body#my-account .spoc-account-logout:hover {
+  background: #f6f6f6;
+  color: #145078;
+}
+
+body#my-account .spoc-account-logout {
+  margin-top: 14px;
+  border: 1px solid #eeeeee;
+  background: #ffffff;
+}
+
+body#my-account .spoc-account-main {
+  min-width: 0;
+}
+
+body#my-account .spoc-account-hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  min-height: 190px;
+  padding: 34px 38px;
+  background: #f6f6f6;
+  border: 1px solid #eeeeee;
+}
+
+body#my-account .spoc-account-eyebrow {
+  margin: 0 0 12px;
+  color: #145078;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+body#my-account .spoc-account-hero h1 {
+  margin: 0 0 12px;
+  color: #1c191c;
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.15;
+}
+
+body#my-account .spoc-account-hero p:last-child {
+  max-width: 720px;
+  margin: 0;
+  color: #666666;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+body#my-account .spoc-account-section {
+  margin-top: 34px;
+}
+
+body#my-account .spoc-account-section-heading {
+  margin-bottom: 16px;
+}
+
+body#my-account .spoc-account-section-heading h2 {
+  margin: 0;
+  color: #1c191c;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.25;
+}
+
+body#my-account .spoc-account-dashboard .links {
+  display: grid;
+  flex-wrap: unset;
+  justify-content: unset;
+  gap: 16px;
+}
+
+body#my-account .spoc-account-quick-links {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+body#my-account .spoc-account-module-links {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body#my-account .spoc-account-dashboard .links > a {
+  float: none !important;
+  width: auto !important;
+  max-width: none !important;
+  min-height: 0;
+  display: block;
+  margin: 0;
+  padding: 0;
+  color: #1c191c;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: left;
+  text-decoration: none;
+  text-transform: none;
+}
+
+body#my-account .spoc-account-dashboard .links > a span.link-item {
+  height: 100%;
+  border: 1px solid #eeeeee;
+  border-radius: 3px;
+  background: #ffffff;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+body#my-account .spoc-account-quick-links > a span.link-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 148px;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+body#my-account .spoc-account-module-links > a span.link-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 70px;
+  padding: 16px 18px;
+}
+
+body#my-account .spoc-account-dashboard .links > a i,
+body#my-account .spoc-account-dashboard .links > a img {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  padding: 0;
+  border-radius: 50%;
+  background: #f6f6f6;
+  color: #145078;
+  flex: 0 0 54px;
+  font-size: 26px;
+  line-height: 54px;
+  object-fit: contain;
+  text-align: center;
+}
+
+body#my-account .spoc-account-module-links > a i,
+body#my-account .spoc-account-module-links > a img {
+  width: 38px !important;
+  height: 38px !important;
+  flex-basis: 38px;
+  font-size: 21px;
+  line-height: 38px;
+}
+
+body#my-account .spoc-account-dashboard .links > a:hover {
+  color: #145078;
+}
+
+body#my-account .spoc-account-dashboard .links > a:hover span.link-item {
+  border-color: rgba(20, 80, 120, .28);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, .08);
+  transform: translateY(-2px);
+}
+
+body#my-account .spoc-account-privacy {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 34px;
+  padding: 18px 20px;
+  border: 1px solid #eeeeee;
+  background: #ffffff;
+  color: #666666;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+body#my-account .spoc-account-privacy i {
+  color: #145078;
+  font-size: 22px;
+  line-height: 1;
+}
+
+body#my-account .spoc-account-privacy p {
+  margin: 0;
+}
+
+@media (max-width: 1199px) {
+  body#my-account .spoc-account-dashboard {
+    grid-template-columns: 230px minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  body#my-account .spoc-account-quick-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  body#my-account .spoc-account-dashboard {
+    display: block;
+    padding-top: 12px;
+  }
+
+  body#my-account .spoc-account-sidebar {
+    position: static;
+    margin-bottom: 24px;
+  }
+
+  body#my-account .spoc-account-hero {
+    min-height: 0;
+    padding: 26px 22px;
+  }
+
+  body#my-account .spoc-account-hero h1 {
+    font-size: 28px;
+  }
+
+  body#my-account .spoc-account-quick-links,
+  body#my-account .spoc-account-module-links {
+    grid-template-columns: 1fr;
+  }
+}
+
 /*mailalert css end*/
