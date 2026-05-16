@@ -12532,6 +12532,11 @@ html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]::after 
     width: 100%;
     margin: 2px 0 0;
     padding: 10px 15px;
+    border-radius: 3px !important;
+}
+
+#header .tvcmsdesktop-top-second .spoc-account-primary::after {
+    border-radius: 3px !important;
 }
 
 #header .tvcmsdesktop-top-second .spoc-account-primary span {
