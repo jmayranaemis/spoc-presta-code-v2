@@ -59,10 +59,9 @@
 								<p class="tv-addtocart-price">{$product.price}</p>
 								{hook h='displayProductPriceBlock' product=$product type="unit_price"}
 								{foreach from=$product.attributes item="property_value" key="property"}
-									<span><strong>{$property}</strong>: {$property_value}</span><br>
+									<span>{$property}:<strong> {$property_value}</strong></span><br>
 								{/foreach}
-									<span><strong>{l s='Quantity:' d='Shop.Theme.Checkout'}</strong>&nbsp;{$product.cart_quantity}</span
-										>
+									<span>{l s='Quantity:' d='Shop.Theme.Checkout'}&nbsp;<strong>{$product.cart_quantity}</strong>
 							</div>
 						</div>
 					</div>

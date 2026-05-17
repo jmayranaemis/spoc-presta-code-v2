@@ -8624,7 +8624,7 @@ a:hover {
     color: #000000
 }
 #blockcart-modal .modal-header {
-    background: #444444
+  /*  background: #444444 /*
 }
 #blockcart-modal .modal-body {
     padding: 3.125rem 1.875rem
@@ -8665,8 +8665,8 @@ a:hover {
     /*width: 100%*/
 }
 #blockcart-modal .modal-title {
-    font-weight: 500;
-    color: #fff;
+    font-weight: 700;
+    color: #A541FE;
     font-size: 1.125rem
 }
 #blockcart-modal .modal-title i.material-icons {

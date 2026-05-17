@@ -452,7 +452,7 @@ File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/t
     <body>
       <trans-unit id="544c3bd0eac526113a9c66542be1e5bc">
         <source>Product successfully added to your shopping cart</source>
-        <target>Produit ajouté au panier avec succès</target>
+        <target>Votre article a été ajouté</target>
         <note>Context:
 File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/themes/tv_electronic_electron_1_7_v1/modules/ps_shoppingcart/modal.tpl:33</note>
       </trans-unit>
