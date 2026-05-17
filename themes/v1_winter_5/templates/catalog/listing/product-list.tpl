@@ -56,6 +56,18 @@
       {else}
         {include file='errors/not-found.tpl'}
       {/if}
+      {block name='spoc_product_list_banners'}
+        {if isset($page.page_name) && $page.page_name == 'category'}
+          <div class="spoc-grid-bottom-banners">
+            <div class="spoc-grid-reassurance">
+              {hook h='displayReassurance'}
+            </div>
+            <div class="spoc-grid-newsletter">
+              {hook h='displayNewslettersubscription'}
+            </div>
+          </div>
+        {/if}
+      {/block}
     </div>
   </div>
 {/block}
