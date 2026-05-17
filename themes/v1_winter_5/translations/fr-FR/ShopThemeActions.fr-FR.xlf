@@ -294,43 +294,43 @@ File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/t
     <body>
       <trans-unit id="fa983192e743ec2eb773b0d262e84b63">
         <source>View Left Column</source>
-        <target>View Left Column</target>
+        <target>Vue colonne gauche</target>
         <note>Context:
 File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/themes/tv_electronic_electron_1_7_v1/templates/catalog/_partials/products-top.tpl:46</note>
       </trans-unit>
       <trans-unit id="5174d1309f275ba6f275db3af9eb3e18">
         <source>Grid</source>
-        <target>Grid</target>
+        <target>Grille</target>
         <note>Context:
 File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/themes/tv_electronic_electron_1_7_v1/templates/catalog/_partials/products-top.tpl:79</note>
       </trans-unit>
       <trans-unit id="83804b882caf0aa41a76ccfa1294f3e3">
         <source>Grid-2</source>
-        <target>Grid-2</target>
+        <target>Grille-2</target>
         <note>Context:
 File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/themes/tv_electronic_electron_1_7_v1/templates/catalog/_partials/products-top.tpl:83</note>
       </trans-unit>
       <trans-unit id="4ee29ca12c7d126654bd0e5275de6135">
         <source>List</source>
-        <target>List</target>
+        <target>Listz</target>
         <note>Context:
 File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/themes/tv_electronic_electron_1_7_v1/templates/catalog/_partials/products-top.tpl:87</note>
       </trans-unit>
       <trans-unit id="5d31236c5c1157dfa6aa85d2661babf7">
         <source>List-2</source>
-        <target>List-2</target>
+        <target>Liste-2</target>
         <note>Context:
 File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/themes/tv_electronic_electron_1_7_v1/templates/catalog/_partials/products-top.tpl:91</note>
       </trans-unit>
       <trans-unit id="e04014782bf5fc3e173412cb79208702">
         <source>Catelog</source>
-        <target>Catelog</target>
+        <target>Catalogue</target>
         <note>Context:
 File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/themes/tv_electronic_electron_1_7_v1/templates/catalog/_partials/products-top.tpl:95</note>
       </trans-unit>
       <trans-unit id="9e3acb6fd8530bf05e607e405a1dae30">
-        <source>View Right Column</source>
-        <target>View Right Column</target>
+        <source>Vue Right Column</source>
+        <target>Vue colonne droite</target>
         <note>Context:
 File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/themes/tv_electronic_electron_1_7_v1/templates/catalog/_partials/products-top.tpl:119</note>
       </trans-unit>
@@ -362,13 +362,13 @@ File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/t
       </trans-unit>
       <trans-unit id="53d978054ae84799fe8e35ae6c808ef7">
         <source>Out Of Stock</source>
-        <target>Out Of Stock</target>
+        <target>Plus en stock</target>
         <note>Context:
 File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/themes/tv_electronic_electron_1_7_v1/templates/catalog/_partials/miniatures/category-product-slider.tpl:94</note>
       </trans-unit>
       <trans-unit id="b64c83286ace832c0ec837ac4c1c8057">
         <source>Add To Cart</source>
-        <target>Add To Cart</target>
+        <target>Ajouter</target>
         <note>Context:
 File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/themes/tv_electronic_electron_1_7_v1/templates/catalog/_partials/miniatures/category-product-slider.tpl:94</note>
       </trans-unit>
@@ -416,7 +416,7 @@ File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/t
     <body>
       <trans-unit id="b26917587d98330d93f87808fc9d7267">
         <source>Subscribe</source>
-        <target>S’abonner</target>
+        <target>S’inscrire</target>
         <note>Context:
 File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/themes/tv_electronic_electron_1_7_v1/modules/ps_emailsubscription/views/templates/hook/ps_emailsubscription.tpl:46</note>
       </trans-unit>
@@ -458,4 +458,15 @@ File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/t
       </trans-unit>
     </body>
   </file>
+ <file original="/home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/themes/tv_electronic_electron_1_7_v1/modules/ps_shoppingcart/ps_shoppingcart.tpl" source-language="fr-FR" target-language="fr-FR" datatype="plaintext">
+    <body>
+      <trans-unit id="ff2170faacc8950b8dc897bb86764d78">
+        <source>QTY :</source>
+        <target>Qté :</target>
+        <note>Context:
+File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/themes/tv_electronic_electron_1_7_v1/modules/ps_shoppingcart/ps_shoppingcart.tpl:100</note>
+      </trans-unit>
+    </body>
+  </file>
+
 </xliff>

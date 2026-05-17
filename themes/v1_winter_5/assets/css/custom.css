@@ -12713,7 +12713,7 @@ html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]::after 
 }
 
 #header .tvcmsdesktop-top-second .spoc-account-primary::after {
-    border-radius: 3px !important;
+    border-radius: 30px !important;
 }
 
 #header .tvcmsdesktop-top-second .spoc-account-primary span {
