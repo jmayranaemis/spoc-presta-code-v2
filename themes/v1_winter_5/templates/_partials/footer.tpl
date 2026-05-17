@@ -23,6 +23,32 @@
 * International Registered Trademark & Property of PrestaShop SA
 *}
 {strip}
+    {if isset($page.page_name) && ($page.page_name == 'category' || $page.page_name == 'my-account')}
+        {capture assign='spoc_footer_reassurance'}{hook h='displayFooterProduct' mod='blockreassurance'}{/capture}
+        {if $spoc_footer_reassurance|trim == ''}
+            {capture assign='spoc_footer_reassurance'}{hook h='displayNav1' mod='blockreassurance'}{/capture}
+        {/if}
+
+        {capture assign='spoc_footer_newsletter'}{hook h='displayFooterProduct' mod='ps_emailsubscription'}{/capture}
+        {if $spoc_footer_newsletter|trim == ''}
+            {capture assign='spoc_footer_newsletter'}{hook h='displayNewslettersubscription' mod='ps_emailsubscription'}{/capture}
+        {/if}
+
+        {if $spoc_footer_reassurance|trim != '' || $spoc_footer_newsletter|trim != ''}
+            <div class="{if $page.page_name == 'category'}spoc-grid-bottom-banners{else}spoc-account-bottom-banners{/if} spoc-footer-banners">
+                {if $spoc_footer_reassurance|trim != ''}
+                    <div class="{if $page.page_name == 'category'}spoc-grid-reassurance{else}spoc-account-reassurance{/if}">
+                        {$spoc_footer_reassurance nofilter}
+                    </div>
+                {/if}
+                {if $spoc_footer_newsletter|trim != ''}
+                    <div class="{if $page.page_name == 'category'}spoc-grid-newsletter{else}spoc-account-newsletter{/if}">
+                        {$spoc_footer_newsletter nofilter}
+                    </div>
+                {/if}
+            </div>
+        {/if}
+    {/if}
 
     {assign var="footer_layout" value="../_partials/{$TVCMSFOOTERCUSTOMLAYOUT}.tpl"}
     {include file="$footer_layout"}     

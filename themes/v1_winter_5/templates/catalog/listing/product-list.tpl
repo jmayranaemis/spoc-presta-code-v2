@@ -56,32 +56,6 @@
       {else}
         {include file='errors/not-found.tpl'}
       {/if}
-      {block name='spoc_product_list_banners'}
-        {if isset($page.page_name) && $page.page_name == 'category'}
-          {capture assign='spoc_grid_reassurance'}{hook h='displayFooterProduct' mod='blockreassurance'}{/capture}
-          {if $spoc_grid_reassurance|trim == ''}
-            {capture assign='spoc_grid_reassurance'}{hook h='displayNav1' mod='blockreassurance'}{/capture}
-          {/if}
-          {capture assign='spoc_grid_newsletter'}{hook h='displayFooterProduct' mod='ps_emailsubscription'}{/capture}
-          {if $spoc_grid_newsletter|trim == ''}
-            {capture assign='spoc_grid_newsletter'}{hook h='displayNewslettersubscription' mod='ps_emailsubscription'}{/capture}
-          {/if}
-          {if $spoc_grid_reassurance|trim != '' || $spoc_grid_newsletter|trim != ''}
-            <div class="spoc-grid-bottom-banners">
-              {if $spoc_grid_reassurance|trim != ''}
-                <div class="spoc-grid-reassurance">
-                  {$spoc_grid_reassurance nofilter}
-                </div>
-              {/if}
-              {if $spoc_grid_newsletter|trim != ''}
-                <div class="spoc-grid-newsletter">
-                  {$spoc_grid_newsletter nofilter}
-                </div>
-              {/if}
-            </div>
-          {/if}
-        {/if}
-      {/block}
     </div>
   </div>
 {/block}
