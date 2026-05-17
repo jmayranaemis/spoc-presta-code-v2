@@ -13565,6 +13565,7 @@ body#my-account .spoc-account-sidebar {
 body#my-account .spoc-account-nav {
   border: 1px solid #eeeeee;
   background: #ffffff;
+  border-radius: 5px;
 }
 
 body#my-account .spoc-account-nav-link,
@@ -13574,7 +13575,7 @@ body#my-account .spoc-account-logout {
   gap: 11px;
   min-height: 48px;
   padding: 13px 16px;
-  border-bottom: 1px solid #eeeeee;
+ /* border-bottom: 1px solid #eeeeee; */
   color: #1c191c;
   font-size: 14px;
   font-weight: 400;
@@ -13602,12 +13603,14 @@ body#my-account .spoc-account-nav-link:hover,
 body#my-account .spoc-account-logout:hover {
   background: #f6f6f6;
   color: #145078;
+  border-radius: 5px;
 }
 
 body#my-account .spoc-account-logout {
   margin-top: 14px;
   border: 1px solid #eeeeee;
   background: #ffffff;
+  border-radius: 5px;
 }
 
 body#my-account .spoc-account-main {
