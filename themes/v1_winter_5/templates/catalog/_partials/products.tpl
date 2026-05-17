@@ -37,16 +37,5 @@
   {block name='pagination'}
     {include file='_partials/pagination.tpl' pagination=$listing.pagination}
   {/block}
-
-  {if isset($page.page_name) && $page.page_name == 'category'}
-    <div class="spoc-grid-bottom-banners">
-      <div class="spoc-grid-reassurance">
-        {hook h='displayReassurance'}
-      </div>
-      <div class="spoc-grid-newsletter">
-        {hook h='displayNewslettersubscription'}
-      </div>
-    </div>
-  {/if}
 </div>
 {/strip}
