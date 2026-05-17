@@ -11685,8 +11685,8 @@ body#my-account .spoc-account-newsletter .tvcms-newsletter-wrapper .tvnewsleeter
     }
 }
 
-body#category #footer .tvcms-newsletter-wrapper,
-body#my-account #footer .tvcms-newsletter-wrapper {
+body#category #footer .footer-container .tvcms-newsletter-wrapper,
+body#my-account #footer .footer-container .tvcms-newsletter-wrapper {
     display: none !important;
 }
 
