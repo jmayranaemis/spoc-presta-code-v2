@@ -39,14 +39,28 @@
     {/block}
     {block name='customer_page_bottom_banners'}
       {if isset($page.page_name) && $page.page_name == 'my-account'}
-        <div class="spoc-account-bottom-banners">
-          <div class="spoc-account-reassurance">
-            {hook h='displayReassurance'}
+        {capture assign='spoc_account_reassurance'}{hook h='displayFooterProduct' mod='blockreassurance'}{/capture}
+        {if $spoc_account_reassurance|trim == ''}
+          {capture assign='spoc_account_reassurance'}{hook h='displayNav1' mod='blockreassurance'}{/capture}
+        {/if}
+        {capture assign='spoc_account_newsletter'}{hook h='displayFooterProduct' mod='ps_emailsubscription'}{/capture}
+        {if $spoc_account_newsletter|trim == ''}
+          {capture assign='spoc_account_newsletter'}{hook h='displayNewslettersubscription' mod='ps_emailsubscription'}{/capture}
+        {/if}
+        {if $spoc_account_reassurance|trim != '' || $spoc_account_newsletter|trim != ''}
+          <div class="spoc-account-bottom-banners">
+            {if $spoc_account_reassurance|trim != ''}
+              <div class="spoc-account-reassurance">
+                {$spoc_account_reassurance nofilter}
+              </div>
+            {/if}
+            {if $spoc_account_newsletter|trim != ''}
+              <div class="spoc-account-newsletter">
+                {$spoc_account_newsletter nofilter}
+              </div>
+            {/if}
           </div>
-          <div class="spoc-account-newsletter">
-            {hook h='displayNewslettersubscription'}
-          </div>
-        </div>
+        {/if}
       {/if}
     {/block}
   </section>
