@@ -27,15 +27,15 @@
 
 {block name='content'}
 
-  <div id="main">
+  <div id="main" class="spoc-cart-page">
     <div class="cart-grid row">
 
-      <!-- Left Block: cart product informations & shpping -->
+      <!-- Left Block: cart product informations & shipping -->
       <div class="cart-grid-body col-xs-12 col-lg-8">
 
         <!-- cart products detailed -->
-        <div class="card cart-container">
-          <div class="card-block">
+        <div class="card cart-container spoc-cart-products-card">
+          <div class="card-block spoc-cart-card-title">
             <h1 class="h1">{l s='Shopping Cart' d='Shop.Theme.Checkout'}</h1>
           </div>
           <hr class="separator">
@@ -60,23 +60,17 @@
       <!-- Right Block: cart subtotal & cart total -->
       <div class="cart-grid-right col-xs-12 col-lg-4">
 
-    <div class="card cart-container">
-      <div class="card-block">
-            <h1 class="h1">{l s='My order' d='Shop.Theme.Checkout'}</h1>
-          </div>
-
-         {block name='cart_voucher'}
-              {include file='checkout/_partials/cart-voucher.tpl' cart=$cart}
-            {/block}
-      </div>
-
         {block name='cart_summary'}
-          <div class="card cart-summary">
+          <div class="card cart-summary spoc-cart-summary-card">
+
+            <div class="card-block spoc-cart-card-title spoc-cart-summary-heading">
+              <h1 class="h1">{l s='Ma commande' d='Shop.Theme.Checkout'}</h1>
+            </div>
 
             {block name='hook_shopping_cart'}
               {hook h='displayShoppingCart'}
             {/block}
-            
+
             {block name='cart_totals'}
               {include file='checkout/_partials/cart-detailed-totals.tpl' cart=$cart}
             {/block}

@@ -24,43 +24,45 @@
  *}
 {strip}
 {block name='cart_detailed_totals'}
-<div class="cart-detailed-totals">
+<div class="cart-detailed-totals spoc-cart-detailed-totals">
 
-  <div class="card-block">
+  <div class="card-block spoc-cart-summary-lines">
     {foreach from=$cart.subtotals item="subtotal"}
       {if !empty($subtotal.value) && !empty($subtotal.type)}
-      {if $subtotal.type !== 'tax'}
-        <div class="cart-summary-line" id="cart-subtotal-{$subtotal.type}">
-          <span class="label{if 'products' === $subtotal.type} js-subtotal{/if}">
-            {if 'products' == $subtotal.type}
-              {$cart.summary_string}
-            {else}
-              {$subtotal.label}
+        {if $subtotal.type !== 'tax'}
+          <div class="cart-summary-line" id="cart-subtotal-{$subtotal.type}">
+            <span class="label{if 'products' === $subtotal.type} js-subtotal{/if}">
+              {if 'products' == $subtotal.type}
+                {$cart.summary_string}
+              {else}
+                {$subtotal.label}
+              {/if}
+            </span>
+            <span class="value">{$subtotal.value}</span>
+            {if $subtotal.type === 'shipping'}
+              <div class="spoc-cart-shipping-detail"><small class="value">{hook h='displayCheckoutSubtotalDetails' subtotal=$subtotal}</small></div>
             {/if}
-          </span>
-          <span class="value">{$subtotal.value}</span>
-          {if $subtotal.type === 'shipping'}
-              <div><small class="value">{hook h='displayCheckoutSubtotalDetails' subtotal=$subtotal}</small></div>
-          {/if}
-        </div>
-      {/if}
+          </div>
+        {/if}
       {/if}
     {/foreach}
   </div>
 
   {block name='cart_voucher'}
-    {include file='checkout/_partials/cart-voucher.tpl'}
+    <div class="spoc-cart-voucher-wrapper">
+      {include file='checkout/_partials/cart-voucher.tpl' cart=$cart}
+    </div>
   {/block}
 
   <hr class="separator">
 
-  <div class="card-block">
-    <div class="cart-summary-line cart-total">
+  <div class="card-block spoc-cart-total-block">
+    <div class="cart-summary-line cart-total spoc-cart-grand-total">
       <span class="label">{$cart.totals.total.label} {$cart.labels.tax_short}</span>
       <span class="value">{$cart.totals.total.value}</span>
     </div>
 
-    <div class="cart-summary-line">
+    <div class="cart-summary-line spoc-cart-tax-line">
       <small class="label">{if !empty($cart.subtotals.tax.label)}{$cart.subtotals.tax.label}{/if}</small>
       <small class="value">{if !empty($cart.subtotals.tax.value)}{$cart.subtotals.tax.value}{/if}</small>
     </div>

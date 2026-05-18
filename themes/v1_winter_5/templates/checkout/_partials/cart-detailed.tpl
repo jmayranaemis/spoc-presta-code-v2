@@ -24,18 +24,26 @@
  *}
 {strip}
 {block name='cart_detailed_product'}
-  <div class="cart-overview js-cart" data-refresh-url="{url entity='cart' params=['ajax' => true, 'action' => 'refresh']}">
+  <div class="cart-overview js-cart spoc-cart-overview" data-refresh-url="{url entity='cart' params=['ajax' => true, 'action' => 'refresh']}">
     {if $cart.products}
-    <ul class="cart-items">
-      {foreach from=$cart.products item=product}
-        <li class="cart-item">
-          {block name='cart_detailed_product_line'}
-            {include file='checkout/_partials/cart-detailed-product-line.tpl' product=$product}
-          {/block}
-        </li>
-        {if $product.customizations|count >1}<hr>{/if}
-      {/foreach}
-    </ul>
+      <div class="spoc-cart-product-head" aria-hidden="true">
+        <div class="spoc-cart-head-product">{l s='Produit' d='Shop.Theme.Catalog'}</div>
+        <div class="spoc-cart-head-qty">{l s='Qté' d='Shop.Theme.Checkout'}</div>
+        <div class="spoc-cart-head-unit">{l s='Prix unitaire' d='Shop.Theme.Checkout'}</div>
+        <div class="spoc-cart-head-total">{l s='Total' d='Shop.Theme.Checkout'}</div>
+        <div class="spoc-cart-head-actions"></div>
+      </div>
+
+      <ul class="cart-items spoc-cart-items">
+        {foreach from=$cart.products item=product}
+          <li class="cart-item spoc-cart-item">
+            {block name='cart_detailed_product_line'}
+              {include file='checkout/_partials/cart-detailed-product-line.tpl' product=$product}
+            {/block}
+          </li>
+          {if $product.customizations|count > 1}<hr>{/if}
+        {/foreach}
+      </ul>
     {else}
       <span class="no-items">{l s='There are no more items in your cart' d='Shop.Theme.Checkout'}</span>
     {/if}
