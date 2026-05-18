@@ -44,16 +44,16 @@
     </a>
   </div>
 
-  {if $customer.addresses|count}
-    <div class="spoc-account-address-list">
-      {foreach $customer.addresses as $address}
-        <div class="spoc-account-address-item">
+ {if $customer.addresses|count}
+  <div class="spoc-account-address-grid spoc-account-address-list">
+    {foreach $customer.addresses as $address}
+      <div class="spoc-account-address-item">
         {block name='customer_address'}
           {include file='customer/_partials/block-address.tpl' address=$address}
         {/block}
-        </div>
-      {/foreach}
-    </div>
+      </div>
+    {/foreach}
+  </div>
   {else}
     <div class="spoc-account-empty-state">
       <i class="material-icons">&#xE567;</i>

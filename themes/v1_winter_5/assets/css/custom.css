@@ -16490,6 +16490,83 @@ body#checkout #js-checkout-summary.spoc-checkout-summary-card.card {
     }
 }
 
+/* =========================================================
+   SPOC - Compte client / Adresses
+   Sécurisation rendu cards sur /fr/adresses
+   ========================================================= */
 
+body#addresses.page-customer-account .spoc-account-address-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 20px !important;
+  margin: 0 !important;
+}
+
+body#addresses.page-customer-account .spoc-account-address-item {
+  display: flex !important;
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  float: none !important;
+}
+
+body#addresses.page-customer-account .spoc-account-address-item .address {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 !important;
+  border: 1px solid #eeeeee !important;
+  border-radius: 3px !important;
+  background: #ffffff !important;
+  box-shadow: none !important;
+}
+
+body#addresses.page-customer-account .spoc-account-address-item .address-body {
+  flex: 1 1 auto !important;
+  padding: 22px !important;
+  border: 0 !important;
+}
+
+body#addresses.page-customer-account .spoc-account-address-item .address-body h4 {
+  margin: 0 0 14px !important;
+  color: #1c191c !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+}
+
+body#addresses.page-customer-account .spoc-account-address-item .address-body address {
+  min-height: 0 !important;
+  margin: 0 !important;
+  color: #666666 !important;
+  line-height: 1.6 !important;
+}
+
+body#addresses.page-customer-account .spoc-account-address-item .address-footer {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  margin-top: 0 !important;
+  padding: 14px 22px !important;
+  border-top: 1px solid #eeeeee !important;
+}
+
+body#addresses.page-customer-account .spoc-account-address-item .address-footer a {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin: 0 !important;
+  color: #145078 !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+}
+
+@media (max-width: 767px) {
+  body#addresses.page-customer-account .spoc-account-address-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
 
 /*mailalert css end*/
