@@ -1,26 +1,8 @@
 {**
- * 2007-2025 PrestaShop
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Academic Free License 3.0 (AFL-3.0)
- * that is bundled with this package in the file LICENSE.txt.
- * It is also available through the world-wide-web at this URL:
- * https://opensource.org/licenses/AFL-3.0
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@prestashop.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
- * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to http://www.prestashop.com for more information.
- *
- * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2007-2025 PrestaShop SA
- * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
- * International Registered Trademark & Property of PrestaShop SA
+ * SPOC - customer addresses list
+ * Page: /fr/adresses
+ * File: themes/v1_winter_5/templates/customer/addresses.tpl
+ * address.tpl = form add/edit, addresses.tpl = list of saved addresses.
  *}
 {strip}
 {extends file='customer/page.tpl'}
@@ -44,16 +26,16 @@
     </a>
   </div>
 
- {if $customer.addresses|count}
-  <div class="spoc-account-address-grid spoc-account-address-list">
-    {foreach $customer.addresses as $address}
-      <div class="spoc-account-address-item">
-        {block name='customer_address'}
-          {include file='customer/_partials/block-address.tpl' address=$address}
-        {/block}
-      </div>
-    {/foreach}
-  </div>
+  {if $customer.addresses|count}
+    <div class="spoc-account-address-list spoc-account-address-grid">
+      {foreach $customer.addresses as $address}
+        <div class="spoc-account-address-item">
+          {block name='customer_address'}
+            {include file='customer/_partials/block-address.tpl' address=$address}
+          {/block}
+        </div>
+      {/foreach}
+    </div>
   {else}
     <div class="spoc-account-empty-state">
       <i class="material-icons">&#xE567;</i>
