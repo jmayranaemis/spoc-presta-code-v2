@@ -64,6 +64,11 @@
             <h1 class="h1">{l s='Shopping Cart' d='Shop.Theme.Checkout'}</h1>
           </div>
 
+         {block name='cart_voucher'}
+              {include file='checkout/_partials/cart-voucher.tpl' cart=$cart}
+            {/block}
+
+
         {block name='cart_summary'}
           <div class="card cart-summary">
 
