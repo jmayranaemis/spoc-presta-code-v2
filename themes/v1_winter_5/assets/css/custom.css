@@ -14992,10 +14992,14 @@ body#checkout .cart-grid {
 body#checkout section.checkout-step,
 body#checkout .cart-summary,
 body#checkout .card {
-    background: #ffffff !important;
+  /*  background: #ffffff !important;
     border: 1px solid var(--spoc-border, #d9e2ec) !important;
    /* border-radius: 12px !important; */
-    box-shadow: none !important;
+    box-shadow: none !important; */
+    border: 1px solid var(--spoc-border, #d9e2ec) !important;
+    border-radius: 10px !important;
+    background: #ffffff !important;
+    box-shadow: 0 12px 28px rgba(20, 80, 120, 0.06) !important;
 }
 
 /* Espacement entre les étapes */
