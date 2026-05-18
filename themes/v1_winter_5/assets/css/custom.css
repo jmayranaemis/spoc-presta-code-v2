@@ -16088,4 +16088,76 @@ body#checkout .spoc-checkout-total-block .cart-summary-line small.value {
         padding-right: 18px !important;
     }
 }
+
+/* =========================================================
+   SPOC - HOTFIX CHECKOUT SUMMARY RACINE
+   #js-checkout-summary est maintenant la carte complète
+   Corrige radius / bordure / ombre après refresh AJAX transporteur
+   ========================================================= */
+
+body#checkout #js-checkout-summary.card.cart-summary.spoc-checkout-summary-card,
+body#checkout .tvcheckout-process-right > #js-checkout-summary.spoc-checkout-summary-card {
+    display: block !important;
+    position: relative !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    margin-bottom: 30px !important;
+
+    background: #ffffff !important;
+    border: 1px solid var(--spoc-border, #d9e2ec) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 12px 28px rgba(20, 80, 120, 0.06) !important;
+    background-clip: padding-box !important;
+}
+
+/* Titre : coins hauts propres */
+body#checkout #js-checkout-summary.spoc-checkout-summary-card > .spoc-cart-summary-heading,
+body#checkout #js-checkout-summary.spoc-checkout-summary-card > .spoc-cart-card-title {
+    margin: 0 !important;
+    padding: 22px 24px 14px 24px !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid var(--spoc-border, #d9e2ec) !important;
+    border-radius: 12px 12px 0 0 !important;
+}
+
+/* Titre Ma commande */
+body#checkout #js-checkout-summary.spoc-checkout-summary-card > .spoc-cart-summary-heading .h1,
+body#checkout #js-checkout-summary.spoc-checkout-summary-card > .spoc-cart-card-title .h1 {
+    margin: 0 !important;
+    padding: 0 !important;
+    color: var(--spoc-primary, #145078) !important;
+    font-size: 26px !important;
+    line-height: 1.2 !important;
+    font-weight: 800 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+}
+
+/* Contenu interne : ne doit PAS recréer une carte */
+body#checkout #js-checkout-summary.spoc-checkout-summary-card > .spoc-checkout-summary-content {
+    display: block !important;
+    overflow: hidden !important;
+    background: #ffffff !important;
+    border: none !important;
+    border-radius: 0 0 12px 12px !important;
+    box-shadow: none !important;
+}
+
+/* Les blocs internes ne doivent pas casser le radius externe */
+body#checkout #js-checkout-summary.spoc-checkout-summary-card .spoc-checkout-summary-products-block,
+body#checkout #js-checkout-summary.spoc-checkout-summary-card .spoc-checkout-voucher-wrapper,
+body#checkout #js-checkout-summary.spoc-checkout-summary-card .spoc-checkout-total-block {
+    background: #ffffff !important;
+    border-radius: 0 !important;
+}
+
+/* Dernier bloc : coins bas propres */
+body#checkout #js-checkout-summary.spoc-checkout-summary-card .spoc-checkout-total-block {
+    border-radius: 0 0 12px 12px !important;
+}
+
+/* Neutralise l'ancien radius 0 du thème sur .card */
+body#checkout #js-checkout-summary.spoc-checkout-summary-card.card {
+    border-radius: 12px !important;
+}
 /*mailalert css end*/
