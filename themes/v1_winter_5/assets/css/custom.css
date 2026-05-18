@@ -14165,22 +14165,56 @@ body.page-customer-account .spoc-account-form-card .form-footer .tvall-inner-btn
   min-width: 180px;
 }
 
-body.page-customer-account .spoc-account-address-grid,
-body.page-addresses.page-customer-account .spoc-account-child-dashboard .tvaddress-save-box {
-  margin-right: -10px;
-  margin-left: -10px;
+body#addresses.page-customer-account .spoc-account-child-dashboard,
+body.page-addresses.page-customer-account .spoc-account-child-dashboard {
+  display: grid !important;
+  grid-template-columns: 260px minmax(0, 1fr);
+  align-items: start;
 }
 
-body.page-customer-account .spoc-account-address-grid > [class*="col-"],
-body.page-addresses.page-customer-account .spoc-account-child-dashboard .tvaddress-save-box > [class*="col-"] {
+body#addresses.page-customer-account .spoc-account-child-dashboard .spoc-account-sidebar,
+body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-account-sidebar {
+  display: flex !important;
+  grid-column: 1;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+body#addresses.page-customer-account .spoc-account-child-dashboard .spoc-account-main,
+body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-account-main {
+  grid-column: 2;
+  min-width: 0;
+}
+
+body.page-customer-account .spoc-account-address-list,
+body.page-customer-account .spoc-account-address-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin: 0;
+}
+
+body.page-customer-account .spoc-account-address-list::before,
+body.page-customer-account .spoc-account-address-list::after,
+body.page-customer-account .spoc-account-address-grid::before,
+body.page-customer-account .spoc-account-address-grid::after {
+  display: none;
+  content: none;
+}
+
+body.page-customer-account .spoc-account-address-item,
+body.page-customer-account .spoc-account-address-grid > [class*="col-"] {
   display: flex;
-  padding-right: 10px;
-  padding-left: 10px;
-  margin-bottom: 20px;
+  width: auto;
+  max-width: none;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  float: none;
 }
 
-body.page-customer-account .spoc-account-address-grid .address,
-body.page-addresses.page-customer-account .spoc-account-child-dashboard .tvaddress-save-box .address {
+body.page-customer-account .spoc-account-address-list .address,
+body.page-customer-account .spoc-account-address-grid .address {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -14192,31 +14226,31 @@ body.page-addresses.page-customer-account .spoc-account-child-dashboard .tvaddre
   box-shadow: none;
 }
 
-body.page-customer-account .spoc-account-address-grid .address-body,
-body.page-addresses.page-customer-account .spoc-account-child-dashboard .tvaddress-save-box .address-body {
+body.page-customer-account .spoc-account-address-list .address-body,
+body.page-customer-account .spoc-account-address-grid .address-body {
   flex: 1 1 auto;
   padding: 22px;
   border: 0;
 }
 
-body.page-customer-account .spoc-account-address-grid .address-body h4,
-body.page-addresses.page-customer-account .spoc-account-child-dashboard .tvaddress-save-box .address-body h4 {
+body.page-customer-account .spoc-account-address-list .address-body h4,
+body.page-customer-account .spoc-account-address-grid .address-body h4 {
   margin: 0 0 14px;
   color: #1c191c;
   font-size: 16px;
   font-weight: 800;
 }
 
-body.page-customer-account .spoc-account-address-grid .address-body address,
-body.page-addresses.page-customer-account .spoc-account-child-dashboard .tvaddress-save-box .address-body address {
+body.page-customer-account .spoc-account-address-list .address-body address,
+body.page-customer-account .spoc-account-address-grid .address-body address {
   min-height: 0;
   margin: 0;
   color: #666666;
   line-height: 1.6;
 }
 
-body.page-customer-account .spoc-account-address-grid .address-footer,
-body.page-addresses.page-customer-account .spoc-account-child-dashboard .tvaddress-save-box .address-footer {
+body.page-customer-account .spoc-account-address-list .address-footer,
+body.page-customer-account .spoc-account-address-grid .address-footer {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -14225,8 +14259,8 @@ body.page-addresses.page-customer-account .spoc-account-child-dashboard .tvaddre
   border-top: 1px solid #eeeeee;
 }
 
-body.page-customer-account .spoc-account-address-grid .address-footer a,
-body.page-addresses.page-customer-account .spoc-account-child-dashboard .tvaddress-save-box .address-footer a {
+body.page-customer-account .spoc-account-address-list .address-footer a,
+body.page-customer-account .spoc-account-address-grid .address-footer a {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -14236,37 +14270,9 @@ body.page-addresses.page-customer-account .spoc-account-child-dashboard .tvaddre
   font-weight: 700;
 }
 
-body.page-customer-account .spoc-account-address-grid .address-footer a span,
-body.page-addresses.page-customer-account .spoc-account-child-dashboard .tvaddress-save-box .address-footer a span {
+body.page-customer-account .spoc-account-address-list .address-footer a span,
+body.page-customer-account .spoc-account-address-grid .address-footer a span {
   font-size: 13px;
-}
-
-body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-account-address-grid,
-body.page-addresses.page-customer-account .spoc-account-child-dashboard .tvaddress-save-box {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-  margin-right: 0;
-  margin-left: 0;
-}
-
-body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-account-address-grid::before,
-body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-account-address-grid::after,
-body.page-addresses.page-customer-account .spoc-account-child-dashboard .tvaddress-save-box::before,
-body.page-addresses.page-customer-account .spoc-account-child-dashboard .tvaddress-save-box::after {
-  display: none;
-  content: none;
-}
-
-body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-account-address-grid > [class*="col-"],
-body.page-addresses.page-customer-account .spoc-account-child-dashboard .tvaddress-save-box > [class*="col-"] {
-  display: flex;
-  width: auto;
-  max-width: none;
-  padding-right: 0;
-  padding-left: 0;
-  margin-bottom: 0;
-  float: none;
 }
 
 body.page-customer-account .spoc-account-empty-state {
@@ -14312,6 +14318,11 @@ body.page-customer-account .spoc-account-mobile-action {
     grid-template-columns: 230px minmax(0, 1fr);
     gap: 24px;
   }
+
+  body#addresses.page-customer-account .spoc-account-child-dashboard,
+  body.page-addresses.page-customer-account .spoc-account-child-dashboard {
+    grid-template-columns: 230px minmax(0, 1fr);
+  }
 }
 
 @media (max-width: 767px) {
@@ -14320,9 +14331,21 @@ body.page-customer-account .spoc-account-mobile-action {
     padding-top: 12px;
   }
 
+  body#addresses.page-customer-account .spoc-account-child-dashboard,
+  body.page-addresses.page-customer-account .spoc-account-child-dashboard {
+    display: block !important;
+  }
+
   body.page-customer-account .spoc-account-child-dashboard .spoc-account-sidebar {
     position: static;
     margin-bottom: 24px;
+  }
+
+  body#addresses.page-customer-account .spoc-account-child-dashboard .spoc-account-sidebar,
+  body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-account-sidebar,
+  body#addresses.page-customer-account .spoc-account-child-dashboard .spoc-account-main,
+  body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-account-main {
+    grid-column: auto;
   }
 
   body.page-customer-account .spoc-account-child-dashboard .spoc-account-hero {
@@ -14384,8 +14407,8 @@ body.page-customer-account .spoc-account-mobile-action {
     margin-top: 4px;
   }
 
-  body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-account-address-grid,
-  body.page-addresses.page-customer-account .spoc-account-child-dashboard .tvaddress-save-box {
+  body.page-customer-account .spoc-account-address-list,
+  body.page-customer-account .spoc-account-address-grid {
     grid-template-columns: 1fr;
   }
 }
