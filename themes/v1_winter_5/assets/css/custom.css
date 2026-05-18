@@ -14376,7 +14376,7 @@ body.page-customer-account .spoc-account-mobile-action {
     line-height: 1.2;
     font-weight: 800 !important;
     letter-spacing: 0;
-    text-transform: none;
+   /* text-transform: none; */
 }
 
 #main.spoc-cart-page .spoc-cart-card-title .h1::before {
@@ -14689,7 +14689,7 @@ body.page-customer-account .spoc-account-mobile-action {
     color: var(--spoc-primary, #145078) !important;
     font-size: 20px !important;
     line-height: 1.2;
-    font-weight: 900 !important;
+    font-weight: 800 !important;
 }
 
 #main.spoc-cart-page .spoc-cart-tax-line {
