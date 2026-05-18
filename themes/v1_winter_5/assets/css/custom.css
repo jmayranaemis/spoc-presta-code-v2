@@ -10725,12 +10725,22 @@ input.btn-primary:focus,
 #blockcart-modal .cart-content .cart-content-btn .btn-secondary,
 .tvcart-product-list-viewcart,
 .ttvcmscart-show-dropdown-right .ttvcart-product-list-viewcart,
-.tv-continue-shopping-btn,
-a.tv-continue-shopping-btn,
-button.tv-continue-shopping-btn,
+
 body#checkout section.checkout-step .delete-address,
 body#checkout section.checkout-step .edit-address,
 .clear-all-wrapper .btn {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    border: 1px solid var(--spoc-primary) !important;
+    border-radius: var(--spoc-radius-lg) !important;
+    box-shadow: none !important;
+    color: var(--spoc-primary) !important;
+    transition: var(--spoc-transition);
+}
+
+.tv-continue-shopping-btn,
+a.tv-continue-shopping-btn,
+button.tv-continue-shopping-btn, {
     background: #ffffff !important;
     background-color: #ffffff !important;
     border: 1px solid var(--spoc-primary) !important;
