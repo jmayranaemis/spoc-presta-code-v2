@@ -60,6 +60,7 @@
       <!-- Right Block: cart subtotal & cart total -->
       <div class="cart-grid-right col-xs-12 col-lg-4">
 
+    <div class="card cart-container">
       <div class="card-block">
             <h1 class="h1">{l s='My order' d='Shop.Theme.Checkout'}</h1>
           </div>
@@ -67,7 +68,7 @@
          {block name='cart_voucher'}
               {include file='checkout/_partials/cart-voucher.tpl' cart=$cart}
             {/block}
-
+      </div>
 
         {block name='cart_summary'}
           <div class="card cart-summary">
