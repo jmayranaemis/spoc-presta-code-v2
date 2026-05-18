@@ -14241,6 +14241,34 @@ body.page-addresses.page-customer-account .spoc-account-child-dashboard .tvaddre
   font-size: 13px;
 }
 
+body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-account-address-grid,
+body.page-addresses.page-customer-account .spoc-account-child-dashboard .tvaddress-save-box {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-account-address-grid::before,
+body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-account-address-grid::after,
+body.page-addresses.page-customer-account .spoc-account-child-dashboard .tvaddress-save-box::before,
+body.page-addresses.page-customer-account .spoc-account-child-dashboard .tvaddress-save-box::after {
+  display: none;
+  content: none;
+}
+
+body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-account-address-grid > [class*="col-"],
+body.page-addresses.page-customer-account .spoc-account-child-dashboard .tvaddress-save-box > [class*="col-"] {
+  display: flex;
+  width: auto;
+  max-width: none;
+  padding-right: 0;
+  padding-left: 0;
+  margin-bottom: 0;
+  float: none;
+}
+
 body.page-customer-account .spoc-account-empty-state {
   padding: 34px 24px;
   border: 1px dashed #dddddd;
@@ -14354,6 +14382,11 @@ body.page-customer-account .spoc-account-mobile-action {
   body.page-customer-account .spoc-account-mobile-action {
     display: block;
     margin-top: 4px;
+  }
+
+  body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-account-address-grid,
+  body.page-addresses.page-customer-account .spoc-account-child-dashboard .tvaddress-save-box {
+    grid-template-columns: 1fr;
   }
 }
 
