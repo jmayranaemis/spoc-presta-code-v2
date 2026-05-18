@@ -34,7 +34,23 @@
 {/block}
 
 {block name='page_content'}
-  <div class="address-form">
+  <div class="address-form spoc-account-form-card spoc-account-address-form-card">
+    <div class="spoc-account-panel-heading">
+      <span class="spoc-account-panel-icon">
+        <i class="material-icons">{if $editing}&#xE254;{else}&#xE567;{/if}</i>
+      </span>
+      <div>
+        <h2>
+          {if $editing}
+            {l s='Modifier cette adresse' d='Shop.Theme.Customeraccount'}
+          {else}
+            {l s='Ajouter une adresse' d='Shop.Theme.Customeraccount'}
+          {/if}
+        </h2>
+        <p>{l s='Renseignez les informations nécessaires pour vos livraisons et factures.' d='Shop.Theme.Customeraccount'}</p>
+      </div>
+    </div>
+
     {render template="customer/_partials/address-form.tpl" ui=$address_form}
   </div>
 {/block}
