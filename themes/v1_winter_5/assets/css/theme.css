@@ -9052,8 +9052,9 @@ a:hover {
 }
 .cart-grid-body .card-block h1 {
     margin-bottom: 0;
-    font-weight: 500;
-    font-size: 20px;
+    font-weight: 700;
+    font-size: 25px;
+    text-transform: none;
 }
 .cart-grid-body .cart-overview {
     padding: 1rem
