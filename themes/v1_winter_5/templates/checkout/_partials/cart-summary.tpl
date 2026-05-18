@@ -24,6 +24,7 @@
  *}
 {strip}
 
+ <div class="card cart-summary spoc-cart-summary-card">
  <div class="card-block spoc-cart-card-title spoc-cart-summary-heading">
               <h1 class="h1">{l s='Ma commande' d='Shop.Theme.Checkout'}</h1>
             </div>
@@ -79,5 +80,6 @@
     {include file='checkout/_partials/cart-summary-totals.tpl' cart=$cart}
   {/block}
 
+</div>
 </div>
 {/strip}
