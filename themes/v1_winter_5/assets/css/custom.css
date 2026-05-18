@@ -14380,7 +14380,8 @@ body.page-customer-account .spoc-account-mobile-action {
 }
 
 #main.spoc-cart-page .spoc-cart-card-title .h1::before {
-    content: '';
+   /* Desactiver le mini logo spoc avant le texte 
+   content: '';
     width: 42px;
     height: 34px;
     flex: 0 0 42px;
@@ -14388,7 +14389,7 @@ body.page-customer-account .spoc-account-mobile-action {
     background-image: url(../img/logo-spoc-mini.png);
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: center;
+    background-position: center; */
 }
 
 #main.spoc-cart-page .spoc-cart-overview {
@@ -14405,12 +14406,12 @@ body.page-customer-account .spoc-account-mobile-action {
 
 #main.spoc-cart-page .spoc-cart-product-head {
     padding: 13px 0;
-    border-top: 1px solid var(--spoc-border, #d9e2ec);
-    border-bottom: 1px solid var(--spoc-border, #d9e2ec);
+  /*  border-top: 1px solid var(--spoc-border, #d9e2ec);
+    border-bottom: 1px solid var(--spoc-border, #d9e2ec); */
     color: var(--spoc-text-muted, #6b7a89);
     font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 0.04em;
+    font-weight: 700;
+ /*   letter-spacing: 0.04em; */
     text-transform: uppercase;
 }
 
@@ -14475,11 +14476,11 @@ body.page-customer-account .spoc-account-mobile-action {
 #main.spoc-cart-page .spoc-cart-product-info .product-title h6 {
     margin: 0 0 7px 0 !important;
     color: var(--spoc-text, #243447) !important;
-    font-size: 15px !important;
-    line-height: 1.35;
-    font-weight: 800 !important;
-    letter-spacing: 0;
-    text-transform: uppercase;
+    font-size: 16px !important;
+    line-height: .8;
+    font-weight: 500 !important;
+    /*letter-spacing: 0;*/
+   /*  text-transform: uppercase; */
 }
 
 #main.spoc-cart-page .spoc-cart-attribute {
@@ -14535,7 +14536,7 @@ body.page-customer-account .spoc-account-mobile-action {
     color: var(--spoc-primary, #145078) !important;
     font-size: 16px !important;
     line-height: 1.2 !important;
-    font-weight: 900 !important;
+    font-weight: 700 !important;
 }
 
 #main.spoc-cart-page .spoc-cart-qty-col .bootstrap-touchspin,
@@ -14559,7 +14560,7 @@ body.page-customer-account .spoc-account-mobile-action {
     padding: 0 !important;
     border: none !important;
     color: var(--spoc-text, #243447) !important;
-    font-weight: 800;
+    font-weight: 400;
     text-align: center;
     box-shadow: none !important;
 }
@@ -14869,7 +14870,7 @@ body.page-customer-account .spoc-account-mobile-action {
 #main.spoc-cart-page .spoc-cart-qty-col .bootstrap-touchspin input.js-cart-line-product-quantity,
 #main.spoc-cart-page .spoc-cart-qty-col input.js-cart-line-product-quantity {
     width: 74px !important;
-    max-width: 74px !important;
+    max-width: 72px !important;
     min-width: 0 !important;
     flex: 0 0 74px !important;
 }
