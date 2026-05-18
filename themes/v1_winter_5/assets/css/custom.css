@@ -15885,4 +15885,207 @@ body#checkout #js-delivery button[name="confirmDeliveryOption"] {
         padding: 16px !important;
     }
 }
+
+/* =========================================================
+   SPOC - CHECKOUT SUMMARY
+   Reprise du design panier sur cart-summary.tpl
+   Utilisé dans /commande
+   ========================================================= */
+
+body#checkout .spoc-checkout-summary-card {
+    overflow: hidden !important;
+    border: 1px solid var(--spoc-border, #d9e2ec) !important;
+    border-radius: 10px !important;
+    background: #ffffff !important;
+    box-shadow: 0 12px 28px rgba(20, 80, 120, 0.06) !important;
+}
+
+/* Titre Ma commande */
+body#checkout .spoc-checkout-summary-card .spoc-cart-card-title,
+body#checkout .spoc-checkout-summary-card .spoc-cart-summary-heading {
+    padding: 22px 24px 14px 24px !important;
+    border-bottom: 1px solid var(--spoc-border, #d9e2ec) !important;
+    background: #ffffff !important;
+}
+
+body#checkout .spoc-checkout-summary-card .spoc-cart-card-title .h1,
+body#checkout .spoc-checkout-summary-card .spoc-cart-summary-heading .h1 {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: var(--spoc-primary, #145078) !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 26px !important;
+    line-height: 1.2 !important;
+    font-weight: 800 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+}
+
+/* Supprime l'effet carte imbriquée si une ancienne classe card reste */
+body#checkout #js-checkout-summary {
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+}
+
+/* Bloc produits */
+body#checkout .spoc-checkout-summary-products-block {
+    padding: 20px 24px !important;
+}
+
+body#checkout .spoc-checkout-summary-count {
+    margin: 0 0 14px 0 !important;
+    color: var(--spoc-text-muted, #6b7a89) !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0 !important;
+}
+
+/* Liste produits */
+body#checkout .spoc-checkout-summary-product-list .media-list {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+body#checkout .spoc-checkout-summary-product-list .media {
+    margin: 0 !important;
+    padding: 14px 0 !important;
+    border-top: 1px solid rgba(217, 226, 236, 0.85) !important;
+}
+
+body#checkout .spoc-checkout-summary-product-list .media:first-child {
+    border-top: none !important;
+}
+
+body#checkout #cart-summary-product-list {
+    font-size: 14px !important;
+}
+
+body#checkout #cart-summary-product-list img {
+    min-width: 72px !important;
+    max-width: 72px !important;
+    border: 1px solid var(--spoc-border, #d9e2ec) !important;
+    border-radius: 8px !important;
+    background: #ffffff !important;
+}
+
+/* Lignes sous-total */
+body#checkout .spoc-checkout-summary-lines {
+    padding-top: 16px !important;
+    margin-top: 16px !important;
+    border-top: 1px solid var(--spoc-border, #d9e2ec) !important;
+}
+
+/* Neutralise les floats natifs du thème */
+body#checkout .spoc-checkout-summary-card .cart-summary-line {
+    display: flex !important;
+    align-items: baseline !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    width: 100% !important;
+    margin-bottom: 12px !important;
+    clear: none !important;
+}
+
+body#checkout .spoc-checkout-summary-card .cart-summary-line::after {
+    display: none !important;
+    content: none !important;
+}
+
+body#checkout .spoc-checkout-summary-card .cart-summary-line .label,
+body#checkout .spoc-checkout-summary-card .cart-summary-line .value,
+body#checkout .spoc-checkout-summary-card .cart-summary-line small {
+    float: none !important;
+    padding: 0 !important;
+    letter-spacing: 0 !important;
+}
+
+body#checkout .spoc-checkout-summary-card .cart-summary-line:not(.cart-total) .label,
+body#checkout .spoc-checkout-summary-card .cart-summary-line:not(.cart-total) .value {
+    color: var(--spoc-text-muted, #6b7a89) !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+}
+
+/* Voucher */
+body#checkout .spoc-checkout-voucher-wrapper {
+    padding: 0 24px 20px 24px !important;
+}
+
+body#checkout .spoc-checkout-voucher-wrapper .block-promo {
+    margin: 0 !important;
+    padding: 16px 0 0 0 !important;
+    border-top: 1px solid rgba(217, 226, 236, 0.85) !important;
+}
+
+body#checkout .spoc-checkout-voucher-wrapper .promo-code-button {
+    margin: 0 !important;
+    padding: 0 !important;
+    color: var(--spoc-primary, #145078) !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+}
+
+body#checkout .spoc-checkout-voucher-wrapper .promo-code-button:hover {
+    color: var(--spoc-secondary, #1999cb) !important;
+}
+
+body#checkout .spoc-checkout-voucher-wrapper .promo-code {
+    margin-top: 12px !important;
+    padding: 14px !important;
+    background: var(--spoc-bg-light, #f7f9fb) !important;
+    border-radius: 8px !important;
+}
+
+/* Total */
+body#checkout .spoc-checkout-total-block {
+    padding: 20px 24px !important;
+    border-top: 1px solid var(--spoc-border, #d9e2ec) !important;
+}
+
+body#checkout .spoc-checkout-total-block .cart-summary-line.cart-total {
+    margin: 0 !important;
+    padding-top: 0 !important;
+    border-top: none !important;
+}
+
+body#checkout .spoc-checkout-total-block .cart-summary-line.cart-total .label,
+body#checkout .spoc-checkout-total-block .cart-summary-line.cart-total .value {
+    color: var(--spoc-primary, #145078) !important;
+    font-size: 20px !important;
+    line-height: 1.2 !important;
+    font-weight: 800 !important;
+}
+
+/* Taxes */
+body#checkout .spoc-checkout-total-block .cart-summary-line small.label,
+body#checkout .spoc-checkout-total-block .cart-summary-line small.value {
+    color: var(--spoc-text-muted, #6b7a89) !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+    body#checkout .spoc-checkout-summary-card .spoc-cart-card-title,
+    body#checkout .spoc-checkout-summary-card .spoc-cart-summary-heading {
+        padding: 18px 18px 10px 18px !important;
+    }
+
+    body#checkout .spoc-checkout-summary-card .spoc-cart-card-title .h1,
+    body#checkout .spoc-checkout-summary-card .spoc-cart-summary-heading .h1 {
+        font-size: 22px !important;
+    }
+
+    body#checkout .spoc-checkout-summary-products-block,
+    body#checkout .spoc-checkout-total-block,
+    body#checkout .spoc-checkout-voucher-wrapper {
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+    }
+}
 /*mailalert css end*/
