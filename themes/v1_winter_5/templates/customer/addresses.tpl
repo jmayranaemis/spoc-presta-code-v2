@@ -45,16 +45,15 @@
   </div>
 
   {if $customer.addresses|count}
-    <div class="row tvaddress-save-box spoc-account-address-grid">
+    <div class="spoc-account-address-list">
       {foreach $customer.addresses as $address}
-        <div class="col-lg-4 col-md-6 col-sm-6">
+        <div class="spoc-account-address-item">
         {block name='customer_address'}
           {include file='customer/_partials/block-address.tpl' address=$address}
         {/block}
         </div>
       {/foreach}
     </div>
-    <div class="clearfix"></div>
   {else}
     <div class="spoc-account-empty-state">
       <i class="material-icons">&#xE567;</i>
