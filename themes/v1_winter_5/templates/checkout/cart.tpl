@@ -61,7 +61,7 @@
       <div class="cart-grid-right col-xs-12 col-lg-4">
 
       <div class="card-block">
-            <h1 class="h1">{l s='Shopping Cart' d='Shop.Theme.Checkout'}</h1>
+            <h1 class="h1">{l s='My order' d='Shop.Theme.Checkout'}</h1>
           </div>
 
          {block name='cart_voucher'}
