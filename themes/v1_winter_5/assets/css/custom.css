@@ -14964,4 +14964,628 @@ body.page-customer-account .spoc-account-mobile-action {
     text-align: right !important;
 }
 
+
+
+/* =========================================================
+   SPOC - CHECKOUT / TUNNEL COMMANDE
+   Étapes 2 Adresse / 3 Livraison / 4 Paiement
+   Objectif : même UX design que le détail panier
+   À placer TOUT À LA FIN de custom.css
+   ========================================================= */
+
+/* Wrapper général checkout */
+body#checkout #wrapper {
+    background: var(--spoc-bg-light, #f7f9fb);
+}
+
+body#checkout #content-wrapper,
+body#checkout #main {
+    color: var(--spoc-text, #243447);
+}
+
+/* Layout général */
+body#checkout .cart-grid {
+    align-items: flex-start;
+}
+
+/* Cartes principales */
+body#checkout section.checkout-step,
+body#checkout .cart-summary,
+body#checkout .card {
+    background: #ffffff !important;
+    border: 1px solid var(--spoc-border, #d9e2ec) !important;
+    border-radius: 12px !important;
+    box-shadow: none !important;
+}
+
+/* Espacement entre les étapes */
+body#checkout section.checkout-step {
+    margin-bottom: 18px !important;
+    padding: 0 !important;
+    overflow: hidden;
+}
+
+/* Titre des étapes */
+body#checkout section.checkout-step .step-title,
+body#checkout section.checkout-step h1,
+body#checkout section.checkout-step .h1 {
+    position: relative;
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+    margin: 0 !important;
+    padding: 18px 22px !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid var(--spoc-border, #d9e2ec) !important;
+    color: var(--spoc-primary, #145078) !important;
+    font-size: 20px !important;
+    line-height: 1.2 !important;
+    font-weight: 800 !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+}
+
+/* Numéro d'étape */
+body#checkout section.checkout-step .step-number {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 32px;
+    width: 32px !important;
+    height: 32px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 50%;
+    background: var(--spoc-primary, #145078) !important;
+    color: #ffffff !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+}
+
+/* Étape inactive */
+body#checkout section.checkout-step:not(.-current) .step-title {
+    color: var(--spoc-text-muted, #6b7a89) !important;
+}
+
+/* Étape complétée */
+body#checkout section.checkout-step.-complete .step-number {
+    background: var(--spoc-secondary, #1999cb) !important;
+}
+
+/* Contenu interne étape */
+body#checkout section.checkout-step .content,
+body#checkout section.checkout-step .step-content,
+body#checkout section.checkout-step .checkout-step-content {
+    padding: 22px !important;
+}
+
+/* Bouton modifier */
+body#checkout section.checkout-step .step-edit {
+    margin-left: auto !important;
+    color: var(--spoc-primary, #145078) !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    text-transform: none !important;
+}
+
+body#checkout section.checkout-step .step-edit:hover {
+    color: var(--spoc-secondary, #1999cb) !important;
+}
+
+/* =========================================================
+   ÉTAPE 2 - ADRESSES
+   ========================================================= */
+
+body#checkout div.checkout-step .address-selector {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+    margin: 0 !important;
+}
+
+body#checkout div.checkout-step .address-item {
+    position: relative;
+    flex: none !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    border: 1px solid var(--spoc-border, #d9e2ec) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    transition: var(--spoc-transition, all 0.25s ease);
+}
+
+body#checkout div.checkout-step .address-item:hover {
+    border-color: var(--spoc-border-hover, #808183) !important;
+}
+
+body#checkout div.checkout-step .address-item.selected {
+    border: 2px solid var(--spoc-primary, #145078) !important;
+    background: #ffffff !important;
+}
+
+body#checkout div.checkout-step .address-item.selected::before {
+    content: "Adresse sélectionnée";
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 2;
+    padding: 5px 9px;
+    border-radius: 999px;
+    background: var(--spoc-primary, #145078);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0;
+}
+
+/* Bloc radio adresse */
+body#checkout div.checkout-step .radio-block {
+    display: block !important;
+    min-height: 150px;
+    padding: 20px !important;
+    cursor: pointer;
+}
+
+/* Alias adresse */
+body#checkout div.checkout-step .address-alias {
+    display: block !important;
+    margin: 0 0 10px 30px !important;
+    color: var(--spoc-text, #243447) !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0 !important;
+}
+
+/* Texte adresse */
+body#checkout div.checkout-step .address {
+    margin-left: 30px !important;
+    color: var(--spoc-text-muted, #6b7a89) !important;
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+    font-weight: 400 !important;
+    letter-spacing: 0 !important;
+}
+
+/* Footer adresse */
+body#checkout div.checkout-step .address-footer {
+    display: flex !important;
+    gap: 8px;
+    padding: 12px 20px 18px !important;
+    border-top: 1px solid var(--spoc-border, #d9e2ec);
+    background: var(--spoc-bg-light, #f7f9fb);
+}
+
+/* Edit / Delete adresse */
+body#checkout section.checkout-step .edit-address,
+body#checkout section.checkout-step .delete-address {
+    height: auto !important;
+    min-height: 32px !important;
+    padding: 7px 12px !important;
+    margin: 0 !important;
+    border: 1px solid var(--spoc-primary, #145078) !important;
+    border-radius: 8px !important;
+    background: #ffffff !important;
+    color: var(--spoc-primary, #145078) !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    text-transform: none !important;
+}
+
+body#checkout section.checkout-step .edit-address:hover,
+body#checkout section.checkout-step .delete-address:hover {
+    background: var(--spoc-primary, #145078) !important;
+    color: #ffffff !important;
+}
+
+/* Nouvelle adresse */
+body#checkout .add-address,
+body#checkout a[data-link-action="add-address"] {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 7px;
+    margin-top: 16px !important;
+    color: var(--spoc-primary, #145078) !important;
+    font-weight: 800 !important;
+    text-decoration: none !important;
+}
+
+body#checkout .add-address:hover,
+body#checkout a[data-link-action="add-address"]:hover {
+    color: var(--spoc-secondary, #1999cb) !important;
+}
+
+/* =========================================================
+   ÉTAPE 3 - MODE DE LIVRAISON
+   ========================================================= */
+
+body#checkout div.checkout-step .delivery-options {
+    margin: 0 !important;
+}
+
+body#checkout div.checkout-step .delivery-option {
+    margin-bottom: 14px !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    border: 1px solid var(--spoc-border, #d9e2ec) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    transition: var(--spoc-transition, all 0.25s ease);
+}
+
+body#checkout div.checkout-step .delivery-option:hover {
+    border-color: var(--spoc-border-hover, #808183) !important;
+}
+
+body#checkout div.checkout-step .delivery-option .row {
+    display: grid !important;
+    grid-template-columns: 42px minmax(0, 1fr) 140px !important;
+    gap: 14px !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 18px 20px !important;
+}
+
+body#checkout div.checkout-step .delivery-option label {
+    display: block !important;
+    margin: 0 !important;
+    cursor: pointer;
+}
+
+body#checkout div.checkout-step .carrier-name {
+    display: block !important;
+    margin: 0 0 5px 0 !important;
+    color: var(--spoc-text, #243447) !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0 !important;
+}
+
+body#checkout div.checkout-step .carrier-delay {
+    display: block !important;
+    margin: 0 !important;
+    color: var(--spoc-text-muted, #6b7a89) !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    line-height: 1.4 !important;
+    letter-spacing: 0 !important;
+}
+
+body#checkout div.checkout-step .delivery-option .carrier-price,
+body#checkout div.checkout-step .delivery-option .delivery-option-price {
+    color: var(--spoc-primary, #145078) !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    text-align: right !important;
+    white-space: nowrap !important;
+}
+
+/* Message livraison */
+body#checkout #delivery_message,
+body#checkout textarea[name="delivery_message"] {
+    min-height: 95px !important;
+    padding: 14px 16px !important;
+    border: 1px solid var(--spoc-border, #d9e2ec) !important;
+    border-radius: 10px !important;
+    background: #ffffff !important;
+    color: var(--spoc-text, #243447) !important;
+    font-size: 14px !important;
+    letter-spacing: 0 !important;
+}
+
+body#checkout #delivery_message:focus,
+body#checkout textarea[name="delivery_message"]:focus {
+    border-color: var(--spoc-primary, #145078) !important;
+    box-shadow: none !important;
+}
+
+/* =========================================================
+   ÉTAPE 4 - PAIEMENT
+   ========================================================= */
+
+body#checkout div.checkout-step .payment-options {
+    margin: 0 !important;
+}
+
+body#checkout div.checkout-step .payment-options .payment-option {
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+    margin: 0 0 14px 0 !important;
+    padding: 18px 20px !important;
+    background: #ffffff !important;
+    border: 1px solid var(--spoc-border, #d9e2ec) !important;
+    border-radius: 12px !important;
+    transition: var(--spoc-transition, all 0.25s ease);
+}
+
+body#checkout div.checkout-step .payment-options .payment-option:hover {
+    border-color: var(--spoc-border-hover, #808183) !important;
+}
+
+body#checkout div.checkout-step .payment-options .custom-radio {
+    margin: 0 !important;
+    flex: 0 0 auto !important;
+}
+
+body#checkout div.checkout-step .payment-options label {
+    display: block !important;
+    margin: 0 !important;
+    color: var(--spoc-text, #243447) !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    line-height: 1.3 !important;
+    letter-spacing: 0 !important;
+    cursor: pointer !important;
+}
+
+/* Infos paiement / contenu module */
+body#checkout div.checkout-step .payment-option + .additional-information,
+body#checkout div.checkout-step .js-additional-information {
+    margin: -6px 0 14px 56px !important;
+    padding: 14px 18px !important;
+    background: var(--spoc-bg-light, #f7f9fb) !important;
+    border: 1px solid var(--spoc-border, #d9e2ec) !important;
+    border-radius: 10px !important;
+    color: var(--spoc-text-muted, #6b7a89) !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0 !important;
+}
+
+/* Conditions générales */
+body#checkout div.checkout-step #conditions-to-approve {
+    margin-top: 18px !important;
+    padding: 16px 18px !important;
+    background: var(--spoc-bg-light, #f7f9fb) !important;
+    border: 1px solid var(--spoc-border, #d9e2ec) !important;
+    border-radius: 10px !important;
+}
+
+body#checkout div.checkout-step #conditions-to-approve li {
+    align-items: flex-start !important;
+    gap: 8px !important;
+    color: var(--spoc-text, #243447) !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0 !important;
+}
+
+/* =========================================================
+   FORMULAIRES CHECKOUT
+   ========================================================= */
+
+body#checkout .form-group {
+    margin-bottom: 15px !important;
+}
+
+body#checkout .form-control-label {
+    color: var(--spoc-text, #243447) !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0 !important;
+}
+
+body#checkout .form-control,
+body#checkout input[type="text"],
+body#checkout input[type="email"],
+body#checkout input[type="tel"],
+body#checkout input[type="password"],
+body#checkout select,
+body#checkout textarea {
+    min-height: 42px;
+    border: 1px solid var(--spoc-border, #d9e2ec) !important;
+    border-radius: 10px !important;
+    background: #ffffff !important;
+    color: var(--spoc-text, #243447) !important;
+    font-size: 14px !important;
+    letter-spacing: 0 !important;
+    box-shadow: none !important;
+}
+
+body#checkout .form-control:focus,
+body#checkout input:focus,
+body#checkout select:focus,
+body#checkout textarea:focus {
+    border-color: var(--spoc-primary, #145078) !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Radios / checkboxes plus propres */
+body#checkout .custom-radio,
+body#checkout .custom-checkbox {
+    float: none !important;
+}
+
+body#checkout .custom-radio input[type="radio"] + span,
+body#checkout .custom-checkbox span {
+    border: 1px solid var(--spoc-border, #d9e2ec) !important;
+    box-shadow: none !important;
+}
+
+body#checkout .custom-radio input[type="radio"]:checked + span,
+body#checkout .custom-checkbox input[type="checkbox"]:checked + span {
+    border-color: var(--spoc-primary, #145078) !important;
+}
+
+/* =========================================================
+   BOUTONS CHECKOUT
+   ========================================================= */
+
+body#checkout .continue,
+body#checkout button.continue,
+body#checkout .btn-primary,
+body#checkout .form-footer .continue,
+body#checkout #payment-confirmation button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 44px !important;
+    padding: 12px 22px !important;
+    border: 1px solid var(--spoc-primary, #145078) !important;
+    border-radius: 10px !important;
+    background: var(--spoc-primary, #145078) !important;
+    color: #ffffff !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    letter-spacing: 0.4px !important;
+    text-transform: none !important;
+    box-shadow: none !important;
+}
+
+body#checkout .continue:hover,
+body#checkout button.continue:hover,
+body#checkout .btn-primary:hover,
+body#checkout .form-footer .continue:hover,
+body#checkout #payment-confirmation button:hover {
+    background: var(--spoc-secondary, #1999cb) !important;
+    border-color: var(--spoc-secondary, #1999cb) !important;
+    color: #ffffff !important;
+}
+
+/* Boutons secondaires */
+body#checkout .btn-secondary,
+body#checkout .btn-tertiary {
+    border: 1px solid var(--spoc-border, #d9e2ec) !important;
+    border-radius: 10px !important;
+    background: #ffffff !important;
+    color: var(--spoc-primary, #145078) !important;
+    font-weight: 700 !important;
+    box-shadow: none !important;
+}
+
+body#checkout .btn-secondary:hover,
+body#checkout .btn-tertiary:hover {
+    background: var(--spoc-primary, #145078) !important;
+    border-color: var(--spoc-primary, #145078) !important;
+    color: #ffffff !important;
+}
+
+/* =========================================================
+   RÉCAPITULATIF À DROITE
+   Même logique que panier
+   ========================================================= */
+
+body#checkout .cart-grid-right .cart-summary {
+    position: sticky;
+    top: 110px;
+    padding: 0 !important;
+    overflow: hidden;
+}
+
+body#checkout .cart-grid-right .cart-summary .card-block {
+    padding: 18px 20px !important;
+}
+
+body#checkout .cart-summary-line {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: baseline !important;
+    gap: 8px !important;
+    width: 100% !important;
+    margin-bottom: 10px !important;
+    color: var(--spoc-text-muted, #6b7a89) !important;
+    font-size: 13px !important;
+    letter-spacing: 0 !important;
+}
+
+body#checkout .cart-summary-line .label,
+body#checkout .cart-summary-line small.label {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    color: var(--spoc-text-muted, #6b7a89) !important;
+    font-weight: 500 !important;
+    text-align: left !important;
+}
+
+body#checkout .cart-summary-line .value,
+body#checkout .cart-summary-line small.value {
+    flex: 0 0 auto !important;
+    margin-left: auto !important;
+    color: var(--spoc-text, #243447) !important;
+    font-weight: 600 !important;
+    text-align: right !important;
+    white-space: nowrap !important;
+}
+
+body#checkout .cart-summary-line.cart-total {
+    margin-top: 12px !important;
+    padding-top: 16px !important;
+    border-top: 1px solid var(--spoc-border, #d9e2ec) !important;
+}
+
+body#checkout .cart-summary-line.cart-total .label,
+body#checkout .cart-summary-line.cart-total .value {
+    color: var(--spoc-primary, #145078) !important;
+    font-size: 18px !important;
+    font-weight: 900 !important;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 991px) {
+    body#checkout .cart-grid-right .cart-summary {
+        position: static;
+        margin-top: 22px;
+    }
+
+    body#checkout div.checkout-step .address-selector {
+        grid-template-columns: 1fr !important;
+    }
+
+    body#checkout div.checkout-step .delivery-option .row {
+        grid-template-columns: 36px minmax(0, 1fr) !important;
+    }
+
+    body#checkout div.checkout-step .delivery-option .carrier-price,
+    body#checkout div.checkout-step .delivery-option .delivery-option-price {
+        grid-column: 2;
+        text-align: left !important;
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 575px) {
+    body#checkout section.checkout-step .step-title,
+    body#checkout section.checkout-step h1,
+    body#checkout section.checkout-step .h1 {
+        padding: 16px !important;
+        font-size: 17px !important;
+    }
+
+    body#checkout section.checkout-step .content,
+    body#checkout section.checkout-step .step-content,
+    body#checkout section.checkout-step .checkout-step-content {
+        padding: 16px !important;
+    }
+
+    body#checkout div.checkout-step .radio-block {
+        min-height: 0;
+        padding: 16px !important;
+    }
+
+    body#checkout div.checkout-step .address-item.selected::before {
+        position: static;
+        display: inline-block;
+        margin: 0 0 10px 46px;
+    }
+
+    body#checkout .continue,
+    body#checkout button.continue,
+    body#checkout .btn-primary,
+    body#checkout #payment-confirmation button {
+        width: 100% !important;
+    }
+}
 /*mailalert css end*/
