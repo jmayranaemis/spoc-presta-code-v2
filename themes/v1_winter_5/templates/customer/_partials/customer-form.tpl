@@ -49,7 +49,13 @@
       <input type="hidden" name="submitCreate" value="1">
       {block "form_buttons"}
         <button class="tvall-inner-btn form-control-submit float-xs-right" data-link-action="save-customer" type="submit">
-          <span>{l s='Register' d='Shop.Theme.Actions'}</span>
+          <span>
+            {if isset($page.page_name) && $page.page_name == 'identity'}
+              {l s='Save' d='Shop.Theme.Actions'}
+            {else}
+              {l s='Register' d='Shop.Theme.Actions'}
+            {/if}
+          </span>
         </button>
       {/block}
     </footer>
