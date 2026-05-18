@@ -15920,7 +15920,7 @@ body#checkout .spoc-checkout-summary-card .spoc-cart-summary-heading .h1 {
     font-size: 26px !important;
     line-height: 1.2 !important;
     font-weight: 800 !important;
-    letter-spacing: 0 !important;
+    /* letter-spacing: 0 !important; */
     text-transform: none !important;
 }
 
