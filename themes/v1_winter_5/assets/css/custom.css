@@ -14158,13 +14158,18 @@ body.page-customer-account .spoc-account-address-grid {
 }
 
 body.page-customer-account .spoc-account-address-grid > [class*="col-"] {
+  display: flex;
   padding-right: 10px;
   padding-left: 10px;
+  margin-bottom: 20px;
 }
 
 body.page-customer-account .spoc-account-address-grid .address {
-  height: calc(100% - 20px);
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  margin-bottom: 0;
   border: 1px solid #eeeeee;
   border-radius: 3px;
   background: #ffffff;
@@ -14172,7 +14177,9 @@ body.page-customer-account .spoc-account-address-grid .address {
 }
 
 body.page-customer-account .spoc-account-address-grid .address-body {
+  flex: 1 1 auto;
   padding: 22px;
+  border: 0;
 }
 
 body.page-customer-account .spoc-account-address-grid .address-body h4 {
@@ -14193,6 +14200,7 @@ body.page-customer-account .spoc-account-address-grid .address-footer {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  margin-top: 0;
   padding: 14px 22px;
   border-top: 1px solid #eeeeee;
 }
