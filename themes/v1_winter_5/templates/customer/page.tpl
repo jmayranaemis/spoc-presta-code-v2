@@ -34,15 +34,57 @@
         {include file='_partials/notifications.tpl'}
       {/block}
     {/block}
-    {block name='page_content'}
-      <!-- Page content -->
-    {/block}
+    {if $page.page_name == 'identity' || $page.page_name == 'history' || $page.page_name == 'addresses' || $page.page_name == 'address' || $page.page_name == 'order-slip' || $page.page_name == 'discount' || $page.page_name == 'order-follow'}
+      <div class="spoc-account-dashboard spoc-account-child-dashboard">
+        {include file='customer/_partials/account-sidebar.tpl' spoc_account_active=$page.page_name}
+
+        <div class="spoc-account-main">
+          <section class="spoc-account-hero spoc-account-page-hero">
+            <div>
+              <p class="spoc-account-eyebrow">{l s='Espace client' d='Shop.Theme.Customeraccount'}</p>
+              <h1>{block name='page_title'}{/block}</h1>
+              <p>
+                {if $page.page_name == 'identity'}
+                  {l s='Gérez vos coordonnées, votre mot de passe et les préférences liées à votre compte.' d='Shop.Theme.Customeraccount'}
+                {elseif $page.page_name == 'history'}
+                  {l s='Consultez vos commandes, leurs statuts, vos factures et les détails de chaque achat.' d='Shop.Theme.Customeraccount'}
+                {elseif $page.page_name == 'addresses' || $page.page_name == 'address'}
+                  {l s='Tenez à jour vos adresses de livraison et de facturation pour vos prochaines commandes.' d='Shop.Theme.Customeraccount'}
+                {elseif $page.page_name == 'order-slip'}
+                  {l s='Retrouvez les avoirs générés après une annulation ou un remboursement.' d='Shop.Theme.Customeraccount'}
+                {elseif $page.page_name == 'discount'}
+                  {l s='Consultez vos bons de réduction disponibles, leurs conditions et leurs dates de validité.' d='Shop.Theme.Customeraccount'}
+                {elseif $page.page_name == 'order-follow'}
+                  {l s='Suivez vos demandes de retour produit et retrouvez les documents associés.' d='Shop.Theme.Customeraccount'}
+                {/if}
+              </p>
+            </div>
+          </section>
+
+          <section class="spoc-account-section spoc-account-page-panel">
+            {block name='page_content'}
+              <!-- Page content -->
+            {/block}
+          </section>
+        </div>
+      </div>
+    {else}
+      {block name='page_content'}
+        <!-- Page content -->
+      {/block}
+    {/if}
   </section>
 {/block}
 
-{block name='page_footer'}
-  {block name='my_account_links'}
-    {include file='customer/_partials/my-account-links.tpl'}
-  {/block}
+{block name='page_footer_container'}
+  {if $page.page_name != 'identity' && $page.page_name != 'history' && $page.page_name != 'addresses' && $page.page_name != 'address' && $page.page_name != 'order-slip' && $page.page_name != 'discount' && $page.page_name != 'order-follow'}
+    <footer class="page-footer">
+      {block name='page_footer'}
+        {block name='my_account_links'}
+          {include file='customer/_partials/my-account-links.tpl'}
+        {/block}
+      {/block}
+    </footer>
+  {/if}
 {/block}
 {/strip}
