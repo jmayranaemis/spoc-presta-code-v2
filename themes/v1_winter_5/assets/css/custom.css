@@ -16269,7 +16269,7 @@ body#checkout #js-checkout-summary.spoc-checkout-summary-card.card {
     align-items: center;
     gap: 10px;
     margin: 0;
-    color: var(--spoc-primary, #145078);
+    color: #a541ff;
     font-size: 20px;
     font-weight: 700;
     line-height: 1.2;
@@ -16277,7 +16277,7 @@ body#checkout #js-checkout-summary.spoc-checkout-summary-card.card {
 }
 
 #blockcart-modal.spoc-addtocart-modal .modal-title i {
-    color: var(--spoc-secondary, #1999cb);
+    color: #a541ff;
     font-size: 24px;
 }
 
@@ -16338,7 +16338,7 @@ body#checkout #js-checkout-summary.spoc-checkout-summary-card.card {
 
 #blockcart-modal.spoc-addtocart-modal .spoc-addtocart-kicker {
     margin: 0 0 5px;
-    color: var(--spoc-secondary, #1999cb);
+    color: #808183;
     font-size: 12px;
     font-weight: 700;
     line-height: 1.2;
