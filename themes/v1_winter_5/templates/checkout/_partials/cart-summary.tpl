@@ -25,9 +25,9 @@
 {strip}
 
  <div class="card cart-summary spoc-cart-summary-card">
- <div class="card-block spoc-cart-card-title spoc-cart-summary-heading">
-              <h1 class="h1">{l s='Ma commande' d='Shop.Theme.Checkout'}</h1>
-            </div>
+      <div class="card-block spoc-cart-card-title spoc-cart-summary-heading">
+        <h1 class="h1">{l s='Ma commande' d='Shop.Theme.Checkout'}</h1>
+      </div>
 <div id="js-checkout-summary" class="card js-cart" data-refresh-url="{$urls.pages.cart}?ajax=1&action=refresh">
   <div class="card-block">
     {block name='hook_checkout_summary_top'}
