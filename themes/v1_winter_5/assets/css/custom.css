@@ -15666,11 +15666,14 @@ body#checkout div.checkout-step .delivery-options .delivery-option > label.deliv
 body#checkout div.checkout-step .delivery-options .delivery-option > label.col-sm-11 > .row {
     display: grid !important;
     grid-template-columns: minmax(260px, 1.4fr) minmax(180px, 1fr) 130px !important;
-    align-items: center !important;
+  /*  align-items: center !important; */
     gap: 18px !important;
     width: 100% !important;
     margin: 0 !important;
     padding: 18px 20px !important;
+    justify-content: center;
+    align-content: space-between;
+    grid-auto-flow: column;
 }
 
 /* Neutralise les colonnes Bootstrap internes */
@@ -15712,7 +15715,7 @@ body#checkout div.checkout-step .delivery-options .delivery-option label .col-xs
     height: auto !important;
     max-height: 42px !important;
     object-fit: contain !important;
-    border: 1px solid var(--spoc-border, #d9e2ec) !important;
+   /* border: 1px solid var(--spoc-border, #d9e2ec) !important; */
     border-radius: 8px !important;
     padding: 5px !important;
     background: #ffffff !important;
