@@ -7,6 +7,7 @@
  * that is bundled with this package in the file LICENSE.txt.
  * It is also available through the world-wide-web at this URL:
  * https://opensource.org/licenses/AFL-3.0
+ *
  * If you did not receive a copy of the license and are unable to
  * obtain it through the world-wide-web, please send an email
  * to license@prestashop.com so we can send you a copy immediately.
@@ -23,75 +24,76 @@
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {strip}
-<div id="blockcart-modal" class="modal fade tv-addtocart-msg-wrapper" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close tv-addtocart-close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-				<h4 class="modal-title h6 text-sm-center" id="myModalLabel"><i class="material-icons rtl-no-flip">&#xE876;</i>{l s='Product successfully added to your shopping cart' d='Shop.Theme.Checkout'}</h4>
-			</div>
-			<div class="modal-body tv-addtocart-content-part">
-				<div class="row">
-					<div class="col-md-6 divide-right">
-						<div class="row tv-addtocart-image-name-wrapper">
-							<div class="col-md-6 tv-addtocart-product-image">
-								{if $product.default_image}
-				                  <img
-				                    src="{$product.default_image.medium.url}"
-				                    data-full-size-image-url="{$product.default_image.large.url}"
-				                    title="{$product.default_image.legend}"
-				                    alt="{$product.default_image.legend}"
-				                    loading="lazy"
-				                    class="product-image"
-				                  >
-				                {else}
-				                  <img
-				                    src="{$urls.no_picture_image.bySize.medium_default.url}"
-				                    loading="lazy"
-				                    class="product-image"
-				                  />
-				                {/if}
-							</div>
-							<div class="col-md-6 tv-addtocart-product-name">
-								<h6 class="h6 product-name">{$product.name}</h6>
-								<p class="tv-addtocart-price">{$product.price}</p>
-								{hook h='displayProductPriceBlock' product=$product type="unit_price"}
-								{foreach from=$product.attributes item="property_value" key="property"}
-									<span>{$property}:<strong> {$property_value}</strong></span><br>
-								{/foreach}
-									<span>{l s='Quantity:' d='Shop.Theme.Checkout'}&nbsp;<strong>{$product.cart_quantity}</strong>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6 tv-addtocart-content">
-						<div class="cart-content">
-							{if $cart.products_count > 1}
-								<p class="cart-products-count">{l s='There are %products_count% items in your cart.' sprintf=['%products_count%' => $cart.products_count] d='Shop.Theme.Checkout'}</p>
-							{else}
-								<p class="cart-products-count">{l s='There is %product_count% item in your cart.' sprintf=['%product_count%' =>$cart.products_count] d='Shop.Theme.Checkout'}</p>
-							{/if}
-							<p><strong>{l s='Total products:' d='Shop.Theme.Checkout'}</strong>&nbsp;{$cart.subtotals.products.value}</p>
-							<p><strong>{l s='Total shipping:' d='Shop.Theme.Checkout'}</strong>&nbsp;{$cart.subtotals.shipping.value} {hook h='displayCheckoutSubtotalDetails' subtotal=$cart.subtotals.shipping}</p>
-							{if $cart.subtotals.tax}
-								<p><strong>{$cart.subtotals.tax.label}</strong>&nbsp;{$cart.subtotals.tax.value}</p>
-							{/if}
-							<p><strong>{l s='Total:' d='Shop.Theme.Checkout'}</strong>&nbsp;{$cart.totals.total.value} {$cart.labels.tax_short}</p>
-							<div class="cart-content-btn">
-								<button type="button" class="tvall-inner-btn" data-dismiss="modal">
-									<span>{l s='Continue shopping' d='Shop.Theme.Actions'}</span>
-								</button>
-								<a href="{$cart_url}" class="tvall-inner-btn">
-									<i class="material-icons rtl-no-flip">&#xE876;</i>
-									<span>{l s='Proceed to checkout' d='Shop.Theme.Actions'}</span>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<div id="blockcart-modal" class="modal fade tv-addtocart-msg-wrapper spoc-addtocart-modal" tabindex="-1" role="dialog" aria-labelledby="spocBlockcartModalTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header spoc-addtocart-modal-header">
+                <button type="button" class="close tv-addtocart-close spoc-addtocart-close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title h6" id="spocBlockcartModalTitle">
+                    <i class="material-icons rtl-no-flip">&#xE876;</i>
+                    <span>{l s='Produit ajouté au panier' d='Shop.Theme.Checkout'}</span>
+                </h4>
+            </div>
+
+            <div class="modal-body tv-addtocart-content-part spoc-addtocart-modal-body">
+                <div class="spoc-addtocart-product-row">
+                    <div class="spoc-addtocart-product-image">
+                        {if $product.default_image}
+                            <img
+                                src="{$product.default_image.medium.url}"
+                                data-full-size-image-url="{$product.default_image.large.url}"
+                                title="{$product.default_image.legend}"
+                                alt="{$product.default_image.legend}"
+                                loading="lazy"
+                                class="product-image"
+                            >
+                        {else}
+                            <img
+                                src="{$urls.no_picture_image.bySize.medium_default.url}"
+                                loading="lazy"
+                                class="product-image"
+                            >
+                        {/if}
+                    </div>
+
+                    <div class="spoc-addtocart-product-info">
+                        <p class="spoc-addtocart-kicker">{l s='Votre sélection' d='Shop.Theme.Checkout'}</p>
+                        <h5 class="spoc-addtocart-product-name">{$product.name}</h5>
+
+                        {if isset($product.attributes) && $product.attributes|count}
+                            <div class="spoc-addtocart-attributes">
+                                {foreach from=$product.attributes item="property_value" key="property"}
+                                    <span class="spoc-addtocart-attribute">
+                                        <span class="spoc-addtocart-attribute-label">{$property}</span>
+                                        <strong>{$property_value}</strong>
+                                    </span>
+                                {/foreach}
+                            </div>
+                        {/if}
+
+                        <div class="spoc-addtocart-meta">
+                            <span>{l s='Quantité' d='Shop.Theme.Checkout'} : <strong>{$product.cart_quantity}</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spoc-addtocart-actions">
+                    <button type="button" class="spoc-addtocart-btn spoc-addtocart-btn-secondary" data-dismiss="modal">
+                        {l s='Continuer mes achats' d='Shop.Theme.Actions'}
+                    </button>
+
+                    <a href="{$cart_url}" class="spoc-addtocart-btn spoc-addtocart-btn-primary">
+                        {l s='Voir mon panier' d='Shop.Theme.Actions'}
+                    </a>
+                </div>
+
+                <div class="spoc-addtocart-crossselling">
+                    {widget name='ps_crossselling' hook='displayFooterProduct' product=$product}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {/strip}
