@@ -30,6 +30,18 @@
 {/block}
 
 {block name='page_content'}
-  {render file='customer/_partials/customer-form.tpl' ui=$customer_form}
+  <div class="spoc-account-form-card spoc-account-identity-card">
+    <div class="spoc-account-panel-heading">
+      <span class="spoc-account-panel-icon">
+        <i class="material-icons">&#xE853;</i>
+      </span>
+      <div>
+        <h2>{l s='Paramètres du profil' d='Shop.Theme.Customeraccount'}</h2>
+        <p>{l s='Mettez à jour vos informations personnelles et vos accès de connexion.' d='Shop.Theme.Customeraccount'}</p>
+      </div>
+    </div>
+
+    {render file='customer/_partials/customer-form.tpl' ui=$customer_form}
+  </div>
 {/block}
 {/strip}

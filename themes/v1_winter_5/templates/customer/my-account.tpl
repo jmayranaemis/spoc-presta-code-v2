@@ -31,7 +31,46 @@
 
 {block name='page_content'}
     <div class="spoc-account-dashboard">
-        {include file='customer/_partials/account-sidebar.tpl' spoc_account_active='my-account'}
+        <aside class="spoc-account-sidebar">
+            <div class="spoc-account-sidebar-title">{l s='Mon compte' d='Shop.Theme.Customeraccount'}</div>
+            <nav class="spoc-account-nav" aria-label="{l s='Navigation du compte' d='Shop.Theme.Customeraccount'}">
+                <a class="spoc-account-nav-link active" href="{$urls.pages.my_account}">
+                    <i class="material-icons">&#xE871;</i>
+                    <span>{l s='Mon compte' d='Shop.Theme.Customeraccount'}</span>
+                </a>
+                {if !$configuration.is_catalog}
+                    <a class="spoc-account-nav-link" href="{$urls.pages.history}">
+                        <i class="material-icons">&#xE916;</i>
+                        <span>{l s='Mes commandes' d='Shop.Theme.Customeraccount'}</span>
+                    </a>
+                {/if}
+                <a class="spoc-account-nav-link" href="{$urls.pages.identity}">
+                    <i class="material-icons">&#xE853;</i>
+                    <span>{l s='Paramètres de profil' d='Shop.Theme.Customeraccount'}</span>
+                </a>
+                {if $customer.addresses|count}
+                    <a class="spoc-account-nav-link" href="{$urls.pages.addresses}">
+                        <i class="material-icons">&#xE56A;</i>
+                        <span>{l s='Adresses' d='Shop.Theme.Customeraccount'}</span>
+                    </a>
+                {else}
+                    <a class="spoc-account-nav-link" href="{$urls.pages.address}">
+                        <i class="material-icons">&#xE567;</i>
+                        <span>{l s='Ajouter une adresse' d='Shop.Theme.Customeraccount'}</span>
+                    </a>
+                {/if}
+                {if !$configuration.is_catalog}
+                    <a class="spoc-account-nav-link" href="{$urls.pages.order_slip}">
+                        <i class="material-icons">&#xE8B0;</i>
+                        <span>{l s='Avoirs' d='Shop.Theme.Customeraccount'}</span>
+                    </a>
+                {/if}
+            </nav>
+            <a class="spoc-account-logout" href="{$logout_url}">
+                <i class="material-icons">&#xE898;</i>
+                <span>{l s='Déconnexion' d='Shop.Theme.Actions'}</span>
+            </a>
+        </aside>
 
         <div class="spoc-account-main">
             <section class="spoc-account-hero">
