@@ -66,7 +66,7 @@
             {block name='hook_shopping_cart'}
               {hook h='displayShoppingCart'}
             {/block}
-
+            
             {block name='cart_totals'}
               {include file='checkout/_partials/cart-detailed-totals.tpl' cart=$cart}
             {/block}
