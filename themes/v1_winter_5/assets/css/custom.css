@@ -14375,8 +14375,8 @@ body.page-customer-account .spoc-account-mobile-action {
     font-size: 26px !important;
     line-height: 1.2;
     font-weight: 800 !important;
-    letter-spacing: 0;
-   /* text-transform: none; */
+   /* letter-spacing: 0; */
+    text-transform: none;
 }
 
 #main.spoc-cart-page .spoc-cart-card-title .h1::before {
