@@ -16270,8 +16270,8 @@ body#checkout #js-checkout-summary.spoc-checkout-summary-card.card {
     gap: 10px;
     margin: 0;
     color: #a541ff;
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 25px;
+    font-weight: 800;
     line-height: 1.2;
     text-transform: none;
 }
