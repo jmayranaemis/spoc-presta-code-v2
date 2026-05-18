@@ -13850,7 +13850,7 @@ body.page-customer-account .spoc-account-child-dashboard {
   display: grid;
   grid-template-columns: 260px minmax(0, 1fr);
   gap: 36px;
-  padding: 28px 0 60px;
+  padding: 0px 0 60px;
   margin-left: 10px;
 }
 
