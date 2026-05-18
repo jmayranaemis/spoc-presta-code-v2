@@ -14165,27 +14165,6 @@ body.page-customer-account .spoc-account-form-card .form-footer .tvall-inner-btn
   min-width: 180px;
 }
 
-body#addresses.page-customer-account .spoc-account-child-dashboard,
-body.page-addresses.page-customer-account .spoc-account-child-dashboard {
-  display: grid !important;
-  grid-template-columns: 260px minmax(0, 1fr);
-  align-items: start;
-}
-
-body#addresses.page-customer-account .spoc-account-child-dashboard .spoc-account-sidebar,
-body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-account-sidebar {
-  display: flex !important;
-  grid-column: 1;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-body#addresses.page-customer-account .spoc-account-child-dashboard .spoc-account-main,
-body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-account-main {
-  grid-column: 2;
-  min-width: 0;
-}
-
 body.page-customer-account .spoc-account-address-list,
 body.page-customer-account .spoc-account-address-grid {
   display: grid;
@@ -14318,11 +14297,6 @@ body.page-customer-account .spoc-account-mobile-action {
     grid-template-columns: 230px minmax(0, 1fr);
     gap: 24px;
   }
-
-  body#addresses.page-customer-account .spoc-account-child-dashboard,
-  body.page-addresses.page-customer-account .spoc-account-child-dashboard {
-    grid-template-columns: 230px minmax(0, 1fr);
-  }
 }
 
 @media (max-width: 767px) {
@@ -14331,21 +14305,9 @@ body.page-customer-account .spoc-account-mobile-action {
     padding-top: 12px;
   }
 
-  body#addresses.page-customer-account .spoc-account-child-dashboard,
-  body.page-addresses.page-customer-account .spoc-account-child-dashboard {
-    display: block !important;
-  }
-
   body.page-customer-account .spoc-account-child-dashboard .spoc-account-sidebar {
     position: static;
     margin-bottom: 24px;
-  }
-
-  body#addresses.page-customer-account .spoc-account-child-dashboard .spoc-account-sidebar,
-  body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-account-sidebar,
-  body#addresses.page-customer-account .spoc-account-child-dashboard .spoc-account-main,
-  body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-account-main {
-    grid-column: auto;
   }
 
   body.page-customer-account .spoc-account-child-dashboard .spoc-account-hero {
