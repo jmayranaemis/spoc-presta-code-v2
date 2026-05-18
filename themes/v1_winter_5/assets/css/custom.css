@@ -15407,7 +15407,7 @@ body#checkout .custom-checkbox {
 
 body#checkout .custom-radio input[type="radio"] + span,
 body#checkout .custom-checkbox span {
-    border: 1px solid var(--spoc-border, #d9e2ec) !important;
+   /* border: 1px solid var(--spoc-border, #d9e2ec) !important; */
     box-shadow: none !important;
 }
 
@@ -15586,6 +15586,296 @@ body#checkout .cart-summary-line.cart-total .value {
     body#checkout .btn-primary,
     body#checkout #payment-confirmation button {
         width: 100% !important;
+    }
+}
+
+/* =========================================================
+   SPOC - HOTFIX CHECKOUT LIVRAISON
+   Corrige le rendu réel :
+   .delivery-option > .col-sm-1 + label.col-sm-11 > .row
+   À placer TOUT À LA FIN de custom.css
+   ========================================================= */
+
+/* Conteneur global des options */
+body#checkout .delivery-options-list,
+body#checkout .delivery-options {
+    width: 100% !important;
+}
+
+/* Carte option livraison */
+body#checkout div.checkout-step .delivery-options .delivery-option {
+    display: grid !important;
+    grid-template-columns: 56px minmax(0, 1fr) !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    margin: 0 0 14px 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    border: 1px solid var(--spoc-border, #d9e2ec) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: none !important;
+    transition: var(--spoc-transition, all 0.25s ease) !important;
+}
+
+body#checkout div.checkout-step .delivery-options .delivery-option:hover {
+    border-color: var(--spoc-primary, #145078) !important;
+}
+
+/* Colonne radio : neutralise Bootstrap col-sm-1 */
+body#checkout div.checkout-step .delivery-options .delivery-option > .col-sm-1 {
+    float: none !important;
+    width: 56px !important;
+    max-width: 56px !important;
+    min-width: 56px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: var(--spoc-bg-light, #f7f9fb) !important;
+    border-right: 1px solid var(--spoc-border, #d9e2ec) !important;
+}
+
+/* Radio */
+body#checkout div.checkout-step .delivery-options .delivery-option .custom-radio {
+    float: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 20px !important;
+    height: 20px !important;
+    margin: 0 !important;
+}
+
+/* Label principal : neutralise Bootstrap col-sm-11 */
+body#checkout div.checkout-step .delivery-options .delivery-option > label.delivery-option-2,
+body#checkout div.checkout-step .delivery-options .delivery-option > label.col-sm-11 {
+    float: none !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+    cursor: pointer !important;
+}
+
+/* Ligne interne du label */
+body#checkout div.checkout-step .delivery-options .delivery-option > label.delivery-option-2 > .row,
+body#checkout div.checkout-step .delivery-options .delivery-option > label.col-sm-11 > .row {
+    display: grid !important;
+    grid-template-columns: minmax(260px, 1.4fr) minmax(180px, 1fr) 130px !important;
+    align-items: center !important;
+    gap: 18px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 18px 20px !important;
+}
+
+/* Neutralise les colonnes Bootstrap internes */
+body#checkout div.checkout-step .delivery-options .delivery-option > label > .row > .col-sm-5,
+body#checkout div.checkout-step .delivery-options .delivery-option > label > .row > .col-sm-4,
+body#checkout div.checkout-step .delivery-options .delivery-option > label > .row > .col-sm-3,
+body#checkout div.checkout-step .delivery-options .delivery-option > label > .row > .col-xs-12 {
+    float: none !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Bloc transporteur avec image éventuelle */
+body#checkout div.checkout-step .delivery-options .delivery-option label .col-sm-5 > .row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-wrap: nowrap !important;
+}
+
+/* Image transporteur */
+body#checkout div.checkout-step .delivery-options .delivery-option label .col-xs-3 {
+    float: none !important;
+    width: 54px !important;
+    min-width: 54px !important;
+    max-width: 54px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+body#checkout div.checkout-step .delivery-options .delivery-option label .col-xs-3 img {
+    display: block !important;
+    width: 54px !important;
+    height: auto !important;
+    max-height: 42px !important;
+    object-fit: contain !important;
+    border: 1px solid var(--spoc-border, #d9e2ec) !important;
+    border-radius: 8px !important;
+    padding: 5px !important;
+    background: #ffffff !important;
+}
+
+/* Colonne nom quand image présente */
+body#checkout div.checkout-step .delivery-options .delivery-option label .col-xs-9,
+body#checkout div.checkout-step .delivery-options .delivery-option label .col-xs-12 {
+    float: none !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Nom transporteur */
+body#checkout div.checkout-step .delivery-options .carrier-name {
+    display: block !important;
+    margin: 0 !important;
+    color: var(--spoc-text, #243447) !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0 !important;
+    text-align: left !important;
+    text-transform: none !important;
+}
+
+/* Délai */
+body#checkout div.checkout-step .delivery-options .carrier-delay {
+    display: block !important;
+    margin: 0 !important;
+    color: var(--spoc-text-muted, #6b7a89) !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    line-height: 1.35 !important;
+    letter-spacing: 0 !important;
+    text-align: left !important;
+}
+
+/* Prix */
+body#checkout div.checkout-step .delivery-options .carrier-price {
+    display: block !important;
+    margin: 0 !important;
+    color: var(--spoc-primary, #145078) !important;
+    font-size: 15px !important;
+    font-weight: 900 !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0 !important;
+    text-align: right !important;
+    white-space: nowrap !important;
+}
+
+/* Zone extra carrier */
+body#checkout div.checkout-step .carrier-extra-content {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 20px 16px 76px !important;
+}
+
+/* Clearfix Presta inutile après chaque option */
+body#checkout div.checkout-step .delivery-options > .clearfix {
+    display: none !important;
+}
+
+/* Message commande */
+body#checkout div.checkout-step .order-options {
+    margin-top: 18px !important;
+    padding: 18px 20px !important;
+    background: var(--spoc-bg-light, #f7f9fb) !important;
+    border: 1px solid var(--spoc-border, #d9e2ec) !important;
+    border-radius: 12px !important;
+}
+
+body#checkout div.checkout-step #delivery {
+    max-width: 100% !important;
+    border: none !important;
+}
+
+body#checkout div.checkout-step #delivery label {
+    display: block !important;
+    margin: 0 0 10px 0 !important;
+    color: var(--spoc-text, #243447) !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+    letter-spacing: 0 !important;
+    text-align: left !important;
+}
+
+body#checkout div.checkout-step #delivery textarea {
+    width: 100% !important;
+    min-height: 86px !important;
+    margin: 0 !important;
+    padding: 13px 15px !important;
+    border: 1px solid var(--spoc-border, #d9e2ec) !important;
+    border-radius: 10px !important;
+    background: #ffffff !important;
+    color: var(--spoc-text, #243447) !important;
+    font-size: 14px !important;
+    letter-spacing: 0 !important;
+    resize: vertical !important;
+}
+
+/* Bouton continuer livraison */
+body#checkout #js-delivery button[name="confirmDeliveryOption"] {
+    margin-top: 18px !important;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    body#checkout div.checkout-step .delivery-options .delivery-option {
+        grid-template-columns: 48px minmax(0, 1fr) !important;
+    }
+
+    body#checkout div.checkout-step .delivery-options .delivery-option > .col-sm-1 {
+        width: 48px !important;
+        max-width: 48px !important;
+        min-width: 48px !important;
+    }
+
+    body#checkout div.checkout-step .delivery-options .delivery-option > label.delivery-option-2 > .row,
+    body#checkout div.checkout-step .delivery-options .delivery-option > label.col-sm-11 > .row {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+        padding: 16px !important;
+    }
+
+    body#checkout div.checkout-step .delivery-options .carrier-price {
+        text-align: left !important;
+    }
+
+    body#checkout div.checkout-step .carrier-extra-content {
+        padding: 0 16px 14px 64px !important;
+    }
+}
+
+@media (max-width: 575px) {
+    body#checkout div.checkout-step .delivery-options .delivery-option {
+        grid-template-columns: 44px minmax(0, 1fr) !important;
+    }
+
+    body#checkout div.checkout-step .delivery-options .delivery-option > .col-sm-1 {
+        width: 44px !important;
+        max-width: 44px !important;
+        min-width: 44px !important;
+    }
+
+    body#checkout div.checkout-step .delivery-options .delivery-option label .col-xs-3 {
+        width: 46px !important;
+        min-width: 46px !important;
+        max-width: 46px !important;
+    }
+
+    body#checkout div.checkout-step .delivery-options .delivery-option label .col-xs-3 img {
+        width: 46px !important;
+        max-height: 36px !important;
+    }
+
+    body#checkout div.checkout-step .order-options {
+        padding: 16px !important;
     }
 }
 /*mailalert css end*/
