@@ -2946,7 +2946,7 @@ ul.wlp_bought_list li .product_infos .product-name {
 }
 .ttvcmscart-show-dropdown-right .ttvcart-top-title h4 {
     font-weight: 700;
-    letter-spacing: 0px;
+   /* letter-spacing: 0px; */
    /* text-transform: uppercase;*/
     color: #000;
     padding-bottom: 0;
@@ -12814,7 +12814,7 @@ html body button.tvall-inner-btn[name="submitNewsletter"][type="submit"]::after 
     font-size: 20px;
     font-weight: 700;
     line-height: 1;
-    letter-spacing: 0;
+  /*  letter-spacing: 0; */
     text-decoration: none;
    /* width: 100%; */
 }
@@ -13851,6 +13851,7 @@ body.page-customer-account .spoc-account-child-dashboard {
   grid-template-columns: 260px minmax(0, 1fr);
   gap: 36px;
   padding: 28px 0 60px;
+  margin-left: 10px;
 }
 
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-sidebar {
@@ -13988,7 +13989,7 @@ body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-pane
   background: #f6f6f6;
   color: #1c191c;
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0;
   text-transform: uppercase;
 }
@@ -13998,6 +13999,7 @@ body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-pane
   border-color: #eeeeee;
   color: #1c191c;
   vertical-align: middle;
+  font-size: 12px;
 }
 
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .table a,
@@ -14006,7 +14008,8 @@ body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-pane
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .cart-rules a,
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .order-returns a {
   color: #145078;
-  font-weight: 700;
+  font-weight: 400;
+  font-size: 12px;
 }
 
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .label {
