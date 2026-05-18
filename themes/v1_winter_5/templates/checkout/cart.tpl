@@ -71,11 +71,7 @@
             {hook h='displayShoppingCart'}
           {/block}
 
-          {block name='cart_voucher'}
-            <div class="spoc-cart-voucher-wrapper">
-              {include file='checkout/_partials/cart-voucher.tpl'}
-            </div>
-          {/block}
+        
 
           {block name='cart_totals'}
             {include file='checkout/_partials/cart-detailed-totals.tpl' cart=$cart}
