@@ -51,4 +51,12 @@
     </a>
   </div>
 {/block}
+{block name='page_footer'}
+  {if !$spoc_is_account_child_page}
+    {block name='my_account_links'}
+      {include file='customer/_partials/my-account-links.tpl'}
+    {/block}
+  {/if}
+{/block}
+
 {/strip}
