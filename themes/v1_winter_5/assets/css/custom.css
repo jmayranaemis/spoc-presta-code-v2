@@ -17365,7 +17365,7 @@ body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-ac
 }
 
 .spoc-auth-shell {
-  max-width: 820px;
+  max-width: 760px;
   margin: 28px auto 0;
   border: 1px solid rgba(20, 80, 120, 0.12);
   border-radius: 28px;
@@ -17411,9 +17411,16 @@ body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-ac
   background: #ffffff;
 }
 
+/* Formulaire centré et moins large */
 .spoc-auth-card .login-form {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.spoc-auth-card form#login-form {
+  width: 100%;
   margin: 0;
-  max-width: 560px;
 }
 
 .spoc-auth-card .form-group.row {
@@ -17436,6 +17443,7 @@ body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-ac
 
 .spoc-auth-card .js-input-column,
 .spoc-auth-card .form-control-comment {
+  display: block;
   width: 100%;
   max-width: none;
   padding: 0;
@@ -17460,69 +17468,91 @@ body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-ac
   outline: none;
 }
 
+/* Password input-group : correction du débordement */
 .spoc-auth-card .input-group {
-  display: flex;
+  display: flex !important;
   align-items: stretch;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .spoc-auth-card .input-group .form-control {
+  flex: 1 1 auto !important;
+  width: 1% !important;
+  min-width: 0 !important;
+  max-width: none !important;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
 .spoc-auth-card .input-group-btn {
-  display: flex;
+  display: flex !important;
+  flex: 0 0 96px !important;
+  width: 96px !important;
+  min-width: 96px !important;
+  max-width: 96px !important;
 }
 
 .spoc-auth-card .input-group-btn .btn {
-  min-width: 85px;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 96px !important;
+  min-width: 96px !important;
+  max-width: 96px !important;
   height: 48px;
-  padding: 0 18px;
+  padding: 0 10px;
   border: 1px solid rgba(20, 80, 120, 0.20);
   border-left: 0;
   border-radius: 0 14px 14px 0;
-  background: rgba(20, 80, 120, 0.06);
-  color: #fff;
-  font-size: 10px;
-  font-weight: 400;
-  box-shadow: none;
+  background: rgba(20, 80, 120, 0.06) !important;
+  color: #145078 !important;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: none !important;
+  white-space: nowrap;
+  box-shadow: none !important;
 }
 
 .spoc-auth-card .input-group-btn .btn:hover {
-  background: rgba(25, 153, 203, 0.12);
-  color: #145078;
+  background: rgba(25, 153, 203, 0.12) !important;
+  color: #145078 !important;
 }
 
 .spoc-auth-card .forgot-password {
   margin: -4px 0 24px;
-  text-align: right;
+  text-align: center;
 }
 
 .spoc-auth-card .forgot-password a {
   color: #145078;
   font-size: 0.92rem;
   font-weight: 700;
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .spoc-auth-card .forgot-password a:hover {
   color: #1999cb;
-  text-decoration: underline;
 }
 
 .spoc-auth-card .form-footer {
+  width: 100%;
   margin: 0;
   padding: 0;
   text-align: center;
 }
 
+/* Bouton Connexion aligné sur la largeur du formulaire */
 .spoc-auth-card #submit-login,
 .spoc-auth-card .form-control-submit {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 190px;
+  width: 100%;
+  max-width: 520px;
   height: 48px;
   padding: 0 28px;
   border: 0;
@@ -17601,14 +17631,28 @@ body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-ac
     padding: 26px 24px 30px;
   }
 
-  .spoc-auth-card .no-account {
-    margin: 26px -24px -30px;
-    padding: 22px 24px 28px;
+  .spoc-auth-card .login-form {
+    max-width: 100%;
+  }
+
+  .spoc-auth-card .input-group-btn {
+    flex: 0 0 84px !important;
+    width: 84px !important;
+    min-width: 84px !important;
+    max-width: 84px !important;
   }
 
   .spoc-auth-card .input-group-btn .btn {
-    min-width: 88px;
-    padding: 0 12px;
+    width: 84px !important;
+    min-width: 84px !important;
+    max-width: 84px !important;
+    padding: 0 8px;
+    font-size: 0.78rem;
+  }
+
+  .spoc-auth-card .no-account {
+    margin: 26px -24px -30px;
+    padding: 22px 24px 28px;
   }
 }
 
