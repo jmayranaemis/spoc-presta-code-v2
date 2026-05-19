@@ -13947,7 +13947,7 @@ body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-pane
   border-bottom: 1px solid var(--spoc-account-border);
   color: var(--spoc-account-text);
   font-size: 12px;
-  font-weight: 800;
+  font-weight:600;
   letter-spacing: 0;
   padding: 13px 12px;
   text-transform: uppercase;
@@ -13958,7 +13958,7 @@ body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-pane
   border-color: var(--spoc-account-border);
   color: var(--spoc-account-text);
   font-size: 13px;
-  padding: 13px 12px;
+  padding: 10px 12px;
   vertical-align: middle;
 }
 
@@ -13985,8 +13985,8 @@ body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-pane
   align-items: center;
   border-radius: 3px;
   display: inline-flex;
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 10px;
+  font-weight: 400;
   min-height: 24px;
   padding-left: 9px;
   padding-right: 9px;
