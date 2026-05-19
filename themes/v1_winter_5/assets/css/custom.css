@@ -17348,11 +17348,16 @@ body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-ac
     width: 100% !important;
   }
 }
-
 /* =========================================================
-   SPOC AUTHENTICATION PAGE
+   SPOC AUTH PAGE - START
    Page : /connexion
+   Template : customer/authentication.tpl
    ========================================================= */
+
+.spoc-auth-content {
+  padding: 0;
+  background: transparent;
+}
 
 .spoc-auth-page {
   max-width: 1180px;
@@ -17404,10 +17409,6 @@ body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-ac
 .spoc-auth-card {
   padding: 34px 42px 36px;
   background: #ffffff;
-}
-
-.spoc-auth-card .form-title {
-  display: none;
 }
 
 .spoc-auth-card .login-form {
@@ -17609,4 +17610,9 @@ body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-ac
     padding: 0 12px;
   }
 }
+
+/* =========================================================
+   SPOC AUTH PAGE - END
+   ========================================================= */
+
 /*mailalert css end*/
