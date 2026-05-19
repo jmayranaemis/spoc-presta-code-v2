@@ -30,7 +30,7 @@
 {/block}
 
 {block name='page_content'}
-    <div class="spoc-account-dashboard">
+    <div class="spoc-account-dashboard spoc-account-child-dashboard">
         {include file='customer/_partials/account-sidebar.tpl' spoc_account_active='my-account'}
 
         <div class="spoc-account-main">
