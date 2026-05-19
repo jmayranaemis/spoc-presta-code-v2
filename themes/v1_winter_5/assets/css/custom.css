@@ -17413,6 +17413,7 @@ body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-ac
 
 .spoc-auth-card .login-form {
   margin: 0;
+  max-width: 560px;
 }
 
 .spoc-auth-card .form-group.row {
