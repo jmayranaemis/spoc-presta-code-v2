@@ -17411,7 +17411,7 @@ body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-ac
   background: #ffffff;
 }
 
-/* Formulaire centré et moins large */
+/* Formulaire centré */
 .spoc-auth-card .login-form {
   width: 100%;
   max-width: 520px;
@@ -17545,20 +17545,21 @@ body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-ac
   text-align: center;
 }
 
-/* Bouton Connexion aligné sur la largeur du formulaire */
+/* Bouton primaire Connexion */
 .spoc-auth-card #submit-login,
-.spoc-auth-card .form-control-submit {
-  display: inline-flex;
+.spoc-auth-card .form-control-submit,
+.spoc-auth-card button#submit-login.tvall-inner-btn.form-control-submit {
+  display: inline-flex !important;
   align-items: center;
   justify-content: center;
   width: 100%;
   max-width: 520px;
   height: 48px;
   padding: 0 28px;
-  border: 0;
-  border-radius: 999px;
-  background: #145078;
-  color: #ffffff;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: #145078 !important;
+  color: #ffffff !important;
   font-size: 0.98rem;
   font-weight: 800;
   line-height: 1;
@@ -17568,17 +17569,29 @@ body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-ac
 }
 
 .spoc-auth-card #submit-login:hover,
-.spoc-auth-card .form-control-submit:hover {
-  background: #1999cb;
-  color: #ffffff;
+.spoc-auth-card #submit-login:focus,
+.spoc-auth-card #submit-login:active,
+.spoc-auth-card .form-control-submit:hover,
+.spoc-auth-card .form-control-submit:focus,
+.spoc-auth-card .form-control-submit:active,
+.spoc-auth-card button#submit-login.tvall-inner-btn.form-control-submit:hover,
+.spoc-auth-card button#submit-login.tvall-inner-btn.form-control-submit:focus,
+.spoc-auth-card button#submit-login.tvall-inner-btn.form-control-submit:active {
+  border-radius: 999px !important;
+  background: #1999cb !important;
+  color: #ffffff !important;
   transform: translateY(-1px);
   box-shadow: 0 16px 30px rgba(25, 153, 203, 0.26);
 }
 
-.spoc-auth-card #submit-login span {
-  color: inherit;
+.spoc-auth-card #submit-login span,
+.spoc-auth-card #submit-login:hover span,
+.spoc-auth-card #submit-login:focus span,
+.spoc-auth-card #submit-login:active span {
+  color: inherit !important;
 }
 
+/* Zone création de compte */
 .spoc-auth-card .no-account {
   margin: 28px -42px -36px;
   padding: 24px 42px 34px;
@@ -17587,26 +17600,34 @@ body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-ac
   text-align: center;
 }
 
-.spoc-auth-card .no-account a {
-  display: inline-flex;
+/* Bouton secondaire : repos blanc / contour primaire / texte primaire */
+.spoc-auth-card .no-account a,
+.spoc-auth-card .no-account a:visited {
+  display: inline-flex !important;
   align-items: center;
   justify-content: center;
   min-height: 44px;
   padding: 0 24px;
-  border: 1px solid rgba(20, 80, 120, 0.20);
-  border-radius: 999px;
-  background: #ffffff;
-  color: #145078;
+  border: 1px solid #145078 !important;
+  border-radius: 999px !important;
+  background: #ffffff !important;
+  color: #145078 !important;
   font-size: 0.95rem;
   font-weight: 800;
-  text-decoration: none;
-  transition: border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+  text-decoration: none !important;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
 }
 
-.spoc-auth-card .no-account a:hover {
-  border-color: #1999cb;
-  color: #1999cb;
-  box-shadow: 0 10px 24px rgba(20, 80, 120, 0.10);
+/* Bouton secondaire : hover fond primaire / texte blanc */
+.spoc-auth-card .no-account a:hover,
+.spoc-auth-card .no-account a:focus,
+.spoc-auth-card .no-account a:active {
+  border-color: #145078 !important;
+  border-radius: 999px !important;
+  background: #145078 !important;
+  color: #ffffff !important;
+  box-shadow: 0 10px 24px rgba(20, 80, 120, 0.14);
+  transform: translateY(-1px);
 }
 
 @media (max-width: 767px) {
