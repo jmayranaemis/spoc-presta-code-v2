@@ -15,7 +15,7 @@
 {extends file='page.tpl'}
 
 {assign var='spoc_is_account_child_page' value=false}
-{assign var='spoc_is_my_account_page' value=false}
+{assign var='spoc_is_authentication_page' value=false}
 
 {if isset($page.page_name)}
   {if $page.page_name == 'identity'
@@ -28,8 +28,8 @@
     {assign var='spoc_is_account_child_page' value=true}
   {/if}
 
-  {if $page.page_name == 'my-account'}
-    {assign var='spoc_is_my_account_page' value=true}
+  {if $page.page_name == 'authentication'}
+    {assign var='spoc_is_authentication_page' value=true}
   {/if}
 {/if}
 
@@ -82,13 +82,31 @@
         </div>
       </div>
 
+    {elseif $spoc_is_authentication_page}
+
+      <div class="spoc-auth-page">
+        <div class="spoc-auth-shell">
+
+          <section class="spoc-auth-hero">
+            <p class="spoc-account-eyebrow">{l s='Espace client' d='Shop.Theme.Customeraccount'}</p>
+            <h1>{block name='page_title'}{/block}</h1>
+            <p>{l s='Connectez-vous pour suivre vos commandes, gérer vos informations et accéder à vos services client.' d='Shop.Theme.Customeraccount'}</p>
+          </section>
+
+          <section class="spoc-auth-card">
+            {block name='page_content'}
+              <!-- Page content -->
+            {/block}
+          </section>
+
+        </div>
+      </div>
+
     {else}
 
       {block name='page_content'}
         <!-- Page content -->
       {/block}
-
-      
 
     {/if}
 
@@ -96,7 +114,7 @@
 {/block}
 
 {block name='page_footer'}
-  {if !$spoc_is_account_child_page}
+  {if !$spoc_is_account_child_page && !$spoc_is_authentication_page}
     {block name='my_account_links'}
       {include file='customer/_partials/my-account-links.tpl'}
     {/block}

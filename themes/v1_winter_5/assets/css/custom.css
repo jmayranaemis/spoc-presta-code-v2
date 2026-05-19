@@ -17348,4 +17348,265 @@ body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-ac
     width: 100% !important;
   }
 }
+
+/* =========================================================
+   SPOC AUTHENTICATION PAGE
+   Page : /connexion
+   ========================================================= */
+
+.spoc-auth-page {
+  max-width: 1180px;
+  margin: 0 auto 56px;
+}
+
+.spoc-auth-shell {
+  max-width: 820px;
+  margin: 28px auto 0;
+  border: 1px solid rgba(20, 80, 120, 0.12);
+  border-radius: 28px;
+  background: #ffffff;
+  box-shadow: 0 18px 45px rgba(20, 80, 120, 0.10);
+  overflow: hidden;
+}
+
+.spoc-auth-hero {
+  padding: 34px 42px 28px;
+  background: linear-gradient(135deg, #145078 0%, #1999cb 100%);
+  color: #ffffff;
+}
+
+.spoc-auth-hero .spoc-account-eyebrow {
+  margin: 0 0 8px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.spoc-auth-hero h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.spoc-auth-hero p {
+  max-width: 620px;
+  margin: 12px 0 0;
+  color: rgba(255, 255, 255, 0.90);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.spoc-auth-card {
+  padding: 34px 42px 36px;
+  background: #ffffff;
+}
+
+.spoc-auth-card .form-title {
+  display: none;
+}
+
+.spoc-auth-card .login-form {
+  margin: 0;
+}
+
+.spoc-auth-card .form-group.row {
+  display: block;
+  margin: 0 0 22px;
+}
+
+.spoc-auth-card .form-control-label {
+  display: block;
+  width: 100%;
+  max-width: none;
+  padding: 0;
+  margin: 0 0 8px;
+  color: #145078;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: left;
+}
+
+.spoc-auth-card .js-input-column,
+.spoc-auth-card .form-control-comment {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+}
+
+.spoc-auth-card .form-control {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid rgba(20, 80, 120, 0.20);
+  border-radius: 14px;
+  background: #ffffff;
+  color: #152b45;
+  font-size: 0.98rem;
+  box-shadow: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.spoc-auth-card .form-control:focus {
+  border-color: #1999cb;
+  box-shadow: 0 0 0 4px rgba(25, 153, 203, 0.14);
+  outline: none;
+}
+
+.spoc-auth-card .input-group {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+.spoc-auth-card .input-group .form-control {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.spoc-auth-card .input-group-btn {
+  display: flex;
+}
+
+.spoc-auth-card .input-group-btn .btn {
+  min-width: 104px;
+  height: 48px;
+  padding: 0 18px;
+  border: 1px solid rgba(20, 80, 120, 0.20);
+  border-left: 0;
+  border-radius: 0 14px 14px 0;
+  background: rgba(20, 80, 120, 0.06);
+  color: #145078;
+  font-size: 0.9rem;
+  font-weight: 700;
+  box-shadow: none;
+}
+
+.spoc-auth-card .input-group-btn .btn:hover {
+  background: rgba(25, 153, 203, 0.12);
+  color: #145078;
+}
+
+.spoc-auth-card .forgot-password {
+  margin: -4px 0 24px;
+  text-align: right;
+}
+
+.spoc-auth-card .forgot-password a {
+  color: #145078;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.spoc-auth-card .forgot-password a:hover {
+  color: #1999cb;
+  text-decoration: underline;
+}
+
+.spoc-auth-card .form-footer {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.spoc-auth-card #submit-login,
+.spoc-auth-card .form-control-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 190px;
+  height: 48px;
+  padding: 0 28px;
+  border: 0;
+  border-radius: 999px;
+  background: #145078;
+  color: #ffffff;
+  font-size: 0.98rem;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: none;
+  box-shadow: 0 12px 24px rgba(20, 80, 120, 0.22);
+  transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.spoc-auth-card #submit-login:hover,
+.spoc-auth-card .form-control-submit:hover {
+  background: #1999cb;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 16px 30px rgba(25, 153, 203, 0.26);
+}
+
+.spoc-auth-card #submit-login span {
+  color: inherit;
+}
+
+.spoc-auth-card .no-account {
+  margin: 28px -42px -36px;
+  padding: 24px 42px 34px;
+  border-top: 1px solid rgba(20, 80, 120, 0.10);
+  background: rgba(20, 80, 120, 0.035);
+  text-align: center;
+}
+
+.spoc-auth-card .no-account a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 24px;
+  border: 1px solid rgba(20, 80, 120, 0.20);
+  border-radius: 999px;
+  background: #ffffff;
+  color: #145078;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.spoc-auth-card .no-account a:hover {
+  border-color: #1999cb;
+  color: #1999cb;
+  box-shadow: 0 10px 24px rgba(20, 80, 120, 0.10);
+}
+
+@media (max-width: 767px) {
+  .spoc-auth-page {
+    margin-bottom: 36px;
+  }
+
+  .spoc-auth-shell {
+    margin: 18px 0 0;
+    border-radius: 22px;
+  }
+
+  .spoc-auth-hero {
+    padding: 28px 24px 22px;
+  }
+
+  .spoc-auth-hero h1 {
+    font-size: 1.55rem;
+  }
+
+  .spoc-auth-card {
+    padding: 26px 24px 30px;
+  }
+
+  .spoc-auth-card .no-account {
+    margin: 26px -24px -30px;
+    padding: 22px 24px 28px;
+  }
+
+  .spoc-auth-card .input-group-btn .btn {
+    min-width: 88px;
+    padding: 0 12px;
+  }
+}
 /*mailalert css end*/
