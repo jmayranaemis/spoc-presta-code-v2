@@ -13722,6 +13722,8 @@ body.page-customer-account .spoc-account-child-dashboard .spoc-account-section {
 
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel {
   margin-top: 24px;
+  max-width: 100%;
+  min-width: 0;
 }
 
 body#my-account .spoc-account-section-heading,
@@ -13937,7 +13939,9 @@ body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-pane
   border-collapse: separate;
   border-radius: 6px;
   border-spacing: 0;
+  table-layout: fixed;
   margin: 0;
+  max-width: 100%;
   overflow: hidden;
   width: 100%;
 }
@@ -13958,6 +13962,7 @@ body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-pane
   border-color: var(--spoc-account-border);
   color: var(--spoc-account-text);
   font-size: 13px;
+  overflow-wrap: anywhere;
   padding: 10px 12px;
   vertical-align: middle;
 }
@@ -13987,17 +13992,24 @@ body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-pane
   display: inline-flex;
   font-size: 10px;
   font-weight: 400;
+  line-height: 1.25;
   min-height: 24px;
   padding-left: 9px;
   padding-right: 9px;
+  white-space: normal;
 }
 
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .order-actions {
-  white-space: nowrap;
+  white-space: normal;
+}
+
+body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .order-actions a {
+  display: inline-flex;
+  margin: 2px 0;
 }
 
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .order-actions a + a {
-  margin-left: 10px;
+  margin-left: 8px;
 }
 
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .orders .order,
