@@ -13539,160 +13539,274 @@ body#product #product-details .product-manufacturer img {
 }
 
 /* Account dashboard */
-body#my-account.page-customer-account #content,
-body#identity.page-customer-account #content,
-body#history.page-customer-account #content,
-body#addresses.page-customer-account #content,
-body#address.page-customer-account #content,
-body#order-slip.page-customer-account #content,
-body#discount.page-customer-account #content,
-body#order-follow.page-customer-account #content {
+body.page-customer-account {
+  --spoc-account-primary: #145078;
+  --spoc-account-accent: #1999cb;
+  --spoc-account-text: #1c191c;
+  --spoc-account-muted: #666666;
+  --spoc-account-surface: #ffffff;
+  --spoc-account-soft: #f6f8fa;
+  --spoc-account-border: #eeeeee;
+  --spoc-account-border-strong: #dddddd;
+  background: #ffffff;
+}
+
+body.page-customer-account #content {
   background: transparent;
+  color: var(--spoc-account-text);
   padding: 0;
-  color: #1c191c;
 }
 
-body#my-account .spoc-account-dashboard {
-  display: grid;
+body#my-account .spoc-account-dashboard,
+body.page-customer-account .spoc-account-child-dashboard {
+  align-items: start;
+  display: grid !important;
+  gap: 32px;
   grid-template-columns: 260px minmax(0, 1fr);
-  gap: 36px;
-  padding: 28px 0 60px;
+  margin: 0;
+  padding: 24px 0 56px;
 }
 
-body#my-account .spoc-account-sidebar {
+body#my-account .spoc-account-sidebar,
+body.page-customer-account .spoc-account-child-dashboard > .spoc-account-sidebar {
   align-self: start;
+  display: flex !important;
+  flex-direction: column;
+  min-width: 0;
   position: sticky;
-  top: 120px;
+  top: 24px;
+  width: auto;
 }
 
-body#my-account .spoc-account-sidebar-title {
-  margin: 0 0 14px;
-  color: #1c191c;
+body#my-account .spoc-account-sidebar-title,
+body.page-customer-account .spoc-account-child-dashboard > .spoc-account-sidebar .spoc-account-sidebar-title {
+  color: var(--spoc-account-text);
   font-size: 18px;
   font-weight: 800;
   line-height: 1.2;
+  margin: 0 0 14px;
+  padding: 0 2px;
 }
 
 body#my-account .spoc-account-nav,
-body#my-account .spoc-account-sidebar {
+body.page-customer-account .spoc-account-child-dashboard > .spoc-account-sidebar .spoc-account-nav {
+  background: var(--spoc-account-surface);
+  border: 1px solid var(--spoc-account-border);
+  border-radius: 6px;
   display: flex;
   flex-direction: column;
-}
-
-body#my-account .spoc-account-nav {
-  border: 1px solid #eeeeee;
-  background: #ffffff;
-  border-radius: 5px;
+  gap: 4px;
+  padding: 6px;
 }
 
 body#my-account .spoc-account-nav-link,
-body#my-account .spoc-account-logout {
-  display: flex;
+body#my-account .spoc-account-logout,
+body.page-customer-account .spoc-account-child-dashboard > .spoc-account-sidebar .spoc-account-nav-link,
+body.page-customer-account .spoc-account-child-dashboard > .spoc-account-sidebar .spoc-account-logout {
   align-items: center;
-  gap: 11px;
-  min-height: 48px;
-  padding: 13px 16px;
- /* border-bottom: 1px solid #eeeeee; */
-  color: #1c191c;
+  border-radius: 4px;
+  color: var(--spoc-account-text);
+  display: grid;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
+  gap: 11px;
+  grid-template-columns: 22px minmax(0, 1fr);
   line-height: 1.25;
+  min-height: 46px;
+  padding: 12px 14px;
   text-decoration: none;
-  transition: color .2s ease, background-color .2s ease;
-}
-
-body#my-account .spoc-account-nav-link:last-child {
-  border-bottom: 0;
+  transition: background-color .2s ease, color .2s ease;
 }
 
 body#my-account .spoc-account-nav-link i,
-body#my-account .spoc-account-logout i {
-  width: 22px;
+body#my-account .spoc-account-logout i,
+body.page-customer-account .spoc-account-child-dashboard > .spoc-account-sidebar .spoc-account-nav-link i,
+body.page-customer-account .spoc-account-child-dashboard > .spoc-account-sidebar .spoc-account-logout i {
+  color: var(--spoc-account-primary);
+  display: inline-flex;
   flex: 0 0 22px;
-  color: #145078;
   font-size: 21px;
+  justify-content: center;
   line-height: 1;
-  text-align: center;
+  width: 22px;
+}
+
+body#my-account .spoc-account-nav-link span,
+body#my-account .spoc-account-logout span,
+body.page-customer-account .spoc-account-child-dashboard > .spoc-account-sidebar .spoc-account-nav-link span,
+body.page-customer-account .spoc-account-child-dashboard > .spoc-account-sidebar .spoc-account-logout span {
+  min-width: 0;
 }
 
 body#my-account .spoc-account-nav-link.active,
 body#my-account .spoc-account-nav-link:hover,
-body#my-account .spoc-account-logout:hover {
-  background: #f6f6f6;
-  color: #145078;
-  border-radius: 5px;
+body#my-account .spoc-account-logout:hover,
+body.page-customer-account .spoc-account-child-dashboard > .spoc-account-sidebar .spoc-account-nav-link.active,
+body.page-customer-account .spoc-account-child-dashboard > .spoc-account-sidebar .spoc-account-nav-link:hover,
+body.page-customer-account .spoc-account-child-dashboard > .spoc-account-sidebar .spoc-account-logout:hover {
+  background: var(--spoc-account-soft);
+  color: var(--spoc-account-primary);
+  text-decoration: none;
 }
 
-body#my-account .spoc-account-logout {
+body#my-account .spoc-account-logout,
+body.page-customer-account .spoc-account-child-dashboard > .spoc-account-sidebar .spoc-account-logout {
+  background: var(--spoc-account-surface);
+  border: 1px solid var(--spoc-account-border);
   margin-top: 14px;
-  border: 1px solid #eeeeee;
-  background: #ffffff;
-  border-radius: 5px;
 }
 
-body#my-account .spoc-account-main {
+body#my-account .spoc-account-main,
+body.page-customer-account .spoc-account-child-dashboard > .spoc-account-main {
+  display: block;
   min-width: 0;
 }
 
-body#my-account .spoc-account-hero {
-  display: flex;
+body#my-account .spoc-account-hero,
+body.page-customer-account .spoc-account-child-dashboard .spoc-account-hero {
   align-items: flex-end;
-  justify-content: space-between;
-  min-height: 190px;
-  padding: 34px 38px;
-  background: #f6f6f6;
-  border: 1px solid #eeeeee;
+  background: var(--spoc-account-soft);
+  border: 0;
+  border-radius: 6px;
+  display: flex;
+  min-height: 160px;
+  padding: 32px 36px;
 }
 
-body#my-account .spoc-account-eyebrow {
-  margin: 0 0 12px;
-  color: #145078;
+body#my-account .spoc-account-hero {
+  min-height: 180px;
+}
+
+body#my-account .spoc-account-eyebrow,
+body.page-customer-account .spoc-account-child-dashboard .spoc-account-eyebrow {
+  color: var(--spoc-account-primary);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0;
   line-height: 1;
+  margin: 0 0 12px;
   text-transform: uppercase;
 }
 
-body#my-account .spoc-account-hero h1 {
-  margin: 0 0 12px;
-  color: #1c191c;
-  font-size: 36px;
+body#my-account .spoc-account-hero h1,
+body.page-customer-account .spoc-account-child-dashboard .spoc-account-hero h1 {
+  color: var(--spoc-account-text);
+  font-size: 32px;
   font-weight: 800;
   letter-spacing: 0;
   line-height: 1.15;
+  margin: 0 0 12px;
 }
 
-body#my-account .spoc-account-hero p:last-child {
-  max-width: 720px;
-  margin: 0;
-  color: #666666;
+body#my-account .spoc-account-hero h1 {
+  font-size: 36px;
+}
+
+body#my-account .spoc-account-hero p:last-child,
+body.page-customer-account .spoc-account-child-dashboard .spoc-account-hero p:last-child {
+  color: var(--spoc-account-muted);
   font-size: 15px;
   line-height: 1.6;
-}
-
-body#my-account .spoc-account-section {
-  margin-top: 34px;
-}
-
-body#my-account .spoc-account-section-heading {
-  margin-bottom: 16px;
-}
-
-body#my-account .spoc-account-section-heading h2 {
   margin: 0;
-  color: #1c191c;
+  max-width: 720px;
+}
+
+body#my-account .spoc-account-section,
+body.page-customer-account .spoc-account-child-dashboard .spoc-account-section {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  margin-top: 28px;
+  padding: 0;
+}
+
+body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel {
+  margin-top: 24px;
+}
+
+body#my-account .spoc-account-section-heading,
+body.page-customer-account .spoc-account-panel-heading {
+  margin-bottom: 18px;
+}
+
+body#my-account .spoc-account-section-heading h2,
+body.page-customer-account .spoc-account-panel-heading h2 {
+  color: var(--spoc-account-text);
   font-size: 20px;
   font-weight: 800;
   letter-spacing: 0;
   line-height: 1.25;
+  margin: 0;
+}
+
+body.page-customer-account .spoc-account-panel-heading {
+  align-items: center;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 46px minmax(0, 1fr);
+}
+
+body.page-customer-account .spoc-account-panel-heading-actions {
+  grid-template-columns: 46px minmax(0, 1fr) auto;
+}
+
+body.page-customer-account .spoc-account-panel-heading p {
+  color: var(--spoc-account-muted);
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 5px 0 0;
+}
+
+body.page-customer-account .spoc-account-panel-icon {
+  align-items: center;
+  background: var(--spoc-account-soft);
+  border-radius: 6px;
+  color: var(--spoc-account-primary);
+  display: inline-flex;
+  height: 46px;
+  justify-content: center;
+  width: 46px;
+}
+
+body.page-customer-account .spoc-account-panel-icon i {
+  font-size: 24px;
+  line-height: 1;
+}
+
+body.page-customer-account .spoc-account-panel-action,
+body.page-customer-account .spoc-account-main .btn,
+body.page-customer-account .spoc-account-main .tvall-inner-btn {
+  align-items: center;
+  background: var(--spoc-account-primary);
+  border: 1px solid var(--spoc-account-primary);
+  border-radius: 4px;
+  color: #ffffff !important;
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 700;
+  gap: 8px;
+  justify-content: center;
+  line-height: 1.2;
+  min-height: 42px;
+  padding: 10px 16px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+body.page-customer-account .spoc-account-panel-action:hover,
+body.page-customer-account .spoc-account-main .btn:hover,
+body.page-customer-account .spoc-account-main .tvall-inner-btn:hover {
+  background: #0f3f60;
+  border-color: #0f3f60;
+  color: #ffffff !important;
+  text-decoration: none;
 }
 
 body#my-account .spoc-account-dashboard .links {
   display: grid;
   flex-wrap: unset;
-  justify-content: unset;
   gap: 16px;
+  justify-content: unset;
 }
 
 body#my-account .spoc-account-quick-links {
@@ -13704,102 +13818,103 @@ body#my-account .spoc-account-module-links {
 }
 
 body#my-account .spoc-account-dashboard .links > a {
+  color: var(--spoc-account-text);
+  display: block;
   float: none !important;
-  width: auto !important;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.25;
+  margin: 0;
   max-width: none !important;
   min-height: 0;
-  display: block;
-  margin: 0;
   padding: 0;
-  color: #1c191c;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.25;
   text-align: left;
   text-decoration: none;
   text-transform: none;
+  width: auto !important;
 }
 
 body#my-account .spoc-account-dashboard .links > a span.link-item {
+  background: var(--spoc-account-surface);
+  border: 1px solid var(--spoc-account-border);
+  border-radius: 6px;
   height: 100%;
-  border: 1px solid #eeeeee;
-  border-radius: 3px;
-  background: #ffffff;
   transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
 }
 
 body#my-account .spoc-account-quick-links > a span.link-item {
-  display: flex;
   align-items: center;
-  justify-content: center;
+  display: flex;
   flex-direction: column;
   gap: 14px;
-  min-height: 85px;
-  padding: 24px 16px;
+  justify-content: center;
+  min-height: 96px;
+  padding: 22px 16px;
   text-align: center;
 }
 
 body#my-account .spoc-account-module-links > a span.link-item {
-  display: flex;
   align-items: center;
+  display: flex;
   gap: 14px;
-  min-height: 70px;
+  min-height: 72px;
   padding: 16px 18px;
 }
 
 body#my-account .spoc-account-dashboard .links > a i,
 body#my-account .spoc-account-dashboard .links > a img {
-  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 54px;
-  height: 54px;
-  padding: 0;
+  background: var(--spoc-account-soft);
   border-radius: 50%;
-  background: #f6f6f6;
-  color: #145078;
-  flex: 0 0 54px;
+  color: var(--spoc-account-primary);
+  display: inline-flex;
+  flex: 0 0 52px;
   font-size: 26px;
-  line-height: 54px;
+  height: 52px;
+  justify-content: center;
+  line-height: 52px;
+  margin: 0;
   object-fit: contain;
+  padding: 0;
   text-align: center;
-  margin-right: 10px;
+  width: 52px;
 }
 
 body#my-account .spoc-account-module-links > a i,
 body#my-account .spoc-account-module-links > a img {
-  width: 38px !important;
-  height: 38px !important;
   flex-basis: 38px;
   font-size: 21px;
+  height: 38px !important;
   line-height: 38px;
+  width: 38px !important;
 }
 
 body#my-account .spoc-account-dashboard .links > a:hover {
-  color: #145078;
+  color: var(--spoc-account-primary);
 }
 
 body#my-account .spoc-account-dashboard .links > a:hover span.link-item {
-  border-color: rgba(20, 80, 120, .28);
-  box-shadow: 0 10px 24px rgba(15, 23, 42, .08);
+  border-color: rgba(20, 80, 120, .34);
+  box-shadow: 0 10px 22px rgba(15, 23, 42, .07);
   transform: translateY(-2px);
 }
 
 body#my-account .spoc-account-privacy {
-  display: flex;
   align-items: flex-start;
-  gap: 12px;
-  margin-top: 34px;
-  padding: 18px 20px;
-  border: 1px solid #eeeeee;
-  background: #ffffff;
-  color: #666666;
+  background: var(--spoc-account-surface);
+  border: 1px solid var(--spoc-account-border);
+  border-radius: 6px;
+  color: var(--spoc-account-muted);
+  display: flex;
   font-size: 13px;
+  gap: 12px;
   line-height: 1.5;
+  margin-top: 28px;
+  padding: 18px 20px;
 }
 
 body#my-account .spoc-account-privacy i {
-  color: #145078;
+  color: var(--spoc-account-primary);
   font-size: 22px;
   line-height: 1;
 }
@@ -13808,198 +13923,43 @@ body#my-account .spoc-account-privacy p {
   margin: 0;
 }
 
-@media (max-width: 1199px) {
-  body#my-account .spoc-account-dashboard {
-    grid-template-columns: 230px minmax(0, 1fr);
-    gap: 24px;
-  }
-
-  body#my-account .spoc-account-quick-links {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 767px) {
-  body#my-account .spoc-account-dashboard {
-    display: block;
-    padding-top: 12px;
-  }
-
-  body#my-account .spoc-account-sidebar {
-    position: static;
-    margin-bottom: 24px;
-  }
-
-  body#my-account .spoc-account-hero {
-    min-height: 0;
-    padding: 26px 22px;
-  }
-
-  body#my-account .spoc-account-hero h1 {
-    font-size: 28px;
-  }
-
-  body#my-account .spoc-account-quick-links,
-  body#my-account .spoc-account-module-links {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Account subpages */
-body.page-customer-account .spoc-account-child-dashboard {
-  display: grid;
-  grid-template-columns: 260px minmax(0, 1fr);
-  gap: 36px;
-  padding: 0px 0 60px;
-  margin-left: 10px;
-}
-
-body.page-customer-account .spoc-account-child-dashboard .spoc-account-sidebar {
-  align-self: start;
-  position: sticky;
-  top: 120px;
-}
-
-body.page-customer-account .spoc-account-child-dashboard .spoc-account-sidebar-title {
-  margin: 0 0 14px;
-  color: #1c191c;
-  font-size: 18px;
-  font-weight: 800;
-  line-height: 1.2;
-}
-
-body.page-customer-account .spoc-account-child-dashboard .spoc-account-nav,
-body.page-customer-account .spoc-account-child-dashboard .spoc-account-sidebar {
-  display: flex;
-  flex-direction: column;
-}
-
-body.page-customer-account .spoc-account-child-dashboard .spoc-account-nav {
-  border: 1px solid #eeeeee;
-  background: #ffffff;
-  border-radius: 5px;
-}
-
-body.page-customer-account .spoc-account-child-dashboard .spoc-account-nav-link,
-body.page-customer-account .spoc-account-child-dashboard .spoc-account-logout {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  min-height: 48px;
-  padding: 13px 16px;
-  color: #1c191c;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.25;
-  text-decoration: none;
-  transition: color .2s ease, background-color .2s ease;
-}
-
-body.page-customer-account .spoc-account-child-dashboard .spoc-account-nav-link i,
-body.page-customer-account .spoc-account-child-dashboard .spoc-account-logout i {
-  width: 22px;
-  flex: 0 0 22px;
-  color: #145078;
-  font-size: 21px;
-  line-height: 1;
-  text-align: center;
-}
-
-body.page-customer-account .spoc-account-child-dashboard .spoc-account-nav-link.active,
-body.page-customer-account .spoc-account-child-dashboard .spoc-account-nav-link:hover,
-body.page-customer-account .spoc-account-child-dashboard .spoc-account-logout:hover {
-  background: #f6f6f6;
-  color: #145078;
-  border-radius: 5px;
-}
-
-body.page-customer-account .spoc-account-child-dashboard .spoc-account-logout {
-  margin-top: 14px;
-  border: 1px solid #eeeeee;
-  background: #ffffff;
-  border-radius: 5px;
-}
-
-body.page-customer-account .spoc-account-child-dashboard .spoc-account-main {
-  min-width: 0;
-}
-
-body.page-customer-account .spoc-account-child-dashboard .spoc-account-hero {
-  display: flex;
-  align-items: flex-end;
-  min-height: 150px;
-  padding: 32px 36px;
-  border: 1px solid #eeeeee;
-  background: #f6f6f6;
-}
-
-body.page-customer-account .spoc-account-child-dashboard .spoc-account-eyebrow {
-  margin: 0 0 12px;
-  color: #145078;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-body.page-customer-account .spoc-account-child-dashboard .spoc-account-hero h1 {
-  margin: 0 0 12px;
-  color: #1c191c;
-  font-size: 32px;
-  font-weight: 700;
-  letter-spacing: 0;
-  line-height: 1.15;
-}
-
-body.page-customer-account .spoc-account-child-dashboard .spoc-account-hero p:last-child {
-  max-width: 720px;
-  margin: 0;
-  color: #666666;
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-body.page-customer-account .spoc-account-child-dashboard .spoc-account-section {
-  margin-top: 28px;
-}
-
-body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel {
-  padding: 30px;
-  border: 1px solid #eeeeee;
-  background: #ffffff;
-}
-
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel h6 {
-  margin: 0 0 22px;
-  color: #666666;
+  color: var(--spoc-account-muted);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.6;
+  margin: 0 0 18px;
 }
 
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .table {
+  background: var(--spoc-account-surface);
+  border: 1px solid var(--spoc-account-border);
+  border-collapse: separate;
+  border-radius: 6px;
+  border-spacing: 0;
   margin: 0;
-  border: 1px solid #eeeeee;
-  background: #ffffff;
+  overflow: hidden;
+  width: 100%;
 }
 
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .table thead th {
-  border-bottom: 1px solid #eeeeee;
-  background: #f6f6f6;
-  color: #1c191c;
+  background: var(--spoc-account-soft);
+  border-bottom: 1px solid var(--spoc-account-border);
+  color: var(--spoc-account-text);
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0;
+  padding: 13px 12px;
   text-transform: uppercase;
 }
 
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .table td,
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .table th {
-  border-color: #eeeeee;
-  color: #1c191c;
+  border-color: var(--spoc-account-border);
+  color: var(--spoc-account-text);
+  font-size: 13px;
+  padding: 13px 12px;
   vertical-align: middle;
-  font-size: 12px;
 }
 
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .table a,
@@ -14007,20 +13967,29 @@ body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-pane
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .credit-slips a,
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .cart-rules a,
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .order-returns a {
-  color: #145078;
-  font-weight: 400;
-  font-size: 12px;
+  color: var(--spoc-account-primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .table a:hover,
+body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .orders a:hover,
+body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .credit-slips a:hover,
+body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .cart-rules a:hover,
+body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .order-returns a:hover {
+  color: var(--spoc-account-accent);
+  text-decoration: none;
 }
 
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .label {
-  display: inline-flex;
   align-items: center;
-  min-height: 24px;
-  padding-right: 9px;
-  padding-left: 9px;
   border-radius: 3px;
+  display: inline-flex;
   font-size: 12px;
   font-weight: 700;
+  min-height: 24px;
+  padding-left: 9px;
+  padding-right: 9px;
 }
 
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .order-actions {
@@ -14035,11 +14004,11 @@ body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-pane
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .credit-slips .credit-slip,
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .cart-rules .cart-rule,
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .order-returns .order-return {
+  background: var(--spoc-account-surface);
+  border: 1px solid var(--spoc-account-border);
+  border-radius: 6px;
   margin-bottom: 14px;
   padding: 18px;
-  border: 1px solid #eeeeee;
-  border-radius: 3px;
-  background: #ffffff;
 }
 
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .orders .order:last-child,
@@ -14050,28 +14019,28 @@ body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-pane
 }
 
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .orders h3 {
-  margin: 0 0 8px;
-  color: #1c191c;
+  color: var(--spoc-account-text);
   font-size: 16px;
   font-weight: 800;
+  margin: 0 0 8px;
 }
 
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .credit-slips ul,
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .cart-rules ul,
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .order-returns ul {
+  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none;
 }
 
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .credit-slips li,
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .cart-rules li,
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .order-returns li {
+  border-bottom: 1px solid var(--spoc-account-border);
   display: flex;
-  justify-content: space-between;
   gap: 16px;
+  justify-content: space-between;
   padding: 8px 0;
-  border-bottom: 1px solid #eeeeee;
 }
 
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .credit-slips li:last-child,
@@ -14080,78 +14049,51 @@ body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-pane
   border-bottom: 0;
 }
 
-body.page-customer-account .spoc-account-panel-heading {
-  display: grid;
-  grid-template-columns: 52px minmax(0, 1fr) auto;
-  gap: 16px;
-  align-items: center;
-  margin-bottom: 28px;
-}
-
-body.page-customer-account .spoc-account-panel-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: #f6f6f6;
-  color: #145078;
-}
-
-body.page-customer-account .spoc-account-panel-icon i {
-  font-size: 25px;
-  line-height: 1;
-}
-
-body.page-customer-account .spoc-account-panel-heading h2 {
-  margin: 0 0 5px;
-  color: #1c191c;
-  font-size: 20px;
-  font-weight: 800;
-  letter-spacing: 0;
-  line-height: 1.25;
-}
-
-body.page-customer-account .spoc-account-panel-heading p {
-  margin: 0;
-  color: #666666;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-body.page-customer-account .spoc-account-panel-action {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  white-space: nowrap;
+body.page-customer-account .spoc-account-form-card {
+  background: var(--spoc-account-surface);
+  border: 1px solid var(--spoc-account-border);
+  border-radius: 6px;
+  padding: 28px;
 }
 
 body.page-customer-account .spoc-account-form-card .form-group {
   margin-bottom: 18px;
 }
 
-body.page-customer-account .spoc-account-form-card .form-control-label {
-  color: #1c191c;
+body.page-customer-account .spoc-account-form-card .form-control-label,
+body.page-customer-account .spoc-account-form-card label {
+  color: var(--spoc-account-text);
   font-size: 13px;
   font-weight: 700;
 }
 
-body.page-customer-account .spoc-account-form-card .form-control {
+body.page-customer-account .spoc-account-form-card .form-control,
+body.page-customer-account .spoc-account-form-card input[type="text"],
+body.page-customer-account .spoc-account-form-card input[type="email"],
+body.page-customer-account .spoc-account-form-card input[type="password"],
+body.page-customer-account .spoc-account-form-card input[type="tel"],
+body.page-customer-account .spoc-account-form-card select,
+body.page-customer-account .spoc-account-form-card textarea {
+  background: var(--spoc-account-surface);
+  border: 1px solid var(--spoc-account-border-strong);
+  border-radius: 4px;
+  box-shadow: none;
+  color: var(--spoc-account-text);
   min-height: 44px;
-  border: 1px solid #dddddd;
-  border-radius: 3px;
-  color: #1c191c;
 }
 
-body.page-customer-account .spoc-account-form-card .form-control:focus {
-  border-color: #145078;
+body.page-customer-account .spoc-account-form-card .form-control:focus,
+body.page-customer-account .spoc-account-form-card input:focus,
+body.page-customer-account .spoc-account-form-card select:focus,
+body.page-customer-account .spoc-account-form-card textarea:focus {
+  border-color: var(--spoc-account-primary);
   box-shadow: 0 0 0 3px rgba(20, 80, 120, .12);
+  outline: none;
 }
 
 body.page-customer-account .spoc-account-form-card .radio-inline,
 body.page-customer-account .spoc-account-form-card .custom-checkbox {
-  color: #1c191c;
+  color: var(--spoc-account-text);
   font-size: 14px;
 }
 
@@ -14167,86 +14109,88 @@ body.page-customer-account .spoc-account-form-card .form-footer .tvall-inner-btn
 
 body.page-customer-account .spoc-account-address-list,
 body.page-customer-account .spoc-account-address-grid {
-  display: grid;
+  display: grid !important;
+  gap: 18px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-  margin: 0;
+  margin: 0 !important;
 }
 
 body.page-customer-account .spoc-account-address-list::before,
 body.page-customer-account .spoc-account-address-list::after,
 body.page-customer-account .spoc-account-address-grid::before,
 body.page-customer-account .spoc-account-address-grid::after {
-  display: none;
   content: none;
+  display: none;
 }
 
 body.page-customer-account .spoc-account-address-item,
 body.page-customer-account .spoc-account-address-grid > [class*="col-"] {
-  display: flex;
-  width: auto;
-  max-width: none;
+  display: flex !important;
+  float: none !important;
+  margin: 0 !important;
+  max-width: none !important;
   min-width: 0;
-  padding: 0;
-  margin: 0;
-  float: none;
+  padding: 0 !important;
+  width: auto !important;
 }
 
 body.page-customer-account .spoc-account-address-list .address,
 body.page-customer-account .spoc-account-address-grid .address {
+  background: var(--spoc-account-surface);
+  border: 1px solid var(--spoc-account-border);
+  border-radius: 6px;
+  box-shadow: none;
   display: flex;
   flex-direction: column;
-  width: 100%;
   height: auto;
-  margin-bottom: 0;
-  border: 1px solid #eeeeee;
-  border-radius: 3px;
-  background: #ffffff;
-  box-shadow: none;
+  margin: 0;
+  min-width: 0;
+  width: 100%;
 }
 
 body.page-customer-account .spoc-account-address-list .address-body,
 body.page-customer-account .spoc-account-address-grid .address-body {
+  border: 0;
   flex: 1 1 auto;
   padding: 22px;
-  border: 0;
 }
 
 body.page-customer-account .spoc-account-address-list .address-body h4,
 body.page-customer-account .spoc-account-address-grid .address-body h4 {
-  margin: 0 0 14px;
-  color: #1c191c;
+  color: var(--spoc-account-text);
   font-size: 16px;
   font-weight: 800;
+  margin: 0 0 14px;
 }
 
 body.page-customer-account .spoc-account-address-list .address-body address,
 body.page-customer-account .spoc-account-address-grid .address-body address {
-  min-height: 0;
-  margin: 0;
-  color: #666666;
+  color: var(--spoc-account-muted);
   line-height: 1.6;
+  margin: 0;
+  min-height: 0;
 }
 
 body.page-customer-account .spoc-account-address-list .address-footer,
 body.page-customer-account .spoc-account-address-grid .address-footer {
+  border-top: 1px solid var(--spoc-account-border);
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 0;
   padding: 14px 22px;
-  border-top: 1px solid #eeeeee;
 }
 
 body.page-customer-account .spoc-account-address-list .address-footer a,
 body.page-customer-account .spoc-account-address-grid .address-footer a {
-  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  margin: 0;
-  color: #145078;
+  color: var(--spoc-account-primary);
+  display: inline-flex;
   font-size: 13px;
   font-weight: 700;
+  gap: 6px;
+  margin: 0;
+  text-decoration: none;
 }
 
 body.page-customer-account .spoc-account-address-list .address-footer a span,
@@ -14255,37 +14199,38 @@ body.page-customer-account .spoc-account-address-grid .address-footer a span {
 }
 
 body.page-customer-account .spoc-account-empty-state {
+  background: var(--spoc-account-soft);
+  border: 1px dashed var(--spoc-account-border-strong);
+  border-radius: 6px;
   padding: 34px 24px;
-  border: 1px dashed #dddddd;
-  background: #fbfbfb;
   text-align: center;
 }
 
 body.page-customer-account .spoc-account-empty-state i {
-  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 54px;
-  height: 54px;
-  margin-bottom: 16px;
+  background: var(--spoc-account-surface);
   border-radius: 50%;
-  background: #f6f6f6;
-  color: #145078;
+  color: var(--spoc-account-primary);
+  display: inline-flex;
   font-size: 26px;
+  height: 54px;
+  justify-content: center;
+  margin-bottom: 16px;
+  width: 54px;
 }
 
 body.page-customer-account .spoc-account-empty-state h3 {
-  margin: 0 0 8px;
-  color: #1c191c;
+  color: var(--spoc-account-text);
   font-size: 18px;
   font-weight: 800;
+  margin: 0 0 8px;
 }
 
 body.page-customer-account .spoc-account-empty-state p {
-  margin: 0;
-  color: #666666;
+  color: var(--spoc-account-muted);
   font-size: 14px;
   line-height: 1.5;
+  margin: 0;
 }
 
 body.page-customer-account .spoc-account-mobile-action {
@@ -14293,53 +14238,64 @@ body.page-customer-account .spoc-account-mobile-action {
 }
 
 @media (max-width: 1199px) {
+  body#my-account .spoc-account-dashboard,
   body.page-customer-account .spoc-account-child-dashboard {
-    grid-template-columns: 230px minmax(0, 1fr);
     gap: 24px;
+    grid-template-columns: 230px minmax(0, 1fr);
+  }
+
+  body#my-account .spoc-account-quick-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 767px) {
+  body#my-account .spoc-account-dashboard,
   body.page-customer-account .spoc-account-child-dashboard {
-    display: block;
+    display: block !important;
     padding-top: 12px;
   }
 
-  body.page-customer-account .spoc-account-child-dashboard .spoc-account-sidebar {
-    position: static;
+  body#my-account .spoc-account-sidebar,
+  body.page-customer-account .spoc-account-child-dashboard > .spoc-account-sidebar {
     margin-bottom: 24px;
+    position: static;
   }
 
+  body#my-account .spoc-account-hero,
   body.page-customer-account .spoc-account-child-dashboard .spoc-account-hero {
     min-height: 0;
     padding: 26px 22px;
   }
 
+  body#my-account .spoc-account-hero h1,
   body.page-customer-account .spoc-account-child-dashboard .spoc-account-hero h1 {
     font-size: 28px;
   }
 
-  body.page-customer-account .spoc-account-child-dashboard .spoc-account-section {
-    margin-top: 22px;
+  body#my-account .spoc-account-quick-links,
+  body#my-account .spoc-account-module-links,
+  body.page-customer-account .spoc-account-address-list,
+  body.page-customer-account .spoc-account-address-grid {
+    grid-template-columns: 1fr;
   }
 
-  body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel {
-    padding: 20px;
-  }
-
-  body.page-customer-account .spoc-account-panel-heading {
+  body.page-customer-account .spoc-account-panel-heading,
+  body.page-customer-account .spoc-account-panel-heading-actions {
     grid-template-columns: 44px minmax(0, 1fr);
-    gap: 12px;
-    margin-bottom: 22px;
   }
 
   body.page-customer-account .spoc-account-panel-icon {
-    width: 44px;
     height: 44px;
+    width: 44px;
   }
 
   body.page-customer-account .spoc-account-panel-action {
     display: none;
+  }
+
+  body.page-customer-account .spoc-account-form-card {
+    padding: 20px;
   }
 
   body.page-customer-account .spoc-account-form-card .form-footer {
@@ -14366,12 +14322,7 @@ body.page-customer-account .spoc-account-mobile-action {
 
   body.page-customer-account .spoc-account-mobile-action {
     display: block;
-    margin-top: 4px;
-  }
-
-  body.page-customer-account .spoc-account-address-list,
-  body.page-customer-account .spoc-account-address-grid {
-    grid-template-columns: 1fr;
+    margin-top: 18px;
   }
 }
 
