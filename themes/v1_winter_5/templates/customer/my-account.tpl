@@ -34,7 +34,7 @@
         {include file='customer/_partials/account-sidebar.tpl' spoc_account_active='my-account'}
 
         <div class="spoc-account-main">
-            <section class="spoc-account-hero">
+            <section class="spoc-account-hero spoc-account-page-hero">
                 <div>
                     <p class="spoc-account-eyebrow">{l s='Espace client' d='Shop.Theme.Customeraccount'}</p>
                     <h1>
@@ -46,9 +46,10 @@
                 </div>
             </section>
 
-            <section class="spoc-account-section">
-                <div class="spoc-account-section-heading">
-                    <h2>{l s='Accès rapides' d='Shop.Theme.Customeraccount'}</h2>
+            <section class="spoc-account-section spoc-account-page-panel">
+                <div class="spoc-account-section-heading spoc-account-panel-heading-actions">
+                <span class="spoc-account-panel-icon"><i class="material-icons"></i></span>
+                 <div>   <h2>{l s='Accès rapides' d='Shop.Theme.Customeraccount'}</h2></div>
                 </div>
                 <div class="links spoc-account-quick-links">
                     {if !$configuration.is_catalog}
