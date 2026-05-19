@@ -13850,7 +13850,7 @@ body#my-account .spoc-account-quick-links > a span.link-item {
   flex-direction: column;
   gap: 14px;
   justify-content: center;
-  min-height: 96px;
+  min-height: 75px;
   padding: 22px 16px;
   text-align: center;
 }
@@ -13872,9 +13872,9 @@ body#my-account .spoc-account-dashboard .links > a img {
   display: inline-flex;
   flex: 0 0 52px;
   font-size: 26px;
-  height: 52px;
+  height: 40px;
   justify-content: center;
-  line-height: 52px;
+  line-height: 40px;
   margin: 0;
   object-fit: contain;
   padding: 0;
