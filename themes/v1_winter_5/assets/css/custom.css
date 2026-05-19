@@ -17476,16 +17476,16 @@ body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-ac
 }
 
 .spoc-auth-card .input-group-btn .btn {
-  min-width: 104px;
+  min-width: 85px;
   height: 48px;
   padding: 0 18px;
   border: 1px solid rgba(20, 80, 120, 0.20);
   border-left: 0;
   border-radius: 0 14px 14px 0;
   background: rgba(20, 80, 120, 0.06);
-  color: #145078;
-  font-size: 0.9rem;
-  font-weight: 700;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 400;
   box-shadow: none;
 }
 
