@@ -14064,7 +14064,7 @@ body.page-customer-account .spoc-account-form-card .form-control-label,
 body.page-customer-account .spoc-account-form-card label {
   color: var(--spoc-account-text);
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 body.page-customer-account .spoc-account-form-card .form-control,

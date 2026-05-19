@@ -48,7 +48,7 @@
 
             <section class="spoc-account-section spoc-account-page-panel">
                 <div class="spoc-account-panel-heading spoc-account-panel-heading-actions">
-                <span class="spoc-account-panel-icon"><i class="material-icons"></i></span>
+                <span class="spoc-account-panel-icon"><i class="material-icons">&#xE871;</i></span>
                  <div>   <h2>{l s='Accès rapides' d='Shop.Theme.Customeraccount'}</h2></div>
                 </div>
                 <div class="links spoc-account-quick-links">
