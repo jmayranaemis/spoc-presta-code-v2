@@ -13963,7 +13963,7 @@ body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-pane
   color: var(--spoc-account-text);
   font-size: 10px;
   overflow-wrap: anywhere;
-  padding: 10px 12px;
+  padding: 10px 5px;
   vertical-align: middle;
 }
 
