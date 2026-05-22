@@ -15446,7 +15446,7 @@ body#checkout #payment-confirmation button {
     padding: 12px 22px !important;
     border: 1px solid var(--spoc-primary, #145078) !important;
     border-radius: 10px !important;
-    background: var(--spoc-primary, #145078) !important;
+    background: linear-gradient(80deg, var(--spoc-primary, #145078) 0%, var(--spoc-secondary, #1999cb) 100%);
     color: #ffffff !important;
     font-size: 14px !important;
     font-weight: 800 !important;
