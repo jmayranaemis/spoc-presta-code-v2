@@ -32,21 +32,42 @@
                             <dl class="data-sheet-product">
                                 {foreach from=$product.grouped_features item=feature}
                                     {assign var='featureName' value=$feature.name|lower|replace:'é':'e'|replace:'è':'e'|replace:'ê':'e'|replace:'à':'a'}
-                                    {assign var='featureIcon' value='done'}
+                                    {assign var='featureValue' value=$feature.value|lower|replace:'é':'e'|replace:'è':'e'|replace:'ê':'e'|replace:'à':'a'|replace:'ç':'c'}
+                                    {assign var='featureIcon' value='default'}
+                                    {assign var='featureType' value='default'}
                                     {if $featureName == 'saison'}
-                                        {assign var='featureIcon' value='ac_unit'}
+                                        {assign var='featureType' value='season'}
+                                        {if strstr($featureValue, 'ete')}
+                                            {assign var='featureIcon' value='season-summer'}
+                                        {else}
+                                            {assign var='featureIcon' value='season-winter'}
+                                        {/if}
                                     {elseif $featureName == 'genre' || $featureName == 'sexe'}
-                                        {assign var='featureIcon' value='person'}
+                                        {assign var='featureType' value='gender'}
+                                        {if strstr($featureValue, 'mixte') || strstr($featureValue, 'unisexe') || (strstr($featureValue, 'homme') && strstr($featureValue, 'femme'))}
+                                            {assign var='featureIcon' value='gender-mixed'}
+                                        {elseif strstr($featureValue, 'homme')}
+                                            {assign var='featureIcon' value='gender-male'}
+                                        {elseif strstr($featureValue, 'femme')}
+                                            {assign var='featureIcon' value='gender-female'}
+                                        {elseif strstr($featureValue, 'enfant') || strstr($featureValue, 'junior')}
+                                            {assign var='featureIcon' value='gender-child'}
+                                        {else}
+                                            {assign var='featureIcon' value='gender'}
+                                        {/if}
                                     {elseif $featureName == 'niveau'}
-                                        {assign var='featureIcon' value='trending_up'}
-                                    {elseif $featureName == 'rayon'}
-                                        {assign var='featureIcon' value='track_changes'}
-                                    {elseif $featureName == 'programme'}
-                                        {assign var='featureIcon' value='terrain'}
+                                        {assign var='featureType' value='level'}
+                                        {assign var='featureIcon' value='level'}
+                                    {elseif $featureName == 'rayon' || $featureName == 'radius'}
+                                        {assign var='featureType' value='radius'}
+                                        {assign var='featureIcon' value='radius'}
+                                    {elseif $featureName == 'programme' || $featureName == 'discipline' || $featureName == 'pratique'}
+                                        {assign var='featureType' value='program'}
+                                        {assign var='featureIcon' value='program'}
                                     {/if}
-                                    <dd class="value-feature" aria-label="{$feature.name|escape:'htmlall'} : {$feature.value|escape:'htmlall'}">
+                                    <dd class="value-feature value-feature--{$featureType|escape:'htmlall':'UTF-8'}" aria-label="{$feature.name|escape:'htmlall'} : {$feature.value|escape:'htmlall'}">
                                         <span class="value-feature-icon" aria-hidden="true">
-                                            <i class="material-icons">{$featureIcon|escape:'htmlall':'UTF-8'}</i>
+                                            {include file='catalog/_partials/product-feature-icon.tpl' icon=$featureIcon}
                                         </span>
                                         <span class="value-feature-label sr-only">{$feature.name|escape:'htmlall'}</span>
                                         <span class="value-feature-text">{$feature.value|escape:'htmlall'|nl2br nofilter}</span>
