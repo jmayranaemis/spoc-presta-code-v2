@@ -13539,6 +13539,53 @@ body#product #product-details .product-manufacturer img {
   height: auto !important;
 }
 
+
+/* Product page: caractéristiques - séparateurs verticaux sans encadrement */
+body#product .product-features-page .data-sheet-product {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+body#product .product-features-page .data-sheet-product .value-feature {
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+  background: transparent !important;
+  margin: 0;
+  padding: 0 14px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+body#product .product-features-page .data-sheet-product .value-feature::before,
+body#product .product-features-page .data-sheet-product .value-feature::after {
+  display: none !important;
+  content: none !important;
+}
+
+body#product .product-features-page .data-sheet-product .value-feature:first-child {
+  padding-left: 0;
+}
+
+body#product .product-features-page .data-sheet-product .value-feature:last-child {
+  padding-right: 0;
+}
+
+body#product .product-features-page .data-sheet-product .value-feature:not(:first-child) {
+  border-left: 1px solid var(--spoc-border, #d9e2ec) !important;
+}
+
+
 /* Account dashboard */
 body.page-customer-account {
   --spoc-account-primary: #145078;
