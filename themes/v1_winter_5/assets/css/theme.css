@@ -8791,7 +8791,7 @@ a:hover {
 
 .product-features-page {
     margin-top: 0.25rem;
-    margin-left: .3125rem
+    margin-left: 0px
 }
 .product-features-page>dl.data-sheet-product {
     display: -webkit-box;
@@ -8827,6 +8827,7 @@ a:hover {
     display: grid;
     justify-content: center;
     font-weight: 600;
+    text-transform: uppercase;
 }
 
 .product-features-page>dl.data-sheet-product dd.value-feature:nth-of-type(2n),
