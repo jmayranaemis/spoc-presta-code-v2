@@ -15467,7 +15467,12 @@ border-radius: inherit !important;
 }
 
 
-
+body#checkout .tvcheckout-process-right #payment-confirmation .ps-shown-by-js {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 24px;
+}
 
 body#checkout .continue:hover,
 body#checkout button.continue:hover,
