@@ -356,7 +356,7 @@ File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/t
       </trans-unit>
       <trans-unit id="5486191906ec27c1c4bb5bd3e46b3442">
         <source>Order with an obligation to pay</source>
-        <target>Commande avec obligation de paiement</target>
+        <target>Payez</target>
         <note>Context:
 File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/themes/tv_electronic_electron_1_7_v1/templates/checkout/_partials/steps/payment.tpl:141</note>
       </trans-unit>
