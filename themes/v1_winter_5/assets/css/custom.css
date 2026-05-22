@@ -13564,7 +13564,7 @@ body#product .product-features-page .data-sheet-product .value-feature {
   margin: 0;
   padding: 0 14px;
   line-height: 1.4;
-  white-space: nowrap;
+ /* white-space: nowrap; */
 }
 
 body#product .product-features-page .data-sheet-product .value-feature::before,
