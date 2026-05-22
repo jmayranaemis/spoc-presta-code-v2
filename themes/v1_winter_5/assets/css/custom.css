@@ -17401,7 +17401,7 @@ body#order-confirmation #registration-form.card {
 body#order-confirmation .spoc-order-confirmation-hero > .card-block,
 body#order-confirmation .spoc-order-confirmation-summary > .card-block,
 body#order-confirmation .spoc-order-payment-card > .card-block {
-  padding: 0 !important;
+  padding: 10px !important;
 }
 
 body#order-confirmation .spoc-order-confirmation-hero {
@@ -17422,18 +17422,20 @@ body#order-confirmation .spoc-confirmation-status {
   align-items: flex-start;
   gap: 18px;
   min-width: 0;
+  margin-bottom: 10px;
 }
 
 body#order-confirmation .spoc-confirmation-icon {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+ /* justify-content: center; */
   width: 56px;
   min-width: 56px;
   height: 56px;
   border-radius: 50%;
   background: rgba(46, 157, 100, 0.12);
   color: #2e9d64;
+  margin:10px
 }
 
 body#order-confirmation .spoc-confirmation-icon i {
@@ -17444,7 +17446,7 @@ body#order-confirmation .spoc-confirmation-icon i {
 }
 
 body#order-confirmation .spoc-confirmation-eyebrow {
-  margin: 0 0 7px 0 !important;
+  margin: 10px 0 0 7px 0 !important;
   color: var(--spoc-primary, #145078) !important;
   font-size: 12px !important;
   font-weight: 800 !important;
@@ -17497,7 +17499,7 @@ body#order-confirmation .spoc-confirmation-meta-label {
   margin-bottom: 5px;
   color: var(--spoc-text-muted, #6b7a89);
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.2;
   letter-spacing: 0;
   text-transform: uppercase;
@@ -17518,6 +17520,7 @@ body#order-confirmation .spoc-confirmation-actions {
   align-items: center;
   gap: 12px;
   justify-content: flex-end;
+  margin-bottom: 10px;
 }
 
 body#order-confirmation .spoc-confirmation-btn {
@@ -17578,7 +17581,7 @@ body#order-confirmation .spoc-confirmation-link {
 body#order-confirmation .spoc-confirmation-hook {
   grid-column: 1 / -1;
   padding-top: 18px;
-  border-top: 1px solid rgba(217, 226, 236, 0.9);
+ /* border-top: 1px solid rgba(217, 226, 236, 0.9); */
 }
 
 body#order-confirmation .spoc-order-confirmation-page {
@@ -17616,10 +17619,11 @@ body#order-confirmation .spoc-order-payment-heading h3 {
   color: #1c191c !important;
   font-family: 'Poppins', sans-serif !important;
   font-size: 20px !important;
-  font-weight: 800 !important;
+  font-weight: 700 !important;
   line-height: 1.25 !important;
   letter-spacing: 0 !important;
   text-transform: none !important;
+  padding: 10px 3px 0px 10px;
 }
 
 body#order-confirmation .spoc-order-confirmation-table {
@@ -17630,12 +17634,12 @@ body#order-confirmation .spoc-order-product-head {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 120px 64px 120px;
   gap: 16px;
-  padding: 13px 0;
-  border-top: 1px solid rgba(217, 226, 236, 0.9);
+  padding: 13px 10px;
+  /* border-top: 1px solid rgba(217, 226, 236, 0.9); */
   border-bottom: 1px solid rgba(217, 226, 236, 0.9);
   color: var(--spoc-text-muted, #6b7a89);
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.2;
   letter-spacing: 0;
   text-transform: uppercase;
@@ -17652,7 +17656,7 @@ body#order-confirmation .spoc-order-product-line {
   align-items: center;
   min-height: 116px;
   margin: 0 !important;
-  padding: 20px 0 !important;
+  padding: 20px 20px !important;
   border-bottom: 1px solid rgba(217, 226, 236, 0.9);
 }
 
@@ -17757,7 +17761,7 @@ body#order-confirmation .spoc-order-totals-table tr {
 }
 
 body#order-confirmation .spoc-order-totals-table td {
-  padding: 8px 0 !important;
+  padding: 8px 5px !important;
   border: 0 !important;
   color: var(--spoc-text-muted, #6b7a89) !important;
   font-size: 14px !important;
@@ -17787,7 +17791,7 @@ body#order-confirmation .spoc-order-details-card {
 }
 
 body#order-confirmation .spoc-order-details-list {
-  margin: 22px 0 0 0 !important;
+  margin: 22px 0 0 10px !important;
   padding: 0 !important;
   list-style: none !important;
 }
@@ -17810,7 +17814,7 @@ body#order-confirmation .spoc-order-details-list span {
   margin-bottom: 5px;
   color: var(--spoc-text-muted, #6b7a89);
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.2;
   letter-spacing: 0;
   text-transform: uppercase;
@@ -17820,7 +17824,7 @@ body#order-confirmation .spoc-order-details-list strong {
   display: block;
   color: var(--spoc-text, #243447);
   font-size: 15px;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.35;
   overflow-wrap: anywhere;
 }
