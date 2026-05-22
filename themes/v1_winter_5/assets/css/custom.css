@@ -17376,6 +17376,740 @@ body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-ac
   }
 }
 /* =========================================================
+   SPOC - Confirmation commande
+   Aligne /confirmation-commande avec le panier et le tunnel
+   ========================================================= */
+
+body#order-confirmation #wrapper {
+  background: var(--spoc-bg-light, #f7f9fb) !important;
+}
+
+body#order-confirmation #main {
+  color: var(--spoc-text, #243447) !important;
+}
+
+body#order-confirmation #main > .card,
+body#order-confirmation .tvorder-conformation-wrapper > .card,
+body#order-confirmation #registration-form.card {
+  border: 1px solid var(--spoc-border, #d9e2ec) !important;
+  border-radius: 12px !important;
+  background: #ffffff !important;
+  box-shadow: 0 12px 28px rgba(20, 80, 120, 0.06) !important;
+  overflow: hidden !important;
+}
+
+body#order-confirmation .spoc-order-confirmation-hero > .card-block,
+body#order-confirmation .spoc-order-confirmation-summary > .card-block,
+body#order-confirmation .spoc-order-payment-card > .card-block {
+  padding: 0 !important;
+}
+
+body#order-confirmation .spoc-order-confirmation-hero {
+  margin-bottom: 28px !important;
+}
+
+body#order-confirmation .spoc-confirmation-hero-inner {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+  padding: 30px !important;
+  border-top: 4px solid #2e9d64;
+}
+
+body#order-confirmation .spoc-confirmation-status {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  min-width: 0;
+}
+
+body#order-confirmation .spoc-confirmation-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  min-width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(46, 157, 100, 0.12);
+  color: #2e9d64;
+}
+
+body#order-confirmation .spoc-confirmation-icon i {
+  margin: 0 !important;
+  color: #2e9d64 !important;
+  font-size: 30px !important;
+  line-height: 1 !important;
+}
+
+body#order-confirmation .spoc-confirmation-eyebrow {
+  margin: 0 0 7px 0 !important;
+  color: var(--spoc-primary, #145078) !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+  text-transform: uppercase !important;
+}
+
+body#order-confirmation .spoc-confirmation-copy .card-title {
+  margin: 0 !important;
+  padding: 0 !important;
+  color: #1c191c !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 30px !important;
+  font-weight: 800 !important;
+  line-height: 1.18 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+body#order-confirmation .spoc-confirmation-message {
+  max-width: 700px;
+  margin: 12px 0 0 0 !important;
+  color: var(--spoc-text-muted, #6b7a89) !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+  letter-spacing: 0 !important;
+}
+
+body#order-confirmation .spoc-confirmation-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-column: 1 / -1;
+  gap: 12px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(217, 226, 236, 0.9);
+}
+
+body#order-confirmation .spoc-confirmation-meta-item {
+  min-width: 0;
+  padding: 15px 16px;
+  border: 1px solid var(--spoc-border, #d9e2ec);
+  border-radius: 10px;
+  background: var(--spoc-bg-light, #f7f9fb);
+}
+
+body#order-confirmation .spoc-confirmation-meta-label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--spoc-text-muted, #6b7a89);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+body#order-confirmation .spoc-confirmation-meta-item strong {
+  display: block;
+  overflow-wrap: anywhere;
+  color: var(--spoc-text, #243447);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+body#order-confirmation .spoc-confirmation-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+body#order-confirmation .spoc-confirmation-btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 11px 20px;
+  border-radius: 999px;
+  box-shadow: none !important;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0;
+  text-decoration: none !important;
+  text-transform: none !important;
+  white-space: nowrap;
+}
+
+body#order-confirmation .spoc-confirmation-btn i {
+  margin: 0 !important;
+  font-size: 18px;
+  line-height: 1;
+}
+
+body#order-confirmation .spoc-confirmation-btn-primary {
+  border: 1px solid var(--spoc-primary, #145078);
+  background: var(--spoc-primary, #145078);
+  color: #ffffff !important;
+}
+
+body#order-confirmation .spoc-confirmation-btn-primary:hover {
+  border-color: var(--spoc-secondary, #1999cb);
+  background: var(--spoc-secondary, #1999cb);
+  color: #ffffff !important;
+}
+
+body#order-confirmation .spoc-confirmation-btn-secondary {
+  border: 1px solid var(--spoc-primary, #145078);
+  background: #ffffff;
+  color: var(--spoc-primary, #145078) !important;
+}
+
+body#order-confirmation .spoc-confirmation-btn-secondary:hover {
+  background: var(--spoc-primary, #145078);
+  color: #ffffff !important;
+}
+
+body#order-confirmation .spoc-confirmation-link {
+  color: var(--spoc-primary, #145078) !important;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+}
+
+body#order-confirmation .spoc-confirmation-hook {
+  grid-column: 1 / -1;
+  padding-top: 18px;
+  border-top: 1px solid rgba(217, 226, 236, 0.9);
+}
+
+body#order-confirmation .spoc-order-confirmation-page {
+  margin-bottom: 64px !important;
+}
+
+body#order-confirmation .spoc-order-confirmation-summary {
+  margin-bottom: 28px !important;
+}
+
+body#order-confirmation .spoc-order-confirmation-summary-inner {
+  padding: 28px 30px !important;
+}
+
+body#order-confirmation .spoc-order-confirmation-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 2fr) minmax(290px, 0.85fr);
+  gap: 30px;
+  align-items: stretch;
+  margin: 0 !important;
+}
+
+body#order-confirmation .spoc-order-confirmation-grid > [class*="col-"] {
+  float: none !important;
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+}
+
+body#order-confirmation .spoc-order-items-card .card-title,
+body#order-confirmation .spoc-order-details-card .card-title,
+body#order-confirmation .spoc-order-payment-heading h3 {
+  margin: 0 !important;
+  color: #1c191c !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  line-height: 1.25 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+body#order-confirmation .spoc-order-confirmation-table {
+  margin-top: 20px;
+}
+
+body#order-confirmation .spoc-order-product-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 120px 64px 120px;
+  gap: 16px;
+  padding: 13px 0;
+  border-top: 1px solid rgba(217, 226, 236, 0.9);
+  border-bottom: 1px solid rgba(217, 226, 236, 0.9);
+  color: var(--spoc-text-muted, #6b7a89);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+body#order-confirmation .spoc-order-product-head > div:not(:first-child) {
+  text-align: right;
+}
+
+body#order-confirmation .spoc-order-product-line {
+  display: grid !important;
+  grid-template-columns: 86px minmax(0, 1fr) 320px;
+  gap: 16px;
+  align-items: center;
+  min-height: 116px;
+  margin: 0 !important;
+  padding: 20px 0 !important;
+  border-bottom: 1px solid rgba(217, 226, 236, 0.9);
+}
+
+body#order-confirmation .spoc-order-product-line::before,
+body#order-confirmation .spoc-order-product-line::after {
+  display: none !important;
+  content: none !important;
+}
+
+body#order-confirmation .spoc-order-product-line > [class*="col-"] {
+  float: none !important;
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  padding: 0 !important;
+}
+
+body#order-confirmation .spoc-order-product-media .image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 78px;
+  height: 78px;
+  border: 1px solid var(--spoc-border, #d9e2ec);
+  border-radius: 8px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+body#order-confirmation .spoc-order-product-media img {
+  display: block;
+  max-width: 68px;
+  max-height: 68px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+body#order-confirmation .spoc-order-product-details {
+  color: var(--spoc-text-muted, #6b7a89);
+  font-size: 13px;
+  line-height: 1.45;
+  letter-spacing: 0;
+}
+
+body#order-confirmation .spoc-order-product-name {
+  display: block;
+  color: var(--spoc-text, #243447);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+body#order-confirmation .spoc-order-product-values {
+  display: grid !important;
+  grid-template-columns: 120px 64px 120px;
+  gap: 16px;
+  align-items: center;
+}
+
+body#order-confirmation .spoc-order-line-value {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 0;
+  color: var(--spoc-text, #243447);
+  font-size: 14px;
+  line-height: 1.3;
+  text-align: right;
+}
+
+body#order-confirmation .spoc-order-line-value strong {
+  color: inherit;
+  font-size: inherit;
+  font-weight: 700;
+  line-height: inherit;
+}
+
+body#order-confirmation .spoc-order-line-total,
+body#order-confirmation .spoc-order-line-total strong {
+  color: var(--spoc-primary, #145078);
+  font-weight: 800;
+}
+
+body#order-confirmation .spoc-order-mobile-label {
+  display: none;
+}
+
+body#order-confirmation .spoc-order-products-separator {
+  display: none !important;
+}
+
+body#order-confirmation .spoc-order-totals-table {
+  width: min(430px, 100%);
+  margin: 18px 0 0 auto !important;
+  border-collapse: collapse;
+}
+
+body#order-confirmation .spoc-order-totals-table tr {
+  border: 0 !important;
+}
+
+body#order-confirmation .spoc-order-totals-table td {
+  padding: 8px 0 !important;
+  border: 0 !important;
+  color: var(--spoc-text-muted, #6b7a89) !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 1.35 !important;
+  letter-spacing: 0 !important;
+}
+
+body#order-confirmation .spoc-order-totals-table td:last-child {
+  text-align: right !important;
+  white-space: nowrap;
+}
+
+body#order-confirmation .spoc-order-grand-total td {
+  padding-top: 14px !important;
+  border-top: 1px solid var(--spoc-border, #d9e2ec) !important;
+  color: var(--spoc-primary, #145078) !important;
+  font-size: 20px !important;
+  font-weight: 800 !important;
+}
+
+body#order-confirmation .spoc-order-details-card {
+  padding: 24px !important;
+  border: 1px solid var(--spoc-border, #d9e2ec);
+  border-radius: 12px;
+  background: var(--spoc-bg-light, #f7f9fb);
+}
+
+body#order-confirmation .spoc-order-details-list {
+  margin: 22px 0 0 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+body#order-confirmation .spoc-order-details-list li {
+  margin: 0 !important;
+  padding: 15px 0 !important;
+  border-top: 1px solid rgba(217, 226, 236, 0.95);
+  color: var(--spoc-text, #243447);
+  letter-spacing: 0;
+}
+
+body#order-confirmation .spoc-order-details-list li:first-child {
+  border-top: 0;
+  padding-top: 0 !important;
+}
+
+body#order-confirmation .spoc-order-details-list span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--spoc-text-muted, #6b7a89);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+body#order-confirmation .spoc-order-details-list strong {
+  display: block;
+  color: var(--spoc-text, #243447);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+body#order-confirmation .spoc-order-details-list em {
+  display: block;
+  margin-top: 4px;
+  color: var(--spoc-text-muted, #6b7a89);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+body#order-confirmation .spoc-order-payment-card {
+  margin-bottom: 0 !important;
+}
+
+body#order-confirmation .spoc-order-payment-inner {
+  padding: 28px 30px !important;
+}
+
+body#order-confirmation .spoc-order-payment-inner .row,
+body#order-confirmation .spoc-order-payment-inner .col-md-12 {
+  float: none !important;
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body#order-confirmation .spoc-order-payment-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+body#order-confirmation .spoc-order-payment-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  min-width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(20, 80, 120, 0.09);
+  color: var(--spoc-primary, #145078);
+}
+
+body#order-confirmation .spoc-order-payment-icon i {
+  margin: 0 !important;
+  color: var(--spoc-primary, #145078) !important;
+  font-size: 23px;
+  line-height: 1;
+}
+
+body#order-confirmation .spoc-order-payment-heading p {
+  margin: 0 0 4px 0 !important;
+  color: var(--spoc-primary, #145078) !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+  text-transform: uppercase !important;
+}
+
+body#order-confirmation .spoc-order-payment-card p,
+body#order-confirmation .spoc-order-payment-card strong {
+  color: var(--spoc-text, #243447) !important;
+  font-size: 15px !important;
+  line-height: 1.65 !important;
+  letter-spacing: 0 !important;
+}
+
+body#order-confirmation .spoc-order-payment-card p {
+  margin: 0 0 14px 0 !important;
+}
+
+body#order-confirmation .spoc-order-payment-card .spoc-order-payment-heading p {
+  margin: 0 0 4px 0 !important;
+  color: var(--spoc-primary, #145078) !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+}
+
+body#order-confirmation .spoc-order-payment-card a {
+  color: var(--spoc-primary, #145078) !important;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+body#order-confirmation .spoc-order-payment-card dl {
+  display: grid !important;
+  grid-template-columns: minmax(180px, 0.65fr) minmax(0, 1fr);
+  gap: 0;
+  max-width: 860px;
+  margin: 18px 0 20px 0 !important;
+  border: 1px solid var(--spoc-border, #d9e2ec);
+  border-radius: 12px;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+body#order-confirmation .spoc-order-payment-card dt,
+body#order-confirmation .spoc-order-payment-card dd {
+  min-width: 0;
+  margin: 0 !important;
+  padding: 14px 16px !important;
+  border-bottom: 1px solid rgba(217, 226, 236, 0.9);
+  color: var(--spoc-text, #243447) !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0 !important;
+}
+
+body#order-confirmation .spoc-order-payment-card dt:nth-last-of-type(1),
+body#order-confirmation .spoc-order-payment-card dt:nth-last-of-type(1) + dd {
+  border-bottom: 0;
+}
+
+body#order-confirmation .spoc-order-payment-card dt {
+  background: var(--spoc-bg-light, #f7f9fb);
+  font-weight: 800 !important;
+}
+
+body#order-confirmation .spoc-order-payment-card dd {
+  border-left: 1px solid rgba(217, 226, 236, 0.9);
+  font-weight: 700 !important;
+  overflow-wrap: anywhere;
+}
+
+body#order-confirmation .spoc-order-payment-card > .card-block > .row {
+  margin: 0 !important;
+}
+
+body#order-confirmation .spoc-order-registration-card {
+  margin-top: 28px !important;
+}
+
+body#order-confirmation .spoc-order-registration-card .card-block {
+  padding: 28px 30px !important;
+}
+
+@media (max-width: 1199px) {
+  body#order-confirmation .spoc-order-confirmation-grid {
+    grid-template-columns: minmax(0, 1.5fr) minmax(270px, 0.8fr);
+    gap: 24px;
+  }
+
+  body#order-confirmation .spoc-order-product-line {
+    grid-template-columns: 78px minmax(0, 1fr);
+  }
+
+  body#order-confirmation .spoc-order-product-values {
+    grid-column: 2;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991px) {
+  body#order-confirmation .spoc-confirmation-hero-inner,
+  body#order-confirmation .spoc-order-confirmation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body#order-confirmation .spoc-confirmation-actions {
+    justify-content: flex-start;
+  }
+
+  body#order-confirmation .spoc-confirmation-meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  body#order-confirmation #main > .card,
+  body#order-confirmation .tvorder-conformation-wrapper > .card,
+  body#order-confirmation #registration-form.card {
+    border-radius: 10px !important;
+  }
+
+  body#order-confirmation .spoc-confirmation-hero-inner,
+  body#order-confirmation .spoc-order-confirmation-summary-inner,
+  body#order-confirmation .spoc-order-payment-inner,
+  body#order-confirmation .spoc-order-registration-card .card-block {
+    padding: 22px !important;
+  }
+
+  body#order-confirmation .spoc-confirmation-status {
+    gap: 14px;
+  }
+
+  body#order-confirmation .spoc-confirmation-icon {
+    width: 46px;
+    min-width: 46px;
+    height: 46px;
+  }
+
+  body#order-confirmation .spoc-confirmation-icon i {
+    font-size: 24px !important;
+  }
+
+  body#order-confirmation .spoc-confirmation-copy .card-title {
+    font-size: 24px !important;
+  }
+
+  body#order-confirmation .spoc-confirmation-meta {
+    grid-template-columns: 1fr;
+  }
+
+  body#order-confirmation .spoc-confirmation-actions,
+  body#order-confirmation .spoc-confirmation-btn {
+    width: 100%;
+  }
+
+  body#order-confirmation .spoc-order-product-head {
+    display: none;
+  }
+
+  body#order-confirmation .spoc-order-product-line {
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 13px;
+    align-items: flex-start;
+    min-height: 0;
+    padding: 18px 0 !important;
+  }
+
+  body#order-confirmation .spoc-order-product-media .image {
+    width: 70px;
+    height: 70px;
+  }
+
+  body#order-confirmation .spoc-order-product-media img {
+    max-width: 60px;
+    max-height: 60px;
+  }
+
+  body#order-confirmation .spoc-order-product-values {
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-top: 8px;
+  }
+
+  body#order-confirmation .spoc-order-line-value {
+    justify-content: space-between;
+    padding: 9px 0;
+    border-top: 1px dashed rgba(217, 226, 236, 0.95);
+    text-align: right;
+  }
+
+  body#order-confirmation .spoc-order-mobile-label {
+    display: inline-block;
+    color: var(--spoc-text-muted, #6b7a89);
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  body#order-confirmation .spoc-order-totals-table {
+    width: 100%;
+  }
+
+  body#order-confirmation .spoc-order-details-card {
+    padding: 20px !important;
+  }
+
+  body#order-confirmation .spoc-order-payment-card dl {
+    grid-template-columns: 1fr;
+  }
+
+  body#order-confirmation .spoc-order-payment-card dt {
+    padding-bottom: 5px !important;
+    border-bottom: 0;
+  }
+
+  body#order-confirmation .spoc-order-payment-card dd {
+    padding-top: 5px !important;
+    border-left: 0;
+  }
+}
+
+/* =========================================================
    SPOC AUTH PAGE - START
    Page : /connexion
    Template : customer/authentication.tpl
@@ -17710,5 +18444,4 @@ body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-ac
 
 
 
-   
 /*mailalert css end*/

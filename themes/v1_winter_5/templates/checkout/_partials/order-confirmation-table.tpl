@@ -23,18 +23,25 @@
  * International Registered Trademark & Property of PrestaShop SA
  *}
 {strip}
-<div id="order-items" class="col-md-8">
+<div id="order-items" class="col-md-8 spoc-order-items-card">
 
   {block name='order_items_table_head'}
     <h3 class="card-title h3">{l s='Order items' d='Shop.Theme.Checkout'}</h3>
   {/block}
 
-  <div class="order-confirmation-table">
+  <div class="order-confirmation-table spoc-order-confirmation-table">
 
     {block name='order_confirmation_table'}
+      <div class="spoc-order-product-head" aria-hidden="true">
+        <div>{l s='Produit' d='Shop.Theme.Catalog'}</div>
+        <div>{l s='Prix unitaire' d='Shop.Theme.Checkout'}</div>
+        <div>{l s='Qté' d='Shop.Theme.Checkout'}</div>
+        <div>{l s='Total' d='Shop.Theme.Checkout'}</div>
+      </div>
+
       {foreach from=$products item=product}
-        <div class="order-line row">
-          <div class="col-sm-2 col-xs-3">
+        <div class="order-line row spoc-order-product-line">
+          <div class="col-sm-2 col-xs-3 spoc-order-product-media">
             <span class="image">
               {if $product.default_image}
                   <img
@@ -54,9 +61,9 @@
                 {/if}
             </span>
           </div>
-          <div class="col-sm-4 col-xs-9 details">
-            {if $add_product_link}<a href="{$product.url}" target="_blank">{/if}
-              <span>{$product.name}</span>
+          <div class="col-sm-4 col-xs-9 details spoc-order-product-details">
+            {if $add_product_link}<a href="{$product.url}" target="_blank" rel="noopener">{/if}
+              <span class="spoc-order-product-name">{$product.name}</span>
             {if $add_product_link}</a>{/if}
             {if $product.customizations|count}
               {foreach from=$product.customizations item="customization"}
@@ -99,34 +106,41 @@
             {/if}
             {hook h='displayProductPriceBlock' product=$product type="unit_price"}
           </div>
-          <div class="col-sm-6 col-xs-12 qty">
-            <div class="row">
-              <div class="col-xs-5 text-sm-right text-xs-left">{$product.price}</div>
-              <div class="col-xs-2">{$product.quantity}</div>
-              <div class="col-xs-5 text-xs-right bold">{$product.total}</div>
+          <div class="col-sm-6 col-xs-12 qty spoc-order-product-values">
+            <div class="spoc-order-line-value spoc-order-line-unit">
+              <span class="spoc-order-mobile-label">{l s='Prix unitaire' d='Shop.Theme.Checkout'}</span>
+              <strong>{$product.price}</strong>
+            </div>
+            <div class="spoc-order-line-value spoc-order-line-qty">
+              <span class="spoc-order-mobile-label">{l s='Qté' d='Shop.Theme.Checkout'}</span>
+              <strong>{$product.quantity}</strong>
+            </div>
+            <div class="spoc-order-line-value spoc-order-line-total">
+              <span class="spoc-order-mobile-label">{l s='Total' d='Shop.Theme.Checkout'}</span>
+              <strong>{$product.total}</strong>
             </div>
           </div>
         </div>
       {/foreach}
 
-      <hr>
+      <hr class="spoc-order-products-separator">
 
-      <table>
+      <table class="spoc-order-totals-table">
         {foreach $subtotals as $subtotal}
           {if $subtotal.type !== 'tax' && !empty($subtotal.label) && !empty($subtotal.value)}
-            <tr>
+            <tr class="spoc-order-total-line">
               <td>{$subtotal.label}</td>
               <td>{$subtotal.value}</td>
             </tr>
           {/if}
         {/foreach}
         {if $subtotals.tax.label !== null}
-          <tr class="sub">
+          <tr class="sub spoc-order-total-line">
             <td>{$subtotals.tax.label}</td>
             <td>{$subtotals.tax.value}</td>
           </tr>
         {/if}
-        <tr class="font-weight-bold">
+        <tr class="font-weight-bold spoc-order-total-line spoc-order-grand-total">
           <td><span class="text-uppercase">{$totals.total.label}</span> {$labels.tax_short}</td>
           <td>{$totals.total.value}</td>
         </tr>
