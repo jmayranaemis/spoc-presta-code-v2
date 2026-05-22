@@ -8612,6 +8612,7 @@ body#checkout.lang-rtl div.checkout-step #login-form .form-control-label {
 .tvcmscross-selling-product,
 .tvcmslike-product {
     margin-bottom: 15px;
+    margin-top: 25px;
 }
 /* Media Css 769 to 1024 */
 @media(max-width: 1023px) {
@@ -13850,7 +13851,7 @@ body#my-account .spoc-account-quick-links > a span.link-item {
   flex-direction: column;
   gap: 14px;
   justify-content: center;
-  min-height: 96px;
+  min-height: 75px;
   padding: 22px 16px;
   text-align: center;
 }
@@ -13872,9 +13873,9 @@ body#my-account .spoc-account-dashboard .links > a img {
   display: inline-flex;
   flex: 0 0 52px;
   font-size: 26px;
-  height: 52px;
+  height: 40px;
   justify-content: center;
-  line-height: 52px;
+  line-height: 40px;
   margin: 0;
   object-fit: contain;
   padding: 0;
@@ -13961,9 +13962,9 @@ body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-pane
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .table th {
   border-color: var(--spoc-account-border);
   color: var(--spoc-account-text);
-  font-size: 13px;
+  font-size: 12px;
   overflow-wrap: anywhere;
-  padding: 10px 12px;
+  padding: 10px 5px;
   vertical-align: middle;
 }
 
@@ -13973,7 +13974,7 @@ body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-pane
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .cart-rules a,
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .order-returns a {
   color: var(--spoc-account-primary);
-  font-weight: 700;
+  font-weight: 400;
   text-decoration: none;
 }
 
@@ -14764,6 +14765,14 @@ body.page-customer-account .spoc-account-mobile-action {
     letter-spacing: 0.02em;
 }
 
+#main.spoc-cart-page .checkout .tvprocess-to-checkout {
+    overflow: hidden;
+}
+
+#main.spoc-cart-page .checkout .tvprocess-to-checkout::after {
+    border-radius: inherit !important;
+}
+
 #main.spoc-cart-page .tv-continue-shopping-btn {
     margin-top: 18px;
 }
@@ -15350,7 +15359,7 @@ body#checkout div.checkout-step #conditions-to-approve {
     margin-top: 18px !important;
     padding: 16px 18px !important;
     background: var(--spoc-bg-light, #f7f9fb) !important;
-    border: 1px solid var(--spoc-border, #d9e2ec) !important;
+    border: 2px solid var(--spoc-primary, #145078) !important;
     border-radius: 10px !important;
 }
 
@@ -15437,7 +15446,7 @@ body#checkout #payment-confirmation button {
     padding: 12px 22px !important;
     border: 1px solid var(--spoc-primary, #145078) !important;
     border-radius: 10px !important;
-    background: var(--spoc-primary, #145078) !important;
+    background: linear-gradient(80deg, var(--spoc-primary, #145078) 0%, var(--spoc-secondary, #1999cb) 100%);
     color: #ffffff !important;
     font-size: 14px !important;
     font-weight: 800 !important;
@@ -15445,6 +15454,24 @@ body#checkout #payment-confirmation button {
     letter-spacing: 0.4px !important;
     text-transform: none !important;
     box-shadow: none !important;
+}
+
+
+body#checkout .continue, body#checkout button.continue, body#checkout .btn-primary, body#checkout .form-footer .continue, body#checkout #payment-confirmation button {
+overflow: hidden;
+}
+
+body#checkout .continue, body#checkout button.continue, body#checkout .btn-primary, body#checkout .form-footer .continue, body#checkout #payment-confirmation button::after {
+border-radius: inherit !important;
+
+}
+
+
+body#checkout .tvcheckout-process-right #payment-confirmation .ps-shown-by-js {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 24px;
 }
 
 body#checkout .continue:hover,
@@ -16026,7 +16053,7 @@ body#checkout .spoc-checkout-voucher-wrapper .block-promo {
 body#checkout .spoc-checkout-voucher-wrapper .promo-code-button {
     margin: 0 !important;
     padding: 0 !important;
-    color: var(--spoc-primary, #145078) !important;
+    color: var(--spoc-secondary, #31A9E5) !important;
     font-weight: 700 !important;
     text-decoration: none !important;
 }
@@ -17119,7 +17146,7 @@ body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-ac
   margin: 0 0 5px 0 !important;
   color: #1c191c !important;
   font-size: 20px !important;
-  font-weight: 800 !important;
+  font-weight: 700 !important;
   line-height: 1.25 !important;
   letter-spacing: 0 !important;
   text-transform: none !important;
@@ -17219,7 +17246,7 @@ body.page-addresses.page-customer-account .spoc-account-child-dashboard .spoc-ac
   margin: 0 0 14px 0 !important;
   color: #1c191c !important;
   font-size: 16px !important;
-  font-weight: 800 !important;
+  font-weight: 700 !important;
   line-height: 1.25 !important;
   letter-spacing: 0 !important;
   text-transform: none !important;
@@ -18081,5 +18108,340 @@ body#order-confirmation .spoc-order-registration-card .card-block {
     border-left: 0;
   }
 }
+
+/* =========================================================
+   SPOC AUTH PAGE - START
+   Page : /connexion
+   Template : customer/authentication.tpl
+   ========================================================= */
+
+.spoc-auth-content {
+  padding: 0;
+  background: transparent;
+}
+
+.spoc-auth-page {
+  max-width: 1180px;
+  margin: 0 auto 56px;
+}
+
+.spoc-auth-shell {
+  max-width: 760px;
+  margin: 28px auto 0;
+  border: 1px solid rgba(20, 80, 120, 0.12);
+  border-radius: 28px;
+  background: #ffffff;
+  box-shadow: 0 18px 45px rgba(20, 80, 120, 0.10);
+  overflow: hidden;
+}
+
+.spoc-auth-hero {
+  padding: 34px 42px 28px;
+  background: linear-gradient(135deg, #145078 0%, #1999cb 100%);
+  color: #ffffff;
+}
+
+.spoc-auth-hero .spoc-account-eyebrow {
+  margin: 0 0 8px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.spoc-auth-hero h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.spoc-auth-hero p {
+  max-width: 620px;
+  margin: 12px 0 0;
+  color: rgba(255, 255, 255, 0.90);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.spoc-auth-card {
+  padding: 34px 42px 36px;
+  background: #ffffff;
+}
+
+/* Formulaire centré */
+.spoc-auth-card .login-form {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.spoc-auth-card form#login-form {
+  width: 100%;
+  margin: 0;
+}
+
+.spoc-auth-card .form-group.row {
+  display: block;
+  margin: 0 0 22px;
+}
+
+.spoc-auth-card .form-control-label {
+  display: block;
+  width: 100%;
+  max-width: none;
+  padding: 0;
+  margin: 0 0 8px;
+  color: #145078;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: left;
+}
+
+.spoc-auth-card .js-input-column,
+.spoc-auth-card .form-control-comment {
+  display: block;
+  width: 100%;
+  max-width: none;
+  padding: 0;
+}
+
+.spoc-auth-card .form-control {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid rgba(20, 80, 120, 0.20);
+  border-radius: 3px;
+  background: #ffffff;
+  color: #152b45;
+  font-size: 0.98rem;
+  box-shadow: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.spoc-auth-card .form-control:focus {
+  border-color: #1999cb;
+  box-shadow: 0 0 0 4px rgba(25, 153, 203, 0.14);
+  outline: none;
+}
+
+/* Password input-group : correction du débordement */
+.spoc-auth-card .input-group {
+  display: flex !important;
+  align-items: stretch;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.spoc-auth-card .input-group .form-control {
+  flex: 1 1 auto !important;
+  width: 1% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.spoc-auth-card .input-group-btn {
+  display: flex !important;
+  flex: 0 0 96px !important;
+  width: 96px !important;
+  min-width: 96px !important;
+  max-width: 96px !important;
+}
+
+.spoc-auth-card .input-group-btn .btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 96px !important;
+  min-width: 96px !important;
+  max-width: 96px !important;
+  height: 48px;
+  padding: 0 10px;
+  border: 1px solid rgba(20, 80, 120, 0.20);
+  border-left: 0;
+  border-radius: 0 14px 14px 0;
+  background: rgba(20, 80, 120, 0.06) !important;
+  color: #145078 !important;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: none !important;
+  white-space: nowrap;
+  box-shadow: none !important;
+}
+
+.spoc-auth-card .input-group-btn .btn:hover {
+  background: rgba(25, 153, 203, 0.12) !important;
+  color: #145078 !important;
+}
+
+.spoc-auth-card .forgot-password {
+  margin: -4px 0 24px;
+  text-align: center;
+}
+
+.spoc-auth-card .forgot-password a {
+  color: #145078;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.spoc-auth-card .forgot-password a:hover {
+  color: #1999cb;
+}
+
+.spoc-auth-card .form-footer {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* Bouton primaire Connexion */
+.spoc-auth-card #submit-login,
+.spoc-auth-card .form-control-submit,
+.spoc-auth-card button#submit-login.tvall-inner-btn.form-control-submit {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 520px;
+  height: 48px;
+  padding: 0 28px;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: #145078 !important;
+  color: #ffffff !important;
+  font-size: 0.98rem;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: none;
+  box-shadow: 0 12px 24px rgba(20, 80, 120, 0.22);
+  transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.spoc-auth-card #submit-login:hover,
+.spoc-auth-card #submit-login:focus,
+.spoc-auth-card #submit-login:active,
+.spoc-auth-card .form-control-submit:hover,
+.spoc-auth-card .form-control-submit:focus,
+.spoc-auth-card .form-control-submit:active,
+.spoc-auth-card button#submit-login.tvall-inner-btn.form-control-submit:hover,
+.spoc-auth-card button#submit-login.tvall-inner-btn.form-control-submit:focus,
+.spoc-auth-card button#submit-login.tvall-inner-btn.form-control-submit:active {
+  border-radius: 999px !important;
+  background: #1999cb !important;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 16px 30px rgba(25, 153, 203, 0.26);
+}
+
+.spoc-auth-card #submit-login span,
+.spoc-auth-card #submit-login:hover span,
+.spoc-auth-card #submit-login:focus span,
+.spoc-auth-card #submit-login:active span {
+  color: inherit !important;
+}
+
+/* Zone création de compte */
+.spoc-auth-card .no-account {
+  margin: 28px -42px -36px;
+  padding: 24px 42px 34px;
+  border-top: 1px solid rgba(20, 80, 120, 0.10);
+  background: rgba(20, 80, 120, 0.035);
+  text-align: center;
+}
+
+/* Bouton secondaire : repos blanc / contour primaire / texte primaire */
+.spoc-auth-card .no-account a,
+.spoc-auth-card .no-account a:visited {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 24px;
+  border: 1px solid #145078 !important;
+  border-radius: 999px !important;
+  background: #ffffff !important;
+  color: #145078 !important;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none !important;
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+/* Bouton secondaire : hover fond primaire / texte blanc */
+.spoc-auth-card .no-account a:hover,
+.spoc-auth-card .no-account a:focus,
+.spoc-auth-card .no-account a:active {
+  border-color: #145078 !important;
+  border-radius: 999px !important;
+  background: #145078 !important;
+  color: #ffffff !important;
+  box-shadow: 0 10px 24px rgba(20, 80, 120, 0.14);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 767px) {
+  .spoc-auth-page {
+    margin-bottom: 36px;
+  }
+
+  .spoc-auth-shell {
+    margin: 18px 0 0;
+    border-radius: 22px;
+  }
+
+  .spoc-auth-hero {
+    padding: 28px 24px 22px;
+  }
+
+  .spoc-auth-hero h1 {
+    font-size: 1.55rem;
+  }
+
+  .spoc-auth-card {
+    padding: 26px 24px 30px;
+  }
+
+  .spoc-auth-card .login-form {
+    max-width: 100%;
+  }
+
+  .spoc-auth-card .input-group-btn {
+    flex: 0 0 84px !important;
+    width: 84px !important;
+    min-width: 84px !important;
+    max-width: 84px !important;
+  }
+
+  .spoc-auth-card .input-group-btn .btn {
+    width: 84px !important;
+    min-width: 84px !important;
+    max-width: 84px !important;
+    padding: 0 8px;
+    font-size: 0.78rem;
+  }
+
+  .spoc-auth-card .no-account {
+    margin: 26px -24px -30px;
+    padding: 22px 24px 28px;
+  }
+}
+
+/* =========================================================
+   SPOC AUTH PAGE - END
+   ========================================================= */
+
+
 
 /*mailalert css end*/

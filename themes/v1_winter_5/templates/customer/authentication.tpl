@@ -1,49 +1,57 @@
 {**
-* 2007-2025 PrestaShop
-*
-* NOTICE OF LICENSE
-*
-* This source file is subject to the Academic Free License 3.0 (AFL-3.0)
-* that is bundled with this package in the file LICENSE.txt.
-* It is also available through the world-wide-web at this URL:
-* https://opensource.org/licenses/AFL-3.0
-* If you did not receive a copy of the license and are unable to
-* obtain it through the world-wide-web, please send an email
-* to license@prestashop.com so we can send you a copy immediately.
-*
-* DISCLAIMER
-*
-* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
-* versions in the future. If you wish to customize PrestaShop for your
-* needs please refer to http://www.prestashop.com for more information.
-*
-* @author PrestaShop SA <contact@prestashop.com>
-* @copyright 2007-2025 PrestaShop SA
-* @license https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
-* International Registered Trademark & Property of PrestaShop SA
-*}
-{strip}
-{extends file='page.tpl'}
-{block name='page_content'}
+ * 2007-2025 PrestaShop
+ *
+ * Login page customized for SPOC theme.
+ * This template owns the authentication page layout.
+ * Do not style this page from customer/page.tpl.
+ *}
+
+{extends file='customer/page.tpl'}
+
 {block name='page_title'}
-<div class="form-title">
-     <h1>
-          {l s='Log in to your account' d='Shop.Theme.Customeraccount'}
-     </h1>
-</div>
+  {l s='Connectez-vous à votre compte' d='Shop.Theme.Customeraccount'}
 {/block}
-{block name='login_form_container'}
-<div class="login-form">
-   {render file='customer/_partials/login-form.tpl' ui=$login_form}
-</div>
-{block name='display_after_login_form'}
-{hook h='displayCustomerLoginFormAfter'}
+
+{block name='page_content_container'}
+  <section id="content" class="page-content spoc-auth-content">
+
+    {block name='page_content_top'}
+      {block name='customer_notifications'}
+        {include file='_partials/notifications.tpl'}
+      {/block}
+    {/block}
+
+    <div class="spoc-auth-page">
+      <div class="spoc-auth-shell">
+
+        <section class="spoc-auth-hero">
+          <p class="spoc-account-eyebrow">{l s='Espace client' d='Shop.Theme.Customeraccount'}</p>
+          <h1>{l s='Connectez-vous à votre compte' d='Shop.Theme.Customeraccount'}</h1>
+          <p>{l s='Accédez à votre espace client pour suivre vos commandes, gérer vos informations et retrouver vos services.' d='Shop.Theme.Customeraccount'}</p>
+        </section>
+
+        <section class="spoc-auth-card">
+          {block name='login_form_container'}
+            <div class="login-form">
+              {render file='customer/_partials/login-form.tpl' ui=$login_form}
+            </div>
+
+            {block name='display_after_login_form'}
+              {hook h='displayCustomerLoginFormAfter'}
+            {/block}
+
+            <div class="no-account">
+              <a href="{$urls.pages.register}" data-link-action="display-register-form">
+                {l s='Pas de compte ? Créez-en un' d='Shop.Theme.Customeraccount'}
+              </a>
+            </div>
+          {/block}
+        </section>
+
+      </div>
+    </div>
+
+  </section>
 {/block}
-<div class="no-account">
-   <a href="{$urls.pages.register}" data-link-action="display-register-form">
-       {l s='No account? Create one here' d='Shop.Theme.Customeraccount'}
-   </a>
-</div>
-{/block}
-{/block}
-{/strip}
+
+{block name='page_footer'}{/block}
