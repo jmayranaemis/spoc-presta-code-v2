@@ -13962,7 +13962,7 @@ body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-pane
 body.page-customer-account .spoc-account-child-dashboard .spoc-account-page-panel .table th {
   border-color: var(--spoc-account-border);
   color: var(--spoc-account-text);
-  font-size: 10px;
+  font-size: 12px;
   overflow-wrap: anywhere;
   padding: 10px 5px;
   vertical-align: middle;
