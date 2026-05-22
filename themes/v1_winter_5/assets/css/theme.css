@@ -6971,7 +6971,7 @@ body#checkout #gift_message textarea {
     text-align: right
 }
 .tvorder-conformation-wrapper #order-items {
-    border-right: 1px solid #e5e5e5;
+  /*  border-right: 1px solid #e5e5e5;*/
 }
 #order-items .order-line {
     margin-top: 1rem;
