@@ -143,7 +143,7 @@
   <div id="payment-confirmation">
     <div class="ps-shown-by-js">
       <button type="submit" {if !$selected_payment_option} disabled {/if} class="tvall-inner-btn center-block">
-        <span>{l s='Order with an obligation to pay' d='Shop.Theme.Checkout'}</span>
+        <span>{l s='Order with an obligation to pay' d='Shop.Theme.Checkout'}{$cart.totals.total.value}</span>
       </button>
       {if $show_final_summary}
         <article class="alert alert-danger mt-2 js-alert-payment-conditions" role="alert" data-alert="danger">

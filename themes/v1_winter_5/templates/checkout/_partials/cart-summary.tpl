@@ -65,7 +65,6 @@
     {/block}
 
 
-    {block name='payment_confirmation'}
       <div id="payment-confirmation">
           <div class="ps-shown-by-js">
             <button type="submit" {if !$selected_payment_option} disabled {/if} class="tvall-inner-btn center-block">
@@ -92,7 +91,7 @@
             {/if}
           </div>
         </div>
-     {/block}
+     
   </div>
 
 </div>
