@@ -311,7 +311,7 @@ h6 {
 }
 p {
     margin-top: 0;
-    margin-bottom: 1rem
+    margin-bottom: 0px
 }
 abbr[data-original-title],
 abbr[title] {
@@ -6900,7 +6900,8 @@ body#checkout #order-summary-content #order-items {
 }
 body#checkout #order-summary-content #order-items h3.h3 {
     color: #232323;
-    margin-top: 1.25rem
+    margin-top: 1.25rem;
+    text-transform: none;
 }
 body#checkout #order-summary-content #order-items table tr:first-child td {
     border-top: 0
@@ -6921,7 +6922,9 @@ body#checkout #order-summary-content .summary-selected-carrier {
 }
 body#checkout #order-summary-content .step-edit {
     display: inline;
-    color: #7a7a7a
+    color: #7a7a7a;
+    font-size: 14px;
+    margin-left: 10px;
 }
 body#checkout #order-summary-content .step-edit:hover {
     cursor: pointer
@@ -9686,7 +9689,7 @@ a:hover {
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: -0.02rem;
-    height: 10px;
+    height: 30px;
     color: #ffffff;
 }
 
@@ -9694,7 +9697,7 @@ a:hover {
     font-size: 12px;
     font-weight: 400;
     letter-spacing: -0.02rem;
-    height: 10px;
+    height: 35px;
     color: #ffffff;
 }
     
