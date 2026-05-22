@@ -64,6 +64,35 @@
       </div>
     {/block}
 
+
+    {block name='payment_confirmation'}
+      <div id="payment-confirmation">
+          <div class="ps-shown-by-js">
+            <button type="submit" {if !$selected_payment_option} disabled {/if} class="tvall-inner-btn center-block">
+              <span>{l s='Order with an obligation to pay' d='Shop.Theme.Checkout'}</span>
+            </button>
+            {if $show_final_summary}
+              <article class="alert alert-danger mt-2 js-alert-payment-conditions" role="alert" data-alert="danger">
+                {l
+                  s='Please make sure you\'ve chosen a [1]payment method[/1] and accepted the [2]terms and conditions[/2].'
+                  sprintf=[
+                    '[1]' => '<a href="#checkout-payment-step">',
+                    '[/1]' => '</a>',
+                    '[2]' => '<a href="#conditions-to-approve">',
+                    '[/2]' => '</a>'
+                  ]
+                  d='Shop.Theme.Checkout'
+                }
+              </article>
+            {/if}
+          </div>
+          <div class="ps-hidden-by-js">
+            {if $selected_payment_option and $all_conditions_approved}
+              <label for="pay-with-{$selected_payment_option}">{l s='Order with an obligation to pay' d='Shop.Theme.Checkout'}</label>
+            {/if}
+          </div>
+        </div>
+     {/block}
   </div>
 
 </div>
