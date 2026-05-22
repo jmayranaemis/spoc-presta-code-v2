@@ -16053,7 +16053,7 @@ body#checkout .spoc-checkout-voucher-wrapper .block-promo {
 body#checkout .spoc-checkout-voucher-wrapper .promo-code-button {
     margin: 0 !important;
     padding: 0 !important;
-    color: var(--spoc-primary, #145078) !important;
+    color: var(--spoc-secondary, #31A9E5) !important;
     font-weight: 700 !important;
     text-decoration: none !important;
 }
