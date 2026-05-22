@@ -8790,44 +8790,68 @@ a:hover {
 }
 
 .product-features-page {
-    margin-top: 0.25rem;
-    margin-left: .3125rem
+    margin: .35rem 0 .5rem
 }
 .product-features-page>dl.data-sheet-product {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: .375rem;
+    align-items: stretch;
+    margin: 0;
+}
+
+
+
+.product-features-page>dl.data-sheet-product .value-feature {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: nowrap;
-    -webkit-box-align: stretch;
-    -ms-flex-align: stretch;
-    align-items: stretch;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
-}
-
-
-
-.value-feature 
-{
-    -webkit-box-flex: 1;
-    /*-ms-flex: 1 0 20%;*/
-    flex: 0 0 25%;
-    font-weight: 400;
-    /*background: #f1f1f1; */
-    padding: .25rem;
-    margin-right: .275rem;
-    min-height: 1rem;
-    word-break: normal;
-    /* text-transform: capitalize; */
-    margin-bottom: .7rem;
+    gap: .375rem;
+    min-width: 0;
+    min-height: 2.25rem;
+    padding: .35rem .45rem;
+    margin: 0;
     border: 1px solid #f1f1f1;
-    font-size: 0.7rem;
+    border-radius: 4px;
+    background: #fff;
+    font-size: .75rem;
+    line-height: 1.15;
     text-align: center;
     color: #000;
-    align-items: center;
-    display: grid;
-    justify-content: center;
-    font-weight: 400;
+    font-weight: 600;
+}
+.product-features-page .value-feature-icon {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    color: #2fb5d2;
+}
+.product-features-page .value-feature-icon .material-icons {
+    width: 1em;
+    height: 1em;
+    font-size: 1rem;
+    line-height: 1;
+    cursor: default;
+}
+.product-features-page .value-feature-text {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+@media (max-width:575px) {
+    .product-features-page>dl.data-sheet-product {
+        grid-template-columns: repeat(4, minmax(5.75rem, 1fr));
+        overflow-x: auto;
+        padding-bottom: .125rem
+    }
 }
 
 .product-features-page>dl.data-sheet-product dd.value-feature:nth-of-type(2n),
@@ -13340,6 +13364,4 @@ data-toggle[tooltip] {
 .field-password-policy .form-control-comment{
     display: none;
 }
-
-
 

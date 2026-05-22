@@ -31,8 +31,26 @@
                         <div class="product-features-page">
                             <dl class="data-sheet-product">
                                 {foreach from=$product.grouped_features item=feature}
-                                    {* <dt class="name-feature">{$feature.name}</dt> *}
-                                    <dd class="value-feature">{$feature.value|escape:'htmlall'|nl2br nofilter}</dd>
+                                    {assign var='featureName' value=$feature.name|lower|replace:'é':'e'|replace:'è':'e'|replace:'ê':'e'|replace:'à':'a'}
+                                    {assign var='featureIcon' value='done'}
+                                    {if $featureName == 'saison'}
+                                        {assign var='featureIcon' value='ac_unit'}
+                                    {elseif $featureName == 'genre' || $featureName == 'sexe'}
+                                        {assign var='featureIcon' value='person'}
+                                    {elseif $featureName == 'niveau'}
+                                        {assign var='featureIcon' value='trending_up'}
+                                    {elseif $featureName == 'rayon'}
+                                        {assign var='featureIcon' value='track_changes'}
+                                    {elseif $featureName == 'programme'}
+                                        {assign var='featureIcon' value='terrain'}
+                                    {/if}
+                                    <dd class="value-feature" aria-label="{$feature.name|escape:'htmlall'} : {$feature.value|escape:'htmlall'}">
+                                        <span class="value-feature-icon" aria-hidden="true">
+                                            <i class="material-icons">{$featureIcon|escape:'htmlall':'UTF-8'}</i>
+                                        </span>
+                                        <span class="value-feature-label sr-only">{$feature.name|escape:'htmlall'}</span>
+                                        <span class="value-feature-text">{$feature.value|escape:'htmlall'|nl2br nofilter}</span>
+                                    </dd>
                                 {/foreach}
                             </dl>
                         </div>
