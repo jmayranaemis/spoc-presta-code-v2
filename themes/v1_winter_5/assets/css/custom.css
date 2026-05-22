@@ -14765,6 +14765,14 @@ body.page-customer-account .spoc-account-mobile-action {
     letter-spacing: 0.02em;
 }
 
+#main.spoc-cart-page .checkout .tvprocess-to-checkout {
+    overflow: hidden;
+}
+
+#main.spoc-cart-page .checkout .tvprocess-to-checkout::after {
+    border-radius: inherit !important;
+}
+
 #main.spoc-cart-page .tv-continue-shopping-btn {
     margin-top: 18px;
 }
@@ -15447,6 +15455,19 @@ body#checkout #payment-confirmation button {
     text-transform: none !important;
     box-shadow: none !important;
 }
+
+
+body#checkout .continue, body#checkout button.continue, body#checkout .btn-primary, body#checkout .form-footer .continue, body#checkout #payment-confirmation button {
+overflow: hidden;
+}
+
+body#checkout .continue, body#checkout button.continue, body#checkout .btn-primary, body#checkout .form-footer .continue, body#checkout #payment-confirmation button::after {
+border-radius: inherit !important;
+
+}
+
+
+
 
 body#checkout .continue:hover,
 body#checkout button.continue:hover,
