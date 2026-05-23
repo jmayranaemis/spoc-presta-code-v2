@@ -13,12 +13,14 @@ class Spocfeatureicons extends Module
     const MAX_FILE_SIZE = 524288;
 
     private static $featureIconCache = null;
+    private static $adminHooksChecked = false;
+    private static $handledFeatureIconSubmits = [];
 
     public function __construct()
     {
         $this->name = 'spocfeatureicons';
         $this->tab = 'front_office_features';
-        $this->version = '1.0.0';
+        $this->version = '1.0.1';
         $this->author = 'SPOC';
         $this->need_instance = 0;
         $this->bootstrap = true;
@@ -38,14 +40,7 @@ class Spocfeatureicons extends Module
         return parent::install()
             && $this->installSql()
             && $this->ensureUploadDirectory()
-            && $this->registerHook('displayHeader')
-            && $this->registerHook('displayBackOfficeHeader')
-            && $this->registerHook('displayFeatureForm')
-            && $this->registerHook('actionObjectFeatureAddAfter')
-            && $this->registerHook('actionObjectFeatureUpdateAfter')
-            && $this->registerHook('actionObjectFeatureDeleteAfter')
-            && $this->registerHook('actionAfterCreateFeatureFormHandler')
-            && $this->registerHook('actionAfterUpdateFeatureFormHandler');
+            && $this->registerModuleHooks();
     }
 
     public function uninstall()
@@ -65,12 +60,24 @@ class Spocfeatureicons extends Module
 
     public function hookDisplayBackOfficeHeader(array $params = [])
     {
+        $this->addFeatureAdminAssets($params);
+    }
+
+    public function hookActionAdminControllerSetMedia(array $params = [])
+    {
+        $this->addFeatureAdminAssets($params);
+    }
+
+    private function addFeatureAdminAssets(array $params = [])
+    {
         $controller = Tools::strtolower((string) Tools::getValue('controller'));
         $requestUri = isset($_SERVER['REQUEST_URI']) ? (string) $_SERVER['REQUEST_URI'] : '';
 
         if (!$this->isFeatureAdminPage($controller, $requestUri)) {
             return;
         }
+
+        $this->ensureAdminHooks();
 
         $isFeatureFormPage = $this->isFeatureAdminFormPage($requestUri);
         $this->context->controller->addCSS($this->_path . 'views/css/admin.css');
@@ -115,6 +122,16 @@ class Spocfeatureicons extends Module
     public function hookFeatureForm(array $params)
     {
         return $this->hookDisplayFeatureForm($params);
+    }
+
+    public function hookDisplayFeaturePostProcess(array $params)
+    {
+        $this->handleFeatureIconSubmit($this->resolveFeatureId($params));
+    }
+
+    public function hookPostProcessFeature(array $params)
+    {
+        $this->hookDisplayFeaturePostProcess($params);
     }
 
     public function hookActionObjectFeatureAddAfter(array $params)
@@ -241,6 +258,12 @@ class Spocfeatureicons extends Module
             return;
         }
 
+        if (isset(self::$handledFeatureIconSubmits[(int) $idFeature])) {
+            return;
+        }
+
+        self::$handledFeatureIconSubmits[(int) $idFeature] = true;
+
         $hasUpload = !empty($_FILES[self::UPLOAD_FIELD])
             && !empty($_FILES[self::UPLOAD_FIELD]['name'])
             && (int) $_FILES[self::UPLOAD_FIELD]['error'] !== UPLOAD_ERR_NO_FILE;
@@ -314,6 +337,42 @@ class Spocfeatureicons extends Module
             'ALTER TABLE `' . _DB_PREFIX_ . 'feature`
                 ADD `' . pSQL(self::DB_FIELD) . '` VARCHAR(255) NULL DEFAULT NULL'
         );
+    }
+
+    public function registerModuleHooks()
+    {
+        $hooks = [
+            'displayHeader',
+            'displayBackOfficeHeader',
+            'actionAdminControllerSetMedia',
+            'displayFeatureForm',
+            'featureForm',
+            'displayFeaturePostProcess',
+            'postProcessFeature',
+            'actionObjectFeatureAddAfter',
+            'actionObjectFeatureUpdateAfter',
+            'actionObjectFeatureDeleteAfter',
+            'actionAfterCreateFeatureFormHandler',
+            'actionAfterUpdateFeatureFormHandler',
+        ];
+
+        foreach ($hooks as $hook) {
+            if (!$this->registerHook($hook)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private function ensureAdminHooks()
+    {
+        if (self::$adminHooksChecked) {
+            return;
+        }
+
+        $this->registerModuleHooks();
+        self::$adminHooksChecked = true;
     }
 
     private function uninstallSql()

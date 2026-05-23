@@ -1,4 +1,4 @@
-<div class="form-group spoc-feature-icon-field">
+<div class="form-group spoc-feature-icon-field" data-spoc-feature-icon-field="1">
   <label class="control-label col-lg-3">
     {l s='Icône de caractéristique' mod='spocfeatureicons'}
   </label>
