@@ -1,0 +1,22 @@
+.spoc-feature-icon-field .spoc-feature-icon-preview {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  padding: 8px 10px;
+  border: 1px solid #dbe3ea;
+  border-radius: 4px;
+  background: #f8fafc;
+}
+
+.spoc-feature-icon-field .spoc-feature-icon-preview img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.spoc-feature-icon-field .spoc-feature-icon-delete {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 400;
+}

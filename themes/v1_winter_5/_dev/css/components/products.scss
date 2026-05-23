@@ -487,33 +487,13 @@
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%;
-    color: #23607a;
-    background: #eaf6fb;
-  }
-  .feature-icon-svg {
-    width: 1rem;
-    height: 1rem;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.75;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-  .value-feature--gender .value-feature-icon {
-    color: #475467;
-    background: #f2f4f7;
-  }
-  .value-feature--level .value-feature-icon {
-    color: #2f7d45;
-    background: #edf8f0;
-  }
-  .value-feature--radius .value-feature-icon {
-    color: #b46018;
-    background: #fff3e5;
-  }
-  .value-feature--program .value-feature-icon {
-    color: #54712d;
-    background: #f1f7e8;
+    background: #f3f7f9;
+    img {
+      display: block;
+      width: 1rem;
+      height: 1rem;
+      object-fit: contain;
+    }
   }
   .value-feature-text {
     min-width: 0;
