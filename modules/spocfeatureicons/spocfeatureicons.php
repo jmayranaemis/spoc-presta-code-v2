@@ -20,7 +20,7 @@ class Spocfeatureicons extends Module
     {
         $this->name = 'spocfeatureicons';
         $this->tab = 'front_office_features';
-        $this->version = '1.0.3';
+        $this->version = '1.0.4';
         $this->author = 'SPOC';
         $this->need_instance = 0;
         $this->bootstrap = true;
@@ -38,8 +38,7 @@ class Spocfeatureicons extends Module
     public function install()
     {
         return parent::install()
-            && $this->installSql()
-            && $this->ensureUploadDirectory()
+            && $this->installModuleStorage()
             && $this->registerModuleHooks();
     }
 
@@ -269,7 +268,7 @@ class Spocfeatureicons extends Module
 
     private function handleFeatureIconSubmit($idFeature)
     {
-        if (!$idFeature || !$this->columnExists()) {
+        if (!$idFeature) {
             return;
         }
 
@@ -278,6 +277,11 @@ class Spocfeatureicons extends Module
         }
 
         self::$handledFeatureIconSubmits[(int) $idFeature] = true;
+
+        if (!$this->installModuleStorage()) {
+            $this->addBackOfficeError($this->l('The feature icon storage could not be initialized.'));
+            return;
+        }
 
         $hasUpload = !empty($_FILES[self::UPLOAD_FIELD])
             && !empty($_FILES[self::UPLOAD_FIELD]['name'])
@@ -352,6 +356,12 @@ class Spocfeatureicons extends Module
             'ALTER TABLE `' . _DB_PREFIX_ . 'feature`
                 ADD `' . pSQL(self::DB_FIELD) . '` VARCHAR(255) NULL DEFAULT NULL'
         );
+    }
+
+    public function installModuleStorage()
+    {
+        return $this->installSql()
+            && $this->ensureUploadDirectory();
     }
 
     public function registerModuleHooks()

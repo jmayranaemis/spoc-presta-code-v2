@@ -6,5 +6,6 @@ if (!defined('_PS_VERSION_')) {
 
 function upgrade_module_1_0_3($module)
 {
-    return $module->registerModuleHooks();
+    return $module->installModuleStorage()
+        && $module->registerModuleHooks();
 }
