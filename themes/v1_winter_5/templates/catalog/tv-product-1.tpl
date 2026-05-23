@@ -32,14 +32,14 @@
                             <dl class="data-sheet-product">
                                 {foreach from=$product.grouped_features item=feature}
                                     {assign var='featureIconUrl' value=''}
-                                    {if isset($feature.id_feature)}
-                                        {if isset($spoc_feature_icons)}
-                                            {foreach from=$spoc_feature_icons key=spocFeatureId item=spocFeatureIcon}
-                                                {if $spocFeatureId == $feature.id_feature}
-                                                    {assign var='featureIconUrl' value=$spocFeatureIcon.url|default:''}
-                                                {/if}
-                                            {/foreach}
-                                        {/if}
+                                    {if isset($spoc_feature_icons)}
+                                        {foreach from=$spoc_feature_icons item=spocFeatureIcon}
+                                            {if isset($feature.id_feature) && isset($spocFeatureIcon.id_feature) && $spocFeatureIcon.id_feature == $feature.id_feature}
+                                                {assign var='featureIconUrl' value=$spocFeatureIcon.url|default:''}
+                                            {elseif !$featureIconUrl && isset($feature.name) && isset($spocFeatureIcon.name) && $spocFeatureIcon.name == $feature.name}
+                                                {assign var='featureIconUrl' value=$spocFeatureIcon.url|default:''}
+                                            {/if}
+                                        {/foreach}
                                     {/if}
                                     <dd class="value-feature{if $featureIconUrl} value-feature--has-icon{/if}" aria-label="{$feature.name|escape:'htmlall'} : {$feature.value|escape:'htmlall'}">
                                         {if $featureIconUrl}
