@@ -285,9 +285,11 @@ class Spocfeatureicons extends Module
 
     private function columnExists()
     {
-        return (bool) Db::getInstance()->getValue(
+        $columns = Db::getInstance()->executeS(
             'SHOW COLUMNS FROM `' . _DB_PREFIX_ . 'feature` LIKE \'' . pSQL(self::DB_FIELD) . '\''
         );
+
+        return !empty($columns);
     }
 
     private function ensureUploadDirectory()
