@@ -68,8 +68,33 @@ class Spocfeatureicons extends Module
         $controller = Tools::strtolower((string) Tools::getValue('controller'));
         $requestUri = isset($_SERVER['REQUEST_URI']) ? (string) $_SERVER['REQUEST_URI'] : '';
 
-        if ($controller === 'adminfeatures' || strpos($requestUri, '/sell/catalog/features') !== false) {
-            $this->context->controller->addCSS($this->_path . 'views/css/admin.css');
+        if (!$this->isFeatureAdminPage($controller, $requestUri)) {
+            return;
+        }
+
+        $isFeatureFormPage = $this->isFeatureAdminFormPage($requestUri);
+        $this->context->controller->addCSS($this->_path . 'views/css/admin.css');
+
+        if ($isFeatureFormPage) {
+            $idFeature = $this->resolveFeatureId($params);
+            $filename = $idFeature ? $this->getIconFilenameByFeature($idFeature) : '';
+
+            $this->context->controller->addJS($this->_path . 'views/js/admin.js');
+        }
+
+        if ($isFeatureFormPage && class_exists('Media')) {
+            Media::addJsDef([
+                'spocFeatureIconsField' => [
+                    'uploadName' => self::UPLOAD_FIELD,
+                    'deleteName' => self::DELETE_FIELD,
+                    'label' => $this->l('Icône de caractéristique'),
+                    'deleteLabel' => $this->l('Supprimer l’icône actuelle'),
+                    'help' => $this->l('Icône affichée devant cette caractéristique sur les fiches produit. Formats recommandés : SVG ou PNG carré, 512 Ko max.'),
+                    'accept' => '.svg,.png,.webp,.jpg,.jpeg,image/svg+xml,image/png,image/webp,image/jpeg',
+                    'currentUrl' => $filename ? $this->buildIconUrl($filename) : '',
+                    'currentFilename' => $filename,
+                ],
+            ]);
         }
     }
 
@@ -113,16 +138,12 @@ class Spocfeatureicons extends Module
 
     public function hookActionAfterCreateFeatureFormHandler(array $params)
     {
-        if (isset($params['id'])) {
-            $this->handleFeatureIconSubmit((int) $params['id']);
-        }
+        $this->handleFeatureIconSubmit($this->resolveFeatureId($params));
     }
 
     public function hookActionAfterUpdateFeatureFormHandler(array $params)
     {
-        if (isset($params['id'])) {
-            $this->handleFeatureIconSubmit((int) $params['id']);
-        }
+        $this->handleFeatureIconSubmit($this->resolveFeatureId($params));
     }
 
     public static function getFeatureIconUrls()
@@ -187,7 +208,31 @@ class Spocfeatureicons extends Module
             }
         }
 
+        $requestUri = isset($_SERVER['REQUEST_URI']) ? (string) $_SERVER['REQUEST_URI'] : '';
+        if (preg_match('#/sell/catalog/features/([0-9]+)(?:/|$)#', $requestUri, $matches)) {
+            return (int) $matches[1];
+        }
+
         return 0;
+    }
+
+    private function isFeatureAdminPage($controller, $requestUri)
+    {
+        $legacyController = Tools::strtolower((string) Tools::getValue('_legacy_controller'));
+
+        return $controller === 'adminfeatures'
+            || $legacyController === 'adminfeatures'
+            || strpos($requestUri, '/sell/catalog/features') !== false
+            || stripos($requestUri, 'controller=AdminFeatures') !== false;
+    }
+
+    private function isFeatureAdminFormPage($requestUri)
+    {
+        return (bool) preg_match('#/sell/catalog/features/(new|add|[0-9]+/edit)(?:/|$)#', $requestUri)
+            || (bool) Tools::getValue('id_feature')
+            || (bool) Tools::getValue('featureId')
+            || Tools::isSubmit('addfeature')
+            || Tools::isSubmit('updatefeature');
     }
 
     private function handleFeatureIconSubmit($idFeature)
