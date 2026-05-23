@@ -31,19 +31,21 @@
                         <div class="product-features-page">
                             <dl class="data-sheet-product">
                                 {foreach from=$product.grouped_features item=feature}
-                                    {assign var='featureId' value=0}
-                                    {assign var='featureIcon' value=false}
+                                    {assign var='featureIconUrl' value=''}
                                     {if isset($feature.id_feature)}
-                                        {assign var='featureId' value=$feature.id_feature|intval}
+                                        {if isset($spoc_feature_icons)}
+                                            {foreach from=$spoc_feature_icons key=spocFeatureId item=spocFeatureIcon}
+                                                {if $spocFeatureId == $feature.id_feature}
+                                                    {assign var='featureIconUrl' value=$spocFeatureIcon.url|default:''}
+                                                {/if}
+                                            {/foreach}
+                                        {/if}
                                     {/if}
-                                    {if $featureId && isset($spoc_feature_icons) && isset($spoc_feature_icons[$featureId])}
-                                        {assign var='featureIcon' value=$spoc_feature_icons[$featureId]}
-                                    {/if}
-                                    <dd class="value-feature{if $featureIcon} value-feature--has-icon{/if}" aria-label="{$feature.name|escape:'htmlall'} : {$feature.value|escape:'htmlall'}">
-                                        {if $featureIcon}
+                                    <dd class="value-feature{if $featureIconUrl} value-feature--has-icon{/if}" aria-label="{$feature.name|escape:'htmlall'} : {$feature.value|escape:'htmlall'}">
+                                        {if $featureIconUrl}
                                             <span class="value-feature-icon" aria-hidden="true">
                                                 <img
-                                                    src="{$featureIcon.url|escape:'htmlall':'UTF-8'}"
+                                                    src="{$featureIconUrl|escape:'htmlall':'UTF-8'}"
                                                     alt=""
                                                     width="20"
                                                     height="20"
