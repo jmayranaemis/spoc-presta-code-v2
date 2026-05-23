@@ -108,7 +108,7 @@
 
           </div>
         </div>
-        <button type="submit" class="continue tvall-inner-btn float-xs-right" name="confirmDeliveryOption" value="1">
+        <button type="submit" class="tvall-inner-btn float-xs-right" name="confirmDeliveryOption" value="1">
           <span>{l s='Continue' d='Shop.Theme.Actions'}</span>
         </button>
       </form>
