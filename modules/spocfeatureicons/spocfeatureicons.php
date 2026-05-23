@@ -20,7 +20,7 @@ class Spocfeatureicons extends Module
     {
         $this->name = 'spocfeatureicons';
         $this->tab = 'front_office_features';
-        $this->version = '1.0.2';
+        $this->version = '1.0.3';
         $this->author = 'SPOC';
         $this->need_instance = 0;
         $this->bootstrap = true;
@@ -181,10 +181,13 @@ class Spocfeatureicons extends Module
             return self::$featureIconCache;
         }
 
-        $sql = 'SELECT `id_feature`, `' . pSQL(self::DB_FIELD) . '`
-            FROM `' . _DB_PREFIX_ . 'feature`
-            WHERE `' . pSQL(self::DB_FIELD) . '` IS NOT NULL
-              AND `' . pSQL(self::DB_FIELD) . '` != ""';
+        $idLang = isset(Context::getContext()->language->id) ? (int) Context::getContext()->language->id : 0;
+        $sql = 'SELECT f.`id_feature`, f.`' . pSQL(self::DB_FIELD) . '`, fl.`name`
+            FROM `' . _DB_PREFIX_ . 'feature` f
+            LEFT JOIN `' . _DB_PREFIX_ . 'feature_lang` fl
+                ON (fl.`id_feature` = f.`id_feature` AND fl.`id_lang` = ' . (int) $idLang . ')
+            WHERE f.`' . pSQL(self::DB_FIELD) . '` IS NOT NULL
+              AND f.`' . pSQL(self::DB_FIELD) . '` != ""';
 
         try {
             $rows = Db::getInstance()->executeS($sql);
@@ -198,9 +201,12 @@ class Spocfeatureicons extends Module
 
         foreach ($rows as $row) {
             $filename = basename((string) $row[self::DB_FIELD]);
+            $idFeature = (int) $row['id_feature'];
 
             if ($filename && file_exists(_PS_IMG_DIR_ . self::UPLOAD_DIR . $filename)) {
-                self::$featureIconCache[(int) $row['id_feature']] = [
+                self::$featureIconCache[$idFeature] = [
+                    'id_feature' => $idFeature,
+                    'name' => isset($row['name']) ? (string) $row['name'] : '',
                     'url' => $module instanceof self ? $module->buildIconUrl($filename) : self::buildFallbackIconUrl($filename),
                     'filename' => $filename,
                 ];
