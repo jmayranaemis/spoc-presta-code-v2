@@ -20,3 +20,12 @@
   margin-bottom: 10px;
   font-weight: 400;
 }
+
+.spoc-feature-icon-field--injected {
+  margin-top: 16px;
+}
+
+.spoc-feature-icon-field input[type="file"] {
+  height: auto;
+  padding: 6px 10px;
+}
