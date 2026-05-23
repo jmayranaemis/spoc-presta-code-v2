@@ -13,12 +13,14 @@ class Spocfeatureicons extends Module
     const MAX_FILE_SIZE = 524288;
 
     private static $featureIconCache = null;
+    private static $adminHooksChecked = false;
+    private static $handledFeatureIconSubmits = [];
 
     public function __construct()
     {
         $this->name = 'spocfeatureicons';
         $this->tab = 'front_office_features';
-        $this->version = '1.0.0';
+        $this->version = '1.0.4';
         $this->author = 'SPOC';
         $this->need_instance = 0;
         $this->bootstrap = true;
@@ -36,16 +38,8 @@ class Spocfeatureicons extends Module
     public function install()
     {
         return parent::install()
-            && $this->installSql()
-            && $this->ensureUploadDirectory()
-            && $this->registerHook('displayHeader')
-            && $this->registerHook('displayBackOfficeHeader')
-            && $this->registerHook('displayFeatureForm')
-            && $this->registerHook('actionObjectFeatureAddAfter')
-            && $this->registerHook('actionObjectFeatureUpdateAfter')
-            && $this->registerHook('actionObjectFeatureDeleteAfter')
-            && $this->registerHook('actionAfterCreateFeatureFormHandler')
-            && $this->registerHook('actionAfterUpdateFeatureFormHandler');
+            && $this->installModuleStorage()
+            && $this->registerModuleHooks();
     }
 
     public function uninstall()
@@ -65,11 +59,48 @@ class Spocfeatureicons extends Module
 
     public function hookDisplayBackOfficeHeader(array $params = [])
     {
+        $this->addFeatureAdminAssets($params);
+    }
+
+    public function hookActionAdminControllerSetMedia(array $params = [])
+    {
+        $this->addFeatureAdminAssets($params);
+    }
+
+    private function addFeatureAdminAssets(array $params = [])
+    {
         $controller = Tools::strtolower((string) Tools::getValue('controller'));
         $requestUri = isset($_SERVER['REQUEST_URI']) ? (string) $_SERVER['REQUEST_URI'] : '';
 
-        if ($controller === 'adminfeatures' || strpos($requestUri, '/sell/catalog/features') !== false) {
-            $this->context->controller->addCSS($this->_path . 'views/css/admin.css');
+        if (!$this->isFeatureAdminPage($controller, $requestUri)) {
+            return;
+        }
+
+        $this->ensureAdminHooks();
+
+        $isFeatureFormPage = $this->isFeatureAdminFormPage($requestUri);
+        $this->context->controller->addCSS($this->_path . 'views/css/admin.css');
+
+        if ($isFeatureFormPage) {
+            $idFeature = $this->resolveFeatureId($params);
+            $filename = $idFeature ? $this->getIconFilenameByFeature($idFeature) : '';
+
+            $this->context->controller->addJS($this->_path . 'views/js/admin.js');
+        }
+
+        if ($isFeatureFormPage && class_exists('Media')) {
+            Media::addJsDef([
+                'spocFeatureIconsField' => [
+                    'uploadName' => self::UPLOAD_FIELD,
+                    'deleteName' => self::DELETE_FIELD,
+                    'label' => $this->l('Icône de caractéristique'),
+                    'deleteLabel' => $this->l('Supprimer l’icône actuelle'),
+                    'help' => $this->l('Icône affichée devant cette caractéristique sur les fiches produit. Formats recommandés : SVG ou PNG carré, 512 Ko max.'),
+                    'accept' => '.svg,.png,.webp,.jpg,.jpeg,image/svg+xml,image/png,image/webp,image/jpeg',
+                    'currentUrl' => $filename ? $this->buildIconUrl($filename) : '',
+                    'currentFilename' => $filename,
+                ],
+            ]);
         }
     }
 
@@ -90,6 +121,16 @@ class Spocfeatureicons extends Module
     public function hookFeatureForm(array $params)
     {
         return $this->hookDisplayFeatureForm($params);
+    }
+
+    public function hookDisplayFeaturePostProcess(array $params)
+    {
+        $this->handleFeatureIconSubmit($this->resolveFeatureId($params));
+    }
+
+    public function hookPostProcessFeature(array $params)
+    {
+        $this->hookDisplayFeaturePostProcess($params);
     }
 
     public function hookActionObjectFeatureAddAfter(array $params)
@@ -113,16 +154,12 @@ class Spocfeatureicons extends Module
 
     public function hookActionAfterCreateFeatureFormHandler(array $params)
     {
-        if (isset($params['id'])) {
-            $this->handleFeatureIconSubmit((int) $params['id']);
-        }
+        $this->handleFeatureIconSubmit($this->resolveFeatureId($params));
     }
 
     public function hookActionAfterUpdateFeatureFormHandler(array $params)
     {
-        if (isset($params['id'])) {
-            $this->handleFeatureIconSubmit((int) $params['id']);
-        }
+        $this->handleFeatureIconSubmit($this->resolveFeatureId($params));
     }
 
     public static function getFeatureIconUrls()
@@ -137,23 +174,38 @@ class Spocfeatureicons extends Module
             return self::$featureIconCache;
         }
 
-        $sql = 'SELECT `id_feature`, `' . pSQL(self::DB_FIELD) . '`
-            FROM `' . _DB_PREFIX_ . 'feature`
-            WHERE `' . pSQL(self::DB_FIELD) . '` IS NOT NULL
-              AND `' . pSQL(self::DB_FIELD) . '` != ""';
-        $rows = Db::getInstance()->executeS($sql);
+        $module = Module::getInstanceByName('spocfeatureicons');
+
+        if (!$module instanceof self || !$module->columnExists()) {
+            return self::$featureIconCache;
+        }
+
+        $idLang = isset(Context::getContext()->language->id) ? (int) Context::getContext()->language->id : 0;
+        $sql = 'SELECT f.`id_feature`, f.`' . pSQL(self::DB_FIELD) . '`, fl.`name`
+            FROM `' . _DB_PREFIX_ . 'feature` f
+            LEFT JOIN `' . _DB_PREFIX_ . 'feature_lang` fl
+                ON (fl.`id_feature` = f.`id_feature` AND fl.`id_lang` = ' . (int) $idLang . ')
+            WHERE f.`' . pSQL(self::DB_FIELD) . '` IS NOT NULL
+              AND f.`' . pSQL(self::DB_FIELD) . '` != ""';
+
+        try {
+            $rows = Db::getInstance()->executeS($sql);
+        } catch (Exception $exception) {
+            return self::$featureIconCache;
+        }
 
         if (!is_array($rows)) {
             return self::$featureIconCache;
         }
 
-        $module = Module::getInstanceByName('spocfeatureicons');
-
         foreach ($rows as $row) {
             $filename = basename((string) $row[self::DB_FIELD]);
+            $idFeature = (int) $row['id_feature'];
 
             if ($filename && file_exists(_PS_IMG_DIR_ . self::UPLOAD_DIR . $filename)) {
-                self::$featureIconCache[(int) $row['id_feature']] = [
+                self::$featureIconCache[$idFeature] = [
+                    'id_feature' => $idFeature,
+                    'name' => isset($row['name']) ? (string) $row['name'] : '',
                     'url' => $module instanceof self ? $module->buildIconUrl($filename) : self::buildFallbackIconUrl($filename),
                     'filename' => $filename,
                 ];
@@ -187,12 +239,47 @@ class Spocfeatureicons extends Module
             }
         }
 
+        $requestUri = isset($_SERVER['REQUEST_URI']) ? (string) $_SERVER['REQUEST_URI'] : '';
+        if (preg_match('#/sell/catalog/features/([0-9]+)(?:/|$)#', $requestUri, $matches)) {
+            return (int) $matches[1];
+        }
+
         return 0;
+    }
+
+    private function isFeatureAdminPage($controller, $requestUri)
+    {
+        $legacyController = Tools::strtolower((string) Tools::getValue('_legacy_controller'));
+
+        return $controller === 'adminfeatures'
+            || $legacyController === 'adminfeatures'
+            || strpos($requestUri, '/sell/catalog/features') !== false
+            || stripos($requestUri, 'controller=AdminFeatures') !== false;
+    }
+
+    private function isFeatureAdminFormPage($requestUri)
+    {
+        return (bool) preg_match('#/sell/catalog/features/(new|add|[0-9]+/edit)(?:/|$)#', $requestUri)
+            || (bool) Tools::getValue('id_feature')
+            || (bool) Tools::getValue('featureId')
+            || Tools::isSubmit('addfeature')
+            || Tools::isSubmit('updatefeature');
     }
 
     private function handleFeatureIconSubmit($idFeature)
     {
-        if (!$idFeature || !$this->columnExists()) {
+        if (!$idFeature) {
+            return;
+        }
+
+        if (isset(self::$handledFeatureIconSubmits[(int) $idFeature])) {
+            return;
+        }
+
+        self::$handledFeatureIconSubmits[(int) $idFeature] = true;
+
+        if (!$this->installModuleStorage()) {
+            $this->addBackOfficeError($this->l('The feature icon storage could not be initialized.'));
             return;
         }
 
@@ -271,6 +358,48 @@ class Spocfeatureicons extends Module
         );
     }
 
+    public function installModuleStorage()
+    {
+        return $this->installSql()
+            && $this->ensureUploadDirectory();
+    }
+
+    public function registerModuleHooks()
+    {
+        $hooks = [
+            'displayHeader',
+            'displayBackOfficeHeader',
+            'actionAdminControllerSetMedia',
+            'displayFeatureForm',
+            'featureForm',
+            'displayFeaturePostProcess',
+            'postProcessFeature',
+            'actionObjectFeatureAddAfter',
+            'actionObjectFeatureUpdateAfter',
+            'actionObjectFeatureDeleteAfter',
+            'actionAfterCreateFeatureFormHandler',
+            'actionAfterUpdateFeatureFormHandler',
+        ];
+
+        foreach ($hooks as $hook) {
+            if (!$this->registerHook($hook)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private function ensureAdminHooks()
+    {
+        if (self::$adminHooksChecked) {
+            return;
+        }
+
+        $this->registerModuleHooks();
+        self::$adminHooksChecked = true;
+    }
+
     private function uninstallSql()
     {
         if (!$this->columnExists()) {
@@ -285,9 +414,11 @@ class Spocfeatureicons extends Module
 
     private function columnExists()
     {
-        return (bool) Db::getInstance()->getValue(
+        $columns = Db::getInstance()->executeS(
             'SHOW COLUMNS FROM `' . _DB_PREFIX_ . 'feature` LIKE \'' . pSQL(self::DB_FIELD) . '\''
         );
+
+        return !empty($columns);
     }
 
     private function ensureUploadDirectory()

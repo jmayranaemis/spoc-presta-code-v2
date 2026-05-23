@@ -1,6 +1,6 @@
-<div class="form-group spoc-feature-icon-field">
+<div class="form-group spoc-feature-icon-field" data-spoc-feature-icon-field="1">
   <label class="control-label col-lg-3">
-    {l s='Feature icon' mod='spocfeatureicons'}
+    {l s='Icône de caractéristique' mod='spocfeatureicons'}
   </label>
   <div class="col-lg-9">
     {if $spoc_feature_icon_url}
@@ -10,7 +10,7 @@
       </div>
       <label class="spoc-feature-icon-delete">
         <input type="checkbox" name="spoc_delete_feature_icon" value="1">
-        {l s='Delete current icon' mod='spocfeatureicons'}
+        {l s='Supprimer l’icône actuelle' mod='spocfeatureicons'}
       </label>
     {/if}
     <input
@@ -20,7 +20,7 @@
       class="form-control"
     >
     <p class="help-block">
-      {l s='Upload the icon displayed before this feature on product pages. Recommended: square SVG or PNG, max 512 KB.' mod='spocfeatureicons'}
+      {l s='Icône affichée devant cette caractéristique sur les fiches produit. Formats recommandés : SVG ou PNG carré, 512 Ko max.' mod='spocfeatureicons'}
     </p>
   </div>
 </div>
