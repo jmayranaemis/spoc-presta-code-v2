@@ -8839,11 +8839,11 @@ a:hover {
     justify-content: center;
     -webkit-box-flex: 0;
     -ms-flex: 0 0 1.5rem;
-    flex: 0 0 1.5rem;
+    flex: 0 0 2rem;
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%;
-    background: #f3f7f9;
+    /* background: #f3f7f9; */
 }
 .product-features-page .value-feature-icon img {
     display: block;
