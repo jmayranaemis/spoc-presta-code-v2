@@ -8825,7 +8825,8 @@ a:hover {
     line-height: 1.15;
     text-align: center;
     color: #20242a;
-    font-weight: 600;
+    font-weight: 400;
+    text-transform: uppercase;
 }
 .product-features-page .value-feature-icon {
     display: -webkit-inline-box;
