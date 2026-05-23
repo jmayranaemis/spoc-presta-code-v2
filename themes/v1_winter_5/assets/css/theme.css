@@ -11774,12 +11774,12 @@ data-toggle[tooltip] {
 .tv-product-page-content .product-prices {
    /* margin-bottom: 15px;*/
     margin-bottom: 15px;
-    background-color: #f7f9fb;
+    /* background-color: #f7f9fb; */
     margin: 0 0 2.5rem;
     padding: 1.3rem 1.1rem 1.1rem;
     width: 50%;
     border-radius: 20px;
-  /*  border: 1px solid var(--spoc-border, #d9e2ec) !important; */
+    border: 1px solid var(--spoc-border, #d9e2ec) !important;
     box-shadow: 0 12px 16px rgba(20, 80, 120, 0.06) !important;
 }
 .tvproduct-page-wrapper .tvall-product-star-icon .tvall-product-review {
@@ -11989,12 +11989,12 @@ data-toggle[tooltip] {
 .product-variants>.product-variants-item {
     color: #000;
     margin: 0 0 20px;
-    background-color: #f7f9fb;
+   /* background-color: #f7f9fb; */
     padding: 10px;
     border-radius: 20px;
     font-size: 19px;
     font-weight: 700;
-  /*  border: 1px solid var(--spoc-border, #d9e2ec) !important; */
+    border: 1px solid var(--spoc-border, #d9e2ec) !important; 
     box-shadow: 0 12px 16px rgba(20, 80, 120, 0.06) !important;
 }
 .product-variants>.product-variants-item ul li {
