@@ -20,7 +20,7 @@ class Spocfeatureicons extends Module
     {
         $this->name = 'spocfeatureicons';
         $this->tab = 'front_office_features';
-        $this->version = '1.0.1';
+        $this->version = '1.0.2';
         $this->author = 'SPOC';
         $this->need_instance = 0;
         $this->bootstrap = true;
@@ -175,17 +175,26 @@ class Spocfeatureicons extends Module
             return self::$featureIconCache;
         }
 
+        $module = Module::getInstanceByName('spocfeatureicons');
+
+        if (!$module instanceof self || !$module->columnExists()) {
+            return self::$featureIconCache;
+        }
+
         $sql = 'SELECT `id_feature`, `' . pSQL(self::DB_FIELD) . '`
             FROM `' . _DB_PREFIX_ . 'feature`
             WHERE `' . pSQL(self::DB_FIELD) . '` IS NOT NULL
               AND `' . pSQL(self::DB_FIELD) . '` != ""';
-        $rows = Db::getInstance()->executeS($sql);
+
+        try {
+            $rows = Db::getInstance()->executeS($sql);
+        } catch (Exception $exception) {
+            return self::$featureIconCache;
+        }
 
         if (!is_array($rows)) {
             return self::$featureIconCache;
         }
-
-        $module = Module::getInstanceByName('spocfeatureicons');
 
         foreach ($rows as $row) {
             $filename = basename((string) $row[self::DB_FIELD]);
