@@ -10406,7 +10406,7 @@ body#checkout div.checkout-step .forgot-password {
 }
 #footer .tvfooter-checkout .tvfooter-payment-icon-img-block,
 #footer .tvfooter-checkout .tvcopylink{
-    width: 50%;
+    width: 33%;
     margin: 0;
     padding: 0 15px;
 }
