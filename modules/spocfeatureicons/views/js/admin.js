@@ -101,7 +101,7 @@
     var config = getConfig();
     var form = config ? findFeatureForm() : null;
 
-    if (!config || !form || form.querySelector('[data-spoc-feature-icon-field]')) {
+    if (!config || !form || form.querySelector('[data-spoc-feature-icon-field], .spoc-feature-icon-field')) {
       return;
     }
 
