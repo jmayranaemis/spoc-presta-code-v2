@@ -26,7 +26,7 @@
 {extends file='customer/_partials/login-form.tpl'}
 
 {block name='form_buttons'}
-  <button class="continue tvall-inner-btn float-xs-right" name="continue" data-link-action="sign-in" type="submit" value="1">
+  <button class="tvall-inner-btn float-xs-right" name="continue" data-link-action="sign-in" type="submit" value="1">
     <span>{l s='Continue' d='Shop.Theme.Actions'}</span>
   </button>
 {/block}
