@@ -1429,6 +1429,7 @@ $(window).on('load', function() {
 
     function normalizeFooterCollapseTargets(footerRow) {
         var footerBlocks = footerRow.querySelectorAll('.tvfooter-category-block, .tvfooter-account-link');
+        var usedMenuIds = {};
 
         footerBlocks.forEach(function (block, index) {
             var titleWrapper = block.querySelector('.tvfooter-title-wrapper');
@@ -1439,9 +1440,19 @@ $(window).on('load', function() {
                 return;
             }
 
-            var menuId = 'footer_sub_menu_' + slugifyFooterTitle(title ? title.textContent : '', index);
+            var currentId = submenu.getAttribute('id');
+            var menuId = currentId || ('footer_sub_menu_' + slugifyFooterTitle(title ? title.textContent : '', index));
+
+            if (usedMenuIds[menuId]) {
+                menuId = 'footer_sub_menu_' + slugifyFooterTitle(title ? title.textContent : '', index);
+            }
+
+            while (usedMenuIds[menuId]) {
+                menuId = menuId + '-' + index;
+            }
 
             submenu.id = menuId;
+            usedMenuIds[menuId] = true;
             titleWrapper.setAttribute('data-target', '#' + menuId);
             titleWrapper.setAttribute('aria-controls', menuId);
         });
@@ -1483,17 +1494,18 @@ $(window).on('load', function() {
         titles.forEach(function (title) {
             var text = normalizeText(title.textContent);
 
-           if (     !serviceTitle &&
-    (
-        text === 'services' ||
-        text === 'nos services' ||
-        text === 'aide & services' ||
-        text === 'aide et services' ||
-        text.includes('services')
-    )
-                                ) {
-    serviceTitle = title;
-}
+            if (
+                !serviceTitle &&
+                (
+                    text === 'services' ||
+                    text === 'nos services' ||
+                    text === 'aide & services' ||
+                    text === 'aide et services' ||
+                    text.includes('services')
+                )
+            ) {
+                serviceTitle = title;
+            }
         });
 
         if (!serviceTitle) {
