@@ -1416,37 +1416,6 @@ $(window).on('load', function() {
             .toLowerCase();
     }
 
-    function slugifyFooterTitle(value, fallbackIndex) {
-        var slug = normalizeText(value)
-            .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '')
-            .replace(/&/g, ' et ')
-            .replace(/[^a-z0-9]+/g, '-')
-            .replace(/^-+|-+$/g, '');
-
-        return slug || ('bloc-' + fallbackIndex);
-    }
-
-    function normalizeFooterCollapseTargets(footerRow) {
-        var footerBlocks = footerRow.querySelectorAll('.tvfooter-category-block, .tvfooter-account-link');
-
-        footerBlocks.forEach(function (block, index) {
-            var titleWrapper = block.querySelector('.tvfooter-title-wrapper');
-            var title = block.querySelector('.tvfooter-title');
-            var submenu = block.querySelector('ul.collapse, .tvfooter-link-wrapper.collapse');
-
-            if (!titleWrapper || !submenu) {
-                return;
-            }
-
-            var menuId = 'footer_sub_menu_' + slugifyFooterTitle(title ? title.textContent : '', index);
-
-            submenu.id = menuId;
-            titleWrapper.setAttribute('data-target', '#' + menuId);
-            titleWrapper.setAttribute('aria-controls', menuId);
-        });
-    }
-
     function moveFooterServicesBlock() {
         var footerRow = document.querySelector('.footer-container .tvfooter-storelogo-imformation');
 
@@ -1470,7 +1439,6 @@ $(window).on('load', function() {
         });
 
         if (!emptyWrapper) {
-            normalizeFooterCollapseTargets(footerRow);
             return;
         }
 
@@ -1497,21 +1465,18 @@ $(window).on('load', function() {
         });
 
         if (!serviceTitle) {
-            normalizeFooterCollapseTargets(footerRow);
             return;
         }
 
         var serviceTitleWrapper = serviceTitle.closest('.tvfooter-title-wrapper');
 
         if (!serviceTitleWrapper) {
-            normalizeFooterCollapseTargets(footerRow);
             return;
         }
 
         var sourceWrapper = serviceTitleWrapper.closest('.tvfooter-account-wrapper');
 
         if (!sourceWrapper || sourceWrapper === emptyWrapper) {
-            normalizeFooterCollapseTargets(footerRow);
             return;
         }
 
@@ -1541,7 +1506,6 @@ $(window).on('load', function() {
         });
 
         emptyWrapper.closest('.tvfooter-account-link').classList.add('tvfooter-services-link');
-        normalizeFooterCollapseTargets(footerRow);
     }
 
     if (document.readyState === 'loading') {
