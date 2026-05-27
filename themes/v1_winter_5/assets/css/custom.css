@@ -10490,15 +10490,39 @@ body#checkout .tvtheme-control-icon{
 @media (max-width: 768px){
   #block-reassurance ul{
     flex-wrap: wrap;
+    align-items: stretch;
     justify-content: center;
     gap: 12px 0;
   }
   #block-reassurance ul > li{
+    display: flex;
     flex: 0 0 50%;
     max-width: 50%;
     margin: 0;
     padding: 0 6px;
     box-sizing: border-box;
+  }
+  #block-reassurance li .block-reassurance-item{
+    width: 100%;
+    height: 100%;
+    min-height: 128px;
+    padding: 14px 8px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  #block-reassurance li .block-reassurance-item img{
+    flex: 0 0 auto;
+    margin: 0;
+  }
+  #block-reassurance li .block-reassurance-item > .h6,
+  #block-reassurance li .block-reassurance-item > .block-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.4em;
+    margin: 0;
+    line-height: 1.2;
+    text-align: center;
   }
 }
 @media (max-width: 480px){
