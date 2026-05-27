@@ -10486,19 +10486,25 @@ body#checkout .tvtheme-control-icon{
 }
 
 
-/* Responsive : on repasse en 2 par ligne puis 1 par ligne */
+/* Responsive : reassurance en 2 icones par ligne sur mobile */
 @media (max-width: 768px){
   #block-reassurance ul{
     flex-wrap: wrap;
     justify-content: center;
+    gap: 12px 0;
   }
   #block-reassurance ul > li{
     flex: 0 0 50%;
+    max-width: 50%;
+    margin: 0;
+    padding: 0 6px;
+    box-sizing: border-box;
   }
 }
 @media (max-width: 480px){
   #block-reassurance ul > li{
-    flex: 0 0 100%;
+    flex: 0 0 50%;
+    max-width: 50%;
   }
 }
 
@@ -13155,12 +13161,14 @@ body#product #block-reassurance .block-reassurance-item {
 @media (max-width: 991px) {
   body#product #block-reassurance > ul {
     flex-wrap: wrap !important;
+    gap: 0 !important;
     padding-right: 15px !important;
     padding-left: 15px !important;
   }
 
   body#product #block-reassurance > ul > li {
-    flex: 1 1 50% !important;
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
     padding: 10px 8px !important;
   }
 }
@@ -13242,13 +13250,15 @@ body#my-account #block-reassurance .block-reassurance-item {
   body#category #block-reassurance > ul,
   body#my-account #block-reassurance > ul {
     flex-wrap: wrap !important;
+    gap: 0 !important;
     padding-right: 15px !important;
     padding-left: 15px !important;
   }
 
   body#category #block-reassurance > ul > li,
   body#my-account #block-reassurance > ul > li {
-    flex: 1 1 50% !important;
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
     padding: 10px 8px !important;
   }
 }
