@@ -68,6 +68,7 @@
           <div id="content">
             <div class="row">
               <div class="col-md-12 col-lg-8 tvcheckout-process-left">
+                {assign var='spoc_is_payment_step_current' value=false scope='global'}
                 {block name='cart_summary'}
                   {render file='checkout/checkout-process.tpl' ui=$checkout_process}
                 {/block}
@@ -75,7 +76,7 @@
               <div class="col-md-12 col-lg-4 tvcheckout-process-right">
 
                 {block name='cart_summary'}
-                  {include file='checkout/_partials/cart-summary.tpl' cart = $cart}
+                  {include file='checkout/_partials/cart-summary.tpl' cart = $cart is_payment_step_current=$spoc_is_payment_step_current|default:false}
                 {/block}
 
                 {hook h='displayReassurance'}

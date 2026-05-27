@@ -24,6 +24,9 @@
  *}
 {strip}
 {block name='step'}
+  {if $identifier === 'checkout-payment-step'}
+    {assign var='spoc_is_payment_step_current' value=$step_is_current scope='global'}
+  {/if}
   <div id = "{$identifier}"
             class = "{[
                         'checkout-step'   => true,

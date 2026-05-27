@@ -65,7 +65,7 @@
     {/block}
 
 
-      <div id="payment-confirmation">
+      <div id="payment-confirmation" class="js-payment-confirmation"{if empty($is_payment_step_current)} hidden{/if}>
           <div class="ps-shown-by-js">
             <button type="submit" {if !$selected_payment_option} disabled {/if} class="tvall-inner-btn center-block">
               <span>{l s='Order with an obligation to pay' d='Shop.Theme.Checkout'} {$cart.totals.total.value}</span>
