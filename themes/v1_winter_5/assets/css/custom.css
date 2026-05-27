@@ -13546,7 +13546,7 @@ body#product .product-features-page .data-sheet-product {
   flex-wrap: nowrap;
   align-items: center;
   gap: 0;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
   padding: 0;
   border: 0 !important;
   box-shadow: none !important;
@@ -13582,7 +13582,7 @@ body#product .product-features-page .data-sheet-product .value-feature:last-chil
 }
 
 body#product .product-features-page .data-sheet-product .value-feature:not(:first-child) {
-  border-left: 2px solid var(--spoc-border, #d9e2ec) !important;
+  border-left: 1px solid var(--spoc-border, #d9e2ec) !important;
 }
 
 
