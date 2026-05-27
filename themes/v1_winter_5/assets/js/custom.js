@@ -1416,48 +1416,6 @@ $(window).on('load', function() {
             .toLowerCase();
     }
 
-    function slugifyFooterTitle(value, fallbackIndex) {
-        var slug = normalizeText(value)
-            .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '')
-            .replace(/&/g, ' et ')
-            .replace(/[^a-z0-9]+/g, '-')
-            .replace(/^-+|-+$/g, '');
-
-        return slug || ('bloc-' + fallbackIndex);
-    }
-
-    function normalizeFooterCollapseTargets(footerRow) {
-        var footerBlocks = footerRow.querySelectorAll('.tvfooter-category-block, .tvfooter-account-link');
-        var usedMenuIds = {};
-
-        footerBlocks.forEach(function (block, index) {
-            var titleWrapper = block.querySelector('.tvfooter-title-wrapper');
-            var title = block.querySelector('.tvfooter-title');
-            var submenu = block.querySelector('ul.collapse, .tvfooter-link-wrapper.collapse');
-
-            if (!titleWrapper || !submenu) {
-                return;
-            }
-
-            var currentId = submenu.getAttribute('id');
-            var menuId = currentId || ('footer_sub_menu_' + slugifyFooterTitle(title ? title.textContent : '', index));
-
-            if (usedMenuIds[menuId]) {
-                menuId = 'footer_sub_menu_' + slugifyFooterTitle(title ? title.textContent : '', index);
-            }
-
-            while (usedMenuIds[menuId]) {
-                menuId = menuId + '-' + index;
-            }
-
-            submenu.id = menuId;
-            usedMenuIds[menuId] = true;
-            titleWrapper.setAttribute('data-target', '#' + menuId);
-            titleWrapper.setAttribute('aria-controls', menuId);
-        });
-    }
-
     function moveFooterServicesBlock() {
         var footerRow = document.querySelector('.footer-container .tvfooter-storelogo-imformation');
 
@@ -1481,7 +1439,6 @@ $(window).on('load', function() {
         });
 
         if (!emptyWrapper) {
-            normalizeFooterCollapseTargets(footerRow);
             return;
         }
 
@@ -1494,36 +1451,32 @@ $(window).on('load', function() {
         titles.forEach(function (title) {
             var text = normalizeText(title.textContent);
 
-            if (
-                !serviceTitle &&
-                (
-                    text === 'services' ||
-                    text === 'nos services' ||
-                    text === 'aide & services' ||
-                    text === 'aide et services' ||
-                    text.includes('services')
-                )
-            ) {
-                serviceTitle = title;
-            }
+           if (     !serviceTitle &&
+    (
+        text === 'services' ||
+        text === 'nos services' ||
+        text === 'aide & services' ||
+        text === 'aide et services' ||
+        text.includes('services')
+    )
+                                ) {
+    serviceTitle = title;
+}
         });
 
         if (!serviceTitle) {
-            normalizeFooterCollapseTargets(footerRow);
             return;
         }
 
         var serviceTitleWrapper = serviceTitle.closest('.tvfooter-title-wrapper');
 
         if (!serviceTitleWrapper) {
-            normalizeFooterCollapseTargets(footerRow);
             return;
         }
 
         var sourceWrapper = serviceTitleWrapper.closest('.tvfooter-account-wrapper');
 
         if (!sourceWrapper || sourceWrapper === emptyWrapper) {
-            normalizeFooterCollapseTargets(footerRow);
             return;
         }
 
@@ -1553,7 +1506,6 @@ $(window).on('load', function() {
         });
 
         emptyWrapper.closest('.tvfooter-account-link').classList.add('tvfooter-services-link');
-        normalizeFooterCollapseTargets(footerRow);
     }
 
     if (document.readyState === 'loading') {
