@@ -1516,6 +1516,49 @@ $(window).on('load', function() {
 })();
 
 
+/* =========================================================
+   CHECKOUT - Show payment button only on payment step
+   ========================================================= */
+
+(function () {
+    function toggleCheckoutSummaryPaymentConfirmation() {
+        var confirmation = document.querySelector('#js-checkout-summary #payment-confirmation');
+        var paymentStep = document.getElementById('checkout-payment-step');
+
+        if (!confirmation || !paymentStep) {
+            return;
+        }
+
+        var isPaymentStepCurrent = paymentStep.classList.contains('-current') ||
+            paymentStep.classList.contains('js-current-step');
+
+        if (isPaymentStepCurrent) {
+            confirmation.removeAttribute('hidden');
+        } else {
+            confirmation.setAttribute('hidden', 'hidden');
+        }
+    }
+
+    function initCheckoutSummaryPaymentConfirmation() {
+        if (!document.body || document.body.id !== 'checkout') {
+            return;
+        }
+
+        toggleCheckoutSummaryPaymentConfirmation();
+
+        if (window.prestashop && typeof window.prestashop.on === 'function') {
+            window.prestashop.on('changedCheckoutStep', toggleCheckoutSummaryPaymentConfirmation);
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCheckoutSummaryPaymentConfirmation);
+    } else {
+        initCheckoutSummaryPaymentConfirmation();
+    }
+})();
+
+
 // $(document).on('click', '.tvproduct-add-to-cart', function() {
 //     $(this).addClass("loading-wake");
 //     $(this).find('.add-cart').addClass('tvcms-cart-loading');
