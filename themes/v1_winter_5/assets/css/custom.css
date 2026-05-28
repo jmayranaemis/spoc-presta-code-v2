@@ -11393,6 +11393,7 @@ body {
     width: 100% !important;
     max-width: none !important;
     box-sizing: border-box;
+    background-color: #a541ff;
 }
 
 /* Le contenu du bandeau reste centré et propre */
