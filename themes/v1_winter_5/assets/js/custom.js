@@ -1416,6 +1416,50 @@ $(window).on('load', function() {
             .toLowerCase();
     }
 
+    function slugifyFooterTitle(value, fallbackIndex) {
+        var slug = normalizeText(value)
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/&/g, ' et ')
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/^-+|-+$/g, '');
+
+        return slug || ('bloc-' + fallbackIndex);
+    }
+
+    function normalizeFooterLinkCollapseTargets(footerRow) {
+        var usedMenuIds = {};
+        var titleWrappers = footerRow.querySelectorAll('.tvfooter-account-wrapper .tvfooter-title-wrapper');
+
+        titleWrappers.forEach(function (titleWrapper, index) {
+            var submenu = titleWrapper.nextElementSibling;
+
+            if (!submenu || !submenu.classList.contains('tvfooter-link-wrapper')) {
+                return;
+            }
+
+            var currentId = submenu.getAttribute('id');
+            var menuId = currentId || ('footer_sub_menu_link_' + slugifyFooterTitle(titleWrapper.textContent, index));
+
+            if (usedMenuIds[menuId]) {
+                menuId = 'footer_sub_menu_link_' + slugifyFooterTitle(titleWrapper.textContent, index);
+            }
+
+            var baseMenuId = menuId;
+            var suffix = 2;
+
+            while (usedMenuIds[menuId]) {
+                menuId = baseMenuId + '-' + suffix;
+                suffix++;
+            }
+
+            submenu.id = menuId;
+            usedMenuIds[menuId] = true;
+            titleWrapper.setAttribute('data-target', '#' + menuId);
+            titleWrapper.setAttribute('aria-controls', menuId);
+        });
+    }
+
     function moveFooterServicesBlock() {
         var footerRow = document.querySelector('.footer-container .tvfooter-storelogo-imformation');
 
@@ -1439,6 +1483,7 @@ $(window).on('load', function() {
         });
 
         if (!emptyWrapper) {
+            normalizeFooterLinkCollapseTargets(footerRow);
             return;
         }
 
@@ -1451,32 +1496,36 @@ $(window).on('load', function() {
         titles.forEach(function (title) {
             var text = normalizeText(title.textContent);
 
-           if (     !serviceTitle &&
-    (
-        text === 'services' ||
-        text === 'nos services' ||
-        text === 'aide & services' ||
-        text === 'aide et services' ||
-        text.includes('services')
-    )
-                                ) {
-    serviceTitle = title;
-}
+            if (
+                !serviceTitle &&
+                (
+                    text === 'services' ||
+                    text === 'nos services' ||
+                    text === 'aide & services' ||
+                    text === 'aide et services' ||
+                    text.includes('services')
+                )
+            ) {
+                serviceTitle = title;
+            }
         });
 
         if (!serviceTitle) {
+            normalizeFooterLinkCollapseTargets(footerRow);
             return;
         }
 
         var serviceTitleWrapper = serviceTitle.closest('.tvfooter-title-wrapper');
 
         if (!serviceTitleWrapper) {
+            normalizeFooterLinkCollapseTargets(footerRow);
             return;
         }
 
         var sourceWrapper = serviceTitleWrapper.closest('.tvfooter-account-wrapper');
 
         if (!sourceWrapper || sourceWrapper === emptyWrapper) {
+            normalizeFooterLinkCollapseTargets(footerRow);
             return;
         }
 
@@ -1506,6 +1555,7 @@ $(window).on('load', function() {
         });
 
         emptyWrapper.closest('.tvfooter-account-link').classList.add('tvfooter-services-link');
+        normalizeFooterLinkCollapseTargets(footerRow);
     }
 
     if (document.readyState === 'loading') {
