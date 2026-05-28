@@ -13737,6 +13737,26 @@ body#product .product-features-page .data-sheet-product .value-feature:not(:firs
   }
 }
 
+@media (max-width: 767px) {
+  .ybc-menu-vertical-button,
+  .transition_floating .close_menu,
+  .transition_full .close_menu {
+    background-color: #145078 !important;
+    color: #ffffff !important;
+  }
+
+  .transition_floating .close_menu *,
+  .transition_full .close_menu *,
+  .ybc-menu-vertical-button * {
+    color: #ffffff !important;
+  }
+
+  .close_menu .icon-bar,
+  .ybc-menu-vertical-button .icon-bar {
+    background-color: #ffffff !important;
+  }
+}
+
 
 /* Account dashboard */
 body.page-customer-account {
