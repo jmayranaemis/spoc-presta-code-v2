@@ -362,7 +362,7 @@ File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/t
       </trans-unit>
       <trans-unit id="53d978054ae84799fe8e35ae6c808ef7">
         <source>Out Of Stock</source>
-        <target>Plus en stock</target>
+        <target>Indisponible</target>
         <note>Context:
 File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/themes/tv_electronic_electron_1_7_v1/templates/catalog/_partials/miniatures/category-product-slider.tpl:94</note>
       </trans-unit>
