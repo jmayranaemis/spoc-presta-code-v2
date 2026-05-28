@@ -5728,6 +5728,7 @@ i.material-icons.block {
     }
     #footer_sub_menu_store_info,
     #footer_sub_menu_link,
+    [id^="footer_sub_menu_link_"],
     #footer_sub_menu_myaccount,
     #footer_sub_menu_social_icon {
         display: block;
@@ -7567,6 +7568,7 @@ body.lang-rtl {
 }
 .lang-rtl #footer_sub_menu_store_time,
 .lang-rtl #footer_sub_menu_link,
+.lang-rtl [id^="footer_sub_menu_link_"],
 .lang-rtl #footer_sub_menu_myaccount,
 .lang-rtl #footer_sub_menu_social_icon {
     padding-right: 0
@@ -8375,6 +8377,7 @@ body#checkout.lang-rtl div.checkout-step #login-form .form-control-label {
     }
     .lang-rtl #footer_sub_menu_store_time,
     .lang-rtl #footer_sub_menu_link,
+    .lang-rtl [id^="footer_sub_menu_link_"],
     .lang-rtl #footer_sub_menu_myaccount,
     .lang-rtl #footer_sub_menu_social_icon {
         padding: 0 15px;
@@ -8385,6 +8388,7 @@ body#checkout.lang-rtl div.checkout-step #login-form .form-control-label {
     }
     .lang-rtl #footer_sub_menu_store_time,
     .lang-rtl #footer_sub_menu_link,
+    .lang-rtl [id^="footer_sub_menu_link_"],
     .lang-rtl #footer_sub_menu_myaccount,
     .lang-rtl #footer_sub_menu_social_icon {
         padding: 0 15px;
@@ -9235,6 +9239,7 @@ body#checkout.lang-rtl div.checkout-step #login-form .form-control-label {
     }
     #footer_sub_menu_store_time,
     #footer_sub_menu_link,
+    [id^="footer_sub_menu_link_"],
     #footer_sub_menu_myaccount,
     #footer_sub_menu_tvfooter_category {
         margin: 0;
@@ -13735,6 +13740,26 @@ body#product .product-features-page .data-sheet-product .value-feature:not(:firs
     word-break: normal !important;
     line-height: 1.2 !important;
     text-align: left !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .ybc-menu-vertical-button,
+  .transition_floating .close_menu,
+  .transition_full .close_menu {
+    background-color: #145078 !important;
+    color: #ffffff !important;
+  }
+
+  .transition_floating .close_menu *,
+  .transition_full .close_menu *,
+  .ybc-menu-vertical-button * {
+    color: #ffffff !important;
+  }
+
+  .close_menu .icon-bar,
+  .ybc-menu-vertical-button .icon-bar {
+    background-color: #ffffff !important;
   }
 }
 
