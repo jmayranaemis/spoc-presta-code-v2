@@ -19346,6 +19346,15 @@ body#order-confirmation .spoc-order-registration-card .card-block {
     box-shadow: none;
   }
 
+  #header .ets_mm_megamenu .mm_menus_ul > li.close_menu + li.mm_menus_li > a.ets_mm_url .mm_menu_content_title {
+    padding-right: 16px;
+    padding-left: 16px;
+    color: #ffffff !important;
+    text-transform: none;
+    background: #050505;
+    box-shadow: 0 0 0 2px #0673d8 inset;
+  }
+
   #header .ets_mm_megamenu .mm_menus_ul > li.close_menu + li.mm_menus_li > a.ets_mm_url:hover .mm_menu_content_title {
     padding-right: 16px;
     padding-left: 16px;
