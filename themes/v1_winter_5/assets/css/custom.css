@@ -19292,10 +19292,13 @@ body#order-confirmation .spoc-order-registration-card .card-block {
 
   #header .ets_mm_megamenu .mm_menus_li {
     min-height: 56px;
+    border: 0 !important;
+    box-shadow: none !important;
   }
 
   #header .ets_mm_megamenu .mm_menus_li > a.ets_mm_url {
     height: 56px;
+    border: 0 !important;
     color: #1c191c !important;
     background: transparent !important;
     font-size: 13px !important;
@@ -19310,6 +19313,7 @@ body#order-confirmation .spoc-order-registration-card .card-block {
     align-items: center;
     min-height: 56px;
     padding: 0 20px;
+    border: 0 !important;
     line-height: 1;
   }
 
@@ -19334,9 +19338,9 @@ body#order-confirmation .spoc-order-registration-card .card-block {
 
   #header .ets_mm_megamenu .mm_columns_ul {
     top: 100%;
-    margin-top: 0 !important;
+    margin-top: 10px !important;
     padding: 0 !important;
-    border: 0 !important;
+    border: 1px solid #d8dadd !important;
     border-radius: 0;
     background: #ffffff !important;
     box-shadow: none;
@@ -19345,21 +19349,27 @@ body#order-confirmation .spoc-order-registration-card .card-block {
   }
 
   #header .ets_mm_megamenu .mm_columns_ul::before {
-    display: none;
+    display: block;
+    height: 10px;
+    background: transparent;
   }
 
   #header .ets_mm_megamenu .mm_columns_ul.mm_columns_ul_tab {
     background: #ffffff !important;
   }
 
+  #header .ets_mm_megamenu.layout_layout5 .mm_columns_ul > .mm_columns_li {
+    border-left: 0 !important;
+  }
+
   #header .ets_mm_megamenu .mm_tabs_li {
     background: #ffffff;
-    border-right: 1px solid rgba(0, 0, 0, 0.08);
+    border: 0 !important;
     transition: background 0.16s ease;
   }
 
   #header .ets_mm_megamenu .mm_tab_li_content {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    border: 0 !important;
     transition: box-shadow 0.16s ease;
   }
 
@@ -19413,7 +19423,7 @@ body#order-confirmation .spoc-order-registration-card .card-block {
 
   #header .ets_mm_megamenu .mm_tabs_li .mm_columns_contents_ul {
     padding: 22px 24px 24px;
-    border: 1px solid #dddddd;
+    border: 0 !important;
     background: #ffffff;
   }
 
