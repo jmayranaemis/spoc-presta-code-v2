@@ -19300,7 +19300,7 @@ body#order-confirmation .spoc-order-registration-card .card-block {
     background: transparent !important;
     font-size: 13px !important;
     font-weight: 800;
-    letter-spacing: 0.04em;
+    letter-spacing: 0;
     text-transform: uppercase;
   }
 
