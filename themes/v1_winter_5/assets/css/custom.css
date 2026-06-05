@@ -19340,6 +19340,15 @@ body#order-confirmation .spoc-order-registration-card .card-block {
   #header .ets_mm_megamenu .mm_menus_li:hover > a.ets_mm_url .mm_menu_content_title,
   #header .ets_mm_megamenu .mm_menus_li.menu_hover > a.ets_mm_url .mm_menu_content_title,
   #header .ets_mm_megamenu .mm_menus_li.active > a.ets_mm_url .mm_menu_content_title {
+    color: #145078 !important;
+    text-transform: none;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  #header .ets_mm_megamenu .mm_menus_ul > li.close_menu + li.mm_menus_li:hover > a.ets_mm_url .mm_menu_content_title,
+  #header .ets_mm_megamenu .mm_menus_ul > li.close_menu + li.mm_menus_li.menu_hover > a.ets_mm_url .mm_menu_content_title,
+  #header .ets_mm_megamenu .mm_menus_ul > li.close_menu + li.mm_menus_li.active > a.ets_mm_url .mm_menu_content_title {
     padding-right: 16px;
     padding-left: 16px;
     color: #ffffff !important;
@@ -19348,15 +19357,15 @@ body#order-confirmation .spoc-order-registration-card .card-block {
     box-shadow: 0 0 0 2px #0673d8 inset;
   }
 
-  #header .ets_mm_megamenu .mm_menus_li:hover > a.ets_mm_url .mm_menu_content_title .fa,
-  #header .ets_mm_megamenu .mm_menus_li.menu_hover > a.ets_mm_url .mm_menu_content_title .fa,
-  #header .ets_mm_megamenu .mm_menus_li.active > a.ets_mm_url .mm_menu_content_title .fa {
+  #header .ets_mm_megamenu .mm_menus_ul > li.close_menu + li.mm_menus_li:hover > a.ets_mm_url .mm_menu_content_title .fa,
+  #header .ets_mm_megamenu .mm_menus_ul > li.close_menu + li.mm_menus_li.menu_hover > a.ets_mm_url .mm_menu_content_title .fa,
+  #header .ets_mm_megamenu .mm_menus_ul > li.close_menu + li.mm_menus_li.active > a.ets_mm_url .mm_menu_content_title .fa {
     display: none;
   }
 
-  #header .ets_mm_megamenu .mm_menus_li:hover > a.ets_mm_url .mm_menu_content_title::before,
-  #header .ets_mm_megamenu .mm_menus_li.menu_hover > a.ets_mm_url .mm_menu_content_title::before,
-  #header .ets_mm_megamenu .mm_menus_li.active > a.ets_mm_url .mm_menu_content_title::before {
+  #header .ets_mm_megamenu .mm_menus_ul > li.close_menu + li.mm_menus_li:hover > a.ets_mm_url .mm_menu_content_title::before,
+  #header .ets_mm_megamenu .mm_menus_ul > li.close_menu + li.mm_menus_li.menu_hover > a.ets_mm_url .mm_menu_content_title::before,
+  #header .ets_mm_megamenu .mm_menus_ul > li.close_menu + li.mm_menus_li.active > a.ets_mm_url .mm_menu_content_title::before {
     content: "";
     width: 14px;
     height: 14px;
@@ -19401,7 +19410,13 @@ body#order-confirmation .spoc-order-registration-card .card-block {
     background: linear-gradient(90deg, #f4f4f4 0, #f4f4f4 230px, #dedfe2 230px, #ffffff 231px, #ffffff 100%) !important;
   }
 
-  #header .ets_mm_megamenu .mm_menus_ul > li.close_menu + li.mm_menus_li > .mm_columns_ul.mm_columns_ul_tab::after {
+  #header .ets_mm_megamenu .mm_columns_ul.mm_columns_ul_tab::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  #header .ets_mm_megamenu .mm_menus_ul > li.close_menu + li.mm_menus_li > .mm_columns_ul.mm_columns_ul_tab > .mm_tabs_li:first-child::before {
     content: "NOS UNIVERS";
     position: absolute;
     top: 17px;
