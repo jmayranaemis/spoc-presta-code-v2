@@ -19346,26 +19346,20 @@ body#order-confirmation .spoc-order-registration-card .card-block {
     box-shadow: none;
   }
 
-  #header .ets_mm_megamenu .mm_menus_ul > li.close_menu + li.mm_menus_li:hover > a.ets_mm_url .mm_menu_content_title,
-  #header .ets_mm_megamenu .mm_menus_ul > li.close_menu + li.mm_menus_li.menu_hover > a.ets_mm_url .mm_menu_content_title,
-  #header .ets_mm_megamenu .mm_menus_ul > li.close_menu + li.mm_menus_li.active > a.ets_mm_url .mm_menu_content_title {
+  #header .ets_mm_megamenu .mm_menus_ul > li.close_menu + li.mm_menus_li > a.ets_mm_url:hover .mm_menu_content_title {
     padding-right: 16px;
     padding-left: 16px;
     color: #ffffff !important;
-    text-transform: uppercase;
+    text-transform: none;
     background: #050505;
     box-shadow: 0 0 0 2px #0673d8 inset;
   }
 
-  #header .ets_mm_megamenu .mm_menus_ul > li.close_menu + li.mm_menus_li:hover > a.ets_mm_url .mm_menu_content_title .fa,
-  #header .ets_mm_megamenu .mm_menus_ul > li.close_menu + li.mm_menus_li.menu_hover > a.ets_mm_url .mm_menu_content_title .fa,
-  #header .ets_mm_megamenu .mm_menus_ul > li.close_menu + li.mm_menus_li.active > a.ets_mm_url .mm_menu_content_title .fa {
+  #header .ets_mm_megamenu .mm_menus_ul > li.close_menu + li.mm_menus_li > a.ets_mm_url:hover .mm_menu_content_title .fa {
     display: none;
   }
 
-  #header .ets_mm_megamenu .mm_menus_ul > li.close_menu + li.mm_menus_li:hover > a.ets_mm_url .mm_menu_content_title::before,
-  #header .ets_mm_megamenu .mm_menus_ul > li.close_menu + li.mm_menus_li.menu_hover > a.ets_mm_url .mm_menu_content_title::before,
-  #header .ets_mm_megamenu .mm_menus_ul > li.close_menu + li.mm_menus_li.active > a.ets_mm_url .mm_menu_content_title::before {
+  #header .ets_mm_megamenu .mm_menus_ul > li.close_menu + li.mm_menus_li > a.ets_mm_url:hover .mm_menu_content_title::before {
     content: "";
     width: 14px;
     height: 14px;
@@ -19389,7 +19383,7 @@ body#order-confirmation .spoc-order-registration-card .card-block {
 
   #header .ets_mm_megamenu .mm_columns_ul {
     top: 100%;
-    min-height: 500px;
+    min-height: 720px;
     margin-top: 18px !important;
     padding: 0 !important;
     border: 1px solid #d8dadd !important;
@@ -19510,7 +19504,7 @@ body#order-confirmation .spoc-order-registration-card .card-block {
 
   #header .ets_mm_megamenu .mm_tabs_li .mm_columns_contents_ul {
     box-sizing: border-box;
-    min-height: 500px;
+    min-height: 720px;
     padding: 22px 32px 32px;
     border: 0 !important;
     background: transparent;
