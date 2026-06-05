@@ -294,7 +294,7 @@ File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/t
     <body>
       <trans-unit id="2cee9edacddde0856a46d7db6aff9110">
         <source>Order items</source>
-        <target>Articles de la commande</target>
+        <target>Articles de ma commande</target>
         <note>Context:
 File: /home/themevolty/public_html/Prestashop/1.7/v1/v1_electronic_electro_102/themes/tv_electronic_electron_1_7_v1/templates/checkout/_partials/order-confirmation-table.tpl:29</note>
       </trans-unit>
