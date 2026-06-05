@@ -19356,10 +19356,12 @@ body#order-confirmation .spoc-order-registration-card .card-block {
   #header .ets_mm_megamenu .mm_tabs_li {
     background: #f5f6f7;
     border-right: 1px solid rgba(0, 0, 0, 0.08);
+    transition: background 0.16s ease;
   }
 
   #header .ets_mm_megamenu .mm_tab_li_content {
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.16s ease;
   }
 
   #header .ets_mm_megamenu .mm_tab_name {
@@ -19370,7 +19372,7 @@ body#order-confirmation .spoc-order-registration-card .card-block {
     display: flex;
     align-items: center;
     min-height: 44px;
-    padding: 12px 18px;
+    padding: 12px 32px 12px 18px;
     color: #2a2a2a !important;
     font-size: 13px !important;
     font-weight: 700;
@@ -19379,10 +19381,35 @@ body#order-confirmation .spoc-order-registration-card .card-block {
     transition: background 0.16s ease, color 0.16s ease;
   }
 
+  #header .ets_mm_megamenu .mm_tabs_li:hover,
+  #header .ets_mm_megamenu .mm_tabs_li.open {
+    background: #ffffff;
+  }
+
+  #header .ets_mm_megamenu .mm_tabs_li:hover .mm_tab_li_content,
+  #header .ets_mm_megamenu .mm_tabs_li.open .mm_tab_li_content {
+    box-shadow: inset 3px 0 0 #1c191c;
+  }
+
   #header .ets_mm_megamenu .mm_tabs_li:hover .mm_tab_toggle_title > a.ets_mm_url,
   #header .ets_mm_megamenu .mm_tabs_li.open .mm_tab_toggle_title > a.ets_mm_url {
     background: #ffffff !important;
     color: #111111 !important;
+  }
+
+  #header .ets_mm_megamenu .mm_tabs_li:not(.mm_tabs_has_content) .mm_tab_toggle_title > a.ets_mm_url {
+    color: #55595f !important;
+    font-weight: 600;
+  }
+
+  #header .ets_mm_megamenu .mm_tab_has_child::after {
+    right: 16px;
+    border-color: #8a8d92;
+  }
+
+  #header .ets_mm_megamenu .mm_tabs_li:hover .mm_tab_has_child::after,
+  #header .ets_mm_megamenu .mm_tabs_li.open .mm_tab_has_child::after {
+    border-color: #1c191c;
   }
 
   #header .ets_mm_megamenu .mm_tabs_li .mm_columns_contents_ul {
@@ -19408,6 +19435,10 @@ body#order-confirmation .spoc-order-registration-card .card-block {
     line-height: 1.2;
     letter-spacing: 0;
     text-transform: uppercase;
+  }
+
+  #header .ets_mm_megamenu .ets_mm_block > .h4:empty {
+    display: none;
   }
 
   #header .ets_mm_megamenu .ets_mm_block_content {
@@ -19440,6 +19471,15 @@ body#order-confirmation .spoc-order-registration-card .card-block {
   #header .ets_mm_megamenu .ets_mm_block_content a.ets_mm_url:focus {
     background: #f3f4f5;
     color: #111111 !important;
+  }
+
+  #header .ets_mm_megamenu .ets_mm_block_content li.has-sub > a.ets_mm_url {
+    font-weight: 600;
+  }
+
+  #header .ets_mm_megamenu .ets_mm_block_content li.has-sub > a.ets_mm_url::after {
+    border-color: #8a8d92;
+    opacity: 0.75;
   }
 
 }
