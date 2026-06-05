@@ -19275,80 +19275,72 @@ body#order-confirmation .spoc-order-registration-card .card-block {
   #header .ets_mm_megamenu.hook-default {
     margin-top: 0;
     background: #ffffff;
-    border-top: 1px solid rgba(20, 80, 120, 0.06);
-    border-bottom: 1px solid rgba(20, 80, 120, 0.10);
-    box-shadow: 0 6px 18px rgba(16, 43, 64, 0.08);
+    border-top: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
   }
 
   #header .ets_mm_megamenu .ets_mm_megamenu_content_content {
-    min-height: 58px;
+    min-height: 56px;
   }
 
   #header .ets_mm_megamenu ul.mm_menus_ul {
     display: flex;
     align-items: stretch;
-    min-height: 58px;
+    min-height: 56px;
   }
 
   #header .ets_mm_megamenu .mm_menus_li {
-    min-height: 58px;
+    min-height: 56px;
   }
 
   #header .ets_mm_megamenu .mm_menus_li > a.ets_mm_url {
-    height: 58px;
+    height: 56px;
     color: #1c191c !important;
     background: transparent !important;
     font-size: 13px !important;
     font-weight: 800;
     letter-spacing: 0;
     text-transform: uppercase;
+    transition: background 0.16s ease, color 0.16s ease;
   }
 
   #header .ets_mm_megamenu .mm_menu_content_title {
     display: inline-flex;
     align-items: center;
-    min-height: 58px;
-    padding: 0 22px;
+    min-height: 56px;
+    padding: 0 20px;
     line-height: 1;
   }
 
   #header .ets_mm_megamenu .mm_menus_li > a.ets_mm_url:hover,
   #header .ets_mm_megamenu .mm_menus_li.menu_hover > a.ets_mm_url,
   #header .ets_mm_megamenu .mm_menus_li.active > a.ets_mm_url {
-    color: #145078 !important;
-    background: #f7f9fb !important;
+    color: #111111 !important;
+    background: #f3f4f5 !important;
   }
 
   #header .ets_mm_megamenu .mm_menus_li > a.ets_mm_url::after {
-    content: "";
-    position: absolute;
-    right: 18px;
-    bottom: 0;
-    left: 18px;
-    height: 3px;
-    border-radius: 999px 999px 0 0;
-    background: #1999cb;
-    opacity: 0;
-    transform: scaleX(0.4);
-    transition: opacity 0.18s ease, transform 0.18s ease;
+    content: none !important;
+    display: none !important;
   }
 
   #header .ets_mm_megamenu .mm_menus_li > a.ets_mm_url:hover::after,
   #header .ets_mm_megamenu .mm_menus_li.menu_hover > a.ets_mm_url::after,
   #header .ets_mm_megamenu .mm_menus_li.active > a.ets_mm_url::after {
-    opacity: 1;
-    transform: scaleX(1);
+    content: none !important;
+    display: none !important;
   }
 
   #header .ets_mm_megamenu .mm_columns_ul {
     top: 100%;
     margin-top: 0 !important;
     padding: 0 !important;
-    border: 1px solid rgba(20, 80, 120, 0.12) !important;
-    border-top: 3px solid #1999cb !important;
-    border-radius: 0 0 8px 8px;
+    border: 1px solid rgba(0, 0, 0, 0.10) !important;
+    border-top: 0 !important;
+    border-radius: 0 0 6px 6px;
     background: #ffffff !important;
-    box-shadow: 0 24px 54px rgba(16, 43, 64, 0.18);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
     line-height: 1.35;
     overflow: visible;
   }
@@ -19363,13 +19355,13 @@ body#order-confirmation .spoc-order-registration-card .card-block {
 
   #header .ets_mm_megamenu .mm_tabs_li {
     width: 230px;
-    background: #f7f9fb;
-    border-right: 1px solid rgba(20, 80, 120, 0.10);
+    background: #f5f6f7;
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
   }
 
   #header .ets_mm_megamenu .mm_tab_li_content {
     width: 230px !important;
-    border-bottom: 1px solid rgba(20, 80, 120, 0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   }
 
   #header .ets_mm_megamenu .mm_tab_name {
@@ -19381,7 +19373,7 @@ body#order-confirmation .spoc-order-registration-card .card-block {
     align-items: center;
     min-height: 44px;
     padding: 12px 18px;
-    color: #243447 !important;
+    color: #2a2a2a !important;
     font-size: 13px !important;
     font-weight: 700;
     line-height: 1.25;
@@ -19392,7 +19384,7 @@ body#order-confirmation .spoc-order-registration-card .card-block {
   #header .ets_mm_megamenu .mm_tabs_li:hover .mm_tab_toggle_title > a.ets_mm_url,
   #header .ets_mm_megamenu .mm_tabs_li.open .mm_tab_toggle_title > a.ets_mm_url {
     background: #ffffff !important;
-    color: #145078 !important;
+    color: #111111 !important;
   }
 
   #header .ets_mm_megamenu .mm_tabs_li .mm_columns_contents_ul {
@@ -19423,18 +19415,19 @@ body#order-confirmation .spoc-order-registration-card .card-block {
 
   #header .ets_mm_megamenu .ets_mm_block > .h4 {
     display: block;
-    margin: 0 0 8px !important;
-    padding: 0 0 9px !important;
-    border-bottom: 1px solid rgba(20, 80, 120, 0.12) !important;
-    color: #145078 !important;
+    margin: 0 0 10px !important;
+    padding: 0 !important;
+    border-bottom: 0 !important;
+    color: #1c191c !important;
     font-size: 13px !important;
     font-weight: 800;
     line-height: 1.2;
+    letter-spacing: 0;
     text-transform: uppercase;
   }
 
   #header .ets_mm_megamenu .ets_mm_block_content {
-    color: #243447;
+    color: #2a2a2a;
   }
 
   #header .ets_mm_megamenu .ets_mm_block_content ul.ets_mm_categories {
@@ -19452,26 +19445,25 @@ body#order-confirmation .spoc-order-registration-card .card-block {
     min-height: 30px;
     padding: 6px 8px;
     border-radius: 6px;
-    color: #243447 !important;
+    color: #2a2a2a !important;
     font-size: 13px;
     font-weight: 500;
     line-height: 1.25;
-    transition: background 0.16s ease, color 0.16s ease, transform 0.16s ease;
+    transition: background 0.16s ease, color 0.16s ease;
   }
 
   #header .ets_mm_megamenu .ets_mm_block_content a.ets_mm_url:hover,
   #header .ets_mm_megamenu .ets_mm_block_content a.ets_mm_url:focus {
-    background: rgba(25, 153, 203, 0.09);
-    color: #1999cb !important;
-    transform: translateX(2px);
+    background: #f3f4f5;
+    color: #111111 !important;
   }
 
   #header .ets_mm_megamenu .ets_mm_block_content ul.ets_mm_categories li.has-sub > ul.ets_mm_categories {
     min-width: 230px;
     padding: 8px;
-    border: 1px solid rgba(20, 80, 120, 0.12);
-    border-radius: 8px;
-    box-shadow: 0 18px 36px rgba(16, 43, 64, 0.16);
+    border: 1px solid rgba(0, 0, 0, 0.10);
+    border-radius: 6px;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
   }
 
   #header .ets_mm_megamenu .ets_mm_block_content ul.ets_mm_categories li.has-sub:hover > ul.ets_mm_categories {
