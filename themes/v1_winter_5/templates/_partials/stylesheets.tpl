@@ -24,7 +24,11 @@
  *}
 {strip}
 {foreach $stylesheets.external as $stylesheet}
-  <link rel="stylesheet" href="{$stylesheet.uri}" type="text/css" media="{$stylesheet.media}">
+  {assign var=stylesheet_uri value=$stylesheet.uri}
+  {if $stylesheet_uri|strstr:'/assets/css/custom.css'}
+    {assign var=stylesheet_uri value=$stylesheet_uri|cat:'?v=20260605-ets-menu'}
+  {/if}
+  <link rel="stylesheet" href="{$stylesheet_uri}" type="text/css" media="{$stylesheet.media}">
 {/foreach}
 
 {foreach $stylesheets.inline as $stylesheet}
