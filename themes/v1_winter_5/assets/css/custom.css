@@ -19276,8 +19276,8 @@ body#order-confirmation .spoc-order-registration-card .card-block {
     margin-top: 0;
     background: #ffffff;
     border-top: 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    border-bottom: 0;
+    box-shadow: none;
   }
 
   #header .ets_mm_megamenu .ets_mm_megamenu_content_content {
@@ -19316,8 +19316,8 @@ body#order-confirmation .spoc-order-registration-card .card-block {
   #header .ets_mm_megamenu .mm_menus_li > a.ets_mm_url:hover,
   #header .ets_mm_megamenu .mm_menus_li.menu_hover > a.ets_mm_url,
   #header .ets_mm_megamenu .mm_menus_li.active > a.ets_mm_url {
-    color: #111111 !important;
-    background: #f3f4f5 !important;
+    color: #145078 !important;
+    background: transparent !important;
   }
 
   #header .ets_mm_megamenu .mm_menus_li > a.ets_mm_url::after {
@@ -19336,11 +19336,10 @@ body#order-confirmation .spoc-order-registration-card .card-block {
     top: 100%;
     margin-top: 0 !important;
     padding: 0 !important;
-    border: 1px solid rgba(0, 0, 0, 0.10) !important;
-    border-top: 0 !important;
-    border-radius: 0 0 6px 6px;
+    border: 1px solid #1c191c !important;
+    border-radius: 0;
     background: #ffffff !important;
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+    box-shadow: none;
     line-height: 1.35;
     overflow: visible;
   }
@@ -19354,7 +19353,7 @@ body#order-confirmation .spoc-order-registration-card .card-block {
   }
 
   #header .ets_mm_megamenu .mm_tabs_li {
-    background: #f5f6f7;
+    background: #ffffff;
     border-right: 1px solid rgba(0, 0, 0, 0.08);
     transition: background 0.16s ease;
   }
