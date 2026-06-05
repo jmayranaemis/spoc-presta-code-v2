@@ -19336,8 +19336,7 @@ body#order-confirmation .spoc-order-registration-card .card-block {
     top: 100%;
     margin-top: 0 !important;
     padding: 0 !important;
-    border: 1px solid #1c191c !important;
-    border-top: 0 !important;
+    border: 0 !important;
     border-radius: 0;
     background: #ffffff !important;
     box-shadow: none;
@@ -19414,7 +19413,7 @@ body#order-confirmation .spoc-order-registration-card .card-block {
 
   #header .ets_mm_megamenu .mm_tabs_li .mm_columns_contents_ul {
     padding: 22px 24px 24px;
-    border: 0;
+    border: 1px solid #dddddd;
     background: #ffffff;
   }
 
