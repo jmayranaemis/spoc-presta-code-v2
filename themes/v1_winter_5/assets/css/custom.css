@@ -19337,6 +19337,7 @@ body#order-confirmation .spoc-order-registration-card .card-block {
     margin-top: 0 !important;
     padding: 0 !important;
     border: 1px solid #1c191c !important;
+    border-top: 0 !important;
     border-radius: 0;
     background: #ffffff !important;
     box-shadow: none;
