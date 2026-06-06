@@ -19497,6 +19497,13 @@ body#order-confirmation .spoc-order-registration-card .card-block {
     display: block;
   }
 
+  #header .ets_mm_megamenu .mm_tabs_li.open.mm_tabs_has_content .mm_tab_li_content .mm_tab_name::before,
+  #header .ets_mm_megamenu .mm_menus_li.hover .mm_tabs_li.mm_tabs_has_content:hover .mm_tab_li_content .mm_tab_name::before {
+    content: none !important;
+    display: none !important;
+    border-right: 0 !important;
+  }
+
   #header .ets_mm_megamenu .mm_tab_toggle_title > a.ets_mm_url {
     display: flex;
     align-items: center;
