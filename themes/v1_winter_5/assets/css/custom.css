@@ -11640,7 +11640,11 @@ body#category .tvcms-newsletter-wrapper .tvnewsleeter-input-button-wraper {
     }
 
     body#category .tvcms-newsletter-wrapper .tvnewsletter-block {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #a541ff;
     }
 
     body#category .tvcms-newsletter-wrapper .tvnewsletter-input,
