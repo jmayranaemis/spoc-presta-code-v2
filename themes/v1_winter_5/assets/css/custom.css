@@ -19501,7 +19501,7 @@ body#order-confirmation .spoc-order-registration-card .card-block {
     color: #737373 !important;
     font-size: 14px !important;
     font-weight: 600;
-    line-height: 1.25;
+    line-height: 1.25 !important;
     background: transparent !important;
     transition: background 0.16s ease, color 0.16s ease;
   }
