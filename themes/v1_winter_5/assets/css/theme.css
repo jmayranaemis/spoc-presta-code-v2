@@ -11896,7 +11896,7 @@ data-toggle[tooltip] {
     font-weight: 700;
     text-transform: capitalize;
     margin: 0 0 0 0;
-    padding-right: 150px;
+    padding-right: 50px;
 }
 .product-actions .product-add-to-cart .control-label {
     line-height: 40px
@@ -12561,7 +12561,7 @@ data-toggle[tooltip] {
 }
 @media (max-width:991px) {
     .tvproduct-page-wrapper h1.h1 {
-        font-size: 20px
+        font-size: 30px
     }
     .product-pack .pack-product-container {
         padding: 10px
