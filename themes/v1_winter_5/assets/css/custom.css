@@ -19722,12 +19722,25 @@ body#order-confirmation .spoc-order-registration-card .card-block {
     padding: 22px 32px 32px;
     border: 0 !important;
     background: transparent;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
   }
 
   #header .ets_mm_megamenu .mm_tabs_li.open .mm_columns_contents_ul,
   #header .ets_mm_megamenu .mm_tabs_li:hover .mm_columns_contents_ul {
-    opacity: 1;
-    visibility: visible;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    z-index: 4 !important;
+  }
+
+  #header .ets_mm_megamenu .mm_columns_ul.mm_columns_ul_tab:has(> .mm_tabs_li:hover) > .mm_tabs_li.open:not(:hover) .mm_columns_contents_ul {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
   }
 
   #header .ets_mm_megamenu .ets_mm_block > .h4 {
