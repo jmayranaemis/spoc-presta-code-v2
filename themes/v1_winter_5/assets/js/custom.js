@@ -1586,8 +1586,9 @@ $(window).on('load', function() {
             return;
         }
 
-        $tabList.children('.mm_tabs_li').not($tab).removeClass('open');
-        $tab.addClass('open');
+        $tabList.addClass('spoc-mm-has-active');
+        $tabList.children('.mm_tabs_li').not($tab).removeClass('open spoc-mm-active');
+        $tab.addClass('open spoc-mm-active');
         $tabList.toggleClass('mm_tab_no_content', !$tab.children('.mm_columns_contents_ul').length);
     }
 
@@ -1602,6 +1603,8 @@ $(window).on('load', function() {
             return;
         }
 
+        $tabList.removeClass('spoc-mm-has-active');
+        $tabList.children('.mm_tabs_li').removeClass('spoc-mm-active');
         $tabList.children('.mm_tabs_li').not($defaultTab).removeClass('open');
         $defaultTab.addClass('open');
         $tabList.removeClass('mm_tab_no_content');

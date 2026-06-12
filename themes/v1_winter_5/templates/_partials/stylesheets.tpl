@@ -26,7 +26,7 @@
 {foreach $stylesheets.external as $stylesheet}
   {assign var=stylesheet_uri value=$stylesheet.uri}
   {if $stylesheet_uri|strstr:'/assets/css/custom.css'}
-    {assign var=stylesheet_uri value=$stylesheet_uri|cat:'?v=20260612-ets-menu-hover'}
+    {assign var=stylesheet_uri value=$stylesheet_uri|cat:'?v=20260612-ets-menu-state'}
   {/if}
   <link rel="stylesheet" href="{$stylesheet_uri}" type="text/css" media="{$stylesheet.media}">
 {/foreach}
