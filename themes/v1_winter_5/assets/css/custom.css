@@ -19364,14 +19364,21 @@ body#order-confirmation .spoc-order-registration-card .card-block {
   color: #ffffff !important;
 }
 
-.product-description .tvproduct-name {
+.tvproduct-wrapper:not(.list):not(.list-2):not(.catelog) .product-description .tvproduct-name,
+.product-miniature .product-description .tvproduct-name {
+  height: 3.9em !important;
+  min-height: 0 !important;
+  max-height: 3.9em !important;
   line-height: 1.3 !important;
-  min-height: 3.9em !important;
+  overflow: hidden !important;
 }
 
-.product-description .tvproduct-name h6,
-.tvproduct-name.product-title a h6 {
+.tvproduct-wrapper:not(.list):not(.list-2):not(.catelog) .product-description .tvproduct-name h6,
+.product-miniature .product-description .tvproduct-name h6,
+.tvproduct-wrapper:not(.list):not(.list-2):not(.catelog) .tvproduct-name.product-title a h6,
+.product-miniature .tvproduct-name.product-title a h6 {
   line-height: 1.3 !important;
+  margin-bottom: 0 !important;
 }
 
 .tvproduct-flags li.product-flag.new {
@@ -19408,9 +19415,12 @@ body#order-confirmation .spoc-order-registration-card .card-block {
     font-size: 22px;
   }
 
-  .product-description .tvproduct-name {
+  .tvproduct-wrapper:not(.list):not(.list-2):not(.catelog) .product-description .tvproduct-name,
+  .product-miniature .product-description .tvproduct-name {
     -webkit-line-clamp: 4 !important;
-    min-height: 5.2em !important;
+    height: 5.2em !important;
+    min-height: 0 !important;
+    max-height: 5.2em !important;
   }
 }
 
