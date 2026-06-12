@@ -19268,6 +19268,156 @@ body#order-confirmation .spoc-order-registration-card .card-block {
 
 
 
+/* =========================================================
+   SPOC MOBILE/GLOBAL UI POLISH - START
+   Header compte, flèches, titres produit, badge Nouveau
+   ========================================================= */
+
+#header .tv-myaccount-btn-desktop svg.spoc-account-icon {
+  display: block !important;
+  width: 28px !important;
+  height: 28px !important;
+  margin: 0 !important;
+  color: var(--spoc-primary, #145078) !important;
+}
+
+#header .tv-myaccount-btn-desktop svg.spoc-account-icon circle,
+#header .tv-myaccount-btn-desktop svg.spoc-account-icon path,
+#header .tv-myaccount-btn-desktop svg.spoc-account-icon path:nth-child(1),
+#header .tv-myaccount-btn-desktop svg.spoc-account-icon path:nth-child(2) {
+  fill: none !important;
+  stroke: currentColor !important;
+}
+
+#tvcmsmobile-account-button .tv-myaccount-btn-desktop {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 38px !important;
+  min-height: 38px !important;
+  padding: 0 !important;
+  color: var(--spoc-primary, #145078) !important;
+}
+
+.tvcmsmain-slider-wrapper .tvcmsmain-prev,
+.tvcmsmain-slider-wrapper .tvcmsmain-next,
+.tvcmsmain-slider-wrapper .tvcmsprev-btn,
+.tvcmsmain-slider-wrapper .tvcmsnext-btn,
+.tvcmsbrandlist-slider .tvbrandlist-slider-prev,
+.tvcmsbrandlist-slider .tvbrandlist-slider-next {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 38px !important;
+  height: 38px !important;
+  border: 1px solid rgba(20, 80, 120, 0.24) !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.96) !important;
+  color: var(--spoc-primary, #145078) !important;
+  clip-path: none !important;
+  box-shadow: 0 8px 20px rgba(20, 80, 120, 0.16) !important;
+}
+
+.tvcmsmain-slider-wrapper .tvcmsmain-prev i,
+.tvcmsmain-slider-wrapper .tvcmsmain-next i,
+.tvcmsmain-slider-wrapper .tvcmsprev-btn i,
+.tvcmsmain-slider-wrapper .tvcmsnext-btn i,
+.tvcmsbrandlist-slider .tvbrandlist-slider-prev i,
+.tvcmsbrandlist-slider .tvbrandlist-slider-next i {
+  display: none !important;
+}
+
+.tvcmsmain-slider-wrapper .tvcmsmain-prev::before,
+.tvcmsmain-slider-wrapper .tvcmsprev-btn::before,
+.tvcmsbrandlist-slider .tvbrandlist-slider-prev::before {
+  content: "<";
+}
+
+.tvcmsmain-slider-wrapper .tvcmsmain-next::before,
+.tvcmsmain-slider-wrapper .tvcmsnext-btn::before,
+.tvcmsbrandlist-slider .tvbrandlist-slider-next::before {
+  content: ">";
+}
+
+.tvcmsmain-slider-wrapper .tvcmsmain-prev::before,
+.tvcmsmain-slider-wrapper .tvcmsmain-next::before,
+.tvcmsmain-slider-wrapper .tvcmsprev-btn::before,
+.tvcmsmain-slider-wrapper .tvcmsnext-btn::before,
+.tvcmsbrandlist-slider .tvbrandlist-slider-prev::before,
+.tvcmsbrandlist-slider .tvbrandlist-slider-next::before {
+  display: block;
+  color: currentColor;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+.tvcmsmain-slider-wrapper .tvcmsmain-prev:hover,
+.tvcmsmain-slider-wrapper .tvcmsmain-next:hover,
+.tvcmsmain-slider-wrapper .tvcmsprev-btn:hover,
+.tvcmsmain-slider-wrapper .tvcmsnext-btn:hover,
+.tvcmsbrandlist-slider .tvbrandlist-slider-prev:hover,
+.tvcmsbrandlist-slider .tvbrandlist-slider-next:hover {
+  border-color: var(--spoc-primary, #145078) !important;
+  background: var(--spoc-primary, #145078) !important;
+  color: #ffffff !important;
+}
+
+.product-description .tvproduct-name {
+  line-height: 1.3 !important;
+  min-height: 3.9em !important;
+}
+
+.product-description .tvproduct-name h6,
+.tvproduct-name.product-title a h6 {
+  line-height: 1.3 !important;
+}
+
+.tvproduct-flags li.product-flag.new {
+  padding: 6px 8px !important;
+  border: 1px solid rgba(20, 80, 120, 0.28) !important;
+  border-radius: 4px !important;
+  background: rgba(255, 255, 255, 0.96) !important;
+  color: var(--spoc-primary, #145078) !important;
+  font-size: 0.72rem !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  box-shadow: 0 6px 16px rgba(20, 80, 120, 0.12) !important;
+}
+
+@media (max-width: 767px) {
+  .tvcmsmain-slider-wrapper .tvcmsmain-prev,
+  .tvcmsmain-slider-wrapper .tvcmsmain-next,
+  .tvcmsmain-slider-wrapper .tvcmsprev-btn,
+  .tvcmsmain-slider-wrapper .tvcmsnext-btn,
+  .tvcmsbrandlist-slider .tvbrandlist-slider-prev,
+  .tvcmsbrandlist-slider .tvbrandlist-slider-next {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  .tvcmsmain-slider-wrapper .tvcmsmain-prev::before,
+  .tvcmsmain-slider-wrapper .tvcmsmain-next::before,
+  .tvcmsmain-slider-wrapper .tvcmsprev-btn::before,
+  .tvcmsmain-slider-wrapper .tvcmsnext-btn::before,
+  .tvcmsbrandlist-slider .tvbrandlist-slider-prev::before,
+  .tvcmsbrandlist-slider .tvbrandlist-slider-next::before {
+    font-size: 22px;
+  }
+
+  .product-description .tvproduct-name {
+    -webkit-line-clamp: 4 !important;
+    min-height: 5.2em !important;
+  }
+}
+
+/* =========================================================
+   SPOC MOBILE/GLOBAL UI POLISH - END
+   ========================================================= */
+
 /*mailalert css end*/
 
 /* =========================================================
