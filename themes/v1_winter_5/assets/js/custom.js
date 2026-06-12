@@ -1567,6 +1567,61 @@ $(window).on('load', function() {
 
 
 /* =========================================================
+   ETS MEGA MENU - Stabilisation du hover des onglets desktop
+   ========================================================= */
+
+(function ($) {
+    function isDesktopMegaMenu() {
+        return window.matchMedia && window.matchMedia('(min-width: 1200px)').matches;
+    }
+
+    function activateMegaMenuTab($tab) {
+        if (!$tab || !$tab.length || !isDesktopMegaMenu()) {
+            return;
+        }
+
+        var $tabList = $tab.closest('.mm_columns_ul_tab');
+
+        if (!$tabList.length) {
+            return;
+        }
+
+        $tabList.children('.mm_tabs_li').not($tab).removeClass('open');
+        $tab.addClass('open');
+        $tabList.toggleClass('mm_tab_no_content', !$tab.children('.mm_columns_contents_ul').length);
+    }
+
+    function resetMegaMenuTabs($tabList) {
+        if (!$tabList || !$tabList.length || !isDesktopMegaMenu()) {
+            return;
+        }
+
+        var $defaultTab = $tabList.children('.mm_tabs_li.menu_ver_alway_open_first').first();
+
+        if (!$defaultTab.length) {
+            return;
+        }
+
+        $tabList.children('.mm_tabs_li').not($defaultTab).removeClass('open');
+        $defaultTab.addClass('open');
+        $tabList.removeClass('mm_tab_no_content');
+    }
+
+    $(document).on('mouseenter', '#header .ets_mm_megamenu .mm_columns_ul_tab > .mm_tabs_li', function () {
+        activateMegaMenuTab($(this));
+    });
+
+    $(document).on('mouseenter mousemove', '#header .ets_mm_megamenu .mm_columns_ul_tab > .mm_tabs_li > .mm_columns_contents_ul', function () {
+        activateMegaMenuTab($(this).closest('.mm_tabs_li'));
+    });
+
+    $(document).on('mouseleave', '#header .ets_mm_megamenu .mm_columns_ul_tab', function () {
+        resetMegaMenuTabs($(this));
+    });
+})(jQuery);
+
+
+/* =========================================================
    CHECKOUT - Show payment button only on payment step
    ========================================================= */
 
