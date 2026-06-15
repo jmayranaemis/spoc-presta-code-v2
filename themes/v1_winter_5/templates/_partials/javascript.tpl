@@ -24,7 +24,11 @@
  *}
 {strip}
 {foreach $javascript.external as $js}
-  <script src="{$js.uri}" {$js.attribute}></script>
+  {assign var=javascript_uri value=$js.uri}
+  {if $javascript_uri|strstr:'/assets/js/custom.js'}
+    {assign var=javascript_uri value=$javascript_uri|cat:'?v=20260612-ets-menu-state'}
+  {/if}
+  <script src="{$javascript_uri}" {$js.attribute}></script>
 {/foreach}
 
 {foreach $javascript.inline as $js}
