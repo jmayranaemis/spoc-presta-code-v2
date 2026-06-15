@@ -954,12 +954,12 @@ span.tvcart-product-price {
     overflow: hidden;
 }
 .tvcms-main-title .tvmain-title h2 {
-    font-size: 28px;
+    font-size: 32px;
     color: #145078;
     /*text-transform: uppercase;*/
     line-height: 40px;
     position: relative;
-    font-weight: 700;
+    font-weight: 800;
     font-family: 'Poppins';
     letter-spacing: normal;
     margin-bottom: 0;
