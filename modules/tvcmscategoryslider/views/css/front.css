@@ -100,7 +100,7 @@
 .tvcategory-slider-info-box:after {
     position: absolute;
     content: "";
-    background-color: #db1212;
+    background-color: #1999cb;
     width: 0;
     height: 2px;
     left: 0;
