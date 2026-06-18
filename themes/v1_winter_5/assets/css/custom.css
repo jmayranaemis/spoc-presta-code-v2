@@ -9776,6 +9776,7 @@ body#checkout.lang-rtl div.checkout-step #login-form .form-control-label {
     .tvcmsheader-search {
         text-align: center;
         padding-right: 0;
+        margin-top: 15px;
     }
     #header #tvcms-mobile-view-header.mobile-header-2 .tvsearch-header-display-wrappper {
         /*top: 35px;*/
