@@ -92,6 +92,11 @@
                                     {else}
                                     <span>{l s='My Account' d='Shop.Theme.Catalog'}</span>
                                     {/if} *}
+                                    {if $customer.is_logged }
+                                    <span class="spoc-account-label">{l s='Compte' d='Shop.Theme.Customeraccount'}</span>
+                                    {else}
+                                    <span class="spoc-account-label">{l s="S'identifier" d='Shop.Theme.Actions'}</span>
+                                    {/if}
                                 </button>
                                 <ul class="dropdown-menu tv-account-dropdown tv-dropdown">
                                     {if $customer.is_logged }
