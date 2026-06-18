@@ -19515,6 +19515,7 @@ body#order-confirmation .spoc-order-registration-card .card-block {
     color: var(--spoc-primary, #145078) !important;
   }
 
+  #tvcmsmobile-account-button .tv-myaccount-btn-desktop > span,
   #tvcmsmobile-account-button .tv-myaccount-btn-desktop .spoc-account-label,
   #tvmobile-cart .spoc-cart-label {
     display: block !important;
